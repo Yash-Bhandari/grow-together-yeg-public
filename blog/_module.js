@@ -3697,23 +3697,12 @@ function create_fragment$3(ctx) {
 					"title": "Grow Together YEG"
 				},
 				site_nav: [
+					{ "link": { "url": "/", "label": "Home" } },
 					{
-						"link": {
-							"url": "https://primosites.vercel.app/theme-nonprofit",
-							"label": "Home"
-						}
+						"link": { "url": "/about", "label": "About" }
 					},
 					{
-						"link": {
-							"url": "https://primosites.vercel.app/about",
-							"label": "About"
-						}
-					},
-					{
-						"link": {
-							"url": "https://primosites.vercel.app/blog",
-							"label": "Blog"
-						}
+						"link": { "url": "/blog", "label": "Blog" }
 					}
 				]
 			}
