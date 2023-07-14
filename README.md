@@ -1,1 +1,0 @@
-# grow-together-yeg-public

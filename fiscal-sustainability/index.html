@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="generator" content="Primo" />
+    <!-- HEAD_svelte-dv8t5k_START -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <style>
+        /* Reset & standardize default styles */
+        @import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
+
+        /* Design tokens (apply to components) */
+        :root {
+            /* Custom theme options */
+            --color-accent: #004700;
+
+            /* Base values */
+            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+            --border-radius: 0;
+            --border-color: #e0e1e1;
+        }
+
+        /* Root element (use instead of `body`) */
+        #page {
+            font-family: system-ui, sans-serif;
+            color: #111;
+            line-height: 1.5;
+            font-size: 1.125rem;
+            background: white;
+        }
+
+        /* Elements */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        a.link {
+            line-height: 1.3;
+
+            border-bottom: 2px solid var(--color-accent);
+            transform: translateY(-2px);
+            /* move link back into place */
+            transition: var(--transition, 0.1s border);
+        }
+
+        a.link:hover {
+            border-color: transparent;
+        }
+
+        .heading {
+            font-size: 2.5rem;
+            line-height: 1.15;
+
+        }
+
+        .button {
+            color: white;
+            background: var(--color-accent, rebeccapurple);
+            border-radius: 0;
+            padding: 18px 24px;
+            transition: var(--transition, 0.1s box-shadow);
+            border: 0;
+        }
+
+        /* reset */
+
+        .button:hover {
+            box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+        }
+
+        .button.inverted {
+            background: transparent;
+            color: var(--color-accent, rebeccapurple);
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .content img {
+            width: 100%;
+            margin: 2rem 0;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+        }
+
+        .content a.link {
+            line-height: 1.3;
+            font-weight: 500;
+            border-bottom: 2px solid var(--color-accent);
+            transform: translateY(-2px);
+            /* move link back into place */
+            transition: var(--transition, 0.1s border);
+        }
+
+        .content a.link:hover {
+            border-color: transparent;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .content h3 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .content ul {
+            list-style: disc;
+            padding: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+
+        .content ol {
+            list-style: decimal;
+            padding: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+
+        .content blockquote {
+            padding: 2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--color-accent);
+        }
+    </style><!-- HEAD_svelte-dv8t5k_END -->
+    <style>
+        .section-container.svelte-136lx2d.svelte-136lx2d {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-block: 2rem
+        }
+
+        .logo.svelte-136lx2d.svelte-136lx2d {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.2
+        }
+
+        .desktop-nav.svelte-136lx2d.svelte-136lx2d {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%
+        }
+
+        .desktop-nav.svelte-136lx2d nav.svelte-136lx2d {
+            display: flex;
+            gap: 2rem
+        }
+
+        .desktop-nav.svelte-136lx2d nav a.link.svelte-136lx2d {
+            border-color: transparent;
+            transition: border-color 0.1s;
+            font-size: 0.95rem
+        }
+
+        .desktop-nav.svelte-136lx2d nav a.link.svelte-136lx2d:hover,
+        .desktop-nav.svelte-136lx2d nav a.link .active.svelte-136lx2d {
+            border-color: initial
+        }
+
+        @media(min-width: 800px) {
+            .desktop-nav.svelte-136lx2d.svelte-136lx2d {
+                display: flex
+            }
+        }
+
+        .mobile-nav.svelte-136lx2d.svelte-136lx2d {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 500
+        }
+
+        @media(min-width: 800px) {
+            .mobile-nav.svelte-136lx2d.svelte-136lx2d {
+                display: none
+            }
+        }
+
+        #popup.svelte-136lx2d.svelte-136lx2d {
+            font-size: 1.25rem;
+            display: grid;
+            gap: 1rem;
+            position: absolute;
+            text-align: center;
+            background-color: var(--background-color, white);
+            box-shadow: var(--box-shadow, 0px 4px 30px rgba(0, 0, 0, 0.1));
+            border-radius: var(--border-radius);
+            inset: 0.5rem;
+            bottom: initial;
+            padding: 2rem;
+            z-index: 1
+        }
+
+        #popup.svelte-136lx2d button#close.svelte-136lx2d {
+            position: absolute;
+            right: 1rem;
+            top: 1rem
+        }
+    </style>
+</head>
+
+<body id="page">
+
+    <div class="section" id="section-4e4539f2">
+        <header class="section-container svelte-136lx2d">
+            <div class="desktop-nav svelte-136lx2d"><a href="/" class="logo svelte-136lx2d">Grow Together YEG</a>
+                <nav class="svelte-136lx2d"><a class="link svelte-136lx2d" href="https://primosites.vercel.app/theme-nonprofit">Home</a><a class="link svelte-136lx2d" href="https://primosites.vercel.app/about">About</a><a class="link svelte-136lx2d" href="https://primosites.vercel.app/blog">Blog</a></nav>
+            </div>
+            <div class="mobile-nav svelte-136lx2d"><a href="/" class="logo svelte-136lx2d">Grow Together YEG</a>
+                <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START -->
+                        <g id="iconifySvelte0">
+                            <g id="iconifySvelte1">
+                                <g id="iconifySvelte2" fill="currentColor">
+                                    <rect width="18" height="2" x="3" y="11" rx=".95" ry=".95" />
+                                    <rect width="18" height="2" x="3" y="16" rx=".95" ry=".95" />
+                                    <rect width="18" height="2" x="3" y="6" rx=".95" ry=".95" />
+                                </g>
+                            </g>
+                        </g><!-- HTML_TAG_END -->
+                    </svg></button>
+            </div>
+        </header>
+    </div>
+    <div class="section" id="section-7d7948e3">
+        <div class="section">
+            <div class="section-container content"><!-- HTML_TAG_START -->
+                <h3 id="edmontoncantafforditsinfrastructureandbuildingnewneighbourhoodsmakestheproblemworse">Edmonton can't afford its infrastructure and building new neighbourhoods makes the problem worse</h3>
+                <p>The city has an infrastructure maintenance deficit of <strong>$470 million per year</strong>. That's more than our entire public transit budget ($385 million) and almost as much as we spend on police ($495 million)! To make up for that deficit, we would have to <strong>raise property taxes by 28%</strong>. And since we can't afford to do critical preventative maintenance, that number will only grow with time.</p>
+                <p>Why can't afford to maintain the roads, bridges and sewage systems we already have? Because for decades we've been growing in an unsustainable way. Urban sprawl has wrought havoc on our balance sheets because the city loses money on every new neighborhood that gets built on the outskirts. For example, the new neighbourhood of Decoteau will add hundreds of millions of dollars to our budget shortfall.</p>
+                <p><img src="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689308724419Decoteau%20Revenue.png" alt="Revenue vs Expenditures for a typical new neighbourhood" /></p>
+                <h3 id="thesolutionbuildupourexistingneighbourhoods">The solution: Build up our existing neighbourhoods</h3>
+                <p>The new zoning bylaw will make it easier to build new middle-density homes in mature communities. That makes financial sense for a few reasons: </p>
+                <ol>
+                    <li>We don't have to build new roads or utilities from scratch. Old neighbourhoods often lose money like new ones, but we have already paid for the infrastructure.</li>
+                    <li>Denser housing forms like row houses and small apartments are much cheaper for the city to maintain than the detached homes they replace.</li>
+                </ol><!-- HTML_TAG_END -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        const path = window.location.pathname === '/' ? '' : window.location.pathname
+        const [{
+            default: App
+        }] = await Promise.all([
+            import(path + '/_module.js')
+        ]).catch(e => console.error(e))
+        new App({
+            target: document.querySelector('body'),
+            hydrate: true,
+        })
+    </script>
+</body>
+
+</html>
