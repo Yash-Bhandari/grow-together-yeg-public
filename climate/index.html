@@ -225,6 +225,87 @@
             right: 1rem;
             top: 1rem
         }
+
+        .content.svelte-1vhxt2j {
+            padding-bottom: 0
+        }
+
+        .section-container.svelte-136lx2d.svelte-136lx2d {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-block: 2rem
+        }
+
+        .logo.svelte-136lx2d.svelte-136lx2d {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.2
+        }
+
+        .desktop-nav.svelte-136lx2d.svelte-136lx2d {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%
+        }
+
+        .desktop-nav.svelte-136lx2d nav.svelte-136lx2d {
+            display: flex;
+            gap: 2rem
+        }
+
+        .desktop-nav.svelte-136lx2d nav a.link.svelte-136lx2d {
+            border-color: transparent;
+            transition: border-color 0.1s;
+            font-size: 0.95rem
+        }
+
+        .desktop-nav.svelte-136lx2d nav a.link.svelte-136lx2d:hover,
+        .desktop-nav.svelte-136lx2d nav a.link .active.svelte-136lx2d {
+            border-color: initial
+        }
+
+        @media(min-width: 800px) {
+            .desktop-nav.svelte-136lx2d.svelte-136lx2d {
+                display: flex
+            }
+        }
+
+        .mobile-nav.svelte-136lx2d.svelte-136lx2d {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 500
+        }
+
+        @media(min-width: 800px) {
+            .mobile-nav.svelte-136lx2d.svelte-136lx2d {
+                display: none
+            }
+        }
+
+        #popup.svelte-136lx2d.svelte-136lx2d {
+            font-size: 1.25rem;
+            display: grid;
+            gap: 1rem;
+            position: absolute;
+            text-align: center;
+            background-color: var(--background-color, white);
+            box-shadow: var(--box-shadow, 0px 4px 30px rgba(0, 0, 0, 0.1));
+            border-radius: var(--border-radius);
+            inset: 0.5rem;
+            bottom: initial;
+            padding: 2rem;
+            z-index: 1
+        }
+
+        #popup.svelte-136lx2d button#close.svelte-136lx2d {
+            position: absolute;
+            right: 1rem;
+            top: 1rem
+        }
     </style>
 </head>
 
@@ -252,7 +333,7 @@
     </div>
     <div class="section" id="section-193a121c">
         <div class="section">
-            <div class="section-container content"><!-- HTML_TAG_START -->
+            <div class="section-container content svelte-1vhxt2j"><!-- HTML_TAG_START -->
                 <h3 id="increasingdensityisclimateaction">Increasing density is climate action</h3>
                 <p>The city has an infrastructure maintenance deficit of <strong>$470 million per year</strong>. That's more than our entire public transit budget ($385 million) and almost as much as we spend on police ($495 million)! To make up for that deficit, we would have to <strong>raise property taxes by 28%</strong>. And since we can't afford to do critical preventative maintenance, that number will only grow with time.</p>
                 <p>Why can't afford to maintain the roads, bridges and sewage systems we already have? Because for decades we've been growing in an unsustainable way. Urban sprawl has wrought havoc on our balance sheets because the city loses money on every new neighborhood that gets built on the outskirts. For example, the new neighbourhood of Decoteau will add hundreds of millions of dollars to our budget shortfall.</p>
@@ -265,6 +346,26 @@
                 </ol><!-- HTML_TAG_END -->
             </div>
         </div>
+    </div>
+    <div class="section" id="section-deb27a57">
+        <header class="section-container svelte-136lx2d">
+            <div class="desktop-nav svelte-136lx2d"><a href="/" class="logo svelte-136lx2d">Grow Together YEG</a>
+                <nav class="svelte-136lx2d"><a class="link svelte-136lx2d" href="https://primosites.vercel.app/theme-nonprofit">Home</a><a class="link svelte-136lx2d" href="https://primosites.vercel.app/about">About</a><a class="link svelte-136lx2d" href="https://primosites.vercel.app/blog">Blog</a></nav>
+            </div>
+            <div class="mobile-nav svelte-136lx2d"><a href="/" class="logo svelte-136lx2d">Grow Together YEG</a>
+                <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START -->
+                        <g id="iconifySvelte3">
+                            <g id="iconifySvelte4">
+                                <g id="iconifySvelte5" fill="currentColor">
+                                    <rect width="18" height="2" x="3" y="11" rx=".95" ry=".95" />
+                                    <rect width="18" height="2" x="3" y="16" rx=".95" ry=".95" />
+                                    <rect width="18" height="2" x="3" y="6" rx=".95" ry=".95" />
+                                </g>
+                            </g>
+                        </g><!-- HTML_TAG_END -->
+                    </svg></button>
+            </div>
+        </header>
     </div>
 
     <script type="module">
