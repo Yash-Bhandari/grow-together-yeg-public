@@ -4032,25 +4032,25 @@ class Component$3 extends SvelteComponent {
 function create_fragment$4(ctx) {
 	let div3;
 	let section;
+	let div1;
+	let h2;
+	let t0;
+	let t1;
 	let div0;
+	let raw_value = /*body*/ ctx[1].html + "";
+	let t2;
+	let div2;
 	let form_1;
 	let label;
 	let span;
-	let t0_value = /*form*/ ctx[2].input_label + "";
-	let t0;
-	let t1;
-	let input;
-	let t2;
-	let button;
-	let t3_value = /*form*/ ctx[2].submit_label + "";
+	let t3_value = /*form*/ ctx[2].input_label + "";
 	let t3;
 	let t4;
-	let div2;
-	let h2;
+	let input;
 	let t5;
+	let button;
+	let t6_value = /*form*/ ctx[2].submit_label + "";
 	let t6;
-	let div1;
-	let raw_value = /*body*/ ctx[1].html + "";
 	let mounted;
 	let dispose;
 
@@ -4058,22 +4058,22 @@ function create_fragment$4(ctx) {
 		c() {
 			div3 = element("div");
 			section = element("section");
+			div1 = element("div");
+			h2 = element("h2");
+			t0 = text(/*heading*/ ctx[0]);
+			t1 = space();
 			div0 = element("div");
+			t2 = space();
+			div2 = element("div");
 			form_1 = element("form");
 			label = element("label");
 			span = element("span");
-			t0 = text(t0_value);
-			t1 = space();
-			input = element("input");
-			t2 = space();
-			button = element("button");
 			t3 = text(t3_value);
 			t4 = space();
-			div2 = element("div");
-			h2 = element("h2");
-			t5 = text(/*heading*/ ctx[0]);
-			t6 = space();
-			div1 = element("div");
+			input = element("input");
+			t5 = space();
+			button = element("button");
+			t6 = text(t6_value);
 			this.h();
 		},
 		l(nodes) {
@@ -4081,17 +4081,29 @@ function create_fragment$4(ctx) {
 			var div3_nodes = children(div3);
 			section = claim_element(div3_nodes, "SECTION", { class: true });
 			var section_nodes = children(section);
-			div0 = claim_element(section_nodes, "DIV", { class: true });
+			div1 = claim_element(section_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			h2 = claim_element(div1_nodes, "H2", { class: true });
+			var h2_nodes = children(h2);
+			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
+			h2_nodes.forEach(detach);
+			t1 = claim_space(div1_nodes);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
-			form_1 = claim_element(div0_nodes, "FORM", { class: true });
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			t2 = claim_space(section_nodes);
+			div2 = claim_element(section_nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			form_1 = claim_element(div2_nodes, "FORM", { class: true });
 			var form_1_nodes = children(form_1);
 			label = claim_element(form_1_nodes, "LABEL", { class: true });
 			var label_nodes = children(label);
 			span = claim_element(label_nodes, "SPAN", {});
 			var span_nodes = children(span);
-			t0 = claim_text(span_nodes, t0_value);
+			t3 = claim_text(span_nodes, t3_value);
 			span_nodes.forEach(detach);
-			t1 = claim_space(label_nodes);
+			t4 = claim_space(label_nodes);
 
 			input = claim_element(label_nodes, "INPUT", {
 				type: true,
@@ -4100,30 +4112,21 @@ function create_fragment$4(ctx) {
 			});
 
 			label_nodes.forEach(detach);
-			t2 = claim_space(form_1_nodes);
+			t5 = claim_space(form_1_nodes);
 			button = claim_element(form_1_nodes, "BUTTON", { type: true, class: true });
 			var button_nodes = children(button);
-			t3 = claim_text(button_nodes, t3_value);
+			t6 = claim_text(button_nodes, t6_value);
 			button_nodes.forEach(detach);
 			form_1_nodes.forEach(detach);
-			div0_nodes.forEach(detach);
-			t4 = claim_space(section_nodes);
-			div2 = claim_element(section_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			h2 = claim_element(div2_nodes, "H2", { class: true });
-			var h2_nodes = children(h2);
-			t5 = claim_text(h2_nodes, /*heading*/ ctx[0]);
-			h2_nodes.forEach(detach);
-			t6 = claim_space(div2_nodes);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-			div1_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
 			section_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
+			attr(h2, "class", "heading svelte-1e5u4j2");
+			attr(div0, "class", "body svelte-1e5u4j2");
+			attr(div1, "class", "content svelte-1e5u4j2");
 			attr(input, "type", "email");
 			attr(input, "placeholder", "johndoe@gmail.com");
 			attr(input, "class", "svelte-1e5u4j2");
@@ -4131,10 +4134,7 @@ function create_fragment$4(ctx) {
 			attr(button, "type", "submit");
 			attr(button, "class", "button svelte-1e5u4j2");
 			attr(form_1, "class", "svelte-1e5u4j2");
-			attr(div0, "class", "actions svelte-1e5u4j2");
-			attr(h2, "class", "heading svelte-1e5u4j2");
-			attr(div1, "class", "body svelte-1e5u4j2");
-			attr(div2, "class", "content svelte-1e5u4j2");
+			attr(div2, "class", "actions svelte-1e5u4j2");
 			attr(section, "class", "section-container svelte-1e5u4j2");
 			attr(div3, "class", "section");
 			attr(div3, "id", "section-c12381d0");
@@ -4142,23 +4142,23 @@ function create_fragment$4(ctx) {
 		m(target, anchor) {
 			insert_hydration(target, div3, anchor);
 			append_hydration(div3, section);
-			append_hydration(section, div0);
-			append_hydration(div0, form_1);
+			append_hydration(section, div1);
+			append_hydration(div1, h2);
+			append_hydration(h2, t0);
+			append_hydration(div1, t1);
+			append_hydration(div1, div0);
+			div0.innerHTML = raw_value;
+			append_hydration(section, t2);
+			append_hydration(section, div2);
+			append_hydration(div2, form_1);
 			append_hydration(form_1, label);
 			append_hydration(label, span);
-			append_hydration(span, t0);
-			append_hydration(label, t1);
+			append_hydration(span, t3);
+			append_hydration(label, t4);
 			append_hydration(label, input);
-			append_hydration(form_1, t2);
+			append_hydration(form_1, t5);
 			append_hydration(form_1, button);
-			append_hydration(button, t3);
-			append_hydration(section, t4);
-			append_hydration(section, div2);
-			append_hydration(div2, h2);
-			append_hydration(h2, t5);
-			append_hydration(div2, t6);
-			append_hydration(div2, div1);
-			div1.innerHTML = raw_value;
+			append_hydration(button, t6);
 
 			if (!mounted) {
 				dispose = listen(form_1, "submit", prevent_default(/*submit_handler*/ ctx[6]));
@@ -4166,10 +4166,10 @@ function create_fragment$4(ctx) {
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*form*/ 4 && t0_value !== (t0_value = /*form*/ ctx[2].input_label + "")) set_data(t0, t0_value);
-			if (dirty & /*form*/ 4 && t3_value !== (t3_value = /*form*/ ctx[2].submit_label + "")) set_data(t3, t3_value);
-			if (dirty & /*heading*/ 1) set_data(t5, /*heading*/ ctx[0]);
-			if (dirty & /*body*/ 2 && raw_value !== (raw_value = /*body*/ ctx[1].html + "")) div1.innerHTML = raw_value;		},
+			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
+			if (dirty & /*body*/ 2 && raw_value !== (raw_value = /*body*/ ctx[1].html + "")) div0.innerHTML = raw_value;			if (dirty & /*form*/ 4 && t3_value !== (t3_value = /*form*/ ctx[2].input_label + "")) set_data(t3, t3_value);
+			if (dirty & /*form*/ 4 && t6_value !== (t6_value = /*form*/ ctx[2].submit_label + "")) set_data(t6, t6_value);
+		},
 		i: noop,
 		o: noop,
 		d(detaching) {
@@ -4906,8 +4906,8 @@ function create_fragment$6(ctx) {
 				teasers: [
 					{
 						"body": {
-							"html": "<p>Edmonton loses money on every new suburb that's built. Building housing where infrastructure already exists bolsters the city's revenues and helps keep property taxes low.</p>",
-							"markdown": "Edmonton loses money on every new suburb that's built. Building housing where infrastructure already exists bolsters the city's revenues and helps keep property taxes low.\n\n"
+							"html": "<p>Edmonton loses money on every new suburb that's built. If we encourage new housing in areas where infrastructure already exists, we can bolster the city's revenues and help keep property taxes low.</p>",
+							"markdown": "Edmonton loses money on every new suburb that's built. If we encourage new housing in areas where infrastructure already exists, we can bolster the city's revenues and help keep property taxes low.\n\n"
 						},
 						"link": {
 							"url": "/fiscal-sustainability",
@@ -4923,8 +4923,8 @@ function create_fragment$6(ctx) {
 					},
 					{
 						"body": {
-							"html": "<p>Building denser housing slows urban sprawl, which reduces our CO2 emissions and preserves natural environments and farmland.</p>",
-							"markdown": "Building denser housing slows urban sprawl, which reduces our CO2 emissions and preserves natural environments and farmland.\n\n"
+							"html": "<p>Building denser housing is the most impactful thing a city can do to reduce its GHG emissions. You need more than 200 mature trees to offset the emissions of a single extra vehicle on the road.</p>",
+							"markdown": "Building denser housing is the most impactful thing a city can do to reduce its GHG emissions. You need more than 200 mature trees to offset the emissions of a single extra vehicle on the road.\n\n"
 						},
 						"link": { "url": "/", "label": "Learn More" },
 						"image": {
@@ -4966,7 +4966,7 @@ function create_fragment$6(ctx) {
 				},
 				form: {
 					"input_label": "Email Address",
-					"submit_label": "Join Mailing List"
+					"submit_label": "Join Our Mailing List"
 				}
 			}
 		});
