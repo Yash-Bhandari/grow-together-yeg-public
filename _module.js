@@ -259,13 +259,6 @@ function listen(node, event, handler, options) {
     node.addEventListener(event, handler, options);
     return () => node.removeEventListener(event, handler, options);
 }
-function prevent_default(fn) {
-    return function (event) {
-        event.preventDefault();
-        // @ts-ignore
-        return fn.call(this, event);
-    };
-}
 function attr(node, attribute, value) {
     if (value == null)
         node.removeAttribute(attribute);
@@ -4040,19 +4033,10 @@ function create_fragment$4(ctx) {
 	let raw_value = /*body*/ ctx[1].html + "";
 	let t2;
 	let div2;
-	let form_1;
-	let label;
-	let span;
-	let t3_value = /*form*/ ctx[2].input_label + "";
+	let a;
+	let t3_value = /*link*/ ctx[2].text + "";
 	let t3;
-	let t4;
-	let input;
-	let t5;
-	let button;
-	let t6_value = /*form*/ ctx[2].submit_label + "";
-	let t6;
-	let mounted;
-	let dispose;
+	let a_href_value;
 
 	return {
 		c() {
@@ -4065,15 +4049,8 @@ function create_fragment$4(ctx) {
 			div0 = element("div");
 			t2 = space();
 			div2 = element("div");
-			form_1 = element("form");
-			label = element("label");
-			span = element("span");
+			a = element("a");
 			t3 = text(t3_value);
-			t4 = space();
-			input = element("input");
-			t5 = space();
-			button = element("button");
-			t6 = text(t6_value);
 			this.h();
 		},
 		l(nodes) {
@@ -4095,47 +4072,23 @@ function create_fragment$4(ctx) {
 			t2 = claim_space(section_nodes);
 			div2 = claim_element(section_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
-			form_1 = claim_element(div2_nodes, "FORM", { class: true });
-			var form_1_nodes = children(form_1);
-			label = claim_element(form_1_nodes, "LABEL", { class: true });
-			var label_nodes = children(label);
-			span = claim_element(label_nodes, "SPAN", {});
-			var span_nodes = children(span);
-			t3 = claim_text(span_nodes, t3_value);
-			span_nodes.forEach(detach);
-			t4 = claim_space(label_nodes);
-
-			input = claim_element(label_nodes, "INPUT", {
-				type: true,
-				placeholder: true,
-				class: true
-			});
-
-			label_nodes.forEach(detach);
-			t5 = claim_space(form_1_nodes);
-			button = claim_element(form_1_nodes, "BUTTON", { type: true, class: true });
-			var button_nodes = children(button);
-			t6 = claim_text(button_nodes, t6_value);
-			button_nodes.forEach(detach);
-			form_1_nodes.forEach(detach);
+			a = claim_element(div2_nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t3 = claim_text(a_nodes, t3_value);
+			a_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
 			section_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-n4qurx");
-			attr(div0, "class", "body svelte-n4qurx");
-			attr(div1, "class", "content svelte-n4qurx");
-			attr(input, "type", "email");
-			attr(input, "placeholder", "johndoe@gmail.com");
-			attr(input, "class", "svelte-n4qurx");
-			attr(label, "class", "svelte-n4qurx");
-			attr(button, "type", "submit");
-			attr(button, "class", "button svelte-n4qurx");
-			attr(form_1, "class", "svelte-n4qurx");
-			attr(div2, "class", "actions svelte-n4qurx");
-			attr(section, "class", "section-container svelte-n4qurx");
+			attr(h2, "class", "heading svelte-11gst4s");
+			attr(div0, "class", "body svelte-11gst4s");
+			attr(div1, "class", "content svelte-11gst4s");
+			attr(a, "href", a_href_value = /*link*/ ctx[2].url);
+			attr(a, "class", "button");
+			attr(div2, "class", "actions svelte-11gst4s");
+			attr(section, "class", "section-container svelte-11gst4s");
 			attr(div3, "class", "section");
 			attr(div3, "id", "section-c12381d0");
 		},
@@ -4150,32 +4103,21 @@ function create_fragment$4(ctx) {
 			div0.innerHTML = raw_value;
 			append_hydration(section, t2);
 			append_hydration(section, div2);
-			append_hydration(div2, form_1);
-			append_hydration(form_1, label);
-			append_hydration(label, span);
-			append_hydration(span, t3);
-			append_hydration(label, t4);
-			append_hydration(label, input);
-			append_hydration(form_1, t5);
-			append_hydration(form_1, button);
-			append_hydration(button, t6);
-
-			if (!mounted) {
-				dispose = listen(form_1, "submit", prevent_default(/*submit_handler*/ ctx[6]));
-				mounted = true;
-			}
+			append_hydration(div2, a);
+			append_hydration(a, t3);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (dirty & /*body*/ 2 && raw_value !== (raw_value = /*body*/ ctx[1].html + "")) div0.innerHTML = raw_value;			if (dirty & /*form*/ 4 && t3_value !== (t3_value = /*form*/ ctx[2].input_label + "")) set_data(t3, t3_value);
-			if (dirty & /*form*/ 4 && t6_value !== (t6_value = /*form*/ ctx[2].submit_label + "")) set_data(t6, t6_value);
+			if (dirty & /*body*/ 2 && raw_value !== (raw_value = /*body*/ ctx[1].html + "")) div0.innerHTML = raw_value;			if (dirty & /*link*/ 4 && t3_value !== (t3_value = /*link*/ ctx[2].text + "")) set_data(t3, t3_value);
+
+			if (dirty & /*link*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[2].url)) {
+				attr(a, "href", a_href_value);
+			}
 		},
 		i: noop,
 		o: noop,
 		d(detaching) {
 			if (detaching) detach(div3);
-			mounted = false;
-			dispose();
 		}
 	};
 }
@@ -4186,11 +4128,7 @@ function instance$4($$self, $$props, $$invalidate) {
 	let { description } = $$props;
 	let { heading } = $$props;
 	let { body } = $$props;
-	let { form } = $$props;
-
-	const submit_handler = ({ target }) => {
-		const data = new FormData(target); // send `data` to email service
-	};
+	let { link } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
@@ -4198,10 +4136,10 @@ function instance$4($$self, $$props, $$invalidate) {
 		if ('description' in $$props) $$invalidate(5, description = $$props.description);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('body' in $$props) $$invalidate(1, body = $$props.body);
-		if ('form' in $$props) $$invalidate(2, form = $$props.form);
+		if ('link' in $$props) $$invalidate(2, link = $$props.link);
 	};
 
-	return [heading, body, form, favicon, title, description, submit_handler];
+	return [heading, body, link, favicon, title, description];
 }
 
 class Component$4 extends SvelteComponent {
@@ -4214,7 +4152,7 @@ class Component$4 extends SvelteComponent {
 			description: 5,
 			heading: 0,
 			body: 1,
-			form: 2
+			link: 2
 		});
 	}
 }
@@ -5010,15 +4948,12 @@ function create_fragment$6(ctx) {
 				},
 				title: "Grow Together Edmonton",
 				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. ",
-				heading: "About Us",
+				heading: "Who We Are",
 				body: {
-					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p><p>Our members are not employed in the development industry and we do not receive any funding from developer groups.</p>",
+					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p>\n<p>Our members are not employed in the development industry and we do not receive any funding from developer groups.</p>",
 					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\nOur members are not employed in the development industry and we do not receive any funding from developer groups.\n\n"
 				},
-				form: {
-					"input_label": "Email Address",
-					"submit_label": "Join Our Mailing List"
-				}
+				link: { "url": "/about", "text": "About Us" }
 			}
 		});
 
@@ -5041,6 +4976,10 @@ function create_fragment$6(ctx) {
 							"url": "https://twitter.com/GrowTogetherYEG",
 							"label": "Twitter"
 						}
+					},
+					{
+						"icon": "mdi:instagram",
+						"link": { "url": "/", "label": "Instagram" }
 					}
 				],
 				inputs: [
