@@ -1033,11 +1033,11 @@ function create_fragment(ctx) {
 			link1 = element("link");
 			meta2 = element("meta");
 			style = element("style");
-			t = text("/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #004700;\n\n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = text("/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #004700;\n\n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-1t7ohez', document.head);
+			const head_nodes = head_selector('svelte-3wq9e8', document.head);
 			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
 			meta1 = claim_element(head_nodes, "META", { charset: true });
 
@@ -1052,7 +1052,7 @@ function create_fragment(ctx) {
 			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
-			t = claim_text(style_nodes, "/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #004700;\n\n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = claim_text(style_nodes, "/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #004700;\n\n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			style_nodes.forEach(detach);
 			head_nodes.forEach(detach);
 			this.h();
@@ -3083,7 +3083,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-n75was");
+			attr(a, "class", "link svelte-1jfkv96");
 			attr(a, "href", a_href_value = /*link*/ ctx[11].url);
 			toggle_class(a, "active", /*link*/ ctx[11].url === window.location.pathname);
 		},
@@ -3226,9 +3226,9 @@ function create_if_block$1(ctx) {
 		h() {
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Close Navigation");
-			attr(button, "class", "svelte-n75was");
+			attr(button, "class", "svelte-1jfkv96");
 			attr(nav, "id", "popup");
-			attr(nav, "class", "svelte-n75was");
+			attr(nav, "class", "svelte-1jfkv96");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -3484,21 +3484,21 @@ function create_fragment$2(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "logo svelte-n75was");
-			attr(nav, "class", "svelte-n75was");
-			attr(div0, "class", "desktop-nav svelte-n75was");
+			attr(a0, "class", "logo svelte-1jfkv96");
+			attr(nav, "class", "svelte-1jfkv96");
+			attr(div0, "class", "desktop-nav svelte-1jfkv96");
 			attr(a1, "href", "/");
-			attr(a1, "class", "logo svelte-n75was");
+			attr(a1, "class", "logo svelte-1jfkv96");
 			attr(button, "id", "open");
 			attr(button, "aria-label", "Open mobile navigation");
-			attr(div1, "class", "mobile-nav svelte-n75was");
-			attr(div2, "class", "section-container svelte-n75was");
-			attr(h1, "class", "headline svelte-n75was");
-			attr(div3, "class", "section-container svelte-n75was");
+			attr(div1, "class", "mobile-nav svelte-1jfkv96");
+			attr(div2, "class", "section-container svelte-1jfkv96");
+			attr(h1, "class", "headline svelte-1jfkv96");
+			attr(div3, "class", "section-container svelte-1jfkv96");
 			set_style(header, "background-image", "url('" + /*background*/ ctx[0].url + "')");
 			attr(header, "role", "img");
 			attr(header, "aria-label", header_aria_label_value = /*background*/ ctx[0].alt);
-			attr(header, "class", "svelte-n75was");
+			attr(header, "class", "svelte-1jfkv96");
 			attr(div4, "class", "section");
 			attr(div4, "id", "section-7bb86296");
 		},
@@ -3706,315 +3706,6 @@ class Component$2 extends SvelteComponent {
 
 /* generated by Svelte v3.58.0 */
 
-function create_fragment$3(ctx) {
-	let div1;
-	let section;
-	let header;
-	let h2;
-	let t0;
-	let t1;
-	let a;
-	let t2_value = /*link*/ ctx[1].label + "";
-	let t2;
-	let a_href_value;
-	let t3;
-	let div0;
-	let raw_value = /*content*/ ctx[2].html + "";
-
-	return {
-		c() {
-			div1 = element("div");
-			section = element("section");
-			header = element("header");
-			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[0]);
-			t1 = space();
-			a = element("a");
-			t2 = text(t2_value);
-			t3 = space();
-			div0 = element("div");
-			this.h();
-		},
-		l(nodes) {
-			div1 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div1_nodes = children(div1);
-			section = claim_element(div1_nodes, "SECTION", { class: true });
-			var section_nodes = children(section);
-			header = claim_element(section_nodes, "HEADER", { class: true });
-			var header_nodes = children(header);
-			h2 = claim_element(header_nodes, "H2", { class: true });
-			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
-			h2_nodes.forEach(detach);
-			t1 = claim_space(header_nodes);
-			a = claim_element(header_nodes, "A", { href: true, class: true });
-			var a_nodes = children(a);
-			t2 = claim_text(a_nodes, t2_value);
-			a_nodes.forEach(detach);
-			header_nodes.forEach(detach);
-			t3 = claim_space(section_nodes);
-			div0 = claim_element(section_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			section_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(h2, "class", "heading svelte-1qrna1o");
-			attr(a, "href", a_href_value = /*link*/ ctx[1].url);
-			attr(a, "class", "button");
-			attr(header, "class", "svelte-1qrna1o");
-			attr(div0, "class", "content svelte-1qrna1o");
-			attr(section, "class", "section-container svelte-1qrna1o");
-			attr(div1, "class", "section");
-			attr(div1, "id", "section-c4b476a5");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div1, anchor);
-			append_hydration(div1, section);
-			append_hydration(section, header);
-			append_hydration(header, h2);
-			append_hydration(h2, t0);
-			append_hydration(header, t1);
-			append_hydration(header, a);
-			append_hydration(a, t2);
-			append_hydration(section, t3);
-			append_hydration(section, div0);
-			div0.innerHTML = raw_value;
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (dirty & /*link*/ 2 && t2_value !== (t2_value = /*link*/ ctx[1].label + "")) set_data(t2, t2_value);
-
-			if (dirty & /*link*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[1].url)) {
-				attr(a, "href", a_href_value);
-			}
-
-			if (dirty & /*content*/ 4 && raw_value !== (raw_value = /*content*/ ctx[2].html + "")) div0.innerHTML = raw_value;		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div1);
-		}
-	};
-}
-
-function instance$3($$self, $$props, $$invalidate) {
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
-	let { heading } = $$props;
-	let { link } = $$props;
-	let { content } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(4, title = $$props.title);
-		if ('description' in $$props) $$invalidate(5, description = $$props.description);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('link' in $$props) $$invalidate(1, link = $$props.link);
-		if ('content' in $$props) $$invalidate(2, content = $$props.content);
-	};
-
-	return [heading, link, content, favicon, title, description];
-}
-
-class Component$3 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
-			favicon: 3,
-			title: 4,
-			description: 5,
-			heading: 0,
-			link: 1,
-			content: 2
-		});
-	}
-}
-
-/* generated by Svelte v3.58.0 */
-
-function create_fragment$4(ctx) {
-	let div2;
-	let section;
-	let div1;
-	let h2;
-	let t0;
-	let t1;
-	let div0;
-	let raw_value = /*body*/ ctx[1].html + "";
-	let t2;
-	let form_1;
-	let label;
-	let span;
-	let t3_value = /*form*/ ctx[2].input_label + "";
-	let t3;
-	let t4;
-	let input;
-	let t5;
-	let button;
-	let t6_value = /*form*/ ctx[2].submit_label + "";
-	let t6;
-	let mounted;
-	let dispose;
-
-	return {
-		c() {
-			div2 = element("div");
-			section = element("section");
-			div1 = element("div");
-			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[0]);
-			t1 = space();
-			div0 = element("div");
-			t2 = space();
-			form_1 = element("form");
-			label = element("label");
-			span = element("span");
-			t3 = text(t3_value);
-			t4 = space();
-			input = element("input");
-			t5 = space();
-			button = element("button");
-			t6 = text(t6_value);
-			this.h();
-		},
-		l(nodes) {
-			div2 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div2_nodes = children(div2);
-			section = claim_element(div2_nodes, "SECTION", { class: true });
-			var section_nodes = children(section);
-			div1 = claim_element(section_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-			h2 = claim_element(div1_nodes, "H2", { class: true });
-			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
-			h2_nodes.forEach(detach);
-			t1 = claim_space(div1_nodes);
-			div0 = claim_element(div1_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
-			t2 = claim_space(section_nodes);
-			form_1 = claim_element(section_nodes, "FORM", { class: true });
-			var form_1_nodes = children(form_1);
-			label = claim_element(form_1_nodes, "LABEL", { class: true });
-			var label_nodes = children(label);
-			span = claim_element(label_nodes, "SPAN", {});
-			var span_nodes = children(span);
-			t3 = claim_text(span_nodes, t3_value);
-			span_nodes.forEach(detach);
-			t4 = claim_space(label_nodes);
-			input = claim_element(label_nodes, "INPUT", { type: true, class: true });
-			label_nodes.forEach(detach);
-			t5 = claim_space(form_1_nodes);
-			button = claim_element(form_1_nodes, "BUTTON", { type: true, class: true });
-			var button_nodes = children(button);
-			t6 = claim_text(button_nodes, t6_value);
-			button_nodes.forEach(detach);
-			form_1_nodes.forEach(detach);
-			section_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(h2, "class", "heading svelte-rlqomu");
-			attr(div0, "class", "body svelte-rlqomu");
-			attr(div1, "class", "content svelte-rlqomu");
-			attr(input, "type", "email");
-			attr(input, "class", "svelte-rlqomu");
-			attr(label, "class", "svelte-rlqomu");
-			attr(button, "type", "submit");
-			attr(button, "class", "button svelte-rlqomu");
-			attr(form_1, "class", "svelte-rlqomu");
-			attr(section, "class", "section-container svelte-rlqomu");
-			attr(div2, "class", "section");
-			attr(div2, "id", "section-c12381d0");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div2, anchor);
-			append_hydration(div2, section);
-			append_hydration(section, div1);
-			append_hydration(div1, h2);
-			append_hydration(h2, t0);
-			append_hydration(div1, t1);
-			append_hydration(div1, div0);
-			div0.innerHTML = raw_value;
-			append_hydration(section, t2);
-			append_hydration(section, form_1);
-			append_hydration(form_1, label);
-			append_hydration(label, span);
-			append_hydration(span, t3);
-			append_hydration(label, t4);
-			append_hydration(label, input);
-			append_hydration(form_1, t5);
-			append_hydration(form_1, button);
-			append_hydration(button, t6);
-
-			if (!mounted) {
-				dispose = listen(form_1, "submit", prevent_default(/*submit_handler*/ ctx[6]));
-				mounted = true;
-			}
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (dirty & /*body*/ 2 && raw_value !== (raw_value = /*body*/ ctx[1].html + "")) div0.innerHTML = raw_value;			if (dirty & /*form*/ 4 && t3_value !== (t3_value = /*form*/ ctx[2].input_label + "")) set_data(t3, t3_value);
-			if (dirty & /*form*/ 4 && t6_value !== (t6_value = /*form*/ ctx[2].submit_label + "")) set_data(t6, t6_value);
-		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div2);
-			mounted = false;
-			dispose();
-		}
-	};
-}
-
-function instance$4($$self, $$props, $$invalidate) {
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
-	let { heading } = $$props;
-	let { body } = $$props;
-	let { form } = $$props;
-
-	const submit_handler = ({ target }) => {
-		const data = new FormData(target); // send `data` to email service
-	};
-
-	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(4, title = $$props.title);
-		if ('description' in $$props) $$invalidate(5, description = $$props.description);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('body' in $$props) $$invalidate(1, body = $$props.body);
-		if ('form' in $$props) $$invalidate(2, form = $$props.form);
-	};
-
-	return [heading, body, form, favicon, title, description, submit_handler];
-}
-
-class Component$4 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
-			favicon: 3,
-			title: 4,
-			description: 5,
-			heading: 0,
-			body: 1,
-			form: 2
-		});
-	}
-}
-
-/* generated by Svelte v3.58.0 */
-
 function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
 	child_ctx[4] = list[i];
@@ -4210,7 +3901,7 @@ function create_each_block$1(ctx) {
 	};
 }
 
-function create_fragment$5(ctx) {
+function create_fragment$3(ctx) {
 	let div2;
 	let section;
 	let div1;
@@ -4307,7 +3998,7 @@ function create_fragment$5(ctx) {
 	};
 }
 
-function instance$5($$self, $$props, $$invalidate) {
+function instance$3($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -4323,15 +4014,207 @@ function instance$5($$self, $$props, $$invalidate) {
 	return [teasers, favicon, title, description];
 }
 
-class Component$5 extends SvelteComponent {
+class Component$3 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
+		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
 			favicon: 1,
 			title: 2,
 			description: 3,
 			teasers: 0
+		});
+	}
+}
+
+/* generated by Svelte v3.58.0 */
+
+function create_fragment$4(ctx) {
+	let div3;
+	let section;
+	let div0;
+	let form_1;
+	let label;
+	let span;
+	let t0_value = /*form*/ ctx[2].input_label + "";
+	let t0;
+	let t1;
+	let input;
+	let t2;
+	let button;
+	let t3_value = /*form*/ ctx[2].submit_label + "";
+	let t3;
+	let t4;
+	let div2;
+	let h2;
+	let t5;
+	let t6;
+	let div1;
+	let raw_value = /*body*/ ctx[1].html + "";
+	let mounted;
+	let dispose;
+
+	return {
+		c() {
+			div3 = element("div");
+			section = element("section");
+			div0 = element("div");
+			form_1 = element("form");
+			label = element("label");
+			span = element("span");
+			t0 = text(t0_value);
+			t1 = space();
+			input = element("input");
+			t2 = space();
+			button = element("button");
+			t3 = text(t3_value);
+			t4 = space();
+			div2 = element("div");
+			h2 = element("h2");
+			t5 = text(/*heading*/ ctx[0]);
+			t6 = space();
+			div1 = element("div");
+			this.h();
+		},
+		l(nodes) {
+			div3 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div3_nodes = children(div3);
+			section = claim_element(div3_nodes, "SECTION", { class: true });
+			var section_nodes = children(section);
+			div0 = claim_element(section_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			form_1 = claim_element(div0_nodes, "FORM", { class: true });
+			var form_1_nodes = children(form_1);
+			label = claim_element(form_1_nodes, "LABEL", { class: true });
+			var label_nodes = children(label);
+			span = claim_element(label_nodes, "SPAN", {});
+			var span_nodes = children(span);
+			t0 = claim_text(span_nodes, t0_value);
+			span_nodes.forEach(detach);
+			t1 = claim_space(label_nodes);
+
+			input = claim_element(label_nodes, "INPUT", {
+				type: true,
+				placeholder: true,
+				class: true
+			});
+
+			label_nodes.forEach(detach);
+			t2 = claim_space(form_1_nodes);
+			button = claim_element(form_1_nodes, "BUTTON", { type: true, class: true });
+			var button_nodes = children(button);
+			t3 = claim_text(button_nodes, t3_value);
+			button_nodes.forEach(detach);
+			form_1_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t4 = claim_space(section_nodes);
+			div2 = claim_element(section_nodes, "DIV", { class: true });
+			var div2_nodes = children(div2);
+			h2 = claim_element(div2_nodes, "H2", { class: true });
+			var h2_nodes = children(h2);
+			t5 = claim_text(h2_nodes, /*heading*/ ctx[0]);
+			h2_nodes.forEach(detach);
+			t6 = claim_space(div2_nodes);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			div1_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
+			section_nodes.forEach(detach);
+			div3_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(input, "type", "email");
+			attr(input, "placeholder", "johndoe@gmail.com");
+			attr(input, "class", "svelte-1e5u4j2");
+			attr(label, "class", "svelte-1e5u4j2");
+			attr(button, "type", "submit");
+			attr(button, "class", "button svelte-1e5u4j2");
+			attr(form_1, "class", "svelte-1e5u4j2");
+			attr(div0, "class", "actions svelte-1e5u4j2");
+			attr(h2, "class", "heading svelte-1e5u4j2");
+			attr(div1, "class", "body svelte-1e5u4j2");
+			attr(div2, "class", "content svelte-1e5u4j2");
+			attr(section, "class", "section-container svelte-1e5u4j2");
+			attr(div3, "class", "section");
+			attr(div3, "id", "section-c12381d0");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div3, anchor);
+			append_hydration(div3, section);
+			append_hydration(section, div0);
+			append_hydration(div0, form_1);
+			append_hydration(form_1, label);
+			append_hydration(label, span);
+			append_hydration(span, t0);
+			append_hydration(label, t1);
+			append_hydration(label, input);
+			append_hydration(form_1, t2);
+			append_hydration(form_1, button);
+			append_hydration(button, t3);
+			append_hydration(section, t4);
+			append_hydration(section, div2);
+			append_hydration(div2, h2);
+			append_hydration(h2, t5);
+			append_hydration(div2, t6);
+			append_hydration(div2, div1);
+			div1.innerHTML = raw_value;
+
+			if (!mounted) {
+				dispose = listen(form_1, "submit", prevent_default(/*submit_handler*/ ctx[6]));
+				mounted = true;
+			}
+		},
+		p(ctx, [dirty]) {
+			if (dirty & /*form*/ 4 && t0_value !== (t0_value = /*form*/ ctx[2].input_label + "")) set_data(t0, t0_value);
+			if (dirty & /*form*/ 4 && t3_value !== (t3_value = /*form*/ ctx[2].submit_label + "")) set_data(t3, t3_value);
+			if (dirty & /*heading*/ 1) set_data(t5, /*heading*/ ctx[0]);
+			if (dirty & /*body*/ 2 && raw_value !== (raw_value = /*body*/ ctx[1].html + "")) div1.innerHTML = raw_value;		},
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(div3);
+			mounted = false;
+			dispose();
+		}
+	};
+}
+
+function instance$4($$self, $$props, $$invalidate) {
+	let { favicon } = $$props;
+	let { title } = $$props;
+	let { description } = $$props;
+	let { heading } = $$props;
+	let { body } = $$props;
+	let { form } = $$props;
+
+	const submit_handler = ({ target }) => {
+		const data = new FormData(target); // send `data` to email service
+	};
+
+	$$self.$$set = $$props => {
+		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('description' in $$props) $$invalidate(5, description = $$props.description);
+		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
+		if ('body' in $$props) $$invalidate(1, body = $$props.body);
+		if ('form' in $$props) $$invalidate(2, form = $$props.form);
+	};
+
+	return [heading, body, form, favicon, title, description, submit_handler];
+}
+
+class Component$4 extends SvelteComponent {
+	constructor(options) {
+		super();
+
+		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
+			favicon: 3,
+			title: 4,
+			description: 5,
+			heading: 0,
+			body: 1,
+			form: 2
 		});
 	}
 }
@@ -4389,9 +4272,9 @@ function create_each_block_1$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "icon svelte-ntoq95");
+			attr(span, "class", "icon svelte-1l5ltyd");
 			attr(a, "href", a_href_value = /*link*/ ctx[11].url);
-			attr(a, "class", "svelte-ntoq95");
+			attr(a, "class", "svelte-1l5ltyd");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -4467,11 +4350,11 @@ function create_else_block$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-ntoq95");
+			attr(span, "class", "svelte-1l5ltyd");
 			attr(input, "type", input_type_value = /*input*/ ctx[8].type || "text");
 			attr(input, "placeholder", input_placeholder_value = /*input*/ ctx[8].placeholder);
-			attr(input, "class", "svelte-ntoq95");
-			attr(label, "class", "svelte-ntoq95");
+			attr(input, "class", "svelte-1l5ltyd");
+			attr(label, "class", "svelte-1l5ltyd");
 		},
 		m(target, anchor) {
 			insert_hydration(target, label, anchor);
@@ -4526,8 +4409,8 @@ function create_if_block_1$3(ctx) {
 		h() {
 			attr(input, "id", input_id_value = /*input*/ ctx[8].key);
 			attr(input, "type", "checkbox");
-			attr(input, "class", "svelte-ntoq95");
-			attr(label, "class", "checkbox svelte-ntoq95");
+			attr(input, "class", "svelte-1l5ltyd");
+			attr(label, "class", "checkbox svelte-1l5ltyd");
 		},
 		m(target, anchor) {
 			insert_hydration(target, label, anchor);
@@ -4580,9 +4463,9 @@ function create_if_block$3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-ntoq95");
-			attr(textarea, "class", "svelte-ntoq95");
-			attr(label, "class", "svelte-ntoq95");
+			attr(span, "class", "svelte-1l5ltyd");
+			attr(textarea, "class", "svelte-1l5ltyd");
+			attr(label, "class", "svelte-1l5ltyd");
 		},
 		m(target, anchor) {
 			insert_hydration(target, label, anchor);
@@ -4646,7 +4529,7 @@ function create_each_block$2(ctx) {
 	};
 }
 
-function create_fragment$6(ctx) {
+function create_fragment$5(ctx) {
 	let div3;
 	let section;
 	let div2;
@@ -4753,13 +4636,13 @@ function create_fragment$6(ctx) {
 		},
 		h() {
 			attr(h2, "class", "heading");
-			attr(div0, "class", "body svelte-ntoq95");
-			attr(div1, "class", "social-links svelte-ntoq95");
-			attr(div2, "class", "content svelte-ntoq95");
-			attr(button, "class", "button svelte-ntoq95");
+			attr(div0, "class", "body svelte-1l5ltyd");
+			attr(div1, "class", "social-links svelte-1l5ltyd");
+			attr(div2, "class", "content svelte-1l5ltyd");
+			attr(button, "class", "button svelte-1l5ltyd");
 			attr(button, "type", "submit");
-			attr(form, "class", "svelte-ntoq95");
-			attr(section, "class", "section-container svelte-ntoq95");
+			attr(form, "class", "svelte-1l5ltyd");
+			attr(section, "class", "section-container svelte-1l5ltyd");
 			attr(div3, "class", "section");
 			attr(div3, "id", "section-97da4d56");
 		},
@@ -4876,7 +4759,7 @@ function create_fragment$6(ctx) {
 	};
 }
 
-function instance$6($$self, $$props, $$invalidate) {
+function instance$5($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -4900,11 +4783,11 @@ function instance$6($$self, $$props, $$invalidate) {
 	return [heading, subheading, social, inputs, submit_label, favicon, title, description];
 }
 
-class Component$6 extends SvelteComponent {
+class Component$5 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
+		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
 			favicon: 5,
 			title: 6,
 			description: 7,
@@ -4919,7 +4802,7 @@ class Component$6 extends SvelteComponent {
 
 /* generated by Svelte v3.58.0 */
 
-function instance$7($$self, $$props, $$invalidate) {
+function instance$6($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -4933,16 +4816,16 @@ function instance$7($$self, $$props, $$invalidate) {
 	return [favicon, title, description];
 }
 
-class Component$7 extends SvelteComponent {
+class Component$6 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$7, null, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+		init(this, options, instance$6, null, safe_not_equal, { favicon: 0, title: 1, description: 2 });
 	}
 }
 
 /* generated by Svelte v3.58.0 */
 
-function create_fragment$7(ctx) {
+function create_fragment$6(ctx) {
 	let component_0;
 	let t0;
 	let component_1;
@@ -4954,8 +4837,6 @@ function create_fragment$7(ctx) {
 	let component_4;
 	let t4;
 	let component_5;
-	let t5;
-	let component_6;
 	let current;
 
 	component_0 = new Component({
@@ -5022,15 +4903,49 @@ function create_fragment$7(ctx) {
 				},
 				title: "Grow Together Edmonton",
 				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. ",
-				heading: "Voice your support",
-				link: {
-					"url": "/",
-					"label": "Email Your Councillor"
-				},
-				content: {
-					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p>\n<p>We are not employed in the development industry and we do not receive any funding from developer groups.</p>",
-					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\nWe are not employed in the development industry and we do not receive any funding from developer groups.\n\n"
-				}
+				teasers: [
+					{
+						"body": {
+							"html": "<p>Edmonton loses money on every new suburb that's built. Building housing where infrastructure already exists bolsters the city's revenues and helps keep property taxes low.</p>",
+							"markdown": "Edmonton loses money on every new suburb that's built. Building housing where infrastructure already exists bolsters the city's revenues and helps keep property taxes low.\n\n"
+						},
+						"link": {
+							"url": "/fiscal-sustainability",
+							"label": "Learn More"
+						},
+						"image": {
+							"alt": "",
+							"src": "https://images.unsplash.com/photo-1668605152742-e9718104d281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
+							"url": "https://images.unsplash.com/photo-1668605152742-e9718104d281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
+							"size": null
+						},
+						"title": "Financial Sustainability"
+					},
+					{
+						"body": {
+							"html": "<p>Building denser housing slows urban sprawl, which reduces our CO2 emissions and preserves natural environments and farmland.</p>",
+							"markdown": "Building denser housing slows urban sprawl, which reduces our CO2 emissions and preserves natural environments and farmland.\n\n"
+						},
+						"link": { "url": "/", "label": "Learn More" },
+						"image": {
+							"alt": "",
+							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/blatchford-edmonton4480-3524-jpg.webp1689306885316"
+						},
+						"title": "Climate Action"
+					},
+					{
+						"body": {
+							"html": "<p>Making it easier to build middle density housing will boost housing supply and help keep rents low.</p>",
+							"markdown": "Making it easier to build middle density housing will boost housing supply and help keep rents low.\n\n"
+						},
+						"link": { "url": "/", "label": "Learn More" },
+						"image": {
+							"alt": "",
+							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/low-rise-apartments.jpg1689307055131"
+						},
+						"title": "Affordability"
+					}
+				]
 			}
 		});
 
@@ -5044,72 +4959,19 @@ function create_fragment$7(ctx) {
 				},
 				title: "Grow Together Edmonton",
 				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. ",
-				heading: "Signup Form",
+				heading: "About Us",
 				body: {
-					"html": "<p>Stay updated and never miss out! Join our newsletter by filling out this simple form. Subscribing to our newsletter means you'll be the first to hear about our latest news, exclusive offers, events, and exciting developments.</p>",
-					"markdown": "Stay updated and never miss out! Join our newsletter by filling out this simple form. Subscribing to our newsletter means you'll be the first to hear about our latest news, exclusive offers, events, and exciting developments."
+					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p>\n<p>Our members are not employed in the development industry and we do not receive any funding from developer groups.</p>",
+					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\nOur members are not employed in the development industry and we do not receive any funding from developer groups.\n\n"
 				},
 				form: {
 					"input_label": "Email Address",
-					"submit_label": "Submit"
+					"submit_label": "Join Mailing List"
 				}
 			}
 		});
 
 	component_4 = new Component$5({
-			props: {
-				favicon: {
-					"alt": "",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
-				},
-				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. ",
-				teasers: [
-					{
-						"body": {
-							"html": "<p>Edmonton loses money on every new suburb that's built. Building housing where infrastructure already exists bolsters the city's revenues and helps keep property taxes low.</p>",
-							"markdown": "Edmonton loses money on every new suburb that's built. Building housing where infrastructure already exists bolsters the city's revenues and helps keep property taxes low.\n\n"
-						},
-						"link": { "url": "/", "label": "Learn More" },
-						"image": {
-							"alt": "",
-							"src": "https://images.unsplash.com/photo-1668605152742-e9718104d281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
-							"url": "https://images.unsplash.com/photo-1668605152742-e9718104d281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
-							"size": null
-						},
-						"title": "Financial Sustainability"
-					},
-					{
-						"body": {
-							"html": "<p>Building denser housing slows urban sprawl, which reduces our CO2 emissions and preserves natural environments and farmland. </p>",
-							"markdown": "Building denser housing slows urban sprawl, which reduces our CO2 emissions and preserves natural environments and farmland.\n\n"
-						},
-						"link": { "url": "/", "label": "Learn More" },
-						"image": {
-							"alt": "",
-							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/blatchford-edmonton4480-3524-jpg.webp1689306885316"
-						},
-						"title": "Climate Action"
-					},
-					{
-						"body": {
-							"html": "<p>Making it easier to build middle density housing will boost supply and keep rents low.</p>",
-							"markdown": "Making it easier to build middle density housing will boost supply and keep rents low.\n\n"
-						},
-						"link": { "url": "/", "label": "Learn More" },
-						"image": {
-							"alt": "",
-							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/low-rise-apartments.jpg1689307055131"
-						},
-						"title": "Affordability"
-					}
-				]
-			}
-		});
-
-	component_5 = new Component$6({
 			props: {
 				favicon: {
 					"alt": "",
@@ -5132,26 +4994,16 @@ function create_fragment$7(ctx) {
 				],
 				inputs: [
 					{
-						"type": "text",
-						"label": "Name",
-						"placeholder": "John Doe"
-					},
-					{
 						"type": "email",
 						"label": "Email",
 						"placeholder": "johndoe@johndoe.com"
-					},
-					{
-						"type": "checkbox",
-						"label": "I want to volunteer",
-						"placeholder": "Minim est sit"
 					}
 				],
-				submit_label: "Submit"
+				submit_label: "Join Mailing List"
 			}
 		});
 
-	component_6 = new Component$7({
+	component_5 = new Component$6({
 			props: {
 				favicon: {
 					"alt": "",
@@ -5177,8 +5029,6 @@ function create_fragment$7(ctx) {
 			create_component(component_4.$$.fragment);
 			t4 = space();
 			create_component(component_5.$$.fragment);
-			t5 = space();
-			create_component(component_6.$$.fragment);
 		},
 		l(nodes) {
 			claim_component(component_0.$$.fragment, nodes);
@@ -5192,8 +5042,6 @@ function create_fragment$7(ctx) {
 			claim_component(component_4.$$.fragment, nodes);
 			t4 = claim_space(nodes);
 			claim_component(component_5.$$.fragment, nodes);
-			t5 = claim_space(nodes);
-			claim_component(component_6.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(component_0, target, anchor);
@@ -5207,8 +5055,6 @@ function create_fragment$7(ctx) {
 			mount_component(component_4, target, anchor);
 			insert_hydration(target, t4, anchor);
 			mount_component(component_5, target, anchor);
-			insert_hydration(target, t5, anchor);
-			mount_component(component_6, target, anchor);
 			current = true;
 		},
 		p: noop,
@@ -5220,7 +5066,6 @@ function create_fragment$7(ctx) {
 			transition_in(component_3.$$.fragment, local);
 			transition_in(component_4.$$.fragment, local);
 			transition_in(component_5.$$.fragment, local);
-			transition_in(component_6.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
@@ -5230,7 +5075,6 @@ function create_fragment$7(ctx) {
 			transition_out(component_3.$$.fragment, local);
 			transition_out(component_4.$$.fragment, local);
 			transition_out(component_5.$$.fragment, local);
-			transition_out(component_6.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
@@ -5245,17 +5089,15 @@ function create_fragment$7(ctx) {
 			destroy_component(component_4, detaching);
 			if (detaching) detach(t4);
 			destroy_component(component_5, detaching);
-			if (detaching) detach(t5);
-			destroy_component(component_6, detaching);
 		}
 	};
 }
 
-class Component$8 extends SvelteComponent {
+class Component$7 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, null, create_fragment$7, safe_not_equal, {});
+		init(this, options, null, create_fragment$6, safe_not_equal, {});
 	}
 }
 
-export default Component$8;
+export default Component$7;
