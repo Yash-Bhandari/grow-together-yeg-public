@@ -4124,18 +4124,18 @@ function create_fragment$4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-1e5u4j2");
-			attr(div0, "class", "body svelte-1e5u4j2");
-			attr(div1, "class", "content svelte-1e5u4j2");
+			attr(h2, "class", "heading svelte-n4qurx");
+			attr(div0, "class", "body svelte-n4qurx");
+			attr(div1, "class", "content svelte-n4qurx");
 			attr(input, "type", "email");
 			attr(input, "placeholder", "johndoe@gmail.com");
-			attr(input, "class", "svelte-1e5u4j2");
-			attr(label, "class", "svelte-1e5u4j2");
+			attr(input, "class", "svelte-n4qurx");
+			attr(label, "class", "svelte-n4qurx");
 			attr(button, "type", "submit");
-			attr(button, "class", "button svelte-1e5u4j2");
-			attr(form_1, "class", "svelte-1e5u4j2");
-			attr(div2, "class", "actions svelte-1e5u4j2");
-			attr(section, "class", "section-container svelte-1e5u4j2");
+			attr(button, "class", "button svelte-n4qurx");
+			attr(form_1, "class", "svelte-n4qurx");
+			attr(div2, "class", "actions svelte-n4qurx");
+			attr(section, "class", "section-container svelte-n4qurx");
 			attr(div3, "class", "section");
 			attr(div3, "id", "section-c12381d0");
 		},
@@ -4223,30 +4223,23 @@ class Component$4 extends SvelteComponent {
 
 function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[8] = list[i];
-	child_ctx[10] = i;
+	child_ctx[8] = list[i].link;
+	child_ctx[9] = list[i].icon;
 	return child_ctx;
 }
 
-function get_each_context_1$1(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[11] = list[i].link;
-	child_ctx[12] = list[i].icon;
-	return child_ctx;
-}
-
-// (103:6) {#each social as { link, icon }}
-function create_each_block_1$1(ctx) {
+// (111:6) {#each social as { link, icon }}
+function create_each_block$2(ctx) {
 	let a;
 	let span;
 	let icon;
 	let t0;
-	let t1_value = /*link*/ ctx[11].label + "";
+	let t1_value = /*link*/ ctx[8].label + "";
 	let t1;
 	let t2;
 	let a_href_value;
 	let current;
-	icon = new Component$1({ props: { icon: /*icon*/ ctx[12] } });
+	icon = new Component$1({ props: { icon: /*icon*/ ctx[9] } });
 
 	return {
 		c() {
@@ -4273,7 +4266,7 @@ function create_each_block_1$1(ctx) {
 		},
 		h() {
 			attr(span, "class", "icon svelte-1l5ltyd");
-			attr(a, "href", a_href_value = /*link*/ ctx[11].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
 			attr(a, "class", "svelte-1l5ltyd");
 		},
 		m(target, anchor) {
@@ -4287,11 +4280,11 @@ function create_each_block_1$1(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[12];
+			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[9];
 			icon.$set(icon_changes);
-			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[11].label + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[8].label + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[11].url)) {
+			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[8].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -4311,226 +4304,8 @@ function create_each_block_1$1(ctx) {
 	};
 }
 
-// (125:6) {:else}
-function create_else_block$1(ctx) {
-	let label;
-	let span;
-	let t0_value = /*input*/ ctx[8].label + "";
-	let t0;
-	let t1;
-	let input;
-	let input_type_value;
-	let input_placeholder_value;
-
-	return {
-		c() {
-			label = element("label");
-			span = element("span");
-			t0 = text(t0_value);
-			t1 = space();
-			input = element("input");
-			this.h();
-		},
-		l(nodes) {
-			label = claim_element(nodes, "LABEL", { class: true });
-			var label_nodes = children(label);
-			span = claim_element(label_nodes, "SPAN", { class: true });
-			var span_nodes = children(span);
-			t0 = claim_text(span_nodes, t0_value);
-			span_nodes.forEach(detach);
-			t1 = claim_space(label_nodes);
-
-			input = claim_element(label_nodes, "INPUT", {
-				type: true,
-				placeholder: true,
-				class: true
-			});
-
-			label_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(span, "class", "svelte-1l5ltyd");
-			attr(input, "type", input_type_value = /*input*/ ctx[8].type || "text");
-			attr(input, "placeholder", input_placeholder_value = /*input*/ ctx[8].placeholder);
-			attr(input, "class", "svelte-1l5ltyd");
-			attr(label, "class", "svelte-1l5ltyd");
-		},
-		m(target, anchor) {
-			insert_hydration(target, label, anchor);
-			append_hydration(label, span);
-			append_hydration(span, t0);
-			append_hydration(label, t1);
-			append_hydration(label, input);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*inputs*/ 8 && t0_value !== (t0_value = /*input*/ ctx[8].label + "")) set_data(t0, t0_value);
-
-			if (dirty & /*inputs*/ 8 && input_type_value !== (input_type_value = /*input*/ ctx[8].type || "text")) {
-				attr(input, "type", input_type_value);
-			}
-
-			if (dirty & /*inputs*/ 8 && input_placeholder_value !== (input_placeholder_value = /*input*/ ctx[8].placeholder)) {
-				attr(input, "placeholder", input_placeholder_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(label);
-		}
-	};
-}
-
-// (120:42) 
-function create_if_block_1$3(ctx) {
-	let label;
-	let t0_value = /*input*/ ctx[8].label + "";
-	let t0;
-	let t1;
-	let input;
-	let input_id_value;
-
-	return {
-		c() {
-			label = element("label");
-			t0 = text(t0_value);
-			t1 = space();
-			input = element("input");
-			this.h();
-		},
-		l(nodes) {
-			label = claim_element(nodes, "LABEL", { class: true });
-			var label_nodes = children(label);
-			t0 = claim_text(label_nodes, t0_value);
-			t1 = claim_space(label_nodes);
-			input = claim_element(label_nodes, "INPUT", { id: true, type: true, class: true });
-			label_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(input, "id", input_id_value = /*input*/ ctx[8].key);
-			attr(input, "type", "checkbox");
-			attr(input, "class", "svelte-1l5ltyd");
-			attr(label, "class", "checkbox svelte-1l5ltyd");
-		},
-		m(target, anchor) {
-			insert_hydration(target, label, anchor);
-			append_hydration(label, t0);
-			append_hydration(label, t1);
-			append_hydration(label, input);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*inputs*/ 8 && t0_value !== (t0_value = /*input*/ ctx[8].label + "")) set_data(t0, t0_value);
-
-			if (dirty & /*inputs*/ 8 && input_id_value !== (input_id_value = /*input*/ ctx[8].key)) {
-				attr(input, "id", input_id_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(label);
-		}
-	};
-}
-
-// (115:6) {#if input.type === "textarea"}
-function create_if_block$3(ctx) {
-	let label;
-	let span;
-	let t0_value = /*input*/ ctx[8].label + "";
-	let t0;
-	let t1;
-	let textarea;
-
-	return {
-		c() {
-			label = element("label");
-			span = element("span");
-			t0 = text(t0_value);
-			t1 = space();
-			textarea = element("textarea");
-			this.h();
-		},
-		l(nodes) {
-			label = claim_element(nodes, "LABEL", { class: true });
-			var label_nodes = children(label);
-			span = claim_element(label_nodes, "SPAN", { class: true });
-			var span_nodes = children(span);
-			t0 = claim_text(span_nodes, t0_value);
-			span_nodes.forEach(detach);
-			t1 = claim_space(label_nodes);
-			textarea = claim_element(label_nodes, "TEXTAREA", { class: true });
-			children(textarea).forEach(detach);
-			label_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(span, "class", "svelte-1l5ltyd");
-			attr(textarea, "class", "svelte-1l5ltyd");
-			attr(label, "class", "svelte-1l5ltyd");
-		},
-		m(target, anchor) {
-			insert_hydration(target, label, anchor);
-			append_hydration(label, span);
-			append_hydration(span, t0);
-			append_hydration(label, t1);
-			append_hydration(label, textarea);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*inputs*/ 8 && t0_value !== (t0_value = /*input*/ ctx[8].label + "")) set_data(t0, t0_value);
-		},
-		d(detaching) {
-			if (detaching) detach(label);
-		}
-	};
-}
-
-// (114:4) {#each inputs as input, i}
-function create_each_block$2(ctx) {
-	let if_block_anchor;
-
-	function select_block_type(ctx, dirty) {
-		if (/*input*/ ctx[8].type === "textarea") return create_if_block$3;
-		if (/*input*/ ctx[8].type === "checkbox") return create_if_block_1$3;
-		return create_else_block$1;
-	}
-
-	let current_block_type = select_block_type(ctx);
-	let if_block = current_block_type(ctx);
-
-	return {
-		c() {
-			if_block.c();
-			if_block_anchor = empty();
-		},
-		l(nodes) {
-			if_block.l(nodes);
-			if_block_anchor = empty();
-		},
-		m(target, anchor) {
-			if_block.m(target, anchor);
-			insert_hydration(target, if_block_anchor, anchor);
-		},
-		p(ctx, dirty) {
-			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
-				if_block.p(ctx, dirty);
-			} else {
-				if_block.d(1);
-				if_block = current_block_type(ctx);
-
-				if (if_block) {
-					if_block.c();
-					if_block.m(if_block_anchor.parentNode, if_block_anchor);
-				}
-			}
-		},
-		d(detaching) {
-			if_block.d(detaching);
-			if (detaching) detach(if_block_anchor);
-		}
-	};
-}
-
 function create_fragment$5(ctx) {
-	let div3;
+	let div4;
 	let section;
 	let div2;
 	let h2;
@@ -4540,32 +4315,22 @@ function create_fragment$5(ctx) {
 	let t2;
 	let div1;
 	let t3;
-	let form;
-	let t4;
-	let button;
-	let t5;
+	let div3;
 	let current;
-	let each_value_1 = /*social*/ ctx[2];
-	let each_blocks_1 = [];
-
-	for (let i = 0; i < each_value_1.length; i += 1) {
-		each_blocks_1[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
-	}
-
-	const out = i => transition_out(each_blocks_1[i], 1, 1, () => {
-		each_blocks_1[i] = null;
-	});
-
-	let each_value = /*inputs*/ ctx[3];
+	let each_value = /*social*/ ctx[2];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
 		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
 	}
 
+	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+		each_blocks[i] = null;
+	});
+
 	return {
 		c() {
-			div3 = element("div");
+			div4 = element("div");
 			section = element("section");
 			div2 = element("div");
 			h2 = element("h2");
@@ -4575,26 +4340,18 @@ function create_fragment$5(ctx) {
 			t2 = space();
 			div1 = element("div");
 
-			for (let i = 0; i < each_blocks_1.length; i += 1) {
-				each_blocks_1[i].c();
-			}
-
-			t3 = space();
-			form = element("form");
-
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
-			t4 = space();
-			button = element("button");
-			t5 = text(/*submit_label*/ ctx[4]);
+			t3 = space();
+			div3 = element("div");
 			this.h();
 		},
 		l(nodes) {
-			div3 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div3_nodes = children(div3);
-			section = claim_element(div3_nodes, "SECTION", { class: true });
+			div4 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div4_nodes = children(div4);
+			section = claim_element(div4_nodes, "SECTION", { class: true });
 			var section_nodes = children(section);
 			div2 = claim_element(section_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
@@ -4610,28 +4367,17 @@ function create_fragment$5(ctx) {
 			div1 = claim_element(div2_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
 
-			for (let i = 0; i < each_blocks_1.length; i += 1) {
-				each_blocks_1[i].l(div1_nodes);
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div1_nodes);
 			}
 
 			div1_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
 			t3 = claim_space(section_nodes);
-			form = claim_element(section_nodes, "FORM", { class: true });
-			var form_nodes = children(form);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(form_nodes);
-			}
-
-			t4 = claim_space(form_nodes);
-			button = claim_element(form_nodes, "BUTTON", { class: true, type: true });
-			var button_nodes = children(button);
-			t5 = claim_text(button_nodes, /*submit_label*/ ctx[4]);
-			button_nodes.forEach(detach);
-			form_nodes.forEach(detach);
+			div3 = claim_element(section_nodes, "DIV", { class: true, "data-form": true });
+			children(div3).forEach(detach);
 			section_nodes.forEach(detach);
-			div3_nodes.forEach(detach);
+			div4_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
@@ -4639,16 +4385,15 @@ function create_fragment$5(ctx) {
 			attr(div0, "class", "body svelte-1l5ltyd");
 			attr(div1, "class", "social-links svelte-1l5ltyd");
 			attr(div2, "class", "content svelte-1l5ltyd");
-			attr(button, "class", "button svelte-1l5ltyd");
-			attr(button, "type", "submit");
-			attr(form, "class", "svelte-1l5ltyd");
+			attr(div3, "class", "ml-embedded");
+			attr(div3, "data-form", "auoPkr");
 			attr(section, "class", "section-container svelte-1l5ltyd");
-			attr(div3, "class", "section");
-			attr(div3, "id", "section-97da4d56");
+			attr(div4, "class", "section");
+			attr(div4, "id", "section-97da4d56");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div3, anchor);
-			append_hydration(div3, section);
+			insert_hydration(target, div4, anchor);
+			append_hydration(div4, section);
 			append_hydration(section, div2);
 			append_hydration(div2, h2);
 			append_hydration(h2, t0);
@@ -4658,58 +4403,21 @@ function create_fragment$5(ctx) {
 			append_hydration(div2, t2);
 			append_hydration(div2, div1);
 
-			for (let i = 0; i < each_blocks_1.length; i += 1) {
-				if (each_blocks_1[i]) {
-					each_blocks_1[i].m(div1, null);
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(div1, null);
 				}
 			}
 
 			append_hydration(section, t3);
-			append_hydration(section, form);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(form, null);
-				}
-			}
-
-			append_hydration(form, t4);
-			append_hydration(form, button);
-			append_hydration(button, t5);
+			append_hydration(section, div3);
 			current = true;
 		},
 		p(ctx, [dirty]) {
 			if (!current || dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
 			if (!current || dirty & /*subheading*/ 2) div0.innerHTML = /*subheading*/ ctx[1];
 			if (dirty & /*social*/ 4) {
-				each_value_1 = /*social*/ ctx[2];
-				let i;
-
-				for (i = 0; i < each_value_1.length; i += 1) {
-					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
-
-					if (each_blocks_1[i]) {
-						each_blocks_1[i].p(child_ctx, dirty);
-						transition_in(each_blocks_1[i], 1);
-					} else {
-						each_blocks_1[i] = create_each_block_1$1(child_ctx);
-						each_blocks_1[i].c();
-						transition_in(each_blocks_1[i], 1);
-						each_blocks_1[i].m(div1, null);
-					}
-				}
-
-				group_outros();
-
-				for (i = each_value_1.length; i < each_blocks_1.length; i += 1) {
-					out(i);
-				}
-
-				check_outros();
-			}
-
-			if (dirty & /*inputs*/ 8) {
-				each_value = /*inputs*/ ctx[3];
+				each_value = /*social*/ ctx[2];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -4717,43 +4425,44 @@ function create_fragment$5(ctx) {
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
+						transition_in(each_blocks[i], 1);
 					} else {
 						each_blocks[i] = create_each_block$2(child_ctx);
 						each_blocks[i].c();
-						each_blocks[i].m(form, t4);
+						transition_in(each_blocks[i], 1);
+						each_blocks[i].m(div1, null);
 					}
 				}
 
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
+				group_outros();
+
+				for (i = each_value.length; i < each_blocks.length; i += 1) {
+					out(i);
 				}
 
-				each_blocks.length = each_value.length;
+				check_outros();
 			}
-
-			if (!current || dirty & /*submit_label*/ 16) set_data(t5, /*submit_label*/ ctx[4]);
 		},
 		i(local) {
 			if (current) return;
 
-			for (let i = 0; i < each_value_1.length; i += 1) {
-				transition_in(each_blocks_1[i]);
+			for (let i = 0; i < each_value.length; i += 1) {
+				transition_in(each_blocks[i]);
 			}
 
 			current = true;
 		},
 		o(local) {
-			each_blocks_1 = each_blocks_1.filter(Boolean);
+			each_blocks = each_blocks.filter(Boolean);
 
-			for (let i = 0; i < each_blocks_1.length; i += 1) {
-				transition_out(each_blocks_1[i]);
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				transition_out(each_blocks[i]);
 			}
 
 			current = false;
 		},
 		d(detaching) {
-			if (detaching) detach(div3);
-			destroy_each(each_blocks_1, detaching);
+			if (detaching) detach(div4);
 			destroy_each(each_blocks, detaching);
 		}
 	};
@@ -4769,18 +4478,32 @@ function instance$5($$self, $$props, $$invalidate) {
 	let { inputs } = $$props;
 	let { submit_label } = $$props;
 
+	// Mailerlite
+	window.setTimeout(
+		() => {
+			(function (w, d, e, u, f, l, n) {
+				(w[f] = w[f] || function () {
+					(w[f].q = w[f].q || []).push(arguments);
+				}, l = d.createElement(e), l.async = 1, l.src = u, n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n));
+			})(window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
+
+			ml('account', '511328');
+		},
+		500
+	);
+
 	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(6, title = $$props.title);
-		if ('description' in $$props) $$invalidate(7, description = $$props.description);
+		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('description' in $$props) $$invalidate(5, description = $$props.description);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
 		if ('social' in $$props) $$invalidate(2, social = $$props.social);
-		if ('inputs' in $$props) $$invalidate(3, inputs = $$props.inputs);
-		if ('submit_label' in $$props) $$invalidate(4, submit_label = $$props.submit_label);
+		if ('inputs' in $$props) $$invalidate(6, inputs = $$props.inputs);
+		if ('submit_label' in $$props) $$invalidate(7, submit_label = $$props.submit_label);
 	};
 
-	return [heading, subheading, social, inputs, submit_label, favicon, title, description];
+	return [heading, subheading, social, favicon, title, description, inputs, submit_label];
 }
 
 class Component$5 extends SvelteComponent {
@@ -4788,14 +4511,14 @@ class Component$5 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
-			favicon: 5,
-			title: 6,
-			description: 7,
+			favicon: 3,
+			title: 4,
+			description: 5,
 			heading: 0,
 			subheading: 1,
 			social: 2,
-			inputs: 3,
-			submit_label: 4
+			inputs: 6,
+			submit_label: 7
 		});
 	}
 }
@@ -4906,8 +4629,8 @@ function create_fragment$6(ctx) {
 				teasers: [
 					{
 						"body": {
-							"html": "<p>Edmonton loses money on every new suburb that's built. If we encourage new housing in areas where infrastructure already exists, we can bolster the city's revenues and help keep property taxes low.</p>",
-							"markdown": "Edmonton loses money on every new suburb that's built. If we encourage new housing in areas where infrastructure already exists, we can bolster the city's revenues and help keep property taxes low.\n\n"
+							"html": "<p>Edmonton loses money on every new suburb that's built. If we allow new housing in areas where infrastructure already exists, we can bolster the city's revenues and help keep property taxes low.</p>",
+							"markdown": "Edmonton loses money on every new suburb that's built. If we allow new housing in areas where infrastructure already exists, we can bolster the city's revenues and help keep property taxes low.\n\n"
 						},
 						"link": {
 							"url": "/fiscal-sustainability",
@@ -4933,8 +4656,8 @@ function create_fragment$6(ctx) {
 					},
 					{
 						"body": {
-							"html": "<p>Housing shortages have caused rents to skyrocket nationwide. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.</p>",
-							"markdown": "Housing shortages have caused rents to skyrocket nationwide. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.\n\n"
+							"html": "<p>Housing shortages have sent rents sky high across the country. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.</p>",
+							"markdown": "Housing shortages have sent rents sky high across the country. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.\n\n"
 						},
 						"link": { "url": "/", "label": "Learn More" },
 						"image": {
@@ -4959,7 +4682,7 @@ function create_fragment$6(ctx) {
 				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. ",
 				heading: "About Us",
 				body: {
-					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p>\n<p>Our members are not employed in the development industry and we do not receive any funding from developer groups.</p>",
+					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p><p>Our members are not employed in the development industry and we do not receive any funding from developer groups.</p>",
 					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\nOur members are not employed in the development industry and we do not receive any funding from developer groups.\n\n"
 				},
 				form: {
