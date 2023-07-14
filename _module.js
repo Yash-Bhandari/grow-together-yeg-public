@@ -4915,7 +4915,7 @@ function create_fragment$6(ctx) {
 							"html": "<p>Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of dense infill housing far outweigh any costs - it's not even close.</p>",
 							"markdown": "Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of dense infill housing far outweigh any costs - it's not even close.\n\n"
 						},
-						"link": { "url": "/", "label": "Learn More" },
+						"link": { "url": "/climate", "label": "Learn More" },
 						"image": {
 							"alt": "",
 							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/blatchford-edmonton4480-3524-jpg.webp1689306885316"
@@ -4927,7 +4927,10 @@ function create_fragment$6(ctx) {
 							"html": "<p>Housing shortages have sent rents sky high across the country. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.</p>",
 							"markdown": "Housing shortages have sent rents sky high across the country. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.\n\n"
 						},
-						"link": { "url": "/", "label": "Learn More" },
+						"link": {
+							"url": "/affordability",
+							"label": "Learn More"
+						},
 						"image": {
 							"alt": "",
 							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/low-rise-apartments.jpg1689307055131"
