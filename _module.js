@@ -4915,16 +4915,14 @@ function create_fragment$6(ctx) {
 						},
 						"image": {
 							"alt": "",
-							"src": "https://images.unsplash.com/photo-1668605152742-e9718104d281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
-							"url": "https://images.unsplash.com/photo-1668605152742-e9718104d281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
-							"size": null
+							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/suburban%20construction.jpg1689323638220"
 						},
 						"title": "Financial Sustainability"
 					},
 					{
 						"body": {
-							"html": "<p>Building denser housing is the most impactful thing a city can do to reduce its GHG emissions. You need more than 200 mature trees to offset the emissions of a single extra vehicle on the road.</p>",
-							"markdown": "Building denser housing is the most impactful thing a city can do to reduce its GHG emissions. You need more than 200 mature trees to offset the emissions of a single extra vehicle on the road.\n\n"
+							"html": "<p>Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of higher density infill housing far outweighs its cost - it's not even close.</p>",
+							"markdown": "Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of higher density infill housing far outweighs its cost - it's not even close.\n\n"
 						},
 						"link": { "url": "/", "label": "Learn More" },
 						"image": {
@@ -4935,8 +4933,8 @@ function create_fragment$6(ctx) {
 					},
 					{
 						"body": {
-							"html": "<p>Making it easier to build middle density housing will boost housing supply and help keep rents low.</p>",
-							"markdown": "Making it easier to build middle density housing will boost housing supply and help keep rents low.\n\n"
+							"html": "<p>Housing shortages have caused rents to skyrocket nationwide. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.</p>",
+							"markdown": "Housing shortages have caused rents to skyrocket nationwide. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.\n\n"
 						},
 						"link": { "url": "/", "label": "Learn More" },
 						"image": {
