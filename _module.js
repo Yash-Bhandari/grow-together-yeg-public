@@ -4839,7 +4839,7 @@ function create_fragment$6(ctx) {
 					"size": 1
 				},
 				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. "
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan."
 			}
 		});
 
@@ -4852,14 +4852,14 @@ function create_fragment$6(ctx) {
 					"size": 1
 				},
 				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. ",
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				background: {
 					"alt": "",
 					"src": "",
 					"url": "",
 					"size": null
 				},
-				headline: "Edmonton's new zoning bylaw will help us fight climate change, lower taxes and keep the city affordable.",
+				headline: "Edmonton's new zoning bylaw will help fight climate change, fix our finances and keep the city affordable. ",
 				logo: {
 					"image": {
 						"alt": "",
@@ -4893,12 +4893,12 @@ function create_fragment$6(ctx) {
 					"size": 1
 				},
 				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. ",
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				teasers: [
 					{
 						"body": {
-							"html": "<p>Edmonton loses money on every new suburb that's built. If we allow new housing in areas where infrastructure already exists, we can bolster the city's revenues and help keep property taxes low.</p>",
-							"markdown": "Edmonton loses money on every new suburb that's built. If we allow new housing in areas where infrastructure already exists, we can bolster the city's revenues and help keep property taxes low.\n\n"
+							"html": "<p>Edmonton loses money on every new suburb that's built. If we allow new housing in areas where infrastructure already exists, we can bolster the city's revenues, improving our services while keeping property taxes low.</p>",
+							"markdown": "Edmonton loses money on every new suburb that's built. If we allow new housing in areas where infrastructure already exists, we can bolster the city's revenues, improving our services while keeping property taxes low.\n\n"
 						},
 						"link": {
 							"url": "/fiscal-sustainability",
@@ -4912,8 +4912,8 @@ function create_fragment$6(ctx) {
 					},
 					{
 						"body": {
-							"html": "<p>Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of dense infill housing far outweigh any costs - it's not even close.</p>",
-							"markdown": "Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of dense infill housing far outweigh any costs - it's not even close.\n\n"
+							"html": "<p>Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of dense infill housing both preserve invaluable natural areas and massively reduce energy usage.</p>",
+							"markdown": "Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of dense infill housing both preserve invaluable natural areas and massively reduce energy usage.\n\n"
 						},
 						"link": { "url": "/climate", "label": "Learn More" },
 						"image": {
@@ -4924,8 +4924,8 @@ function create_fragment$6(ctx) {
 					},
 					{
 						"body": {
-							"html": "<p>Housing shortages have sent rents sky high across the country. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.</p>",
-							"markdown": "Housing shortages have sent rents sky high across the country. Permitting middle density housing in more places will boost the supply of housing and help keep rents low.\n\n"
+							"html": "<p>Housing shortages have resulted in sky-high housing costs across the country. Allowing more homes in more places will boost the supply of housing and help bring costs under control.</p>",
+							"markdown": "Housing shortages have resulted in sky-high housing costs across the country. Allowing more homes in more places will boost the supply of housing and help bring costs under control.\n\n"
 						},
 						"link": {
 							"url": "/affordability",
@@ -4950,11 +4950,11 @@ function create_fragment$6(ctx) {
 					"size": 1
 				},
 				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. ",
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				heading: "Who We Are",
 				body: {
-					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p>\n<p>Our members are not employed in the development industry and we do not receive any funding from developer groups.</p>",
-					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\nOur members are not employed in the development industry and we do not receive any funding from developer groups.\n\n"
+					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p>",
+					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\n"
 				},
 				link: { "url": "/about", "text": "About Us" }
 			}
@@ -4969,7 +4969,7 @@ function create_fragment$6(ctx) {
 					"size": 1
 				},
 				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. ",
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				heading: "Get Involved",
 				subheading: "Follow us on social media or join our mailing list to stay up to date on Zoning Bylaw Renewal, events and volunteer opportunities. ",
 				social: [
@@ -5005,7 +5005,7 @@ function create_fragment$6(ctx) {
 					"size": 1
 				},
 				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. "
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan."
 			}
 		});
 

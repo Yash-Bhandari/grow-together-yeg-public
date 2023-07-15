@@ -3905,8 +3905,8 @@ function create_fragment$4(ctx) {
 
 function instance$4($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
-	let { data } = $$props;
 	let { content } = $$props;
+	let { data } = $$props;
 
 	const moneyFormatter = new Intl.NumberFormat('en-US',
 	{
@@ -3917,8 +3917,8 @@ function instance$4($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
-		if ('data' in $$props) $$invalidate(0, data = $$props.data);
 		if ('content' in $$props) $$invalidate(3, content = $$props.content);
+		if ('data' in $$props) $$invalidate(0, data = $$props.data);
 	};
 
 	return [data, moneyFormatter, favicon, content];
@@ -3927,7 +3927,7 @@ function instance$4($$self, $$props, $$invalidate) {
 class Component$4 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$4, create_fragment$4, safe_not_equal, { favicon: 2, data: 0, content: 3 });
+		init(this, options, instance$4, create_fragment$4, safe_not_equal, { favicon: 2, content: 3, data: 0 });
 	}
 }
 
@@ -4080,8 +4080,8 @@ function create_fragment$6(ctx) {
 					"size": 1
 				},
 				content: {
-					"html": "<h3>Rents are reaching crisis levels in major Canadian cities due to a crippling shortage of housing</h3><p>In Vancouver, where the vacancy rate is <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/\">under 1%</a>, it costs almost <strong>$3000/month for a 1 bedroom apartment</strong>. In Calgary, the average rent for a 1 bedroom is up to $1687/month - that's about <strong>3 weeks of pre-tax earnings</strong> for a full time minimum wage worker.</p>",
-					"markdown": "### Rents are reaching crisis levels in major Canadian cities due to a crippling shortage of housing\n\nIn Vancouver, where the vacancy rate is [under 1%](<https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/>), it costs almost **$3000/month for a 1 bedroom apartment**. In Calgary, the average rent for a 1 bedroom is up to $1687/month - that's about **3 weeks of pre-tax earnings** for a full time minimum wage worker.\n\n"
+					"html": "<h3>Canada's massive housing shortage is making life unaffordable for everyone</h3><p>In Vancouver, where the vacancy rate is <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link link\" href=\"https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/\">under 1%</a>, it costs almost <strong>$3000/month to rent a 1 bedroom apartment</strong>. Even in Calgary, the average rent for a 1 bedroom is now up to $1687/month - that's about <strong>3 weeks of pre-tax earnings</strong> for a full time minimum wage worker.</p>",
+					"markdown": "### Canada's massive housing shortage is making life unaffordable for everyone\n\nIn Vancouver, where the vacancy rate is [under 1%](<https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/>), it costs almost **$3000/month to rent a 1 bedroom apartment**. Even in Calgary, the average rent for a 1 bedroom is now up to $1687/month - that's about **3 weeks of pre-tax earnings** for a full time minimum wage worker.\n\n"
 				}
 			}
 		});
@@ -4094,102 +4094,37 @@ function create_fragment$6(ctx) {
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
 				},
-				data: [
-					{
-						"": "",
-						"v": "",
-						"va": "",
-						"vac": "",
-						"city": "Vancouver",
-						"rent": "",
-						"vaca": "",
-						"vacan": "",
-						"change": "",
-						"vacanc": "",
-						"vacancy": "",
-						"vacancy2": "",
-						"vacancy20": "",
-						"vacancy202": "",
-						"vacancy2021": "",
-						"vacancy2022": ""
-					},
-					{
-						"": "",
-						"v": "",
-						"va": "",
-						"vac": "",
-						"city": "Toronto",
-						"rent": "",
-						"vaca": "",
-						"vacan": "",
-						"change": "",
-						"vacanc": "",
-						"vacancy": "",
-						"vacancy2": "",
-						"vacancy20": "",
-						"vacancy202": "",
-						"vacancy2021": "",
-						"vacancy2022": ""
-					},
-					{
-						"": "",
-						"v": "",
-						"va": "",
-						"vac": "",
-						"city": "Ottawa",
-						"rent": "",
-						"vaca": "",
-						"vacan": "",
-						"change": "",
-						"vacanc": "",
-						"vacancy": "",
-						"vacancy2": "",
-						"vacancy20": "",
-						"vacancy202": "",
-						"vacancy2021": "",
-						"vacancy2022": ""
-					},
-					{
-						"": "",
-						"v": "",
-						"va": "",
-						"vac": "",
-						"city": "Calgary",
-						"rent": "",
-						"vaca": "",
-						"vacan": "",
-						"change": "",
-						"vacanc": "",
-						"vacancy": "",
-						"vacancy2": "",
-						"vacancy20": "",
-						"vacancy202": "",
-						"vacancy2021": "",
-						"vacancy2022": ""
-					},
-					{
-						"": "",
-						"v": "",
-						"va": "",
-						"vac": "",
-						"city": "Edmonton",
-						"rent": "",
-						"vaca": "",
-						"vacan": "",
-						"change": "",
-						"vacanc": "",
-						"vacancy": "",
-						"vacancy2": "",
-						"vacancy20": "",
-						"vacancy202": "",
-						"vacancy2021": "",
-						"vacancy2022": ""
-					}
-				],
 				content: {
 					"html": "<p>According to Rentals.ca, the cost of housing has reached astronomical levels.</p>",
 					"markdown": "According to Rentals.ca, the cost of housing has reached astronomical levels."
-				}
+				},
+				data: [
+					{
+						"city": "Vancouver",
+						"rent": "2945",
+						"change": "18.1"
+					},
+					{
+						"city": "Toronto",
+						"rent": "2572",
+						"change": "14.1"
+					},
+					{
+						"city": "Ottawa",
+						"rent": "1995",
+						"change": "13.4"
+					},
+					{
+						"city": "Calgary",
+						"rent": "1687",
+						"change": "12.7"
+					},
+					{
+						"city": "Edmonton",
+						"rent": "1196",
+						"change": "11.5"
+					}
+				]
 			}
 		});
 
