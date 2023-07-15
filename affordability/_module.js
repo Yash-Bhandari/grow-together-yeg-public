@@ -3666,7 +3666,7 @@ function get_each_context$1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (71:2) {#each data as city}
+// (75:2) {#each data as city}
 function create_each_block$1(ctx) {
 	let tr;
 	let td0;
@@ -3724,10 +3724,10 @@ function create_each_block$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(td0, "class", "svelte-qi4p9k");
-			attr(td1, "class", "numericCell svelte-qi4p9k");
-			attr(td2, "class", "numericCell svelte-qi4p9k");
-			attr(tr, "class", "svelte-qi4p9k");
+			attr(td0, "class", "svelte-yi0kic");
+			attr(td1, "class", "numericCell svelte-yi0kic");
+			attr(td2, "class", "numericCell svelte-yi0kic");
+			attr(tr, "class", "svelte-yi0kic");
 		},
 		m(target, anchor) {
 			insert_hydration(target, tr, anchor);
@@ -3758,7 +3758,7 @@ function create_fragment$4(ctx) {
 	let div1;
 	let div0;
 	let table;
-	let tr;
+	let tr0;
 	let th0;
 	let t0;
 	let t1;
@@ -3769,6 +3769,13 @@ function create_fragment$4(ctx) {
 	let t4;
 	let t5;
 	let tbody;
+	let t6;
+	let tfoot;
+	let tr1;
+	let td;
+	let t7;
+	let a;
+	let t8;
 	let each_value = /*data*/ ctx[0];
 	let each_blocks = [];
 
@@ -3781,7 +3788,7 @@ function create_fragment$4(ctx) {
 			div1 = element("div");
 			div0 = element("div");
 			table = element("table");
-			tr = element("tr");
+			tr0 = element("tr");
 			th0 = element("th");
 			t0 = text("City");
 			t1 = space();
@@ -3797,6 +3804,13 @@ function create_fragment$4(ctx) {
 				each_blocks[i].c();
 			}
 
+			t6 = space();
+			tfoot = element("tfoot");
+			tr1 = element("tr");
+			td = element("td");
+			t7 = text("Data source: ");
+			a = element("a");
+			t8 = text("Rentals.ca July Rent Report");
 			this.h();
 		},
 		l(nodes) {
@@ -3806,23 +3820,23 @@ function create_fragment$4(ctx) {
 			var div0_nodes = children(div0);
 			table = claim_element(div0_nodes, "TABLE", { class: true });
 			var table_nodes = children(table);
-			tr = claim_element(table_nodes, "TR", { class: true });
-			var tr_nodes = children(tr);
-			th0 = claim_element(tr_nodes, "TH", { class: true });
+			tr0 = claim_element(table_nodes, "TR", { class: true });
+			var tr0_nodes = children(tr0);
+			th0 = claim_element(tr0_nodes, "TH", { class: true });
 			var th0_nodes = children(th0);
 			t0 = claim_text(th0_nodes, "City");
 			th0_nodes.forEach(detach);
-			t1 = claim_space(tr_nodes);
-			th1 = claim_element(tr_nodes, "TH", { class: true });
+			t1 = claim_space(tr0_nodes);
+			th1 = claim_element(tr0_nodes, "TH", { class: true });
 			var th1_nodes = children(th1);
 			t2 = claim_text(th1_nodes, "Rent (1 Bed)");
 			th1_nodes.forEach(detach);
-			t3 = claim_space(tr_nodes);
-			th2 = claim_element(tr_nodes, "TH", { class: true });
+			t3 = claim_space(tr0_nodes);
+			th2 = claim_element(tr0_nodes, "TH", { class: true });
 			var th2_nodes = children(th2);
 			t4 = claim_text(th2_nodes, "Change since last year");
 			th2_nodes.forEach(detach);
-			tr_nodes.forEach(detach);
+			tr0_nodes.forEach(detach);
 			t5 = claim_space(table_nodes);
 			tbody = claim_element(table_nodes, "TBODY", { class: true });
 			var tbody_nodes = children(tbody);
@@ -3832,19 +3846,39 @@ function create_fragment$4(ctx) {
 			}
 
 			tbody_nodes.forEach(detach);
+			t6 = claim_space(table_nodes);
+			tfoot = claim_element(table_nodes, "TFOOT", {});
+			var tfoot_nodes = children(tfoot);
+			tr1 = claim_element(tfoot_nodes, "TR", { class: true });
+			var tr1_nodes = children(tr1);
+			td = claim_element(tr1_nodes, "TD", { colspan: true, class: true });
+			var td_nodes = children(td);
+			t7 = claim_text(td_nodes, "Data source: ");
+			a = claim_element(td_nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t8 = claim_text(a_nodes, "Rentals.ca July Rent Report");
+			a_nodes.forEach(detach);
+			td_nodes.forEach(detach);
+			tr1_nodes.forEach(detach);
+			tfoot_nodes.forEach(detach);
 			table_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(th0, "class", "svelte-qi4p9k");
-			attr(th1, "class", "svelte-qi4p9k");
-			attr(th2, "class", "svelte-qi4p9k");
-			attr(tr, "class", "svelte-qi4p9k");
-			attr(tbody, "class", "svelte-qi4p9k");
-			attr(table, "class", "svelte-qi4p9k");
-			attr(div0, "class", "container svelte-qi4p9k");
+			attr(th0, "class", "svelte-yi0kic");
+			attr(th1, "class", "svelte-yi0kic");
+			attr(th2, "class", "svelte-yi0kic");
+			attr(tr0, "class", "svelte-yi0kic");
+			attr(tbody, "class", "svelte-yi0kic");
+			attr(a, "href", "https://rentals.ca/national-rent-report");
+			attr(a, "class", "svelte-yi0kic");
+			attr(td, "colspan", "3");
+			attr(td, "class", "svelte-yi0kic");
+			attr(tr1, "class", "svelte-yi0kic");
+			attr(table, "class", "svelte-yi0kic");
+			attr(div0, "class", "container svelte-yi0kic");
 			attr(div1, "class", "section");
 			attr(div1, "id", "section-d24abdc6");
 		},
@@ -3852,14 +3886,14 @@ function create_fragment$4(ctx) {
 			insert_hydration(target, div1, anchor);
 			append_hydration(div1, div0);
 			append_hydration(div0, table);
-			append_hydration(table, tr);
-			append_hydration(tr, th0);
+			append_hydration(table, tr0);
+			append_hydration(tr0, th0);
 			append_hydration(th0, t0);
-			append_hydration(tr, t1);
-			append_hydration(tr, th1);
+			append_hydration(tr0, t1);
+			append_hydration(tr0, th1);
 			append_hydration(th1, t2);
-			append_hydration(tr, t3);
-			append_hydration(tr, th2);
+			append_hydration(tr0, t3);
+			append_hydration(tr0, th2);
 			append_hydration(th2, t4);
 			append_hydration(table, t5);
 			append_hydration(table, tbody);
@@ -3869,6 +3903,14 @@ function create_fragment$4(ctx) {
 					each_blocks[i].m(tbody, null);
 				}
 			}
+
+			append_hydration(table, t6);
+			append_hydration(table, tfoot);
+			append_hydration(tfoot, tr1);
+			append_hydration(tr1, td);
+			append_hydration(td, t7);
+			append_hydration(td, a);
+			append_hydration(a, t8);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*data, moneyFormatter*/ 3) {
@@ -3959,7 +4001,7 @@ function create_fragment$5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-7037ku");
+			attr(div0, "class", "section-container content svelte-14tw24l");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-b0f426ea");
@@ -4080,8 +4122,8 @@ function create_fragment$6(ctx) {
 					"size": 1
 				},
 				content: {
-					"html": "<h3>Canada's massive housing shortage is making life unaffordable for everyone</h3><p>In Vancouver, where the vacancy rate is <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link link\" href=\"https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/\">under 1%</a>, it costs almost <strong>$3000/month to rent a 1 bedroom apartment</strong>. Even in Calgary, the average rent for a 1 bedroom is now up to $1687/month - that's about <strong>3 weeks of pre-tax earnings</strong> for a full time minimum wage worker.</p>",
-					"markdown": "### Canada's massive housing shortage is making life unaffordable for everyone\n\nIn Vancouver, where the vacancy rate is [under 1%](<https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/>), it costs almost **$3000/month to rent a 1 bedroom apartment**. Even in Calgary, the average rent for a 1 bedroom is now up to $1687/month - that's about **3 weeks of pre-tax earnings** for a full time minimum wage worker.\n\n"
+					"html": "<h3>Rents are reaching crisis levels due to Canada's massive housing shortage</h3><p>In Vancouver, where the vacancy rate is <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/\">under 1%</a>, it costs almost <strong>$3000/month to rent a 1 bedroom apartment</strong>. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://economicdashboard.alberta.ca/dashboard/net-migration/\">record numbers</a> in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.</p><p>In fact, housing costs here have already started to surge. In Calgary, the average rent for a 1 bedroom apartment is now up to $1687/month—that's about 3 weeks of pre-tax earnings for a full time minimum wage worker. And in just the past year, <strong>rents in Edmonton have risen 13%</strong> while <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://edmontonjournal.com/news/local-news/rents-may-rise-in-edmonton-as-vacancy-rate-hits-10-year-low-affordability-crunched\">our vacancy rate dropped from 7% to 4%, reaching a 10 year low</a>.</p>",
+					"markdown": "### Rents are reaching crisis levels due to Canada's massive housing shortage\n\nIn Vancouver, where the vacancy rate is [under 1%](<https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/>), it costs almost **$3000/month to rent a 1 bedroom apartment**. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at [record numbers](<https://economicdashboard.alberta.ca/dashboard/net-migration/>) in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.\n\nIn fact, housing costs here have already started to surge. In Calgary, the average rent for a 1 bedroom apartment is now up to $1687/month—that's about 3 weeks of pre-tax earnings for a full time minimum wage worker. And in just the past year, **rents in Edmonton have risen 13%** while [our vacancy rate dropped from 7% to 4%, reaching a 10 year low](<https://edmontonjournal.com/news/local-news/rents-may-rise-in-edmonton-as-vacancy-rate-hits-10-year-low-affordability-crunched>).\n\n"
 				}
 			}
 		});
@@ -4137,8 +4179,8 @@ function create_fragment$6(ctx) {
 					"size": 1
 				},
 				content: {
-					"html": "<h3>The new zoning bylaw will boost the supply of housing, slowing down rent increases</h3><p></p>",
-					"markdown": "### The new zoning bylaw will boost the supply of housing, slowing down rent increases\n\n\n\n"
+					"html": "<p>The crux of the issue is that we don't have enough homes. In Canada, <a href=\"https://www.statcan.gc.ca/en/subjects-start/population_and_demography/40-million\"><strong>we build fewer houses today than we did back in 1976</strong></a> even though <a href=\"https://www.statcan.gc.ca/en/subjects-start/population_and_demography/40-million\">population growth has more than tripled</a>. We have the fewest houses per person <a href=\"https://businesscouncilab.com/insights-category/economic-insights/weekly-econ-minute-canada-housing-shortage/#:~:text=In%20fact%2C%20Canada%20has%20the,480%20dwellings%20per%201%2C000%20residents.\">out of all G7 countries</a>. <a href=\"https://doodles.mountainmath.ca/blog/2019/08/19/running-on-empties/\">There isn't some massive secret supply of vacant homes</a> owned by investors. Canada just doesn't have enough homes. </p>\n<h3 id=\"relaxingzoningrulesbooststhesupplyofhousingslowingdownrentincreases\">Relaxing zoning rules boosts the supply of housing, slowing down rent increases</h3>\n<p>For decades, Canadian cities have outlawed medium density housing by default on the vast majority of residential land. To build anything denser than a single family home requires a long, risky and expensive rezoning process. If Edmonton is to remain affordable, then it needs to remove barriers to building new housing.</p>\n<h3 id=\"casestudyaucklandnz\">Case Study: Auckland, NZ</h3>\n<p>Auckland, New Zealand is a rare example of a city that undertook zoning reform as as comprehensive as ours. Since upzoning, their housing starts have skyrocketed and their rents stayed flat (adjusted for inflation), even though they rose rapidly in the rest of the country. <a href=\"https://cdn.auckland.ac.nz/assets/business/about/our-research/research-institutes-and-centres/Economic-Policy-Centre--EPC-/006WP%20-%204.pdf\">Sophisticated analysis from the University of Auckland</a> shows that ~21,000 extra homes were built over just 5 years as a direct result of the zoning reform. That’s about 4% of their entire housing supply that only exists because zoning laws in Auckland had been relaxed.</p>\n<p>This chart shows how rents have changed in Auckland since they updated their zoning bylaw compared to the rest of New Zealand. <a href=\"https://onefinaleffort.com/auckland\">Source</a>\n<img src=\"https://res.cloudinary.com/dbnijop5c/image/upload/v1689461104/Screenshot_2023-07-15_164425_iphids.png\" alt=\"Rents\" /></p>\n<p>This chart shows how housing starts have skyrocketed in Auckland since they updated their zoning bylaw. <a href=\"https://onefinaleffort.com/auckland\">Source</a>\n<img src=\"https://res.cloudinary.com/dbnijop5c/image/upload/v1689461386/auckland-housing-starts_ffjno9.png\" alt=\"Housing Starts\" /></p>",
+					"markdown": "The crux of the issue is that we don't have enough homes. In Canada, [**we build fewer houses today than we did back in 1976**](<https://www.statcan.gc.ca/en/subjects-start/population_and_demography/40-million>) even though [population growth has more than tripled](<https://www.statcan.gc.ca/en/subjects-start/population_and_demography/40-million>). We have the fewest houses per person [out of all G7 countries](<https://businesscouncilab.com/insights-category/economic-insights/weekly-econ-minute-canada-housing-shortage/#:~:text=In%20fact%2C%20Canada%20has%20the,480%20dwellings%20per%201%2C000%20residents.>). [There isn't some massive secret supply of vacant homes](<https://doodles.mountainmath.ca/blog/2019/08/19/running-on-empties/>) owned by investors. Canada just doesn't have enough homes. \n\n### Relaxing zoning rules boosts the supply of housing, slowing down rent increases\n\nFor decades, Canadian cities have outlawed medium density housing by default on the vast majority of residential land. To build anything denser than a single family home requires a long, risky and expensive rezoning process. If Edmonton is to remain affordable, then it needs to remove barriers to building new housing.\n\n### Case Study: Auckland, NZ\n\nAuckland, New Zealand is a rare example of a city that undertook zoning reform as as comprehensive as ours. Since upzoning, their housing starts have skyrocketed and their rents stayed flat (adjusted for inflation), even though they rose rapidly in the rest of the country. [Sophisticated analysis from the University of Auckland](<https://cdn.auckland.ac.nz/assets/business/about/our-research/research-institutes-and-centres/Economic-Policy-Centre--EPC-/006WP%20-%204.pdf>) shows that \\~21,000 extra homes were built over just 5 years as a direct result of the zoning reform. That’s about 4% of their entire housing supply that only exists because zoning laws in Auckland had been relaxed.\n\nThis chart shows how rents have changed in Auckland since they updated their zoning bylaw compared to the rest of New Zealand. [Source](https://onefinaleffort.com/auckland)\n![Rents](https://res.cloudinary.com/dbnijop5c/image/upload/v1689461104/Screenshot_2023-07-15_164425_iphids.png)\n\nThis chart shows how housing starts have skyrocketed in Auckland since they updated their zoning bylaw. [Source](https://onefinaleffort.com/auckland)\n![Housing Starts](https://res.cloudinary.com/dbnijop5c/image/upload/v1689461386/auckland-housing-starts_ffjno9.png)\n"
 				}
 			}
 		});
