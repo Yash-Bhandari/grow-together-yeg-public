@@ -4844,7 +4844,7 @@ function create_fragment$6(ctx) {
 	component_0 = new Component({
 			props: {
 				favicon: {
-					"alt": "",
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
@@ -4857,7 +4857,7 @@ function create_fragment$6(ctx) {
 	component_1 = new Component$2({
 			props: {
 				favicon: {
-					"alt": "",
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
@@ -4895,7 +4895,7 @@ function create_fragment$6(ctx) {
 	component_2 = new Component$3({
 			props: {
 				favicon: {
-					"alt": "",
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
@@ -4903,6 +4903,18 @@ function create_fragment$6(ctx) {
 				title: "Grow Together Edmonton",
 				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				teasers: [
+					{
+						"body": {
+							"html": "<p>Increasing density is the most impactful thing a city can do to reduce its GHG emissions. Allowing dense infill housing will help us reduce transport and heating emissions while preserving invaluable natural areas.</p>",
+							"markdown": "Increasing density is the most impactful thing a city can do to reduce its GHG emissions. Allowing dense infill housing will help us reduce transport and heating emissions while preserving invaluable natural areas.\n\n"
+						},
+						"link": { "url": "/climate", "label": "Learn More" },
+						"image": {
+							"alt": "",
+							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/blatchford-edmonton4480-3524-jpg.webp1689306885316"
+						},
+						"title": "Climate Action"
+					},
 					{
 						"body": {
 							"html": "<p>Edmonton loses money on every new suburb that's built. If we allow new housing in areas where infrastructure already exists, we can bolster the city's revenues, improving our services while keeping property taxes low.</p>",
@@ -4917,18 +4929,6 @@ function create_fragment$6(ctx) {
 							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/suburban%20construction.jpg1689323638220"
 						},
 						"title": "Financial Sustainability"
-					},
-					{
-						"body": {
-							"html": "<p>Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of dense infill housing both preserve invaluable natural areas and massively reduce energy usage.</p>",
-							"markdown": "Increasing density is the most impactful thing a city can do to reduce its GHG emissions. The environmental benefits of dense infill housing both preserve invaluable natural areas and massively reduce energy usage.\n\n"
-						},
-						"link": { "url": "/climate", "label": "Learn More" },
-						"image": {
-							"alt": "",
-							"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/blatchford-edmonton4480-3524-jpg.webp1689306885316"
-						},
-						"title": "Climate Action"
 					},
 					{
 						"body": {
@@ -4952,7 +4952,7 @@ function create_fragment$6(ctx) {
 	component_3 = new Component$4({
 			props: {
 				favicon: {
-					"alt": "",
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
@@ -4971,7 +4971,7 @@ function create_fragment$6(ctx) {
 	component_4 = new Component$5({
 			props: {
 				favicon: {
-					"alt": "",
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
@@ -5007,7 +5007,7 @@ function create_fragment$6(ctx) {
 	component_5 = new Component$6({
 			props: {
 				favicon: {
-					"alt": "",
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
