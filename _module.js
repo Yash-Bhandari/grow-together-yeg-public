@@ -4990,7 +4990,17 @@ function create_fragment$6(ctx) {
 					},
 					{
 						"icon": "mdi:instagram",
-						"link": { "url": "/", "label": "Instagram" }
+						"link": {
+							"url": "https://www.instagram.com/growtogetheryeg/",
+							"label": "Instagram"
+						}
+					},
+					{
+						"icon": "tabler:brand-threads",
+						"link": {
+							"url": "https://www.threads.net/@growtogetheryeg",
+							"label": "Threads"
+						}
 					}
 				],
 				inputs: [
