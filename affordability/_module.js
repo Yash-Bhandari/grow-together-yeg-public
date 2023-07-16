@@ -4012,7 +4012,7 @@ function create_fragment$5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-14tw24l");
+			attr(div0, "class", "section-container content svelte-2yhie8");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-b0f426ea");
