@@ -4874,8 +4874,8 @@ function create_fragment$6(ctx) {
 				logo: {
 					"image": {
 						"alt": "",
-						"src": "",
-						"url": "",
+						"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689478011/housing_logo_big_rbothm.png",
+						"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689478011/housing_logo_big_rbothm.png",
 						"size": null
 					},
 					"title": "Grow Together YEG"
