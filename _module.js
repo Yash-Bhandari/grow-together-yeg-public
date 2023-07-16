@@ -4911,7 +4911,7 @@ function create_fragment$6(ctx) {
 						"link": { "url": "/climate", "label": "Learn More" },
 						"image": {
 							"alt": "Handsome brick rowhouse",
-							"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689476148/blatchford-edmonton4480-3524-jpg_vtfy5m.webp"
+							"url": "https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689476148/blatchford-edmonton4480-3524-jpg_vtfy5m.webp"
 						},
 						"title": "Climate Action"
 					},
@@ -4926,7 +4926,7 @@ function create_fragment$6(ctx) {
 						},
 						"image": {
 							"alt": "Suburban development",
-							"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689476135/suburban_construction_upxstz.jpg"
+							"url": "https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689476135/suburban_construction_upxstz.jpg"
 						},
 						"title": "Financial Sustainability"
 					},
@@ -4941,7 +4941,7 @@ function create_fragment$6(ctx) {
 						},
 						"image": {
 							"alt": "Low rise apartment",
-							"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689476153/low-rise-apartments_k7lbqj.jpg"
+							"url": "https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689476153/low-rise-apartments_k7lbqj.jpg"
 						},
 						"title": "Affordability"
 					}
