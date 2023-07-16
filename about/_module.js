@@ -4218,8 +4218,8 @@ function create_fragment$4(ctx) {
 						"name": "David Berry",
 						"image": {
 							"alt": "",
-							"src": "https://picsum.photos/400/400?blur=10",
-							"url": "https://picsum.photos/400/400?blur=10",
+							"src": "",
+							"url": "",
 							"size": null
 						},
 						"title": "A Westmount resident and community league volunteer",
@@ -4229,20 +4229,22 @@ function create_fragment$4(ctx) {
 						"name": "Yash Bhandari",
 						"image": {
 							"alt": "",
-							"url": "https://picsum.photos/400/400?blur=10"
+							"src": "",
+							"url": "",
+							"size": null
 						},
-						"title": "Klairvatten Resident",
+						"title": "A Klairvatten resident and software developer",
 						"social_links": []
 					},
 					{
 						"name": "Eric O'Brien",
 						"image": {
 							"alt": "Eric ",
-							"src": "https://picsum.photos/400/400?blur=10",
-							"url": "https://picsum.photos/400/400?blur=10",
+							"src": "",
+							"url": "",
 							"size": null
 						},
-						"title": "North Glenora Resident",
+						"title": "A North Glenora Resident and mattress salesman",
 						"social_links": []
 					}
 				]
