@@ -407,9 +407,6 @@ function set_style(node, key, value, important) {
         node.style.setProperty(key, value, important ? 'important' : '');
     }
 }
-function toggle_class(element, name, toggle) {
-    element.classList[toggle ? 'add' : 'remove'](name);
-}
 function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
     const e = document.createEvent('CustomEvent');
     e.initCustomEvent(type, bubbles, cancelable, detail);
@@ -2984,7 +2981,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (103:31) 
+// (104:31) 
 function create_if_block_4(ctx) {
 	let img;
 	let img_src_value;
@@ -3021,7 +3018,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (101:6) {#if logo.title}
+// (102:6) {#if logo.title}
 function create_if_block_3(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
@@ -3045,7 +3042,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (108:6) {#each site_nav as { link }}
+// (109:6) {#each site_nav as { link }}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[7].label + "";
@@ -3066,9 +3063,8 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-136lx2d");
+			attr(a, "class", "link svelte-1grguq5");
 			attr(a, "href", a_href_value = /*link*/ ctx[7].url);
-			toggle_class(a, "active", /*link*/ ctx[7].url === window.location.pathname);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -3080,10 +3076,6 @@ function create_each_block_1(ctx) {
 			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[7].url)) {
 				attr(a, "href", a_href_value);
 			}
-
-			if (dirty & /*site_nav, window*/ 2) {
-				toggle_class(a, "active", /*link*/ ctx[7].url === window.location.pathname);
-			}
 		},
 		d(detaching) {
 			if (detaching) detach(a);
@@ -3091,7 +3083,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (120:31) 
+// (118:31) 
 function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
@@ -3128,7 +3120,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (118:6) {#if logo.title}
+// (116:6) {#if logo.title}
 function create_if_block_1$1(ctx) {
 	let t_value = /*logo*/ ctx[0].title + "";
 	let t;
@@ -3152,7 +3144,7 @@ function create_if_block_1$1(ctx) {
 	};
 }
 
-// (130:4) {#if mobileNavOpen}
+// (128:4) {#if mobileNavOpen}
 function create_if_block$1(ctx) {
 	let nav;
 	let t;
@@ -3209,9 +3201,9 @@ function create_if_block$1(ctx) {
 		h() {
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Close Navigation");
-			attr(button, "class", "svelte-136lx2d");
+			attr(button, "class", "svelte-1grguq5");
 			attr(nav, "id", "popup");
-			attr(nav, "class", "svelte-136lx2d");
+			attr(nav, "class", "svelte-1grguq5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -3285,7 +3277,7 @@ function create_if_block$1(ctx) {
 	};
 }
 
-// (132:8) {#each site_nav as { link }}
+// (130:8) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[7].label + "";
@@ -3438,17 +3430,17 @@ function create_fragment$2(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "logo svelte-136lx2d");
-			attr(nav, "class", "svelte-136lx2d");
-			attr(div0, "class", "desktop-nav svelte-136lx2d");
+			attr(a0, "class", "logo svelte-1grguq5");
+			attr(nav, "class", "svelte-1grguq5");
+			attr(div0, "class", "desktop-nav svelte-1grguq5");
 			attr(a1, "href", "/");
-			attr(a1, "class", "logo svelte-136lx2d");
+			attr(a1, "class", "logo svelte-1grguq5");
 			attr(button, "id", "open");
 			attr(button, "aria-label", "Open mobile navigation");
-			attr(div1, "class", "mobile-nav svelte-136lx2d");
-			attr(header, "class", "section-container svelte-136lx2d");
+			attr(div1, "class", "mobile-nav svelte-1grguq5");
+			attr(header, "class", "section-container svelte-1grguq5");
 			attr(div2, "class", "section");
-			attr(div2, "id", "section-c3f93634");
+			attr(div2, "id", "section-e8c503b1");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -3494,7 +3486,7 @@ function create_fragment$2(ctx) {
 				}
 			}
 
-			if (dirty & /*site_nav, window*/ 2) {
+			if (dirty & /*site_nav*/ 2) {
 				each_value_1 = /*site_nav*/ ctx[1];
 				let i;
 
@@ -4360,30 +4352,22 @@ function create_fragment$5(ctx) {
 				logo: {
 					"image": {
 						"alt": "",
-						"src": "",
-						"url": "",
-						"size": null
+						"src": "https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg",
+						"url": "https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg",
+						"size": 3
 					},
 					"title": "Grow Together YEG"
 				},
 				site_nav: [
 					{
 						"link": {
-							"url": "https://primosites.vercel.app/theme-nonprofit",
-							"label": "Home"
+							"url": "/",
+							"label": "Home",
+							"active": false
 						}
 					},
 					{
-						"link": {
-							"url": "https://primosites.vercel.app/about",
-							"label": "About"
-						}
-					},
-					{
-						"link": {
-							"url": "https://primosites.vercel.app/blog",
-							"label": "Blog"
-						}
+						"link": { "url": "/about", "label": "About" }
 					}
 				]
 			}
