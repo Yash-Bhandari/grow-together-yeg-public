@@ -4726,13 +4726,13 @@ function create_fragment$7(ctx) {
 					"size": 1
 				},
 				logo: {
-					"title": "Grow Together YEG",
 					"image": {
 						"alt": "",
 						"src": "https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg",
 						"url": "https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg",
 						"size": 3
-					}
+					},
+					"title": "Grow Together YEG"
 				},
 				site_nav: [
 					{

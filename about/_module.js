@@ -4179,13 +4179,13 @@ function create_fragment$4(ctx) {
 				title: "Team",
 				description: "Our team members at the organization",
 				logo: {
-					"title": "Grow Together YEG",
 					"image": {
 						"alt": "",
 						"src": "https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg",
 						"url": "https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg",
 						"size": 3
-					}
+					},
+					"title": "Grow Together YEG"
 				},
 				site_nav: [
 					{
@@ -4211,7 +4211,7 @@ function create_fragment$4(ctx) {
 					"size": 1
 				},
 				title: "Team",
-				description: "Grow Together YEG is volunteer organization run by ordinary Edmontonians. We are passionate about housing, climate and urban vibrancy.",
+				description: "Grow Together YEG is volunteer organization run by ordinary Edmontonians. We are passionate about housing, climate and urban vibrancy. We are wholly independent and do not recieve any funding from the development industry or the City of Edmonton. ",
 				heading: "Who are we?",
 				people: [
 					{
@@ -4222,7 +4222,7 @@ function create_fragment$4(ctx) {
 							"url": "",
 							"size": null
 						},
-						"title": "A Westmount resident and community league volunteer",
+						"title": "A Westmount resident, community league volunteer and writer",
 						"social_links": []
 					},
 					{
