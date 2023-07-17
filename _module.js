@@ -4409,7 +4409,7 @@ function create_fragment$5(ctx) {
 		l(nodes) {
 			div15 = claim_element(nodes, "DIV", { class: true, id: true });
 			var div15_nodes = children(div15);
-			section = claim_element(div15_nodes, "SECTION", { class: true });
+			section = claim_element(div15_nodes, "SECTION", { class: true, id: true });
 			var section_nodes = children(section);
 			div2 = claim_element(section_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
@@ -4615,6 +4615,7 @@ function create_fragment$5(ctx) {
 			if (!src_url_equal(script1.src, script1_src_value = "https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128")) attr(script1, "src", script1_src_value);
 			attr(script1, "type", "text/javascript");
 			attr(section, "class", "section-container svelte-tdpo8v");
+			attr(section, "id", "take-action");
 			attr(div15, "class", "section");
 			attr(div15, "id", "section-97da4d56");
 		},
@@ -4870,7 +4871,7 @@ function create_fragment$6(ctx) {
 					"url": "",
 					"size": null
 				},
-				headline: "Edmonton's new zoning bylaw will help fight climate change, fix our finances and keep the city affordable. ",
+				headline: "Edmonton's new zoning bylaw will help us fight climate change, fix our finances and keep the city affordable. ",
 				logo: {
 					"image": {
 						"alt": "",
@@ -4884,8 +4885,14 @@ function create_fragment$6(ctx) {
 					{
 						"link": {
 							"url": "/about",
-							"label": "About",
+							"label": "About Us",
 							"active": false
+						}
+					},
+					{
+						"link": {
+							"label": "Take Action",
+							"url": "/#take-action"
 						}
 					}
 				]
