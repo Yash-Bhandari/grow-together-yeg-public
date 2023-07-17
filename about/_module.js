@@ -4208,6 +4208,12 @@ function create_fragment$4(ctx) {
 					},
 					{
 						"link": { "url": "/about", "label": "About" }
+					},
+					{
+						"link": {
+							"label": "Take Action",
+							"url": "/#take-action"
+						}
 					}
 				]
 			}

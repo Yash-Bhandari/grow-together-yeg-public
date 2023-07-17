@@ -4891,8 +4891,8 @@ function create_fragment$6(ctx) {
 					},
 					{
 						"link": {
-							"label": "Take Action",
-							"url": "/#take-action"
+							"url": "/#take-action",
+							"label": "Take Action"
 						}
 					}
 				]
