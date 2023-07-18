@@ -3642,209 +3642,52 @@ function get_each_context$1(ctx, list, i) {
 	return child_ctx;
 }
 
-function get_each_context_1$1(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[8] = list[i].link;
-	child_ctx[9] = list[i].icon;
-	return child_ctx;
-}
-
-// (100:6) {#if person.image.url}
-function create_if_block$2(ctx) {
-	let figure;
-	let img;
-	let img_alt_value;
-	let img_src_value;
-
-	return {
-		c() {
-			figure = element("figure");
-			img = element("img");
-			this.h();
-		},
-		l(nodes) {
-			figure = claim_element(nodes, "FIGURE", { class: true });
-			var figure_nodes = children(figure);
-			img = claim_element(figure_nodes, "IMG", { alt: true, src: true, class: true });
-			figure_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(img, "alt", img_alt_value = /*person*/ ctx[5].image.alt);
-			if (!src_url_equal(img.src, img_src_value = /*person*/ ctx[5].image.url)) attr(img, "src", img_src_value);
-			attr(img, "class", "svelte-nns4t8");
-			attr(figure, "class", "svelte-nns4t8");
-		},
-		m(target, anchor) {
-			insert_hydration(target, figure, anchor);
-			append_hydration(figure, img);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*people*/ 4 && img_alt_value !== (img_alt_value = /*person*/ ctx[5].image.alt)) {
-				attr(img, "alt", img_alt_value);
-			}
-
-			if (dirty & /*people*/ 4 && !src_url_equal(img.src, img_src_value = /*person*/ ctx[5].image.url)) {
-				attr(img, "src", img_src_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(figure);
-		}
-	};
-}
-
-// (111:10) {#each person.social_links as {link, icon}}
-function create_each_block_1$1(ctx) {
-	let a;
-	let icon;
-	let t;
-	let a_href_value;
-	let a_aria_label_value;
-	let current;
-	icon = new Component$1({ props: { icon: /*icon*/ ctx[9] } });
-
-	return {
-		c() {
-			a = element("a");
-			create_component(icon.$$.fragment);
-			t = space();
-			this.h();
-		},
-		l(nodes) {
-			a = claim_element(nodes, "A", {
-				href: true,
-				"aria-label": true,
-				class: true
-			});
-
-			var a_nodes = children(a);
-			claim_component(icon.$$.fragment, a_nodes);
-			t = claim_space(a_nodes);
-			a_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
-			attr(a, "aria-label", a_aria_label_value = /*link*/ ctx[8].label);
-			attr(a, "class", "svelte-nns4t8");
-		},
-		m(target, anchor) {
-			insert_hydration(target, a, anchor);
-			mount_component(icon, a, null);
-			append_hydration(a, t);
-			current = true;
-		},
-		p(ctx, dirty) {
-			const icon_changes = {};
-			if (dirty & /*people*/ 4) icon_changes.icon = /*icon*/ ctx[9];
-			icon.$set(icon_changes);
-
-			if (!current || dirty & /*people*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[8].url)) {
-				attr(a, "href", a_href_value);
-			}
-
-			if (!current || dirty & /*people*/ 4 && a_aria_label_value !== (a_aria_label_value = /*link*/ ctx[8].label)) {
-				attr(a, "aria-label", a_aria_label_value);
-			}
-		},
-		i(local) {
-			if (current) return;
-			transition_in(icon.$$.fragment, local);
-			current = true;
-		},
-		o(local) {
-			transition_out(icon.$$.fragment, local);
-			current = false;
-		},
-		d(detaching) {
-			if (detaching) detach(a);
-			destroy_component(icon);
-		}
-	};
-}
-
 // (98:4) {#each people as person}
 function create_each_block$1(ctx) {
 	let li;
-	let t0;
-	let div2;
+	let div1;
 	let div0;
 	let span0;
-	let t1_value = /*person*/ ctx[5].name + "";
+	let t0_value = /*person*/ ctx[5].name + "";
+	let t0;
 	let t1;
-	let t2;
 	let span1;
-	let t3_value = /*person*/ ctx[5].title + "";
+	let t2_value = /*person*/ ctx[5].title + "";
+	let t2;
 	let t3;
-	let t4;
-	let div1;
-	let t5;
-	let current;
-	let if_block = /*person*/ ctx[5].image.url && create_if_block$2(ctx);
-	let each_value_1 = /*person*/ ctx[5].social_links;
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value_1.length; i += 1) {
-		each_blocks[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
-	}
-
-	const out = i => transition_out(each_blocks[i], 1, 1, () => {
-		each_blocks[i] = null;
-	});
 
 	return {
 		c() {
 			li = element("li");
-			if (if_block) if_block.c();
-			t0 = space();
-			div2 = element("div");
+			div1 = element("div");
 			div0 = element("div");
 			span0 = element("span");
-			t1 = text(t1_value);
-			t2 = space();
+			t0 = text(t0_value);
+			t1 = space();
 			span1 = element("span");
-			t3 = text(t3_value);
-			t4 = space();
-			div1 = element("div");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			t5 = space();
+			t2 = text(t2_value);
+			t3 = space();
 			this.h();
 		},
 		l(nodes) {
 			li = claim_element(nodes, "LI", { class: true });
 			var li_nodes = children(li);
-			if (if_block) if_block.l(li_nodes);
-			t0 = claim_space(li_nodes);
-			div2 = claim_element(li_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			div0 = claim_element(div2_nodes, "DIV", { class: true });
+			div1 = claim_element(li_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
 			span0 = claim_element(div0_nodes, "SPAN", { class: true });
 			var span0_nodes = children(span0);
-			t1 = claim_text(span0_nodes, t1_value);
+			t0 = claim_text(span0_nodes, t0_value);
 			span0_nodes.forEach(detach);
-			t2 = claim_space(div0_nodes);
+			t1 = claim_space(div0_nodes);
 			span1 = claim_element(div0_nodes, "SPAN", { class: true });
 			var span1_nodes = children(span1);
-			t3 = claim_text(span1_nodes, t3_value);
+			t2 = claim_text(span1_nodes, t2_value);
 			span1_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
-			t4 = claim_space(div2_nodes);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(div1_nodes);
-			}
-
 			div1_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			t5 = claim_space(li_nodes);
+			t3 = claim_space(li_nodes);
 			li_nodes.forEach(detach);
 			this.h();
 		},
@@ -3852,99 +3695,26 @@ function create_each_block$1(ctx) {
 			attr(span0, "class", "name svelte-nns4t8");
 			attr(span1, "class", "title svelte-nns4t8");
 			attr(div0, "class", "details svelte-nns4t8");
-			attr(div1, "class", "social svelte-nns4t8");
-			attr(div2, "class", "info");
+			attr(div1, "class", "info");
 			attr(li, "class", "svelte-nns4t8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
-			if (if_block) if_block.m(li, null);
-			append_hydration(li, t0);
-			append_hydration(li, div2);
-			append_hydration(div2, div0);
+			append_hydration(li, div1);
+			append_hydration(div1, div0);
 			append_hydration(div0, span0);
-			append_hydration(span0, t1);
-			append_hydration(div0, t2);
+			append_hydration(span0, t0);
+			append_hydration(div0, t1);
 			append_hydration(div0, span1);
-			append_hydration(span1, t3);
-			append_hydration(div2, t4);
-			append_hydration(div2, div1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(div1, null);
-				}
-			}
-
-			append_hydration(li, t5);
-			current = true;
+			append_hydration(span1, t2);
+			append_hydration(li, t3);
 		},
 		p(ctx, dirty) {
-			if (/*person*/ ctx[5].image.url) {
-				if (if_block) {
-					if_block.p(ctx, dirty);
-				} else {
-					if_block = create_if_block$2(ctx);
-					if_block.c();
-					if_block.m(li, t0);
-				}
-			} else if (if_block) {
-				if_block.d(1);
-				if_block = null;
-			}
-
-			if ((!current || dirty & /*people*/ 4) && t1_value !== (t1_value = /*person*/ ctx[5].name + "")) set_data(t1, t1_value);
-			if ((!current || dirty & /*people*/ 4) && t3_value !== (t3_value = /*person*/ ctx[5].title + "")) set_data(t3, t3_value);
-
-			if (dirty & /*people*/ 4) {
-				each_value_1 = /*person*/ ctx[5].social_links;
-				let i;
-
-				for (i = 0; i < each_value_1.length; i += 1) {
-					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-						transition_in(each_blocks[i], 1);
-					} else {
-						each_blocks[i] = create_each_block_1$1(child_ctx);
-						each_blocks[i].c();
-						transition_in(each_blocks[i], 1);
-						each_blocks[i].m(div1, null);
-					}
-				}
-
-				group_outros();
-
-				for (i = each_value_1.length; i < each_blocks.length; i += 1) {
-					out(i);
-				}
-
-				check_outros();
-			}
-		},
-		i(local) {
-			if (current) return;
-
-			for (let i = 0; i < each_value_1.length; i += 1) {
-				transition_in(each_blocks[i]);
-			}
-
-			current = true;
-		},
-		o(local) {
-			each_blocks = each_blocks.filter(Boolean);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				transition_out(each_blocks[i]);
-			}
-
-			current = false;
+			if (dirty & /*people*/ 4 && t0_value !== (t0_value = /*person*/ ctx[5].name + "")) set_data(t0, t0_value);
+			if (dirty & /*people*/ 4 && t2_value !== (t2_value = /*person*/ ctx[5].title + "")) set_data(t2, t2_value);
 		},
 		d(detaching) {
 			if (detaching) detach(li);
-			if (if_block) if_block.d();
-			destroy_each(each_blocks, detaching);
 		}
 	};
 }
@@ -3959,17 +3729,12 @@ function create_fragment$3(ctx) {
 	let t2;
 	let t3;
 	let ul;
-	let current;
 	let each_value = /*people*/ ctx[2];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
 		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
 	}
-
-	const out = i => transition_out(each_blocks[i], 1, 1, () => {
-		each_blocks[i] = null;
-	});
 
 	return {
 		c() {
@@ -4040,12 +3805,10 @@ function create_fragment$3(ctx) {
 					each_blocks[i].m(ul, null);
 				}
 			}
-
-			current = true;
 		},
 		p(ctx, [dirty]) {
-			if (!current || dirty & /*heading*/ 2) set_data(t0, /*heading*/ ctx[1]);
-			if (!current || dirty & /*description*/ 1) set_data(t2, /*description*/ ctx[0]);
+			if (dirty & /*heading*/ 2) set_data(t0, /*heading*/ ctx[1]);
+			if (dirty & /*description*/ 1) set_data(t2, /*description*/ ctx[0]);
 
 			if (dirty & /*people*/ 4) {
 				each_value = /*people*/ ctx[2];
@@ -4056,42 +3819,22 @@ function create_fragment$3(ctx) {
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
-						transition_in(each_blocks[i], 1);
 					} else {
 						each_blocks[i] = create_each_block$1(child_ctx);
 						each_blocks[i].c();
-						transition_in(each_blocks[i], 1);
 						each_blocks[i].m(ul, null);
 					}
 				}
 
-				group_outros();
-
-				for (i = each_value.length; i < each_blocks.length; i += 1) {
-					out(i);
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
 				}
 
-				check_outros();
+				each_blocks.length = each_value.length;
 			}
 		},
-		i(local) {
-			if (current) return;
-
-			for (let i = 0; i < each_value.length; i += 1) {
-				transition_in(each_blocks[i]);
-			}
-
-			current = true;
-		},
-		o(local) {
-			each_blocks = each_blocks.filter(Boolean);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				transition_out(each_blocks[i]);
-			}
-
-			current = false;
-		},
+		i: noop,
+		o: noop,
 		d(detaching) {
 			if (detaching) detach(div);
 			destroy_each(each_blocks, detaching);
@@ -4211,8 +3954,8 @@ function create_fragment$4(ctx) {
 					},
 					{
 						"link": {
-							"label": "Take Action",
-							"url": "/#take-action"
+							"url": "/#take-action",
+							"label": "Take Action"
 						}
 					}
 				]
@@ -4233,36 +3976,23 @@ function create_fragment$4(ctx) {
 				people: [
 					{
 						"name": "David Berry",
-						"image": {
-							"alt": "",
-							"src": "",
-							"url": "",
-							"size": null
-						},
-						"title": "A Westmount resident, community league volunteer and writer",
-						"social_links": []
+						"title": "A Westmount resident, community league volunteer and writer"
 					},
 					{
 						"name": "Yash Bhandari",
-						"image": {
-							"alt": "",
-							"src": "",
-							"url": "",
-							"size": null
-						},
-						"title": "A Klairvatten resident and software developer",
-						"social_links": []
+						"title": "A Klairvatten resident and software developer"
 					},
 					{
 						"name": "Eric O'Brien",
-						"image": {
-							"alt": "Eric ",
-							"src": "",
-							"url": "",
-							"size": null
-						},
-						"title": "A North Glenora Resident and mattress salesman",
-						"social_links": []
+						"title": "A North Glenora Resident and mattress salesman"
+					},
+					{
+						"name": "Josh Thompson",
+						"title": "A West Jasper Sherwood Community League Board Member & Non Profit Director"
+					},
+					{
+						"name": "Sam Smigorosky",
+						"title": "A Clareview resident and passionate educator"
 					}
 				]
 			}
