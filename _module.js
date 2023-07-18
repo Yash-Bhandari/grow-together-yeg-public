@@ -4814,19 +4814,19 @@ class Component$5 extends SvelteComponent {
 
 function get_each_context$3(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[11] = list[i][0];
-	child_ctx[12] = list[i][1];
-	child_ctx[13] = list[i][2];
+	child_ctx[12] = list[i][0];
+	child_ctx[13] = list[i][1];
+	child_ctx[14] = list[i][2];
 	return child_ctx;
 }
 
-// (146:6) {#each wards as [wardName, councillor, email]}
+// (147:6) {#each wards as [wardName, councillor, email]}
 function create_each_block$3(ctx) {
 	let option;
-	let t0_value = /*councillor*/ ctx[12] + "";
+	let t0_value = /*councillor*/ ctx[13] + "";
 	let t0;
 	let t1;
-	let t2_value = /*wardName*/ ctx[11] + "";
+	let t2_value = /*wardName*/ ctx[12] + "";
 	let t2;
 	let t3;
 	let option_value_value;
@@ -4851,7 +4851,7 @@ function create_each_block$3(ctx) {
 			this.h();
 		},
 		h() {
-			option.__value = option_value_value = /*councillor*/ ctx[12];
+			option.__value = option_value_value = /*councillor*/ ctx[13];
 			option.value = option.__value;
 		},
 		m(target, anchor) {
@@ -4894,7 +4894,7 @@ function create_fragment$6(ctx) {
 	let t9;
 	let mounted;
 	let dispose;
-	let each_value = /*wards*/ ctx[2];
+	let each_value = /*wards*/ ctx[3];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -4930,7 +4930,7 @@ function create_fragment$6(ctx) {
 
 			t8 = space();
 			button = element("button");
-			t9 = text("Open Draft");
+			t9 = text(/*button_text*/ ctx[2]);
 			this.h();
 		},
 		l(nodes) {
@@ -4988,7 +4988,7 @@ function create_fragment$6(ctx) {
 			t8 = claim_space(form_nodes);
 			button = claim_element(form_nodes, "BUTTON", { type: true, class: true });
 			var button_nodes = children(button);
-			t9 = claim_text(button_nodes, "Open Draft");
+			t9 = claim_text(button_nodes, /*button_text*/ ctx[2]);
 			button_nodes.forEach(detach);
 			form_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
@@ -5051,7 +5051,7 @@ function create_fragment$6(ctx) {
 			append_hydration(button, t9);
 
 			if (!mounted) {
-				dispose = listen(form, "submit", prevent_default(/*submit_handler*/ ctx[8]));
+				dispose = listen(form, "submit", prevent_default(/*submit_handler*/ ctx[9]));
 				mounted = true;
 			}
 		},
@@ -5059,8 +5059,8 @@ function create_fragment$6(ctx) {
 			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
 			if (dirty & /*subheading*/ 2) set_data(t2, /*subheading*/ ctx[1]);
 
-			if (dirty & /*wards*/ 4) {
-				each_value = /*wards*/ ctx[2];
+			if (dirty & /*wards*/ 8) {
+				each_value = /*wards*/ ctx[3];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -5081,6 +5081,8 @@ function create_fragment$6(ctx) {
 
 				each_blocks.length = each_value.length;
 			}
+
+			if (dirty & /*button_text*/ 4) set_data(t9, /*button_text*/ ctx[2]);
 		},
 		i: noop,
 		o: noop,
@@ -5100,6 +5102,7 @@ function instance$6($$self, $$props, $$invalidate) {
 	let { heading } = $$props;
 	let { subheading } = $$props;
 	let { inputs } = $$props;
+	let { button_text } = $$props;
 
 	const wards = [
 		["papastew", "Michael Janz", "michael.janz@edmonton.ca"],
@@ -5137,17 +5140,19 @@ function instance$6($$self, $$props, $$invalidate) {
 	};
 
 	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(5, title = $$props.title);
-		if ('description' in $$props) $$invalidate(6, description = $$props.description);
+		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(6, title = $$props.title);
+		if ('description' in $$props) $$invalidate(7, description = $$props.description);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
-		if ('inputs' in $$props) $$invalidate(7, inputs = $$props.inputs);
+		if ('inputs' in $$props) $$invalidate(8, inputs = $$props.inputs);
+		if ('button_text' in $$props) $$invalidate(2, button_text = $$props.button_text);
 	};
 
 	return [
 		heading,
 		subheading,
+		button_text,
 		wards,
 		draftLetter,
 		favicon,
@@ -5163,12 +5168,13 @@ class Component$6 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
-			favicon: 4,
-			title: 5,
-			description: 6,
+			favicon: 5,
+			title: 6,
+			description: 7,
 			heading: 0,
 			subheading: 1,
-			inputs: 7
+			inputs: 8,
+			button_text: 2
 		});
 	}
 }
@@ -5421,7 +5427,8 @@ function create_fragment$7(ctx) {
 						"label": "Your Ward",
 						"placeholder": "Papastew"
 					}
-				]
+				],
+				button_text: "Open Draft Email"
 			}
 		});
 
