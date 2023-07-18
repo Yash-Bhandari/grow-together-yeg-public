@@ -4534,7 +4534,7 @@ function get_each_context$3(ctx, list, i) {
 	return child_ctx;
 }
 
-// (148:6) {#each wards as [wardName, councillor, email]}
+// (149:6) {#each wards as [wardName, councillor, email]}
 function create_each_block$3(ctx) {
 	let option;
 	let t0_value = /*councillor*/ ctx[13] + "";
@@ -4844,8 +4844,24 @@ function instance$5($$self, $$props, $$invalidate) {
 		window.open(mailto);
 	};
 
+	const possibleSubjectLines = [
+		"I support the Draft Zoning Bylaw",
+		"I support the new zoning bylaw",
+		"Don't delay the new zoning bylaw",
+		"New zoning bylaw is good for Edmonton",
+		"Zoning bylaw renewal is good for Edmonton",
+		"Pass the new zoning bylaw without delay",
+		"Why the new zoning bylaw is crucial for our community",
+		"Support the new zoning bylaw for a better city",
+		"Approve the zoning bylaw",
+		"The new zoning rules will make Edmonton a better place to live",
+		"Promote Smart Growth: Approve the New Zoning Bylaw",
+		"Approve the zoning bylaw for a more sustainable Edmonton"
+	];
+
 	const getSubjectLine = () => {
-		return "I support the Draft Zoning Bylaw";
+		let index = Math.floor(Math.random() * possibleSubjectLines.length);
+		return possibleSubjectLines[index];
 	};
 
 	const submit_handler = ({ target }) => {
