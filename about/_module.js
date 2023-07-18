@@ -3991,8 +3991,12 @@ function create_fragment$4(ctx) {
 						"title": "A West Jasper Sherwood Community League Board Member & Non Profit Director"
 					},
 					{
-						"name": "Sam Smigorosky",
+						"name": "Samantha Smigorosky",
 						"title": "A Clareview resident and passionate educator"
+					},
+					{
+						"name": "Michael Stensby",
+						"title": "A Queen Mary Park resident, software engineer and sustainable transport enthusiast"
 					}
 				]
 			}
