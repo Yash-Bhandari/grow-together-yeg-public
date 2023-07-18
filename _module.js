@@ -4820,7 +4820,7 @@ function get_each_context$3(ctx, list, i) {
 	return child_ctx;
 }
 
-// (144:6) {#each wards as [wardName, councillor, email]}
+// (145:6) {#each wards as [wardName, councillor, email]}
 function create_each_block$3(ctx) {
 	let option;
 	let t0_value = /*councillor*/ ctx[12] + "";
@@ -4964,6 +4964,7 @@ function create_fragment$6(ctx) {
 			t5 = claim_space(label0_nodes);
 
 			input = claim_element(label0_nodes, "INPUT", {
+				id: true,
 				name: true,
 				class: true,
 				type: true,
@@ -4975,7 +4976,7 @@ function create_fragment$6(ctx) {
 			label1 = claim_element(form_nodes, "LABEL", { class: true });
 			var label1_nodes = children(label1);
 			t7 = claim_text(label1_nodes, "Your Councillor:\n    ");
-			select = claim_element(label1_nodes, "SELECT", { name: true });
+			select = claim_element(label1_nodes, "SELECT", { id: true, name: true });
 			var select_nodes = children(select);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -5000,11 +5001,13 @@ function create_fragment$6(ctx) {
 			attr(p, "class", "subheaging");
 			attr(div0, "class", "heading-group svelte-19r7g3d");
 			attr(span, "class", "label svelte-19r7g3d");
+			attr(input, "id", "name");
 			attr(input, "name", "name");
 			attr(input, "class", "placeholder svelte-19r7g3d");
 			attr(input, "type", "text");
 			attr(input, "placeholder", "John Doe");
 			attr(label0, "class", "svelte-19r7g3d");
+			attr(select, "id", "councillor");
 			attr(select, "name", "councillor");
 			attr(label1, "class", "label svelte-19r7g3d");
 			attr(button, "type", "submit");
@@ -5048,7 +5051,7 @@ function create_fragment$6(ctx) {
 			append_hydration(button, t9);
 
 			if (!mounted) {
-				dispose = listen(form, "submit", prevent_default(/*submit_handler*/ ctx[7]));
+				dispose = listen(form, "submit", prevent_default(/*submit_handler*/ ctx[8]));
 				mounted = true;
 			}
 		},
@@ -5113,24 +5116,40 @@ function instance$6($$self, $$props, $$invalidate) {
 		["tastawiyiniwak", "Karen Principe", "karen.principe@edmonton.ca"]
 	];
 
+	const draftLetter = (councillorName, name) => {
+		const [wardName, _, councillorEmail] = wards.find(ward => ward[1] === councillorName);
+		const letter = encodeURIComponent(`Dear Councillor ${councillorName}` + "\n\n I’m writing in support of Edmonton’s new zoning bylaw, an important step in ensuring Edmonton remains a progressive, inclusive, vibrant city." + "\n I support the new zoning bylaw and its proposed changes for three important reasons." + "\n 1. Gently increasing our density is the simplest and most effective way to increase Edmonton's environment sustainability. Denser neighbourhoods reduce energy usage, make active and public transportation easier and more cost efficient, and preserve our region's dwindling supply of woodlands, wetlands and farmlands by putting houses in areas that are already built." + "\n 2. Greater density improves services and helps lower costs for all residents.  Sprawling development has and continues to cost the city more money than it brings in: the city currently has an infrastructure maintenance deficit of $470 million per year, and every new neighbourhood adds tens of millions to that number. At a time when the cost of living continues to rise dramatically, the city cannot afford to build so inefficiently." + " 3. A variety of housing will help neighbourhoods stay vibrant, livable places by supporting local amenities, services and recreation.  As previous generations have seen, we cannot preserve lively neighbourhoods by preventing them from changing: a single-house-fits-all model does not work for the diverse array of people that flock to a city. New housing options and the new neighbours they bring allow our neighbourhood institutions, businesses, parks and infrastructure to reach their fullest potential." + "\n I urge you to support the new zoning bylaw and help prepare Edmonton for a future that's brighter for everyone. " + "\n\n SIGNED" + `\n${name}, resident of ward ${wardName}`);
+		const subjectLine = encodeURIComponent(getSubjectLine());
+		const mailto = `mailto:${councillorEmail}?subject=${subjectLine}&body=${letter}`;
+		console.log(mailto);
+		window.open(mailto);
+	};
+
+	const getSubjectLine = () => {
+		return "I support the Draft Zoning Bylaw";
+	};
+
 	const submit_handler = ({ target }) => {
 		const data = new FormData(target);
+		console.log(target);
 		console.log(data);
-	}; //draftLetter()
+		draftLetter(data.councillor, data.name);
+	};
 
 	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(4, title = $$props.title);
-		if ('description' in $$props) $$invalidate(5, description = $$props.description);
+		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(5, title = $$props.title);
+		if ('description' in $$props) $$invalidate(6, description = $$props.description);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
-		if ('inputs' in $$props) $$invalidate(6, inputs = $$props.inputs);
+		if ('inputs' in $$props) $$invalidate(7, inputs = $$props.inputs);
 	};
 
 	return [
 		heading,
 		subheading,
 		wards,
+		draftLetter,
 		favicon,
 		title,
 		description,
@@ -5144,12 +5163,12 @@ class Component$6 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
-			favicon: 3,
-			title: 4,
-			description: 5,
+			favicon: 4,
+			title: 5,
+			description: 6,
 			heading: 0,
 			subheading: 1,
-			inputs: 6
+			inputs: 7
 		});
 	}
 }
