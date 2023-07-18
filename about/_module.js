@@ -3997,6 +3997,10 @@ function create_fragment$4(ctx) {
 					{
 						"name": "Michael Stensby",
 						"title": "A Queen Mary Park resident, software engineer and sustainable transport enthusiast"
+					},
+					{
+						"name": "Lisa Brown",
+						"title": "An Oliver resident, environmental engineer, and community league volunteer"
 					}
 				]
 			}
