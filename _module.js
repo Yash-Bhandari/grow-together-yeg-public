@@ -4184,7 +4184,7 @@ function get_each_context$2(ctx, list, i) {
 	return child_ctx;
 }
 
-// (73:6) {#each social as { link, icon }}
+// (75:6) {#each social as { link, icon }}
 function create_each_block$2(ctx) {
 	let a;
 	let span;
@@ -4221,9 +4221,9 @@ function create_each_block$2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "icon svelte-tdpo8v");
+			attr(span, "class", "icon svelte-1s2usg3");
 			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
-			attr(a, "class", "svelte-tdpo8v");
+			attr(a, "class", "svelte-1s2usg3");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -4571,9 +4571,9 @@ function create_fragment$5(ctx) {
 		},
 		h() {
 			attr(h2, "class", "heading");
-			attr(div0, "class", "body svelte-tdpo8v");
-			attr(div1, "class", "social-links svelte-tdpo8v");
-			attr(div2, "class", "content svelte-tdpo8v");
+			attr(div0, "class", "body svelte-1s2usg3");
+			attr(div1, "class", "social-links svelte-1s2usg3");
+			attr(div2, "class", "content svelte-1s2usg3");
 			attr(style0, "type", "text/css");
 			attr(style1, "type", "text/css");
 			attr(div3, "class", "ml-form-embedContent");
@@ -4621,7 +4621,7 @@ function create_fragment$5(ctx) {
 			attr(div14, "class", "ml-form-embedContainer ml-subscribe-form ml-subscribe-form-6312828");
 			if (!src_url_equal(script1.src, script1_src_value = "https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128")) attr(script1, "src", script1_src_value);
 			attr(script1, "type", "text/javascript");
-			attr(section, "class", "section-container svelte-tdpo8v");
+			attr(section, "class", "section-container svelte-1s2usg3");
 			attr(section, "id", "take-action");
 			attr(div15, "class", "section");
 			attr(div15, "id", "section-97da4d56");
@@ -4820,7 +4820,7 @@ function get_each_context$3(ctx, list, i) {
 	return child_ctx;
 }
 
-// (145:6) {#each wards as [wardName, councillor, email]}
+// (146:6) {#each wards as [wardName, councillor, email]}
 function create_each_block$3(ctx) {
 	let option;
 	let t0_value = /*councillor*/ ctx[12] + "";
@@ -4999,22 +4999,22 @@ function create_fragment$6(ctx) {
 		h() {
 			attr(h2, "class", "heading");
 			attr(p, "class", "subheaging");
-			attr(div0, "class", "heading-group svelte-19r7g3d");
-			attr(span, "class", "label svelte-19r7g3d");
+			attr(div0, "class", "heading-group svelte-2k2ksw");
+			attr(span, "class", "label svelte-2k2ksw");
 			attr(input, "id", "name");
 			attr(input, "name", "name");
-			attr(input, "class", "placeholder svelte-19r7g3d");
+			attr(input, "class", "placeholder svelte-2k2ksw");
 			attr(input, "type", "text");
 			attr(input, "placeholder", "John Doe");
-			attr(label0, "class", "svelte-19r7g3d");
+			attr(label0, "class", "svelte-2k2ksw");
 			attr(select, "id", "councillor");
 			attr(select, "name", "councillor");
-			attr(label1, "class", "label svelte-19r7g3d");
+			attr(label1, "class", "label svelte-2k2ksw");
 			attr(button, "type", "submit");
-			attr(button, "class", "button svelte-19r7g3d");
-			attr(form, "class", "svelte-19r7g3d");
-			attr(div1, "class", "box svelte-19r7g3d");
-			attr(section, "class", "section-container svelte-19r7g3d");
+			attr(button, "class", "button svelte-2k2ksw");
+			attr(form, "class", "svelte-2k2ksw");
+			attr(div1, "class", "box svelte-2k2ksw");
+			attr(section, "class", "section-container svelte-2k2ksw");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-8572066c");
 		},
@@ -5131,9 +5131,8 @@ function instance$6($$self, $$props, $$invalidate) {
 
 	const submit_handler = ({ target }) => {
 		const data = new FormData(target);
-		console.log(target);
 		console.log(data);
-		draftLetter(data.councillor, data.name);
+		draftLetter(data.get("councillor"), data.get("name"));
 	};
 
 	$$self.$$set = $$props => {
