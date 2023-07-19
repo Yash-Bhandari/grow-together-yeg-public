@@ -4991,7 +4991,7 @@ function create_fragment$6(ctx) {
 						}
 					},
 					{
-						"link": { "url": "/about", "label": "About" }
+						"link": { "url": "/about", "label": "About Us" }
 					},
 					{
 						"link": {
@@ -5024,12 +5024,16 @@ function create_fragment$6(ctx) {
 						"title": "A Klairvatten resident and software developer"
 					},
 					{
-						"name": "Lisa Brown",
-						"title": "An Oliver resident, environmental engineer, and community league volunteer"
+						"name": "Climate Justice Edmonton",
+						"title": "CJE is a grassroots collective commited to social, environmental and climate justice."
 					},
 					{
 						"name": "Eric O'Brien",
 						"title": "A North Glenora Resident and mattress salesman"
+					},
+					{
+						"name": "Lisa Brown",
+						"title": "An Oliver resident, environmental engineer, and community league volunteer"
 					},
 					{
 						"name": "Josh Thompson",
@@ -5046,10 +5050,6 @@ function create_fragment$6(ctx) {
 					{
 						"name": "Jacob Smigorosky",
 						"title": "A Bannerman resident and university student"
-					},
-					{
-						"name": "Climate Justice Edmonton (CJE)",
-						"title": "CJE is a grassroots collective commited to social, environmental and climate justic."
 					}
 				]
 			}
