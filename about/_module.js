@@ -5046,6 +5046,10 @@ function create_fragment$6(ctx) {
 					{
 						"name": "Jacob Smigorosky",
 						"title": "A Bannerman resident and university student"
+					},
+					{
+						"name": "Climate Justice Edmonton (CJE)",
+						"title": "CJE is a grassroots collective commited to social, environmental and climate justic."
 					}
 				]
 			}
