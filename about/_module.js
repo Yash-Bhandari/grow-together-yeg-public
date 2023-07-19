@@ -4534,7 +4534,7 @@ function get_each_context$3(ctx, list, i) {
 	return child_ctx;
 }
 
-// (149:6) {#each wards as [wardName, councillor, email]}
+// (154:6) {#each wards as [wardName, councillor, email]}
 function create_each_block$3(ctx) {
 	let option;
 	let t0_value = /*councillor*/ ctx[13] + "";
@@ -4690,7 +4690,7 @@ function create_fragment$5(ctx) {
 			label1 = claim_element(form_nodes, "LABEL", { class: true });
 			var label1_nodes = children(label1);
 			t7 = claim_text(label1_nodes, "Your Councillor:\n    ");
-			select = claim_element(label1_nodes, "SELECT", { id: true, name: true });
+			select = claim_element(label1_nodes, "SELECT", { id: true, name: true, class: true });
 			var select_nodes = children(select);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -4713,22 +4713,23 @@ function create_fragment$5(ctx) {
 		h() {
 			attr(h2, "class", "heading");
 			attr(p, "class", "subheaging");
-			attr(div0, "class", "heading-group svelte-2k2ksw");
-			attr(span, "class", "label svelte-2k2ksw");
+			attr(div0, "class", "heading-group svelte-13kke8f");
+			attr(span, "class", "label svelte-13kke8f");
 			attr(input, "id", "name");
 			attr(input, "name", "name");
-			attr(input, "class", "placeholder svelte-2k2ksw");
+			attr(input, "class", "placeholder svelte-13kke8f");
 			attr(input, "type", "text");
 			attr(input, "placeholder", "John Doe");
-			attr(label0, "class", "svelte-2k2ksw");
+			attr(label0, "class", "svelte-13kke8f");
 			attr(select, "id", "councillor");
 			attr(select, "name", "councillor");
-			attr(label1, "class", "label svelte-2k2ksw");
+			attr(select, "class", "svelte-13kke8f");
+			attr(label1, "class", "label svelte-13kke8f");
 			attr(button, "type", "submit");
-			attr(button, "class", "button svelte-2k2ksw");
-			attr(form, "class", "svelte-2k2ksw");
-			attr(div1, "class", "box svelte-2k2ksw");
-			attr(section, "class", "section-container svelte-2k2ksw");
+			attr(button, "class", "button svelte-13kke8f");
+			attr(form, "class", "svelte-13kke8f");
+			attr(div1, "class", "box svelte-13kke8f");
+			attr(section, "class", "section-container svelte-13kke8f");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-4f2c395b");
 		},
