@@ -259,6 +259,13 @@ function listen(node, event, handler, options) {
     node.addEventListener(event, handler, options);
     return () => node.removeEventListener(event, handler, options);
 }
+function prevent_default(fn) {
+    return function (event) {
+        event.preventDefault();
+        // @ts-ignore
+        return fn.call(this, event);
+    };
+}
 function attr(node, attribute, value) {
     if (value == null)
         node.removeAttribute(attribute);
@@ -3673,13 +3680,392 @@ class Component$3 extends SvelteComponent {
 
 function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
+	child_ctx[10] = list[i][0];
+	child_ctx[11] = list[i][1];
+	child_ctx[12] = list[i][2];
+	return child_ctx;
+}
+
+// (152:6) {#each wards as [wardName, councillor, email]}
+function create_each_block$1(ctx) {
+	let option;
+	let t0_value = /*councillor*/ ctx[11] + "";
+	let t0;
+	let t1;
+	let t2_value = /*wardName*/ ctx[10] + "";
+	let t2;
+	let t3;
+	let option_value_value;
+
+	return {
+		c() {
+			option = element("option");
+			t0 = text(t0_value);
+			t1 = text(" (ward ");
+			t2 = text(t2_value);
+			t3 = text(")");
+			this.h();
+		},
+		l(nodes) {
+			option = claim_element(nodes, "OPTION", {});
+			var option_nodes = children(option);
+			t0 = claim_text(option_nodes, t0_value);
+			t1 = claim_text(option_nodes, " (ward ");
+			t2 = claim_text(option_nodes, t2_value);
+			t3 = claim_text(option_nodes, ")");
+			option_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			option.__value = option_value_value = /*councillor*/ ctx[11];
+			option.value = option.__value;
+		},
+		m(target, anchor) {
+			insert_hydration(target, option, anchor);
+			append_hydration(option, t0);
+			append_hydration(option, t1);
+			append_hydration(option, t2);
+			append_hydration(option, t3);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(option);
+		}
+	};
+}
+
+function create_fragment$4(ctx) {
+	let div2;
+	let section;
+	let div1;
+	let div0;
+	let h2;
+	let t0;
+	let t1;
+	let p;
+	let t2;
+	let t3;
+	let form;
+	let label0;
+	let span;
+	let t4;
+	let t5;
+	let input;
+	let t6;
+	let label1;
+	let t7;
+	let select;
+	let t8;
+	let button;
+	let t9;
+	let mounted;
+	let dispose;
+	let each_value = /*wards*/ ctx[3];
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value.length; i += 1) {
+		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+	}
+
+	return {
+		c() {
+			div2 = element("div");
+			section = element("section");
+			div1 = element("div");
+			div0 = element("div");
+			h2 = element("h2");
+			t0 = text(/*heading*/ ctx[0]);
+			t1 = space();
+			p = element("p");
+			t2 = text(/*subheading*/ ctx[1]);
+			t3 = space();
+			form = element("form");
+			label0 = element("label");
+			span = element("span");
+			t4 = text("Your Name:");
+			t5 = space();
+			input = element("input");
+			t6 = space();
+			label1 = element("label");
+			t7 = text("Your Councillor:\n    ");
+			select = element("select");
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			t8 = space();
+			button = element("button");
+			t9 = text(/*button_text*/ ctx[2]);
+			this.h();
+		},
+		l(nodes) {
+			div2 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div2_nodes = children(div2);
+			section = claim_element(div2_nodes, "SECTION", { class: true });
+			var section_nodes = children(section);
+			div1 = claim_element(section_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			h2 = claim_element(div0_nodes, "H2", { class: true });
+			var h2_nodes = children(h2);
+			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
+			h2_nodes.forEach(detach);
+			t1 = claim_space(div0_nodes);
+			p = claim_element(div0_nodes, "P", { class: true });
+			var p_nodes = children(p);
+			t2 = claim_text(p_nodes, /*subheading*/ ctx[1]);
+			p_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t3 = claim_space(div1_nodes);
+			form = claim_element(div1_nodes, "FORM", { class: true });
+			var form_nodes = children(form);
+			label0 = claim_element(form_nodes, "LABEL", { class: true });
+			var label0_nodes = children(label0);
+			span = claim_element(label0_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t4 = claim_text(span_nodes, "Your Name:");
+			span_nodes.forEach(detach);
+			t5 = claim_space(label0_nodes);
+
+			input = claim_element(label0_nodes, "INPUT", {
+				id: true,
+				name: true,
+				class: true,
+				type: true,
+				placeholder: true
+			});
+
+			label0_nodes.forEach(detach);
+			t6 = claim_space(form_nodes);
+			label1 = claim_element(form_nodes, "LABEL", { class: true });
+			var label1_nodes = children(label1);
+			t7 = claim_text(label1_nodes, "Your Councillor:\n    ");
+			select = claim_element(label1_nodes, "SELECT", { id: true, name: true, class: true });
+			var select_nodes = children(select);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(select_nodes);
+			}
+
+			select_nodes.forEach(detach);
+			label1_nodes.forEach(detach);
+			t8 = claim_space(form_nodes);
+			button = claim_element(form_nodes, "BUTTON", { type: true, class: true });
+			var button_nodes = children(button);
+			t9 = claim_text(button_nodes, /*button_text*/ ctx[2]);
+			button_nodes.forEach(detach);
+			form_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			section_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(h2, "class", "heading");
+			attr(p, "class", "subheaging");
+			attr(div0, "class", "heading-group svelte-13kke8f");
+			attr(span, "class", "label svelte-13kke8f");
+			attr(input, "id", "name");
+			attr(input, "name", "name");
+			attr(input, "class", "placeholder svelte-13kke8f");
+			attr(input, "type", "text");
+			attr(input, "placeholder", "John Doe");
+			attr(label0, "class", "svelte-13kke8f");
+			attr(select, "id", "councillor");
+			attr(select, "name", "councillor");
+			attr(select, "class", "svelte-13kke8f");
+			attr(label1, "class", "label svelte-13kke8f");
+			attr(button, "type", "submit");
+			attr(button, "class", "button svelte-13kke8f");
+			attr(form, "class", "svelte-13kke8f");
+			attr(div1, "class", "box svelte-13kke8f");
+			attr(section, "class", "section-container svelte-13kke8f");
+			attr(div2, "class", "section");
+			attr(div2, "id", "section-5db4fca3");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div2, anchor);
+			append_hydration(div2, section);
+			append_hydration(section, div1);
+			append_hydration(div1, div0);
+			append_hydration(div0, h2);
+			append_hydration(h2, t0);
+			append_hydration(div0, t1);
+			append_hydration(div0, p);
+			append_hydration(p, t2);
+			append_hydration(div1, t3);
+			append_hydration(div1, form);
+			append_hydration(form, label0);
+			append_hydration(label0, span);
+			append_hydration(span, t4);
+			append_hydration(label0, t5);
+			append_hydration(label0, input);
+			append_hydration(form, t6);
+			append_hydration(form, label1);
+			append_hydration(label1, t7);
+			append_hydration(label1, select);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(select, null);
+				}
+			}
+
+			append_hydration(form, t8);
+			append_hydration(form, button);
+			append_hydration(button, t9);
+
+			if (!mounted) {
+				dispose = listen(form, "submit", prevent_default(/*submit_handler*/ ctx[7]));
+				mounted = true;
+			}
+		},
+		p(ctx, [dirty]) {
+			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
+			if (dirty & /*subheading*/ 2) set_data(t2, /*subheading*/ ctx[1]);
+
+			if (dirty & /*wards*/ 8) {
+				each_value = /*wards*/ ctx[3];
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block$1(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(select, null);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value.length;
+			}
+
+			if (dirty & /*button_text*/ 4) set_data(t9, /*button_text*/ ctx[2]);
+		},
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(div2);
+			destroy_each(each_blocks, detaching);
+			mounted = false;
+			dispose();
+		}
+	};
+}
+
+function instance$4($$self, $$props, $$invalidate) {
+	let { favicon } = $$props;
+	let { heading } = $$props;
+	let { subheading } = $$props;
+	let { inputs } = $$props;
+	let { button_text } = $$props;
+
+	const wards = [
+		["papastew", "Michael Janz", "michael.janz@edmonton.ca"],
+		["Nakota Isga", "Andrew Knack", "andrew.knack@edmonton.ca"],
+		["Anirniq", "Erin Rutherford", "erin.rutherford@edmonton.ca"],
+		["Dene", "Aaron Paquette", "aaron.paquette@edmonton.ca"],
+		["Ipiihkoohkanipiaohtsi", "Jennifer Rice", "jennifer.rice@edmonton.ca"],
+		["Karhiio", "Keren Tang", "keren.tang@edmonton.ca"],
+		["Métis", "Ashley Salvador", "ashley.salvador@edmonton.ca"],
+		["O-day’min", "Anne Stevenson", "anne.stevenson@edmonton.ca"],
+		["pihêsiwin", "Tim Cartmell", "tim.cartmell@edmonton.ca"],
+		["sipiwiyiniwak", "Sarah Hamilton", "sarah.hamilton@edmonton.ca"],
+		["Sspomitapi", "Jo-Anne Wright", "jo-anne.wright@edmonton.ca"],
+		["tastawiyiniwak", "Karen Principe", "karen.principe@edmonton.ca"]
+	];
+
+	const draftLetter = (councillorName, name) => {
+		const [wardName, _, councillorEmail] = wards.find(ward => ward[1] === councillorName);
+		const lastName = councillorName.split(" ")[1];
+		let letter = `Dear Councillor ${lastName}` + "\n\nI’m writing in support of Edmonton’s new zoning bylaw, an important step in ensuring Edmonton remains a progressive, inclusive, vibrant city." + "\nI support the new zoning bylaw and its proposed changes for three important reasons." + "\n\n1. Gently increasing our density is the simplest and most effective way to increase Edmonton's environment sustainability. Denser neighbourhoods reduce energy usage, make active and public transportation easier and more cost efficient, and preserve our region's dwindling supply of woodlands, wetlands and farmlands by putting houses in areas that are already built." + "\n2. Greater density improves services and helps lower costs for all residents.  Sprawling development has and continues to cost the city more money than it brings in: the city currently has an infrastructure maintenance deficit of $470 million per year, and every new neighbourhood adds tens of millions to that number. At a time when the cost of living continues to rise dramatically, the city cannot afford to build so inefficiently." + "\n3. A variety of housing will help neighbourhoods stay vibrant, livable places by supporting local amenities, services and recreation.  As previous generations have seen, we cannot preserve lively neighbourhoods by preventing them from changing: a single-house-fits-all model does not work for the diverse array of people that flock to a city. New housing options and the new neighbours they bring allow our neighbourhood institutions, businesses, parks and infrastructure to reach their fullest potential." + "\n\nI urge you to support the new zoning bylaw and help prepare Edmonton for a future that's brighter for everyone. " + "\n\nSIGNED" + `\n${name}, resident of ward ${wardName}`;
+		const subjectLine = encodeURIComponent(getSubjectLine());
+		letter = encodeURIComponent(letter);
+		const mailto = `mailto:${councillorEmail}?subject=${subjectLine}&body=${letter}`;
+		console.log(mailto);
+		window.open(mailto);
+	};
+
+	const possibleSubjectLines = [
+		"I support the Draft Zoning Bylaw",
+		"I support the new zoning bylaw",
+		"Don't delay the new zoning bylaw",
+		"New zoning bylaw is good for Edmonton",
+		"Zoning bylaw renewal is good for Edmonton",
+		"Pass the new zoning bylaw without delay",
+		"Why the new zoning bylaw is crucial for our community",
+		"Support the new zoning bylaw for a better city",
+		"Approve the zoning bylaw",
+		"The new zoning rules will make Edmonton a better place to live",
+		"Promote Smart Growth: Approve the New Zoning Bylaw",
+		"Approve the zoning bylaw for a more sustainable Edmonton"
+	];
+
+	const getSubjectLine = () => {
+		let index = Math.floor(Math.random() * possibleSubjectLines.length);
+		return possibleSubjectLines[index];
+	};
+
+	const submit_handler = ({ target }) => {
+		const data = new FormData(target);
+		console.log(data);
+		draftLetter(data.get("councillor"), data.get("name"));
+	};
+
+	$$self.$$set = $$props => {
+		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
+		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
+		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
+		if ('inputs' in $$props) $$invalidate(6, inputs = $$props.inputs);
+		if ('button_text' in $$props) $$invalidate(2, button_text = $$props.button_text);
+	};
+
+	return [
+		heading,
+		subheading,
+		button_text,
+		wards,
+		draftLetter,
+		favicon,
+		inputs,
+		submit_handler
+	];
+}
+
+class Component$4 extends SvelteComponent {
+	constructor(options) {
+		super();
+
+		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
+			favicon: 5,
+			heading: 0,
+			subheading: 1,
+			inputs: 6,
+			button_text: 2
+		});
+	}
+}
+
+/* generated by Svelte v3.58.0 */
+
+function get_each_context$2(ctx, list, i) {
+	const child_ctx = ctx.slice();
 	child_ctx[6] = list[i].link;
 	child_ctx[7] = list[i].icon;
 	return child_ctx;
 }
 
 // (73:6) {#each social as { link, icon }}
-function create_each_block$1(ctx) {
+function create_each_block$2(ctx) {
 	let a;
 	let span;
 	let icon;
@@ -3754,7 +4140,7 @@ function create_each_block$1(ctx) {
 	};
 }
 
-function create_fragment$4(ctx) {
+function create_fragment$5(ctx) {
 	let div15;
 	let section;
 	let div2;
@@ -3826,7 +4212,7 @@ function create_fragment$4(ctx) {
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
 	}
 
 	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -4204,13 +4590,13 @@ function create_fragment$4(ctx) {
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context$1(ctx, each_value, i);
+					const child_ctx = get_each_context$2(ctx, each_value, i);
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
 						transition_in(each_blocks[i], 1);
 					} else {
-						each_blocks[i] = create_each_block$1(child_ctx);
+						each_blocks[i] = create_each_block$2(child_ctx);
 						each_blocks[i].c();
 						transition_in(each_blocks[i], 1);
 						each_blocks[i].m(div1, null);
@@ -4251,7 +4637,7 @@ function create_fragment$4(ctx) {
 	};
 }
 
-function instance$4($$self, $$props, $$invalidate) {
+function instance$5($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { heading } = $$props;
 	let { subheading } = $$props;
@@ -4283,11 +4669,11 @@ function instance$4($$self, $$props, $$invalidate) {
 	return [heading, subheading, social, favicon, inputs, submit_label];
 }
 
-class Component$4 extends SvelteComponent {
+class Component$5 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
+		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
 			favicon: 3,
 			heading: 0,
 			subheading: 1,
@@ -4300,7 +4686,7 @@ class Component$4 extends SvelteComponent {
 
 /* generated by Svelte v3.58.0 */
 
-function instance$5($$self, $$props, $$invalidate) {
+function instance$6($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 
 	$$self.$$set = $$props => {
@@ -4310,16 +4696,16 @@ function instance$5($$self, $$props, $$invalidate) {
 	return [favicon];
 }
 
-class Component$5 extends SvelteComponent {
+class Component$6 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$5, null, safe_not_equal, { favicon: 0 });
+		init(this, options, instance$6, null, safe_not_equal, { favicon: 0 });
 	}
 }
 
 /* generated by Svelte v3.58.0 */
 
-function create_fragment$5(ctx) {
+function create_fragment$6(ctx) {
 	let component_0;
 	let t0;
 	let component_1;
@@ -4329,6 +4715,8 @@ function create_fragment$5(ctx) {
 	let component_3;
 	let t3;
 	let component_4;
+	let t4;
+	let component_5;
 	let current;
 
 	component_0 = new Component({
@@ -4403,6 +4791,37 @@ function create_fragment$5(ctx) {
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
 				},
+				heading: "Make your voice heard",
+				subheading: "Email your city councillor to let them know you support the new zoning bylaw. We've got a template letter you can use as a draft.",
+				inputs: [
+					{
+						"type": "text",
+						"label": "Your Name",
+						"placeholder": "Ad exercitation quis"
+					},
+					{
+						"type": "text",
+						"label": "Subject",
+						"placeholder": "Mollit nulla veniam"
+					},
+					{
+						"type": "text",
+						"label": "Your Ward",
+						"placeholder": "Papastew"
+					}
+				],
+				button_text: "Open Draft Email"
+			}
+		});
+
+	component_4 = new Component$5({
+			props: {
+				favicon: {
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
+					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
+					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
+					"size": 1
+				},
 				heading: "Get Involved",
 				subheading: "We'll need all hands on deck to help build a better Edmonton. Follow us on social media or join our mailing list to stay up to date on Zoning Bylaw Renewal, events and ways you can make an impact.",
 				social: [
@@ -4437,7 +4856,7 @@ function create_fragment$5(ctx) {
 			}
 		});
 
-	component_4 = new Component$5({
+	component_5 = new Component$6({
 			props: {
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
@@ -4459,6 +4878,8 @@ function create_fragment$5(ctx) {
 			create_component(component_3.$$.fragment);
 			t3 = space();
 			create_component(component_4.$$.fragment);
+			t4 = space();
+			create_component(component_5.$$.fragment);
 		},
 		l(nodes) {
 			claim_component(component_0.$$.fragment, nodes);
@@ -4470,6 +4891,8 @@ function create_fragment$5(ctx) {
 			claim_component(component_3.$$.fragment, nodes);
 			t3 = claim_space(nodes);
 			claim_component(component_4.$$.fragment, nodes);
+			t4 = claim_space(nodes);
+			claim_component(component_5.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(component_0, target, anchor);
@@ -4481,6 +4904,8 @@ function create_fragment$5(ctx) {
 			mount_component(component_3, target, anchor);
 			insert_hydration(target, t3, anchor);
 			mount_component(component_4, target, anchor);
+			insert_hydration(target, t4, anchor);
+			mount_component(component_5, target, anchor);
 			current = true;
 		},
 		p: noop,
@@ -4491,6 +4916,7 @@ function create_fragment$5(ctx) {
 			transition_in(component_2.$$.fragment, local);
 			transition_in(component_3.$$.fragment, local);
 			transition_in(component_4.$$.fragment, local);
+			transition_in(component_5.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
@@ -4499,6 +4925,7 @@ function create_fragment$5(ctx) {
 			transition_out(component_2.$$.fragment, local);
 			transition_out(component_3.$$.fragment, local);
 			transition_out(component_4.$$.fragment, local);
+			transition_out(component_5.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
@@ -4511,15 +4938,17 @@ function create_fragment$5(ctx) {
 			destroy_component(component_3, detaching);
 			if (detaching) detach(t3);
 			destroy_component(component_4, detaching);
+			if (detaching) detach(t4);
+			destroy_component(component_5, detaching);
 		}
 	};
 }
 
-class Component$6 extends SvelteComponent {
+class Component$7 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, null, create_fragment$5, safe_not_equal, {});
+		init(this, options, null, create_fragment$6, safe_not_equal, {});
 	}
 }
 
-export default Component$6;
+export default Component$7;
