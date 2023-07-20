@@ -5324,7 +5324,7 @@ function create_fragment$7(ctx) {
 							"markdown": "Edmonton loses money on every new suburb that's built. If we allow new housing in areas where infrastructure already exists, we can bolster the city's revenues, improving our services while keeping property taxes low.\n\n"
 						},
 						"link": {
-							"url": "/fiscal-sustainability",
+							"url": "/finances",
 							"label": "Learn More"
 						},
 						"image": {
