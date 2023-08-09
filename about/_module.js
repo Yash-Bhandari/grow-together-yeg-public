@@ -5071,7 +5071,7 @@ function create_fragment$6(ctx) {
 					{
 						"icon": "mdi:twitter",
 						"link": {
-							"url": "/https://twitter.com/GrowTogetherYEG",
+							"url": "https://twitter.com/GrowTogetherYEG",
 							"label": "Twitter"
 						}
 					},
