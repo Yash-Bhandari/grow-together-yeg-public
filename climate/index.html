@@ -150,7 +150,7 @@
         }
     </style><!-- HEAD_svelte-b1iml7_END -->
     <style>
-        .section-container.svelte-1grguq5.svelte-1grguq5 {
+        .section-container.svelte-ci1c6c.svelte-ci1c6c {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -158,41 +158,49 @@
             padding-bottom: 1rem
         }
 
-        .logo.svelte-1grguq5.svelte-1grguq5 {
+        .logo.svelte-ci1c6c.svelte-ci1c6c {
             font-size: 1.5rem;
             font-weight: 600;
-            line-height: 1.2
+            line-height: 1.2;
+            display: flex;
+            flex-direction: row;
+            align-items: center
         }
 
-        .desktop-nav.svelte-1grguq5.svelte-1grguq5 {
+        .logo.svelte-ci1c6c>img.svelte-ci1c6c {
+            max-width: 100px;
+            max-height: 100px
+        }
+
+        .desktop-nav.svelte-ci1c6c.svelte-ci1c6c {
             display: none;
             align-items: center;
             justify-content: space-between;
             width: 100%
         }
 
-        .desktop-nav.svelte-1grguq5 nav.svelte-1grguq5 {
+        .desktop-nav.svelte-ci1c6c nav.svelte-ci1c6c {
             display: flex;
             gap: 2rem
         }
 
-        .desktop-nav.svelte-1grguq5 nav a.link.svelte-1grguq5 {
+        .desktop-nav.svelte-ci1c6c nav a.link.svelte-ci1c6c {
             border-color: transparent;
             transition: border-color 0.1s;
             font-size: 0.95rem
         }
 
-        .desktop-nav.svelte-1grguq5 nav a.link.svelte-1grguq5:hover {
+        .desktop-nav.svelte-ci1c6c nav a.link.svelte-ci1c6c:hover {
             border-color: initial
         }
 
         @media(min-width: 800px) {
-            .desktop-nav.svelte-1grguq5.svelte-1grguq5 {
+            .desktop-nav.svelte-ci1c6c.svelte-ci1c6c {
                 display: flex
             }
         }
 
-        .mobile-nav.svelte-1grguq5.svelte-1grguq5 {
+        .mobile-nav.svelte-ci1c6c.svelte-ci1c6c {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -201,12 +209,12 @@
         }
 
         @media(min-width: 800px) {
-            .mobile-nav.svelte-1grguq5.svelte-1grguq5 {
+            .mobile-nav.svelte-ci1c6c.svelte-ci1c6c {
                 display: none
             }
         }
 
-        #popup.svelte-1grguq5.svelte-1grguq5 {
+        #popup.svelte-ci1c6c.svelte-ci1c6c {
             font-size: 1.25rem;
             display: grid;
             gap: 1rem;
@@ -221,7 +229,7 @@
             z-index: 1
         }
 
-        #popup.svelte-1grguq5 button#close.svelte-1grguq5 {
+        #popup.svelte-ci1c6c button#close.svelte-ci1c6c {
             position: absolute;
             right: 1rem;
             top: 1rem
@@ -281,11 +289,13 @@
 <body id="page">
 
     <div class="section" id="section-e8c503b1">
-        <header class="section-container svelte-1grguq5">
-            <div class="desktop-nav svelte-1grguq5"><a href="/" class="logo svelte-1grguq5">Grow Together YEG</a>
-                <nav class="svelte-1grguq5"><a class="link svelte-1grguq5" href="/">Home</a><a class="link svelte-1grguq5" href="/about">About Us</a><a class="link svelte-1grguq5" href="/#take-action">Take Action</a></nav>
+        <header class="section-container svelte-ci1c6c">
+            <div class="desktop-nav svelte-ci1c6c"><a href="/" class="logo svelte-ci1c6c"><img src="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1692331070906gtyeg_logo_no_text.svg" alt="" class="svelte-ci1c6c">
+                    Grow Together YEG</a>
+                <nav class="svelte-ci1c6c"><a class="link svelte-ci1c6c" href="/">Home</a><a class="link svelte-ci1c6c" href="/about">About</a></nav>
             </div>
-            <div class="mobile-nav svelte-1grguq5"><a href="/" class="logo svelte-1grguq5">Grow Together YEG</a>
+            <div class="mobile-nav svelte-ci1c6c"><a href="/" class="logo svelte-ci1c6c"><img class="logo svelte-ci1c6c" src="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1692331070906gtyeg_logo_no_text.svg" alt="">
+                    Grow Together YEG</a>
                 <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START -->
                         <g id="iconifySvelte0">
                             <g id="iconifySvelte1">
