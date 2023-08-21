@@ -259,6 +259,13 @@ function listen(node, event, handler, options) {
     node.addEventListener(event, handler, options);
     return () => node.removeEventListener(event, handler, options);
 }
+function prevent_default(fn) {
+    return function (event) {
+        event.preventDefault();
+        // @ts-ignore
+        return fn.call(this, event);
+    };
+}
 function attr(node, attribute, value) {
     if (value == null)
         node.removeAttribute(attribute);
@@ -1011,6 +1018,10 @@ function create_fragment(ctx) {
 	let link1;
 	let script;
 	let script_src_value;
+	let meta2;
+	let meta3;
+	let meta4;
+	let meta4_content_value;
 	let style;
 	let t;
 
@@ -1021,12 +1032,15 @@ function create_fragment(ctx) {
 			link0 = element("link");
 			link1 = element("link");
 			script = element("script");
+			meta2 = element("meta");
+			meta3 = element("meta");
+			meta4 = element("meta");
 			style = element("style");
 			t = text("/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n\n  &:hover {\n    border-color: transparent;\n  }\n}\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n\n  &:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n  &.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n}\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n\n  p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n\n  img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n\n  a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n\n    &:hover {\n      border-color: transparent;\n    }\n  }\n\n  h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n\n  h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }\n}");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-98ip89', document.head);
+			const head_nodes = head_selector('svelte-5vjgeh', document.head);
 			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
 			meta1 = claim_element(head_nodes, "META", { charset: true });
 
@@ -1041,6 +1055,9 @@ function create_fragment(ctx) {
 			script = claim_element(head_nodes, "SCRIPT", { src: true, "data-website-id": true });
 			var script_nodes = children(script);
 			script_nodes.forEach(detach);
+			meta2 = claim_element(head_nodes, "META", { property: true, content: true });
+			meta3 = claim_element(head_nodes, "META", { property: true, content: true });
+			meta4 = claim_element(head_nodes, "META", { property: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
 			t = claim_text(style_nodes, "/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n\n  &:hover {\n    border-color: transparent;\n  }\n}\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n\n  &:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n  &.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n}\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n\n  p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n\n  img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n\n  a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n\n    &:hover {\n      border-color: transparent;\n    }\n  }\n\n  h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n\n  h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }\n}");
@@ -1061,6 +1078,12 @@ function create_fragment(ctx) {
 			script.async = true;
 			if (!src_url_equal(script.src, script_src_value = "https://analytics.umami.is/script.js")) attr(script, "src", script_src_value);
 			attr(script, "data-website-id", "541fddec-8517-45e6-b5e5-6a9e36cb83c3");
+			attr(meta2, "property", "og:title");
+			attr(meta2, "content", /*title*/ ctx[1]);
+			attr(meta3, "property", "og:type");
+			attr(meta3, "content", "article");
+			attr(meta4, "property", "og:image");
+			attr(meta4, "content", meta4_content_value = /*preview_image*/ ctx[2].url);
 		},
 		m(target, anchor) {
 			append_hydration(document.head, meta0);
@@ -1068,12 +1091,23 @@ function create_fragment(ctx) {
 			append_hydration(document.head, link0);
 			append_hydration(document.head, link1);
 			append_hydration(document.head, script);
+			append_hydration(document.head, meta2);
+			append_hydration(document.head, meta3);
+			append_hydration(document.head, meta4);
 			append_hydration(document.head, style);
 			append_hydration(style, t);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*favicon*/ 1 && link0_href_value !== (link0_href_value = /*favicon*/ ctx[0].url)) {
 				attr(link0, "href", link0_href_value);
+			}
+
+			if (dirty & /*title*/ 2) {
+				attr(meta2, "content", /*title*/ ctx[1]);
+			}
+
+			if (dirty & /*preview_image*/ 4 && meta4_content_value !== (meta4_content_value = /*preview_image*/ ctx[2].url)) {
+				attr(meta4, "content", meta4_content_value);
 			}
 		},
 		i: noop,
@@ -1084,6 +1118,9 @@ function create_fragment(ctx) {
 			detach(link0);
 			detach(link1);
 			detach(script);
+			detach(meta2);
+			detach(meta3);
+			detach(meta4);
 			detach(style);
 		}
 	};
@@ -1093,20 +1130,31 @@ function instance($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
+		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(1, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(2, preview_image = $$props.preview_image);
 	};
 
-	return [favicon, color1, color2];
+	return [favicon, title, preview_image, color1, color2];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { color1: 1, color2: 2, favicon: 0 });
+
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			color1: 3,
+			color2: 4,
+			favicon: 0,
+			title: 1,
+			preview_image: 2
+		});
 	}
 }
 
@@ -2975,17 +3023,17 @@ class Component$1 extends SvelteComponent {
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[9] = list[i].link;
+	child_ctx[11] = list[i].link;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[9] = list[i].link;
+	child_ctx[11] = list[i].link;
 	return child_ctx;
 }
 
-// (112:6) {#if logo.image.url}
+// (114:6) {#if logo.image.url}
 function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
@@ -3023,10 +3071,10 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (118:6) {#each site_nav as { link }}
+// (120:6) {#each site_nav as { link }}
 function create_each_block_1(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[9].label + "";
+	let t_value = /*link*/ ctx[11].label + "";
 	let t;
 	let a_href_value;
 
@@ -3045,16 +3093,16 @@ function create_each_block_1(ctx) {
 		},
 		h() {
 			attr(a, "class", "link svelte-ci1c6c");
-			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[11].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[9].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[11].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[9].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[11].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3064,7 +3112,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (125:6) {#if logo.image.url}
+// (127:6) {#if logo.image.url}
 function create_if_block_1$1(ctx) {
 	let img;
 	let img_src_value;
@@ -3102,7 +3150,7 @@ function create_if_block_1$1(ctx) {
 	};
 }
 
-// (136:4) {#if mobileNavOpen}
+// (138:4) {#if mobileNavOpen}
 function create_if_block$1(ctx) {
 	let nav;
 	let t;
@@ -3178,7 +3226,7 @@ function create_if_block$1(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler_1*/ ctx[7]);
+				dispose = listen(button, "click", /*click_handler_1*/ ctx[9]);
 				mounted = true;
 			}
 		},
@@ -3235,10 +3283,10 @@ function create_if_block$1(ctx) {
 	};
 }
 
-// (138:8) {#each site_nav as { link }}
+// (140:8) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[9].label + "";
+	let t_value = /*link*/ ctx[11].label + "";
 	let t;
 	let a_href_value;
 
@@ -3256,16 +3304,16 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[11].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[9].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[11].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[9].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[11].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3399,7 +3447,7 @@ function create_fragment$2(ctx) {
 			attr(div1, "class", "mobile-nav svelte-ci1c6c");
 			attr(header, "class", "section-container svelte-ci1c6c");
 			attr(div2, "class", "section");
-			attr(div2, "id", "section-e8c503b1");
+			attr(div2, "id", "section-b6b049eb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -3432,7 +3480,7 @@ function create_fragment$2(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler*/ ctx[6]);
+				dispose = listen(button, "click", /*click_handler*/ ctx[8]);
 				mounted = true;
 			}
 		},
@@ -3541,6 +3589,8 @@ function instance$2($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { logo } = $$props;
 	let { site_nav } = $$props;
 	let mobileNavOpen = false;
@@ -3552,6 +3602,8 @@ function instance$2($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(6, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(7, preview_image = $$props.preview_image);
 		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
 		if ('site_nav' in $$props) $$invalidate(1, site_nav = $$props.site_nav);
 	};
@@ -3563,6 +3615,8 @@ function instance$2($$self, $$props, $$invalidate) {
 		color1,
 		color2,
 		favicon,
+		title,
+		preview_image,
 		click_handler,
 		click_handler_1
 	];
@@ -3576,6 +3630,8 @@ class Component$2 extends SvelteComponent {
 			color1: 3,
 			color2: 4,
 			favicon: 5,
+			title: 6,
+			preview_image: 7,
 			logo: 0,
 			site_nav: 1
 		});
@@ -3610,10 +3666,10 @@ function create_fragment$3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-1l608z0");
+			attr(div0, "class", "section-container content svelte-5mws8s");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
-			attr(div2, "id", "section-193a121c");
+			attr(div2, "id", "section-917853d6");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -3635,16 +3691,20 @@ function instance$3($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { content } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
 		if ('content' in $$props) $$invalidate(0, content = $$props.content);
 	};
 
-	return [content, color1, color2, favicon];
+	return [content, color1, color2, favicon, title, preview_image];
 }
 
 class Component$3 extends SvelteComponent {
@@ -3655,6 +3715,8 @@ class Component$3 extends SvelteComponent {
 			color1: 1,
 			color2: 2,
 			favicon: 3,
+			title: 4,
+			preview_image: 5,
 			content: 0
 		});
 	}
@@ -3700,7 +3762,7 @@ function create_fragment$4(ctx) {
 			attr(img, "class", "svelte-1vvwb");
 			attr(section, "class", "section-container svelte-1vvwb");
 			attr(div, "class", "section");
-			attr(div, "id", "section-fe016241");
+			attr(div, "id", "section-1be78ed5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div, anchor);
@@ -3732,6 +3794,8 @@ function instance$4($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { image } = $$props;
 	let { max_height } = $$props;
 
@@ -3739,11 +3803,13 @@ function instance$4($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(2, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(3, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(5, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(6, preview_image = $$props.preview_image);
 		if ('image' in $$props) $$invalidate(0, image = $$props.image);
 		if ('max_height' in $$props) $$invalidate(1, max_height = $$props.max_height);
 	};
 
-	return [image, max_height, color1, color2, favicon];
+	return [image, max_height, color1, color2, favicon, title, preview_image];
 }
 
 class Component$4 extends SvelteComponent {
@@ -3754,6 +3820,8 @@ class Component$4 extends SvelteComponent {
 			color1: 2,
 			color2: 3,
 			favicon: 4,
+			title: 5,
+			preview_image: 6,
 			image: 0,
 			max_height: 1
 		});
@@ -3788,10 +3856,10 @@ function create_fragment$5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content");
+			attr(div0, "class", "section-container content svelte-5mws8s");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
-			attr(div2, "id", "section-9e79ef82");
+			attr(div2, "id", "section-87500d52");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -3813,16 +3881,20 @@ function instance$5($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { content } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
 		if ('content' in $$props) $$invalidate(0, content = $$props.content);
 	};
 
-	return [content, color1, color2, favicon];
+	return [content, color1, color2, favicon, title, preview_image];
 }
 
 class Component$5 extends SvelteComponent {
@@ -3833,6 +3905,8 @@ class Component$5 extends SvelteComponent {
 			color1: 1,
 			color2: 2,
 			favicon: 3,
+			title: 4,
+			preview_image: 5,
 			content: 0
 		});
 	}
@@ -3840,581 +3914,68 @@ class Component$5 extends SvelteComponent {
 
 /* generated by Svelte v3.58.0 */
 
-function get_each_context$1(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[8] = list[i].link;
-	child_ctx[9] = list[i].icon;
-	return child_ctx;
-}
-
-// (75:6) {#each social as { link, icon }}
-function create_each_block$1(ctx) {
-	let a;
-	let span;
-	let icon;
-	let t0;
-	let t1_value = /*link*/ ctx[8].label + "";
-	let t1;
-	let t2;
-	let a_href_value;
-	let current;
-	icon = new Component$1({ props: { icon: /*icon*/ ctx[9] } });
-
-	return {
-		c() {
-			a = element("a");
-			span = element("span");
-			create_component(icon.$$.fragment);
-			t0 = space();
-			t1 = text(t1_value);
-			t2 = space();
-			this.h();
-		},
-		l(nodes) {
-			a = claim_element(nodes, "A", { href: true, class: true });
-			var a_nodes = children(a);
-			span = claim_element(a_nodes, "SPAN", { class: true });
-			var span_nodes = children(span);
-			claim_component(icon.$$.fragment, span_nodes);
-			span_nodes.forEach(detach);
-			t0 = claim_space(a_nodes);
-			t1 = claim_text(a_nodes, t1_value);
-			t2 = claim_space(a_nodes);
-			a_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(span, "class", "icon svelte-1s2usg3");
-			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
-			attr(a, "class", "svelte-1s2usg3");
-		},
-		m(target, anchor) {
-			insert_hydration(target, a, anchor);
-			append_hydration(a, span);
-			mount_component(icon, span, null);
-			append_hydration(a, t0);
-			append_hydration(a, t1);
-			append_hydration(a, t2);
-			current = true;
-		},
-		p(ctx, dirty) {
-			const icon_changes = {};
-			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[9];
-			icon.$set(icon_changes);
-			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[8].label + "")) set_data(t1, t1_value);
-
-			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[8].url)) {
-				attr(a, "href", a_href_value);
-			}
-		},
-		i(local) {
-			if (current) return;
-			transition_in(icon.$$.fragment, local);
-			current = true;
-		},
-		o(local) {
-			transition_out(icon.$$.fragment, local);
-			current = false;
-		},
-		d(detaching) {
-			if (detaching) detach(a);
-			destroy_component(icon);
-		}
-	};
-}
-
 function create_fragment$6(ctx) {
-	let div15;
+	let div;
 	let section;
-	let div2;
-	let h2;
-	let t0;
-	let t1;
-	let div0;
-	let t2;
-	let div1;
-	let t3;
-	let style0;
-	let t4;
-	let t5;
-	let style1;
-	let t6;
-	let t7;
-	let div14;
-	let div13;
-	let div12;
-	let div9;
-	let div3;
-	let h40;
-	let t8;
-	let t9;
-	let p0;
-	let t10;
-	let t11;
-	let form;
-	let div6;
-	let div5;
-	let div4;
-	let label;
-	let t12;
-	let t13;
-	let input0;
-	let t14;
-	let input1;
-	let t15;
-	let div8;
-	let button0;
-	let t16;
-	let t17;
-	let button1;
-	let div7;
-	let t18;
-	let span;
-	let t19;
-	let t20;
-	let input2;
-	let t21;
-	let div11;
-	let div10;
-	let h41;
-	let t22;
-	let t23;
-	let p1;
-	let t24;
-	let t25;
-	let script0;
-	let t26;
-	let t27;
-	let script1;
-	let script1_src_value;
-	let t28;
-	let script2;
-	let t29;
-	let current;
-	let each_value = /*social*/ ctx[2];
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
-	}
-
-	const out = i => transition_out(each_blocks[i], 1, 1, () => {
-		each_blocks[i] = null;
-	});
+	let img;
+	let img_src_value;
+	let img_alt_value;
 
 	return {
 		c() {
-			div15 = element("div");
+			div = element("div");
 			section = element("section");
-			div2 = element("div");
-			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[0]);
-			t1 = space();
-			div0 = element("div");
-			t2 = space();
-			div1 = element("div");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			t3 = space();
-			style0 = element("style");
-			t4 = text("@import url(\"https://assets.mlcdn.com/fonts.css?version=1689246\");");
-			t5 = space();
-			style1 = element("style");
-			t6 = text("/* LOADER */\n    .ml-form-embedSubmitLoad {\n      display: inline-block;\n      width: 20px;\n      height: 20px;\n    }\n\n    .g-recaptcha {\n    transform: scale(1);\n    -webkit-transform: scale(1);\n    transform-origin: 0 0;\n    -webkit-transform-origin: 0 0;\n    height: ;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0,0,0,0);\n      border: 0;\n    }\n\n    .ml-form-embedSubmitLoad:after {\n      content: \" \";\n      display: block;\n      width: 11px;\n      height: 11px;\n      margin: 1px;\n      border-radius: 50%;\n      border: 4px solid #fff;\n    border-color: #ffffff #ffffff #ffffff transparent;\n    animation: ml-form-embedSubmitLoad 1.2s linear infinite;\n    }\n    @keyframes ml-form-embedSubmitLoad {\n      0% {\n      transform: rotate(0deg);\n      }\n      100% {\n      transform: rotate(360deg);\n      }\n    }\n      #mlb2-6312828.ml-form-embedContainer {\n        box-sizing: border-box;\n        display: table;\n        margin: 0 auto;\n        position: static;\n        width: 100% !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer h4,\n      #mlb2-6312828.ml-form-embedContainer p,\n      #mlb2-6312828.ml-form-embedContainer span,\n      #mlb2-6312828.ml-form-embedContainer button {\n        text-transform: none !important;\n        letter-spacing: normal !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper {\n        background-color: #f6f6f6;\n        \n        border-width: 0px;\n        border-color: transparent;\n        border-radius: 4px;\n        border-style: solid;\n        box-sizing: border-box;\n        display: inline-block !important;\n        margin: 0;\n        padding: 0;\n        position: relative;\n              }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper.embedPopup,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper.embedDefault { width: 400px; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 400px; width: 100%; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-align-left { text-align: left; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-align-center { text-align: center; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-align-default { display: table-cell !important; vertical-align: middle !important; text-align: center !important; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-align-right { text-align: right; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedHeader img {\n        border-top-left-radius: 4px;\n        border-top-right-radius: 4px;\n        height: auto;\n        margin: 0 auto !important;\n        max-width: 100%;\n        width: undefinedpx;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {\n        padding: 20px 20px 0 20px;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody.ml-form-embedBodyHorizontal {\n        padding-bottom: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent {\n        text-align: left;\n        margin: 0 0 20px 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {\n        color: #000000;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 30px;\n        font-weight: 400;\n        margin: 0 0 10px 0;\n        text-align: left;\n        word-break: break-word;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p {\n        color: #000000;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px;\n        font-weight: 400;\n        line-height: 20px;\n        margin: 0 0 10px 0;\n        text-align: left;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ul,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ul,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol {\n        color: #000000;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol ol,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol ol {\n        list-style-type: lower-alpha;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol ol ol,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol ol ol {\n        list-style-type: lower-roman;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p a,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p a {\n        color: #000000;\n        text-decoration: underline;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group {\n        text-align: left!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group label {\n        margin-bottom: 5px;\n        color: #333333;\n        font-size: 14px;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-weight: bold; font-style: normal; text-decoration: none;;\n        display: inline-block;\n        line-height: 20px;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p:last-child,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p:last-child {\n        margin: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody form {\n        margin: 0;\n        width: 100%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow {\n        margin: 0 0 20px 0;\n        width: 100%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow {\n        float: left;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent.horozintalForm {\n        margin: 0;\n        padding: 0 0 20px 0;\n        width: 100%;\n        height: auto;\n        float: left;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow {\n        margin: 0 0 10px 0;\n        width: 100%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow.ml-last-item {\n        margin: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow.ml-formfieldHorizintal {\n        margin: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input {\n        background-color: #ffffff !important;\n        color: #333333 !important;\n        border-color: #cccccc;\n        border-radius: 4px !important;\n        border-style: solid !important;\n        border-width: 1px !important;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px !important;\n        height: auto;\n        line-height: 21px !important;\n        margin-bottom: 0;\n        margin-top: 0;\n        margin-left: 0;\n        margin-right: 0;\n        padding: 10px 10px !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n        max-width: 100% !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-webkit-input-placeholder,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input::-webkit-input-placeholder { color: #333333; }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-moz-placeholder,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input::-moz-placeholder { color: #333333; }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:-ms-input-placeholder,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input:-ms-input-placeholder { color: #333333; }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:-moz-placeholder,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input:-moz-placeholder { color: #333333; }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow textarea, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow textarea {\n        background-color: #ffffff !important;\n        color: #333333 !important;\n        border-color: #cccccc;\n        border-radius: 4px !important;\n        border-style: solid !important;\n        border-width: 1px !important;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px !important;\n        height: auto;\n        line-height: 21px !important;\n        margin-bottom: 0;\n        margin-top: 0;\n        padding: 10px 10px !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n        max-width: 100% !important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {\n          border-color: #cccccc!important;\n          background-color: #ffffff!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input.custom-control-input[type=\"checkbox\"]{\n        box-sizing: border-box;\n        padding: 0;\n        position: absolute;\n        z-index: -1;\n        opacity: 0;\n        margin-top: 5px;\n        margin-left: -1.5rem;\n        overflow: visible;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {\n        border-radius: 4px!important;\n      }\n\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox input[type=checkbox]:checked~.label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-input:checked~.custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-input:checked~.custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox input[type=checkbox]:checked~.label-description::after {\n        background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e\");\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input:checked~.custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input:checked~.custom-control-label::after {\n        background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e\");\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input:checked~.custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-input:checked~.custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-input:checked~.custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-input:checked~.custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox input[type=checkbox]:checked~.label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox input[type=checkbox]:checked~.label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::before  {\n          border-color: #000000!important;\n          background-color: #000000!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::after {\n           top: 2px;\n           box-sizing: border-box;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {\n           top: 0px!important;\n           box-sizing: border-box!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {\n        top: 0px!important;\n           box-sizing: border-box!important;\n      }\n\n       #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::after {\n            top: 0px!important;\n            box-sizing: border-box!important;\n            position: absolute;\n            left: -1.5rem;\n            display: block;\n            width: 1rem;\n            height: 1rem;\n            content: \"\";\n       }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before {\n        top: 0px!important;\n        box-sizing: border-box!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-control-label::before {\n          position: absolute;\n          top: 4px;\n          left: -1.5rem;\n          display: block;\n          width: 16px;\n          height: 16px;\n          pointer-events: none;\n          content: \"\";\n          background-color: #ffffff;\n          border: #adb5bd solid 1px;\n          border-radius: 50%;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-control-label::after {\n          position: absolute;\n          top: 2px!important;\n          left: -1.5rem;\n          display: block;\n          width: 1rem;\n          height: 1rem;\n          content: \"\";\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {\n          position: absolute;\n          top: 4px;\n          left: -1.5rem;\n          display: block;\n          width: 16px;\n          height: 16px;\n          pointer-events: none;\n          content: \"\";\n          background-color: #ffffff;\n          border: #adb5bd solid 1px;\n          border-radius: 50%;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::after {\n          position: absolute;\n          top: 0px!important;\n          left: -1.5rem;\n          display: block;\n          width: 1rem;\n          height: 1rem;\n          content: \"\";\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {\n          position: absolute;\n          top: 0px!important;\n          left: -1.5rem;\n          display: block;\n          width: 1rem;\n          height: 1rem;\n          content: \"\";\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-radio .custom-control-label::after {\n          background: no-repeat 50%/50% 50%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-checkbox .custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {\n          background: no-repeat 50%/50% 50%;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-control, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-control {\n        position: relative;\n        display: block;\n        min-height: 1.5rem;\n        padding-left: 1.5rem;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-input, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-input, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-input {\n          position: absolute;\n          z-index: -1;\n          opacity: 0;\n          box-sizing: border-box;\n          padding: 0;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label {\n          color: #000000;\n          font-size: 12px!important;\n          font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n          line-height: 22px;\n          margin-bottom: 0;\n          position: relative;\n          vertical-align: top;\n          font-style: normal;\n          font-weight: 700;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-select, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-select {\n        background-color: #ffffff !important;\n        color: #333333 !important;\n        border-color: #cccccc;\n        border-radius: 4px !important;\n        border-style: solid !important;\n        border-width: 1px !important;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px !important;\n        line-height: 20px !important;\n        margin-bottom: 0;\n        margin-top: 0;\n        padding: 10px 28px 10px 12px !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n        max-width: 100% !important;\n        height: auto;\n        display: inline-block;\n        vertical-align: middle;\n        background: url('https://assets.mlcdn.com/ml/images/default/dropdown.svg') no-repeat right .75rem center/8px 10px;\n        -webkit-appearance: none;\n        -moz-appearance: none;\n        appearance: none;\n      }\n\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow {\n        height: auto;\n        width: 100%;\n        float: left;\n      }\n      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal { width: 70%; float: left; }\n      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal { width: 30%; float: left; }\n      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal.labelsOn { padding-top: 25px;  }\n      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .horizontal-fields { box-sizing: border-box; float: left; padding-right: 10px;  }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input {\n        background-color: #ffffff;\n        color: #333333;\n        border-color: #cccccc;\n        border-radius: 4px;\n        border-style: solid;\n        border-width: 1px;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px;\n        line-height: 20px;\n        margin-bottom: 0;\n        margin-top: 0;\n        padding: 10px 10px;\n        width: 100%;\n        box-sizing: border-box;\n        overflow-y: initial;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button {\n        background-color: #004700 !important;\n        border-color: #004700;\n        border-style: solid;\n        border-width: 1px;\n        border-radius: 4px;\n        box-shadow: none;\n        color: #ffffff !important;\n        cursor: pointer;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px !important;\n        font-weight: 700;\n        line-height: 20px;\n        margin: 0 !important;\n        padding: 10px !important;\n        width: 100%;\n        height: auto;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button:hover {\n        background-color: #333333 !important;\n        border-color: #333333 !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=\"checkbox\"] {\n        box-sizing: border-box;\n        padding: 0;\n        position: absolute;\n        z-index: -1;\n        opacity: 0;\n        margin-top: 5px;\n        margin-left: -1.5rem;\n        overflow: visible;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description {\n        color: #000000;\n        display: block;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 12px;\n        text-align: left;\n        margin-bottom: 0;\n        position: relative;\n        vertical-align: top;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label {\n        font-weight: normal;\n        margin: 0;\n        padding: 0;\n        position: relative;\n        display: block;\n        min-height: 24px;\n        padding-left: 24px;\n\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label a {\n        color: #000000;\n        text-decoration: underline;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label p {\n        color: #000000 !important;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;\n        font-size: 12px !important;\n        font-weight: normal !important;\n        line-height: 18px !important;\n        padding: 0 !important;\n        margin: 0 5px 0 0 !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label p:last-child {\n        margin: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit {\n        margin: 0 0 20px 0;\n        float: left;\n        width: 100%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button {\n        background-color: #004700 !important;\n        border: none !important;\n        border-radius: 4px !important;\n        box-shadow: none !important;\n        color: #ffffff !important;\n        cursor: pointer;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;\n        font-size: 14px !important;\n        font-weight: 700 !important;\n        line-height: 21px !important;\n        height: auto;\n        padding: 10px !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button.loading {\n        display: none;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover {\n        background-color: #333333 !important;\n      }\n      .ml-subscribe-close {\n        width: 30px;\n        height: 30px;\n        background: url('https://assets.mlcdn.com/ml/images/default/modal_close.png') no-repeat;\n        background-size: 30px;\n        cursor: pointer;\n        margin-top: -10px;\n        margin-right: -10px;\n        position: absolute;\n        top: 0;\n        right: 0;\n      }\n      .ml-error input, .ml-error textarea, .ml-error select {\n        border-color: red!important;\n      }\n\n      .ml-error .custom-checkbox-radio-list {\n        border: 1px solid red !important;\n        border-radius: 4px;\n        padding: 10px;\n      }\n\n      .ml-error .label-description,\n      .ml-error .label-description p,\n      .ml-error .label-description p a,\n      .ml-error label:first-child {\n        color: #ff0000 !important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow.ml-error .label-description p,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow.ml-error .label-description p:first-letter {\n        color: #ff0000 !important;\n      }\n            @media only screen and (max-width: 400px){\n\n        .ml-form-embedWrapper.embedDefault, .ml-form-embedWrapper.embedPopup { width: 100%!important; }\n        .ml-form-formContent.horozintalForm { float: left!important; }\n        .ml-form-formContent.horozintalForm .ml-form-horizontalRow { height: auto!important; width: 100%!important; float: left!important; }\n        .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal { width: 100%!important; }\n        .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal > div { padding-right: 0px!important; padding-bottom: 10px; }\n        .ml-form-formContent.horozintalForm .ml-button-horizontal { width: 100%!important; }\n        .ml-form-formContent.horozintalForm .ml-button-horizontal.labelsOn { padding-top: 0px!important; }\n\n      }");
-			t7 = space();
-			div14 = element("div");
-			div13 = element("div");
-			div12 = element("div");
-			div9 = element("div");
-			div3 = element("div");
-			h40 = element("h4");
-			t8 = text("Newsletter");
-			t9 = space();
-			p0 = element("p");
-			t10 = text("Join our newsletter for updates on Zoning Bylaw Renewal and events.");
-			t11 = space();
-			form = element("form");
-			div6 = element("div");
-			div5 = element("div");
-			div4 = element("div");
-			label = element("label");
-			t12 = text("Email");
-			t13 = space();
-			input0 = element("input");
-			t14 = space();
-			input1 = element("input");
-			t15 = space();
-			div8 = element("div");
-			button0 = element("button");
-			t16 = text("Subscribe");
-			t17 = space();
-			button1 = element("button");
-			div7 = element("div");
-			t18 = space();
-			span = element("span");
-			t19 = text("Loading...");
-			t20 = space();
-			input2 = element("input");
-			t21 = space();
-			div11 = element("div");
-			div10 = element("div");
-			h41 = element("h4");
-			t22 = text("Thank you!");
-			t23 = space();
-			p1 = element("p");
-			t24 = text("You have successfully joined our subscriber list.");
-			t25 = space();
-			script0 = element("script");
-			t26 = text("function ml_webform_success_6312828() {\n      var $ = ml_jQuery || jQuery;\n      $('.ml-subscribe-form-6312828 .row-success').show();\n      $('.ml-subscribe-form-6312828 .row-form').hide();\n    }");
-			t27 = space();
-			script1 = element("script");
-			t28 = space();
-			script2 = element("script");
-			t29 = text("fetch(\"https://assets.mailerlite.com/jsonp/511328/forms/93691462163629222/track-view\")");
+			img = element("img");
 			this.h();
 		},
 		l(nodes) {
-			div15 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div15_nodes = children(div15);
-			section = claim_element(div15_nodes, "SECTION", { class: true });
+			div = claim_element(nodes, "DIV", { class: true, id: true });
+			var div_nodes = children(div);
+			section = claim_element(div_nodes, "SECTION", { class: true });
 			var section_nodes = children(section);
-			div2 = claim_element(section_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			h2 = claim_element(div2_nodes, "H2", { class: true });
-			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
-			h2_nodes.forEach(detach);
-			t1 = claim_space(div2_nodes);
-			div0 = claim_element(div2_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			t2 = claim_space(div2_nodes);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
 
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(div1_nodes);
-			}
-
-			div1_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			t3 = claim_space(section_nodes);
-			style0 = claim_element(section_nodes, "STYLE", { type: true });
-			var style0_nodes = children(style0);
-			t4 = claim_text(style0_nodes, "@import url(\"https://assets.mlcdn.com/fonts.css?version=1689246\");");
-			style0_nodes.forEach(detach);
-			t5 = claim_space(section_nodes);
-			style1 = claim_element(section_nodes, "STYLE", { type: true });
-			var style1_nodes = children(style1);
-			t6 = claim_text(style1_nodes, "/* LOADER */\n    .ml-form-embedSubmitLoad {\n      display: inline-block;\n      width: 20px;\n      height: 20px;\n    }\n\n    .g-recaptcha {\n    transform: scale(1);\n    -webkit-transform: scale(1);\n    transform-origin: 0 0;\n    -webkit-transform-origin: 0 0;\n    height: ;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0,0,0,0);\n      border: 0;\n    }\n\n    .ml-form-embedSubmitLoad:after {\n      content: \" \";\n      display: block;\n      width: 11px;\n      height: 11px;\n      margin: 1px;\n      border-radius: 50%;\n      border: 4px solid #fff;\n    border-color: #ffffff #ffffff #ffffff transparent;\n    animation: ml-form-embedSubmitLoad 1.2s linear infinite;\n    }\n    @keyframes ml-form-embedSubmitLoad {\n      0% {\n      transform: rotate(0deg);\n      }\n      100% {\n      transform: rotate(360deg);\n      }\n    }\n      #mlb2-6312828.ml-form-embedContainer {\n        box-sizing: border-box;\n        display: table;\n        margin: 0 auto;\n        position: static;\n        width: 100% !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer h4,\n      #mlb2-6312828.ml-form-embedContainer p,\n      #mlb2-6312828.ml-form-embedContainer span,\n      #mlb2-6312828.ml-form-embedContainer button {\n        text-transform: none !important;\n        letter-spacing: normal !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper {\n        background-color: #f6f6f6;\n        \n        border-width: 0px;\n        border-color: transparent;\n        border-radius: 4px;\n        border-style: solid;\n        box-sizing: border-box;\n        display: inline-block !important;\n        margin: 0;\n        padding: 0;\n        position: relative;\n              }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper.embedPopup,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper.embedDefault { width: 400px; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 400px; width: 100%; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-align-left { text-align: left; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-align-center { text-align: center; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-align-default { display: table-cell !important; vertical-align: middle !important; text-align: center !important; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-align-right { text-align: right; }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedHeader img {\n        border-top-left-radius: 4px;\n        border-top-right-radius: 4px;\n        height: auto;\n        margin: 0 auto !important;\n        max-width: 100%;\n        width: undefinedpx;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {\n        padding: 20px 20px 0 20px;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody.ml-form-embedBodyHorizontal {\n        padding-bottom: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent {\n        text-align: left;\n        margin: 0 0 20px 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {\n        color: #000000;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 30px;\n        font-weight: 400;\n        margin: 0 0 10px 0;\n        text-align: left;\n        word-break: break-word;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p {\n        color: #000000;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px;\n        font-weight: 400;\n        line-height: 20px;\n        margin: 0 0 10px 0;\n        text-align: left;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ul,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ul,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol {\n        color: #000000;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol ol,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol ol {\n        list-style-type: lower-alpha;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol ol ol,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol ol ol {\n        list-style-type: lower-roman;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p a,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p a {\n        color: #000000;\n        text-decoration: underline;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group {\n        text-align: left!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group label {\n        margin-bottom: 5px;\n        color: #333333;\n        font-size: 14px;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-weight: bold; font-style: normal; text-decoration: none;;\n        display: inline-block;\n        line-height: 20px;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p:last-child,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p:last-child {\n        margin: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody form {\n        margin: 0;\n        width: 100%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow {\n        margin: 0 0 20px 0;\n        width: 100%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow {\n        float: left;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent.horozintalForm {\n        margin: 0;\n        padding: 0 0 20px 0;\n        width: 100%;\n        height: auto;\n        float: left;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow {\n        margin: 0 0 10px 0;\n        width: 100%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow.ml-last-item {\n        margin: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow.ml-formfieldHorizintal {\n        margin: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input {\n        background-color: #ffffff !important;\n        color: #333333 !important;\n        border-color: #cccccc;\n        border-radius: 4px !important;\n        border-style: solid !important;\n        border-width: 1px !important;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px !important;\n        height: auto;\n        line-height: 21px !important;\n        margin-bottom: 0;\n        margin-top: 0;\n        margin-left: 0;\n        margin-right: 0;\n        padding: 10px 10px !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n        max-width: 100% !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-webkit-input-placeholder,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input::-webkit-input-placeholder { color: #333333; }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-moz-placeholder,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input::-moz-placeholder { color: #333333; }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:-ms-input-placeholder,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input:-ms-input-placeholder { color: #333333; }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:-moz-placeholder,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input:-moz-placeholder { color: #333333; }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow textarea, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow textarea {\n        background-color: #ffffff !important;\n        color: #333333 !important;\n        border-color: #cccccc;\n        border-radius: 4px !important;\n        border-style: solid !important;\n        border-width: 1px !important;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px !important;\n        height: auto;\n        line-height: 21px !important;\n        margin-bottom: 0;\n        margin-top: 0;\n        padding: 10px 10px !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n        max-width: 100% !important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {\n          border-color: #cccccc!important;\n          background-color: #ffffff!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input.custom-control-input[type=\"checkbox\"]{\n        box-sizing: border-box;\n        padding: 0;\n        position: absolute;\n        z-index: -1;\n        opacity: 0;\n        margin-top: 5px;\n        margin-left: -1.5rem;\n        overflow: visible;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {\n        border-radius: 4px!important;\n      }\n\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox input[type=checkbox]:checked~.label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-input:checked~.custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-input:checked~.custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox input[type=checkbox]:checked~.label-description::after {\n        background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e\");\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input:checked~.custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input:checked~.custom-control-label::after {\n        background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e\");\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input:checked~.custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-input:checked~.custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-input:checked~.custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-input:checked~.custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox input[type=checkbox]:checked~.label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox input[type=checkbox]:checked~.label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::before  {\n          border-color: #000000!important;\n          background-color: #000000!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::after {\n           top: 2px;\n           box-sizing: border-box;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {\n           top: 0px!important;\n           box-sizing: border-box!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {\n        top: 0px!important;\n           box-sizing: border-box!important;\n      }\n\n       #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::after {\n            top: 0px!important;\n            box-sizing: border-box!important;\n            position: absolute;\n            left: -1.5rem;\n            display: block;\n            width: 1rem;\n            height: 1rem;\n            content: \"\";\n       }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before {\n        top: 0px!important;\n        box-sizing: border-box!important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-control-label::before {\n          position: absolute;\n          top: 4px;\n          left: -1.5rem;\n          display: block;\n          width: 16px;\n          height: 16px;\n          pointer-events: none;\n          content: \"\";\n          background-color: #ffffff;\n          border: #adb5bd solid 1px;\n          border-radius: 50%;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-control-label::after {\n          position: absolute;\n          top: 2px!important;\n          left: -1.5rem;\n          display: block;\n          width: 1rem;\n          height: 1rem;\n          content: \"\";\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {\n          position: absolute;\n          top: 4px;\n          left: -1.5rem;\n          display: block;\n          width: 16px;\n          height: 16px;\n          pointer-events: none;\n          content: \"\";\n          background-color: #ffffff;\n          border: #adb5bd solid 1px;\n          border-radius: 50%;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::after {\n          position: absolute;\n          top: 0px!important;\n          left: -1.5rem;\n          display: block;\n          width: 1rem;\n          height: 1rem;\n          content: \"\";\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {\n          position: absolute;\n          top: 0px!important;\n          left: -1.5rem;\n          display: block;\n          width: 1rem;\n          height: 1rem;\n          content: \"\";\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-radio .custom-control-label::after {\n          background: no-repeat 50%/50% 50%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-checkbox .custom-control-label::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::after, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {\n          background: no-repeat 50%/50% 50%;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-control, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-control {\n        position: relative;\n        display: block;\n        min-height: 1.5rem;\n        padding-left: 1.5rem;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-input, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-input, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-input {\n          position: absolute;\n          z-index: -1;\n          opacity: 0;\n          box-sizing: border-box;\n          padding: 0;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label {\n          color: #000000;\n          font-size: 12px!important;\n          font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n          line-height: 22px;\n          margin-bottom: 0;\n          position: relative;\n          vertical-align: top;\n          font-style: normal;\n          font-weight: 700;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-select, #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-select {\n        background-color: #ffffff !important;\n        color: #333333 !important;\n        border-color: #cccccc;\n        border-radius: 4px !important;\n        border-style: solid !important;\n        border-width: 1px !important;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px !important;\n        line-height: 20px !important;\n        margin-bottom: 0;\n        margin-top: 0;\n        padding: 10px 28px 10px 12px !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n        max-width: 100% !important;\n        height: auto;\n        display: inline-block;\n        vertical-align: middle;\n        background: url('https://assets.mlcdn.com/ml/images/default/dropdown.svg') no-repeat right .75rem center/8px 10px;\n        -webkit-appearance: none;\n        -moz-appearance: none;\n        appearance: none;\n      }\n\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow {\n        height: auto;\n        width: 100%;\n        float: left;\n      }\n      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal { width: 70%; float: left; }\n      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal { width: 30%; float: left; }\n      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal.labelsOn { padding-top: 25px;  }\n      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .horizontal-fields { box-sizing: border-box; float: left; padding-right: 10px;  }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input {\n        background-color: #ffffff;\n        color: #333333;\n        border-color: #cccccc;\n        border-radius: 4px;\n        border-style: solid;\n        border-width: 1px;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px;\n        line-height: 20px;\n        margin-bottom: 0;\n        margin-top: 0;\n        padding: 10px 10px;\n        width: 100%;\n        box-sizing: border-box;\n        overflow-y: initial;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button {\n        background-color: #004700 !important;\n        border-color: #004700;\n        border-style: solid;\n        border-width: 1px;\n        border-radius: 4px;\n        box-shadow: none;\n        color: #ffffff !important;\n        cursor: pointer;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 14px !important;\n        font-weight: 700;\n        line-height: 20px;\n        margin: 0 !important;\n        padding: 10px !important;\n        width: 100%;\n        height: auto;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button:hover {\n        background-color: #333333 !important;\n        border-color: #333333 !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=\"checkbox\"] {\n        box-sizing: border-box;\n        padding: 0;\n        position: absolute;\n        z-index: -1;\n        opacity: 0;\n        margin-top: 5px;\n        margin-left: -1.5rem;\n        overflow: visible;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description {\n        color: #000000;\n        display: block;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif;\n        font-size: 12px;\n        text-align: left;\n        margin-bottom: 0;\n        position: relative;\n        vertical-align: top;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label {\n        font-weight: normal;\n        margin: 0;\n        padding: 0;\n        position: relative;\n        display: block;\n        min-height: 24px;\n        padding-left: 24px;\n\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label a {\n        color: #000000;\n        text-decoration: underline;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label p {\n        color: #000000 !important;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;\n        font-size: 12px !important;\n        font-weight: normal !important;\n        line-height: 18px !important;\n        padding: 0 !important;\n        margin: 0 5px 0 0 !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label p:last-child {\n        margin: 0;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit {\n        margin: 0 0 20px 0;\n        float: left;\n        width: 100%;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button {\n        background-color: #004700 !important;\n        border: none !important;\n        border-radius: 4px !important;\n        box-shadow: none !important;\n        color: #ffffff !important;\n        cursor: pointer;\n        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;\n        font-size: 14px !important;\n        font-weight: 700 !important;\n        line-height: 21px !important;\n        height: auto;\n        padding: 10px !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button.loading {\n        display: none;\n      }\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover {\n        background-color: #333333 !important;\n      }\n      .ml-subscribe-close {\n        width: 30px;\n        height: 30px;\n        background: url('https://assets.mlcdn.com/ml/images/default/modal_close.png') no-repeat;\n        background-size: 30px;\n        cursor: pointer;\n        margin-top: -10px;\n        margin-right: -10px;\n        position: absolute;\n        top: 0;\n        right: 0;\n      }\n      .ml-error input, .ml-error textarea, .ml-error select {\n        border-color: red!important;\n      }\n\n      .ml-error .custom-checkbox-radio-list {\n        border: 1px solid red !important;\n        border-radius: 4px;\n        padding: 10px;\n      }\n\n      .ml-error .label-description,\n      .ml-error .label-description p,\n      .ml-error .label-description p a,\n      .ml-error label:first-child {\n        color: #ff0000 !important;\n      }\n\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow.ml-error .label-description p,\n      #mlb2-6312828.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow.ml-error .label-description p:first-letter {\n        color: #ff0000 !important;\n      }\n            @media only screen and (max-width: 400px){\n\n        .ml-form-embedWrapper.embedDefault, .ml-form-embedWrapper.embedPopup { width: 100%!important; }\n        .ml-form-formContent.horozintalForm { float: left!important; }\n        .ml-form-formContent.horozintalForm .ml-form-horizontalRow { height: auto!important; width: 100%!important; float: left!important; }\n        .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal { width: 100%!important; }\n        .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal > div { padding-right: 0px!important; padding-bottom: 10px; }\n        .ml-form-formContent.horozintalForm .ml-button-horizontal { width: 100%!important; }\n        .ml-form-formContent.horozintalForm .ml-button-horizontal.labelsOn { padding-top: 0px!important; }\n\n      }");
-			style1_nodes.forEach(detach);
-			t7 = claim_space(section_nodes);
-			div14 = claim_element(section_nodes, "DIV", { id: true, class: true });
-			var div14_nodes = children(div14);
-			div13 = claim_element(div14_nodes, "DIV", { class: true });
-			var div13_nodes = children(div13);
-			div12 = claim_element(div13_nodes, "DIV", { class: true });
-			var div12_nodes = children(div12);
-			div9 = claim_element(div12_nodes, "DIV", { class: true });
-			var div9_nodes = children(div9);
-			div3 = claim_element(div9_nodes, "DIV", { class: true, style: true });
-			var div3_nodes = children(div3);
-			h40 = claim_element(div3_nodes, "H4", {});
-			var h40_nodes = children(h40);
-			t8 = claim_text(h40_nodes, "Newsletter");
-			h40_nodes.forEach(detach);
-			t9 = claim_space(div3_nodes);
-			p0 = claim_element(div3_nodes, "P", {});
-			var p0_nodes = children(p0);
-			t10 = claim_text(p0_nodes, "Join our newsletter for updates on Zoning Bylaw Renewal and events.");
-			p0_nodes.forEach(detach);
-			div3_nodes.forEach(detach);
-			t11 = claim_space(div9_nodes);
-
-			form = claim_element(div9_nodes, "FORM", {
-				class: true,
-				action: true,
-				"data-code": true,
-				method: true,
-				target: true
+			img = claim_element(section_nodes, "IMG", {
+				src: true,
+				alt: true,
+				style: true,
+				class: true
 			});
 
-			var form_nodes = children(form);
-			div6 = claim_element(form_nodes, "DIV", { class: true });
-			var div6_nodes = children(div6);
-			div5 = claim_element(div6_nodes, "DIV", { class: true });
-			var div5_nodes = children(div5);
-			div4 = claim_element(div5_nodes, "DIV", { class: true });
-			var div4_nodes = children(div4);
-			label = claim_element(div4_nodes, "LABEL", { for: true });
-			var label_nodes = children(label);
-			t12 = claim_text(label_nodes, "Email");
-			label_nodes.forEach(detach);
-			t13 = claim_space(div4_nodes);
-
-			input0 = claim_element(div4_nodes, "INPUT", {
-				id: true,
-				"aria-label": true,
-				"aria-required": true,
-				type: true,
-				class: true,
-				"data-inputmask": true,
-				name: true,
-				placeholder: true,
-				autocomplete: true
-			});
-
-			div4_nodes.forEach(detach);
-			div5_nodes.forEach(detach);
-			div6_nodes.forEach(detach);
-			t14 = claim_space(form_nodes);
-			input1 = claim_element(form_nodes, "INPUT", { type: true, name: true });
-			t15 = claim_space(form_nodes);
-			div8 = claim_element(form_nodes, "DIV", { class: true });
-			var div8_nodes = children(div8);
-			button0 = claim_element(div8_nodes, "BUTTON", { type: true, class: true });
-			var button0_nodes = children(button0);
-			t16 = claim_text(button0_nodes, "Subscribe");
-			button0_nodes.forEach(detach);
-			t17 = claim_space(div8_nodes);
-			button1 = claim_element(div8_nodes, "BUTTON", { style: true, type: true, class: true });
-			var button1_nodes = children(button1);
-			div7 = claim_element(button1_nodes, "DIV", { class: true });
-			children(div7).forEach(detach);
-			t18 = claim_space(button1_nodes);
-			span = claim_element(button1_nodes, "SPAN", { class: true });
-			var span_nodes = children(span);
-			t19 = claim_text(span_nodes, "Loading...");
-			span_nodes.forEach(detach);
-			button1_nodes.forEach(detach);
-			div8_nodes.forEach(detach);
-			t20 = claim_space(form_nodes);
-			input2 = claim_element(form_nodes, "INPUT", { type: true, name: true });
-			form_nodes.forEach(detach);
-			div9_nodes.forEach(detach);
-			t21 = claim_space(div12_nodes);
-			div11 = claim_element(div12_nodes, "DIV", { class: true, style: true });
-			var div11_nodes = children(div11);
-			div10 = claim_element(div11_nodes, "DIV", { class: true });
-			var div10_nodes = children(div10);
-			h41 = claim_element(div10_nodes, "H4", {});
-			var h41_nodes = children(h41);
-			t22 = claim_text(h41_nodes, "Thank you!");
-			h41_nodes.forEach(detach);
-			t23 = claim_space(div10_nodes);
-			p1 = claim_element(div10_nodes, "P", {});
-			var p1_nodes = children(p1);
-			t24 = claim_text(p1_nodes, "You have successfully joined our subscriber list.");
-			p1_nodes.forEach(detach);
-			div10_nodes.forEach(detach);
-			div11_nodes.forEach(detach);
-			div12_nodes.forEach(detach);
-			div13_nodes.forEach(detach);
-			div14_nodes.forEach(detach);
-			t25 = claim_space(section_nodes);
-			script0 = claim_element(section_nodes, "SCRIPT", {});
-			var script0_nodes = children(script0);
-			t26 = claim_text(script0_nodes, "function ml_webform_success_6312828() {\n      var $ = ml_jQuery || jQuery;\n      $('.ml-subscribe-form-6312828 .row-success').show();\n      $('.ml-subscribe-form-6312828 .row-form').hide();\n    }");
-			script0_nodes.forEach(detach);
-			t27 = claim_space(section_nodes);
-			script1 = claim_element(section_nodes, "SCRIPT", { src: true, type: true });
-			var script1_nodes = children(script1);
-			script1_nodes.forEach(detach);
-			t28 = claim_space(section_nodes);
-			script2 = claim_element(section_nodes, "SCRIPT", {});
-			var script2_nodes = children(script2);
-			t29 = claim_text(script2_nodes, "fetch(\"https://assets.mailerlite.com/jsonp/511328/forms/93691462163629222/track-view\")");
-			script2_nodes.forEach(detach);
 			section_nodes.forEach(detach);
-			div15_nodes.forEach(detach);
+			div_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading");
-			attr(div0, "class", "body svelte-1s2usg3");
-			attr(div1, "class", "social-links svelte-1s2usg3");
-			attr(div2, "class", "content svelte-1s2usg3");
-			attr(style0, "type", "text/css");
-			attr(style1, "type", "text/css");
-			attr(div3, "class", "ml-form-embedContent");
-			attr(div3, "style", "");
-			attr(label, "for", "subscribe-to-list");
-			attr(input0, "id", "subscribe-to-list");
-			attr(input0, "aria-label", "email");
-			attr(input0, "aria-required", "true");
-			attr(input0, "type", "email");
-			attr(input0, "class", "form-control");
-			attr(input0, "data-inputmask", "");
-			attr(input0, "name", "fields[email]");
-			attr(input0, "placeholder", "");
-			attr(input0, "autocomplete", "email");
-			attr(div4, "class", "ml-field-group ml-field-email ml-validate-email ml-validate-required");
-			attr(div5, "class", "ml-form-fieldRow ml-last-item");
-			attr(div6, "class", "ml-form-formContent");
-			attr(input1, "type", "hidden");
-			attr(input1, "name", "ml-submit");
-			input1.value = "1";
-			attr(button0, "type", "submit");
-			attr(button0, "class", "primary");
-			attr(div7, "class", "ml-form-embedSubmitLoad");
-			attr(span, "class", "sr-only");
-			button1.disabled = "disabled";
-			set_style(button1, "display", "none");
-			attr(button1, "type", "button");
-			attr(button1, "class", "loading");
-			attr(div8, "class", "ml-form-embedSubmit");
-			attr(input2, "type", "hidden");
-			attr(input2, "name", "anticsrf");
-			input2.value = "true";
-			attr(form, "class", "ml-block-form");
-			attr(form, "action", "https://assets.mailerlite.com/jsonp/511328/forms/93691462163629222/subscribe");
-			attr(form, "data-code", "");
-			attr(form, "method", "post");
-			attr(form, "target", "_blank");
-			attr(div9, "class", "ml-form-embedBody ml-form-embedBodyDefault row-form");
-			attr(div10, "class", "ml-form-successContent");
-			attr(div11, "class", "ml-form-successBody row-success");
-			set_style(div11, "display", "none");
-			attr(div12, "class", "ml-form-embedWrapper embedForm");
-			attr(div13, "class", "ml-form-align-center ");
-			attr(div14, "id", "mlb2-6312828");
-			attr(div14, "class", "ml-form-embedContainer ml-subscribe-form ml-subscribe-form-6312828");
-			if (!src_url_equal(script1.src, script1_src_value = "https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128")) attr(script1, "src", script1_src_value);
-			attr(script1, "type", "text/javascript");
-			attr(section, "class", "section-container svelte-1s2usg3");
-			attr(div15, "class", "section");
-			attr(div15, "id", "section-be0dce07");
+			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[0].url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*image*/ ctx[0].alt);
+			set_style(img, "max-height", /*max_height*/ ctx[1] + "px");
+			attr(img, "class", "svelte-1vvwb");
+			attr(section, "class", "section-container svelte-1vvwb");
+			attr(div, "class", "section");
+			attr(div, "id", "section-5fdaa7e0");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div15, anchor);
-			append_hydration(div15, section);
-			append_hydration(section, div2);
-			append_hydration(div2, h2);
-			append_hydration(h2, t0);
-			append_hydration(div2, t1);
-			append_hydration(div2, div0);
-			div0.innerHTML = /*subheading*/ ctx[1];
-			append_hydration(div2, t2);
-			append_hydration(div2, div1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(div1, null);
-				}
-			}
-
-			append_hydration(section, t3);
-			append_hydration(section, style0);
-			append_hydration(style0, t4);
-			append_hydration(section, t5);
-			append_hydration(section, style1);
-			append_hydration(style1, t6);
-			append_hydration(section, t7);
-			append_hydration(section, div14);
-			append_hydration(div14, div13);
-			append_hydration(div13, div12);
-			append_hydration(div12, div9);
-			append_hydration(div9, div3);
-			append_hydration(div3, h40);
-			append_hydration(h40, t8);
-			append_hydration(div3, t9);
-			append_hydration(div3, p0);
-			append_hydration(p0, t10);
-			append_hydration(div9, t11);
-			append_hydration(div9, form);
-			append_hydration(form, div6);
-			append_hydration(div6, div5);
-			append_hydration(div5, div4);
-			append_hydration(div4, label);
-			append_hydration(label, t12);
-			append_hydration(div4, t13);
-			append_hydration(div4, input0);
-			append_hydration(form, t14);
-			append_hydration(form, input1);
-			append_hydration(form, t15);
-			append_hydration(form, div8);
-			append_hydration(div8, button0);
-			append_hydration(button0, t16);
-			append_hydration(div8, t17);
-			append_hydration(div8, button1);
-			append_hydration(button1, div7);
-			append_hydration(button1, t18);
-			append_hydration(button1, span);
-			append_hydration(span, t19);
-			append_hydration(form, t20);
-			append_hydration(form, input2);
-			append_hydration(div12, t21);
-			append_hydration(div12, div11);
-			append_hydration(div11, div10);
-			append_hydration(div10, h41);
-			append_hydration(h41, t22);
-			append_hydration(div10, t23);
-			append_hydration(div10, p1);
-			append_hydration(p1, t24);
-			append_hydration(section, t25);
-			append_hydration(section, script0);
-			append_hydration(script0, t26);
-			append_hydration(section, t27);
-			append_hydration(section, script1);
-			append_hydration(section, t28);
-			append_hydration(section, script2);
-			append_hydration(script2, t29);
-			current = true;
+			insert_hydration(target, div, anchor);
+			append_hydration(div, section);
+			append_hydration(section, img);
 		},
 		p(ctx, [dirty]) {
-			if (!current || dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (!current || dirty & /*subheading*/ 2) div0.innerHTML = /*subheading*/ ctx[1];
-			if (dirty & /*social*/ 4) {
-				each_value = /*social*/ ctx[2];
-				let i;
-
-				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context$1(ctx, each_value, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-						transition_in(each_blocks[i], 1);
-					} else {
-						each_blocks[i] = create_each_block$1(child_ctx);
-						each_blocks[i].c();
-						transition_in(each_blocks[i], 1);
-						each_blocks[i].m(div1, null);
-					}
-				}
-
-				group_outros();
-
-				for (i = each_value.length; i < each_blocks.length; i += 1) {
-					out(i);
-				}
-
-				check_outros();
-			}
-		},
-		i(local) {
-			if (current) return;
-
-			for (let i = 0; i < each_value.length; i += 1) {
-				transition_in(each_blocks[i]);
+			if (dirty & /*image*/ 1 && !src_url_equal(img.src, img_src_value = /*image*/ ctx[0].url)) {
+				attr(img, "src", img_src_value);
 			}
 
-			current = true;
-		},
-		o(local) {
-			each_blocks = each_blocks.filter(Boolean);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				transition_out(each_blocks[i]);
+			if (dirty & /*image*/ 1 && img_alt_value !== (img_alt_value = /*image*/ ctx[0].alt)) {
+				attr(img, "alt", img_alt_value);
 			}
 
-			current = false;
+			if (dirty & /*max_height*/ 2) {
+				set_style(img, "max-height", /*max_height*/ ctx[1] + "px");
+			}
 		},
+		i: noop,
+		o: noop,
 		d(detaching) {
-			if (detaching) detach(div15);
-			destroy_each(each_blocks, detaching);
+			if (detaching) detach(div);
 		}
 	};
 }
@@ -4423,36 +3984,22 @@ function instance$6($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
-	let { heading } = $$props;
-	let { subheading } = $$props;
-	let { social } = $$props;
-	let { inputs } = $$props;
-	let { submit_label } = $$props;
-
-	// Mailerlite
-	window.setTimeout(
-		() => {
-			(function (w, d, e, u, f, l, n) {
-				(w[f] = w[f] || function () {
-					(w[f].q = w[f].q || []).push(arguments); //ml('account', '511328')
-				}, l = d.createElement(e), l.async = 1, l.src = u, n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n));
-			})(window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
-		},
-		5000
-	); //ml('account', '511328')
+	let { title } = $$props;
+	let { preview_image } = $$props;
+	let { image } = $$props;
+	let { max_height } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
-		if ('social' in $$props) $$invalidate(2, social = $$props.social);
-		if ('inputs' in $$props) $$invalidate(6, inputs = $$props.inputs);
-		if ('submit_label' in $$props) $$invalidate(7, submit_label = $$props.submit_label);
+		if ('color1' in $$props) $$invalidate(2, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(3, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(5, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(6, preview_image = $$props.preview_image);
+		if ('image' in $$props) $$invalidate(0, image = $$props.image);
+		if ('max_height' in $$props) $$invalidate(1, max_height = $$props.max_height);
 	};
 
-	return [heading, subheading, social, color1, color2, favicon, inputs, submit_label];
+	return [image, max_height, color1, color2, favicon, title, preview_image];
 }
 
 class Component$6 extends SvelteComponent {
@@ -4460,44 +4007,637 @@ class Component$6 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
-			color1: 3,
-			color2: 4,
-			favicon: 5,
-			heading: 0,
-			subheading: 1,
-			social: 2,
-			inputs: 6,
-			submit_label: 7
+			color1: 2,
+			color2: 3,
+			favicon: 4,
+			title: 5,
+			preview_image: 6,
+			image: 0,
+			max_height: 1
 		});
 	}
 }
 
 /* generated by Svelte v3.58.0 */
 
+function create_fragment$7(ctx) {
+	let div2;
+	let div1;
+	let div0;
+	let raw_value = /*content*/ ctx[0].html + "";
+
+	return {
+		c() {
+			div2 = element("div");
+			div1 = element("div");
+			div0 = element("div");
+			this.h();
+		},
+		l(nodes) {
+			div2 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div2_nodes = children(div2);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(div0, "class", "section-container content svelte-5mws8s");
+			attr(div1, "class", "section");
+			attr(div2, "class", "section");
+			attr(div2, "id", "section-b26be9f9");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div2, anchor);
+			append_hydration(div2, div1);
+			append_hydration(div1, div0);
+			div0.innerHTML = raw_value;
+		},
+		p(ctx, [dirty]) {
+			if (dirty & /*content*/ 1 && raw_value !== (raw_value = /*content*/ ctx[0].html + "")) div0.innerHTML = raw_value;		},
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(div2);
+		}
+	};
+}
+
 function instance$7($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
+	let { content } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
+		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
+		if ('content' in $$props) $$invalidate(0, content = $$props.content);
 	};
 
-	return [color1, color2, favicon];
+	return [content, color1, color2, favicon, title, preview_image];
 }
 
 class Component$7 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$7, null, safe_not_equal, { color1: 0, color2: 1, favicon: 2 });
+
+		init(this, options, instance$7, create_fragment$7, safe_not_equal, {
+			color1: 1,
+			color2: 2,
+			favicon: 3,
+			title: 4,
+			preview_image: 5,
+			content: 0
+		});
 	}
 }
 
 /* generated by Svelte v3.58.0 */
 
-function create_fragment$7(ctx) {
+function create_fragment$8(ctx) {
+	let div;
+	let aside;
+	let h3;
+	let raw_value = /*quote*/ ctx[0].html + "";
+	let t0;
+	let span;
+	let t1;
+
+	return {
+		c() {
+			div = element("div");
+			aside = element("aside");
+			h3 = element("h3");
+			t0 = space();
+			span = element("span");
+			t1 = text(/*attribution*/ ctx[1]);
+			this.h();
+		},
+		l(nodes) {
+			div = claim_element(nodes, "DIV", { class: true, id: true });
+			var div_nodes = children(div);
+			aside = claim_element(div_nodes, "ASIDE", { class: true });
+			var aside_nodes = children(aside);
+			h3 = claim_element(aside_nodes, "H3", { class: true });
+			var h3_nodes = children(h3);
+			h3_nodes.forEach(detach);
+			t0 = claim_space(aside_nodes);
+			span = claim_element(aside_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t1 = claim_text(span_nodes, /*attribution*/ ctx[1]);
+			span_nodes.forEach(detach);
+			aside_nodes.forEach(detach);
+			div_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(h3, "class", "heading");
+			attr(span, "class", "attribution");
+			attr(aside, "class", "section-container svelte-ja2udn");
+			attr(div, "class", "section");
+			attr(div, "id", "section-c380b019");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div, anchor);
+			append_hydration(div, aside);
+			append_hydration(aside, h3);
+			h3.innerHTML = raw_value;
+			append_hydration(aside, t0);
+			append_hydration(aside, span);
+			append_hydration(span, t1);
+		},
+		p(ctx, [dirty]) {
+			if (dirty & /*quote*/ 1 && raw_value !== (raw_value = /*quote*/ ctx[0].html + "")) h3.innerHTML = raw_value;			if (dirty & /*attribution*/ 2) set_data(t1, /*attribution*/ ctx[1]);
+		},
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(div);
+		}
+	};
+}
+
+function instance$8($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
+	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
+	let { quote } = $$props;
+	let { attribution } = $$props;
+
+	$$self.$$set = $$props => {
+		if ('color1' in $$props) $$invalidate(2, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(3, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(5, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(6, preview_image = $$props.preview_image);
+		if ('quote' in $$props) $$invalidate(0, quote = $$props.quote);
+		if ('attribution' in $$props) $$invalidate(1, attribution = $$props.attribution);
+	};
+
+	return [quote, attribution, color1, color2, favicon, title, preview_image];
+}
+
+class Component$8 extends SvelteComponent {
+	constructor(options) {
+		super();
+
+		init(this, options, instance$8, create_fragment$8, safe_not_equal, {
+			color1: 2,
+			color2: 3,
+			favicon: 4,
+			title: 5,
+			preview_image: 6,
+			quote: 0,
+			attribution: 1
+		});
+	}
+}
+
+/* generated by Svelte v3.58.0 */
+
+function get_each_context$1(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[14] = list[i][0];
+	child_ctx[15] = list[i][1];
+	child_ctx[16] = list[i][2];
+	return child_ctx;
+}
+
+// (157:6) {#each wards as [wardName, councillor, email]}
+function create_each_block$1(ctx) {
+	let option;
+	let t0_value = /*councillor*/ ctx[15] + "";
+	let t0;
+	let t1;
+	let t2_value = /*wardName*/ ctx[14] + "";
+	let t2;
+	let t3;
+	let option_value_value;
+
+	return {
+		c() {
+			option = element("option");
+			t0 = text(t0_value);
+			t1 = text(" (ward ");
+			t2 = text(t2_value);
+			t3 = text(")");
+			this.h();
+		},
+		l(nodes) {
+			option = claim_element(nodes, "OPTION", {});
+			var option_nodes = children(option);
+			t0 = claim_text(option_nodes, t0_value);
+			t1 = claim_text(option_nodes, " (ward ");
+			t2 = claim_text(option_nodes, t2_value);
+			t3 = claim_text(option_nodes, ")");
+			option_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			option.__value = option_value_value = /*councillor*/ ctx[15];
+			option.value = option.__value;
+		},
+		m(target, anchor) {
+			insert_hydration(target, option, anchor);
+			append_hydration(option, t0);
+			append_hydration(option, t1);
+			append_hydration(option, t2);
+			append_hydration(option, t3);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(option);
+		}
+	};
+}
+
+function create_fragment$9(ctx) {
+	let div2;
+	let section;
+	let div1;
+	let div0;
+	let h2;
+	let t0;
+	let t1;
+	let p;
+	let t2;
+	let t3;
+	let form;
+	let label0;
+	let span;
+	let t4;
+	let t5;
+	let input;
+	let t6;
+	let label1;
+	let t7;
+	let select;
+	let t8;
+	let button;
+	let t9;
+	let mounted;
+	let dispose;
+	let each_value = /*wards*/ ctx[3];
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value.length; i += 1) {
+		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+	}
+
+	return {
+		c() {
+			div2 = element("div");
+			section = element("section");
+			div1 = element("div");
+			div0 = element("div");
+			h2 = element("h2");
+			t0 = text(/*heading*/ ctx[0]);
+			t1 = space();
+			p = element("p");
+			t2 = text(/*subheading*/ ctx[1]);
+			t3 = space();
+			form = element("form");
+			label0 = element("label");
+			span = element("span");
+			t4 = text("Your Name:");
+			t5 = space();
+			input = element("input");
+			t6 = space();
+			label1 = element("label");
+			t7 = text("Your Councillor:\n    ");
+			select = element("select");
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			t8 = space();
+			button = element("button");
+			t9 = text(/*button_text*/ ctx[2]);
+			this.h();
+		},
+		l(nodes) {
+			div2 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div2_nodes = children(div2);
+			section = claim_element(div2_nodes, "SECTION", { class: true });
+			var section_nodes = children(section);
+			div1 = claim_element(section_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			h2 = claim_element(div0_nodes, "H2", { class: true });
+			var h2_nodes = children(h2);
+			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
+			h2_nodes.forEach(detach);
+			t1 = claim_space(div0_nodes);
+			p = claim_element(div0_nodes, "P", { class: true });
+			var p_nodes = children(p);
+			t2 = claim_text(p_nodes, /*subheading*/ ctx[1]);
+			p_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t3 = claim_space(div1_nodes);
+			form = claim_element(div1_nodes, "FORM", { class: true });
+			var form_nodes = children(form);
+			label0 = claim_element(form_nodes, "LABEL", { class: true });
+			var label0_nodes = children(label0);
+			span = claim_element(label0_nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t4 = claim_text(span_nodes, "Your Name:");
+			span_nodes.forEach(detach);
+			t5 = claim_space(label0_nodes);
+
+			input = claim_element(label0_nodes, "INPUT", {
+				id: true,
+				name: true,
+				class: true,
+				type: true,
+				placeholder: true
+			});
+
+			label0_nodes.forEach(detach);
+			t6 = claim_space(form_nodes);
+			label1 = claim_element(form_nodes, "LABEL", { class: true });
+			var label1_nodes = children(label1);
+			t7 = claim_text(label1_nodes, "Your Councillor:\n    ");
+			select = claim_element(label1_nodes, "SELECT", { id: true, name: true, class: true });
+			var select_nodes = children(select);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(select_nodes);
+			}
+
+			select_nodes.forEach(detach);
+			label1_nodes.forEach(detach);
+			t8 = claim_space(form_nodes);
+			button = claim_element(form_nodes, "BUTTON", { type: true, class: true });
+			var button_nodes = children(button);
+			t9 = claim_text(button_nodes, /*button_text*/ ctx[2]);
+			button_nodes.forEach(detach);
+			form_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			section_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(h2, "class", "heading");
+			attr(p, "class", "subheaging");
+			attr(div0, "class", "heading-group svelte-13kke8f");
+			attr(span, "class", "label svelte-13kke8f");
+			attr(input, "id", "name");
+			attr(input, "name", "name");
+			attr(input, "class", "placeholder svelte-13kke8f");
+			attr(input, "type", "text");
+			attr(input, "placeholder", "John Doe");
+			attr(label0, "class", "svelte-13kke8f");
+			attr(select, "id", "councillor");
+			attr(select, "name", "councillor");
+			attr(select, "class", "svelte-13kke8f");
+			attr(label1, "class", "label svelte-13kke8f");
+			attr(button, "type", "submit");
+			attr(button, "class", "button svelte-13kke8f");
+			attr(form, "class", "svelte-13kke8f");
+			attr(div1, "class", "box svelte-13kke8f");
+			attr(section, "class", "section-container svelte-13kke8f");
+			attr(div2, "class", "section");
+			attr(div2, "id", "section-08e4820e");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div2, anchor);
+			append_hydration(div2, section);
+			append_hydration(section, div1);
+			append_hydration(div1, div0);
+			append_hydration(div0, h2);
+			append_hydration(h2, t0);
+			append_hydration(div0, t1);
+			append_hydration(div0, p);
+			append_hydration(p, t2);
+			append_hydration(div1, t3);
+			append_hydration(div1, form);
+			append_hydration(form, label0);
+			append_hydration(label0, span);
+			append_hydration(span, t4);
+			append_hydration(label0, t5);
+			append_hydration(label0, input);
+			append_hydration(form, t6);
+			append_hydration(form, label1);
+			append_hydration(label1, t7);
+			append_hydration(label1, select);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(select, null);
+				}
+			}
+
+			append_hydration(form, t8);
+			append_hydration(form, button);
+			append_hydration(button, t9);
+
+			if (!mounted) {
+				dispose = listen(form, "submit", prevent_default(/*submit_handler*/ ctx[11]));
+				mounted = true;
+			}
+		},
+		p(ctx, [dirty]) {
+			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
+			if (dirty & /*subheading*/ 2) set_data(t2, /*subheading*/ ctx[1]);
+
+			if (dirty & /*wards*/ 8) {
+				each_value = /*wards*/ ctx[3];
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block$1(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(select, null);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value.length;
+			}
+
+			if (dirty & /*button_text*/ 4) set_data(t9, /*button_text*/ ctx[2]);
+		},
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(div2);
+			destroy_each(each_blocks, detaching);
+			mounted = false;
+			dispose();
+		}
+	};
+}
+
+function instance$9($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
+	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
+	let { heading } = $$props;
+	let { subheading } = $$props;
+	let { inputs } = $$props;
+	let { button_text } = $$props;
+
+	const wards = [
+		["papastew", "Michael Janz", "michael.janz@edmonton.ca"],
+		["Nakota Isga", "Andrew Knack", "andrew.knack@edmonton.ca"],
+		["Anirniq", "Erin Rutherford", "erin.rutherford@edmonton.ca"],
+		["Dene", "Aaron Paquette", "aaron.paquette@edmonton.ca"],
+		["Ipiihkoohkanipiaohtsi", "Jennifer Rice", "jennifer.rice@edmonton.ca"],
+		["Karhiio", "Keren Tang", "keren.tang@edmonton.ca"],
+		["Métis", "Ashley Salvador", "ashley.salvador@edmonton.ca"],
+		["O-day’min", "Anne Stevenson", "anne.stevenson@edmonton.ca"],
+		["pihêsiwin", "Tim Cartmell", "tim.cartmell@edmonton.ca"],
+		["sipiwiyiniwak", "Sarah Hamilton", "sarah.hamilton@edmonton.ca"],
+		["Sspomitapi", "Jo-Anne Wright", "jo-anne.wright@edmonton.ca"],
+		["tastawiyiniwak", "Karen Principe", "karen.principe@edmonton.ca"]
+	];
+
+	const draftLetter = (councillorName, name) => {
+		const [wardName, _, councillorEmail] = wards.find(ward => ward[1] === councillorName);
+		const lastName = councillorName.split(" ")[1];
+		let letter = `Dear Councillor ${lastName}` + "\n\nI’m writing in support of Edmonton’s new zoning bylaw, an important step in ensuring Edmonton remains a progressive, inclusive, vibrant city." + "\nI support the new zoning bylaw and its proposed changes for three important reasons." + "\n\n1. Gently increasing our density is the simplest and most effective way to increase Edmonton's environment sustainability. Denser neighbourhoods reduce energy usage, make active and public transportation easier and more cost efficient, and preserve our region's dwindling supply of woodlands, wetlands and farmlands by putting houses in areas that are already built." + "\n2. Greater density improves services and helps lower costs for all residents.  Sprawling development has and continues to cost the city more money than it brings in: the city currently has an infrastructure maintenance deficit of $470 million per year, and every new neighbourhood adds tens of millions to that number. At a time when the cost of living continues to rise dramatically, the city cannot afford to build so inefficiently." + "\n3. A variety of housing will help neighbourhoods stay vibrant, livable places by supporting local amenities, services and recreation.  As previous generations have seen, we cannot preserve lively neighbourhoods by preventing them from changing: a single-house-fits-all model does not work for the diverse array of people that flock to a city. New housing options and the new neighbours they bring allow our neighbourhood institutions, businesses, parks and infrastructure to reach their fullest potential." + "\n\nI urge you to support the new zoning bylaw and help prepare Edmonton for a future that's brighter for everyone. " + "\n\nSIGNED" + `\n${name}, resident of ward ${wardName}`;
+		const subjectLine = encodeURIComponent(getSubjectLine());
+		letter = encodeURIComponent(letter);
+		const mailto = `mailto:${councillorEmail}?subject=${subjectLine}&body=${letter}`;
+		console.log(mailto);
+		window.open(mailto);
+	};
+
+	const possibleSubjectLines = [
+		"I support the Draft Zoning Bylaw",
+		"I support the new zoning bylaw",
+		"Don't delay the new zoning bylaw",
+		"New zoning bylaw is good for Edmonton",
+		"Zoning bylaw renewal is good for Edmonton",
+		"Pass the new zoning bylaw without delay",
+		"Why the new zoning bylaw is crucial for our community",
+		"Support the new zoning bylaw for a better city",
+		"Approve the zoning bylaw",
+		"The new zoning rules will make Edmonton a better place to live",
+		"Promote Smart Growth: Approve the New Zoning Bylaw",
+		"Approve the zoning bylaw for a more sustainable Edmonton",
+		"Revamp zoning rules to keep Edmonton affordable"
+	];
+
+	const getSubjectLine = () => {
+		let index = Math.floor(Math.random() * possibleSubjectLines.length);
+		return possibleSubjectLines[index];
+	};
+
+	const submit_handler = ({ target }) => {
+		const data = new FormData(target);
+		console.log(data);
+		draftLetter(data.get("councillor"), data.get("name"));
+	};
+
+	$$self.$$set = $$props => {
+		if ('color1' in $$props) $$invalidate(5, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(6, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(7, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(8, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(9, preview_image = $$props.preview_image);
+		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
+		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
+		if ('inputs' in $$props) $$invalidate(10, inputs = $$props.inputs);
+		if ('button_text' in $$props) $$invalidate(2, button_text = $$props.button_text);
+	};
+
+	return [
+		heading,
+		subheading,
+		button_text,
+		wards,
+		draftLetter,
+		color1,
+		color2,
+		favicon,
+		title,
+		preview_image,
+		inputs,
+		submit_handler
+	];
+}
+
+class Component$9 extends SvelteComponent {
+	constructor(options) {
+		super();
+
+		init(this, options, instance$9, create_fragment$9, safe_not_equal, {
+			color1: 5,
+			color2: 6,
+			favicon: 7,
+			title: 8,
+			preview_image: 9,
+			heading: 0,
+			subheading: 1,
+			inputs: 10,
+			button_text: 2
+		});
+	}
+}
+
+/* generated by Svelte v3.58.0 */
+
+function instance$a($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
+	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
+
+	$$self.$$set = $$props => {
+		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(3, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(4, preview_image = $$props.preview_image);
+	};
+
+	return [color1, color2, favicon, title, preview_image];
+}
+
+class Component$a extends SvelteComponent {
+	constructor(options) {
+		super();
+
+		init(this, options, instance$a, null, safe_not_equal, {
+			color1: 0,
+			color2: 1,
+			favicon: 2,
+			title: 3,
+			preview_image: 4
+		});
+	}
+}
+
+/* generated by Svelte v3.58.0 */
+
+function create_fragment$a(ctx) {
 	let component_0;
 	let t0;
 	let component_1;
@@ -4511,6 +4651,12 @@ function create_fragment$7(ctx) {
 	let component_5;
 	let t5;
 	let component_6;
+	let t6;
+	let component_7;
+	let t7;
+	let component_8;
+	let t8;
+	let component_9;
 	let current;
 
 	component_0 = new Component({
@@ -4522,6 +4668,13 @@ function create_fragment$7(ctx) {
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
+				},
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
 				}
 			}
 		});
@@ -4535,6 +4688,13 @@ function create_fragment$7(ctx) {
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
+				},
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
 				},
 				logo: {
 					"image": {
@@ -4570,9 +4730,16 @@ function create_fragment$7(ctx) {
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
 				},
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
+				},
 				content: {
-					"html": "<h3 id=\"densityisthecitysbesttooltofightclimatechange\">Density is the city's best tool to fight climate change</h3>\n<p>When we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that <strong>low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas</strong>. </p>",
-					"markdown": "### Density is the city's best tool to fight climate change\n\nWhen we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that **low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas**. \n"
+					"html": "<h1>Zoning Bylaw Renewal: What it is and why it matters</h1><p>The City of Edmonton is in the midst of rewriting its Zoning Bylaw.</p><p>It’s a huge undertaking, but the Zoning Bylaw Renewal process is also the most powerful tool we have for building the city we need to be in the 21st century.</p><h3>What is Zoning?</h3><p>The zoning bylaw is the set of regulations guiding land-use in the City. Zoning sets out what types of uses and what types of development are expected and permitted in a given area. In simple terms, it’s what prevents oil refineries from going up next to schools. In the real world, zoning has often been used as a tool to segregate communities, restrict more diverse housing options, and build communities without amenities or public transportation.</p><p>Over time, the decisions we make about how to regulate land-use have significant impacts on social inclusion, public health and safety, affordability, access to public services, infrastructure demands, transportation, economic development and environmental impact.</p>",
+					"markdown": "# Zoning Bylaw Renewal: What it is and why it matters\n\nThe City of Edmonton is in the midst of rewriting its Zoning Bylaw.\n\nIt’s a huge undertaking, but the Zoning Bylaw Renewal process is also the most powerful tool we have for building the city we need to be in the 21st century.\n\n### What is Zoning?\n\nThe zoning bylaw is the set of regulations guiding land-use in the City. Zoning sets out what types of uses and what types of development are expected and permitted in a given area. In simple terms, it’s what prevents oil refineries from going up next to schools. In the real world, zoning has often been used as a tool to segregate communities, restrict more diverse housing options, and build communities without amenities or public transportation.\n\nOver time, the decisions we make about how to regulate land-use have significant impacts on social inclusion, public health and safety, affordability, access to public services, infrastructure demands, transportation, economic development and environmental impact.\n\n"
 				}
 			}
 		});
@@ -4587,11 +4754,18 @@ function create_fragment$7(ctx) {
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
 				},
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
+				},
 				image: {
-					"alt": "CO2 Usage of Urban and Suburban areas ",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689367944679EastCoastMSAs-750.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689367944679EastCoastMSAs-750.png",
-					"size": 508
+					"alt": "Edmonton Zoning Map, 1968",
+					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1692391129886oldzones1.jpeg",
+					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1692391129886oldzones1.jpeg",
+					"size": 628
 				},
 				max_height: "400"
 			}
@@ -4607,9 +4781,16 @@ function create_fragment$7(ctx) {
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
 				},
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
+				},
 				content: {
-					"html": "<p>And the knock-on effects can be even bigger. Spreading out where we live means more of us require cars for day-to-day life: in Canada, suburban households drive on average three times further than those in core areas. This is a huge issue when <strong>the average automobile emits more CO2 annually than 200 mature trees can remove from the air.</strong> </p>\n<h3 id=\"thesolutionpreservenaturalareasandreduceenergyusagebybuildingwithinourborders\">The solution: Preserve natural areas and reduce energy usage by building within our borders</h3>\n<p>The new zoning bylaw will make it easier to meet our climate goals by helping to reduce the environmental footprint of both new and existing houses.  </p>\n<ol>\n<li>Multi-family homes like duplexes, townhomes and small apartments require 30-40%  less energy than single family homes to heat, cool and live in comfortably. </li>\n<li>Denser, more mixed-use neighbourhoods will make it easier for everyone to reduce their dependency on cars, helping reducing energy usage for transportation by as much as 50%.</li>\n<li>Every new home accommodated within existing neighborhoods is one that doesn't have to be built on top of natural land outside the city.</li>\n</ol>",
-					"markdown": "And the knock-on effects can be even bigger. Spreading out where we live means more of us require cars for day-to-day life: in Canada, suburban households drive on average three times further than those in core areas. This is a huge issue when **the average automobile emits more CO2 annually than 200 mature trees can remove from the air.** \n\n### The solution: Preserve natural areas and reduce energy usage by building within our borders\n\nThe new zoning bylaw will make it easier to meet our climate goals by helping to reduce the environmental footprint of both new and existing houses.  \n1. Multi-family homes like duplexes, townhomes and small apartments require 30-40%  less energy than single family homes to heat, cool and live in comfortably. \n2. Denser, more mixed-use neighbourhoods will make it easier for everyone to reduce their dependency on cars, helping reducing energy usage for transportation by as much as 50%.\n3. Every new home accommodated within existing neighborhoods is one that doesn't have to be built on top of natural land outside the city.\n\n"
+					"html": "<h3>Why should I care about zoning?</h3><p>Do you want a grocery store in your neighbourhood? Do you want the local coffee shop to stay in business? Your local school to stay open? Your public services to be high quality? Your taxes to be reasonable? Maybe you’d like to build a suite for a parent or child on your property. Or you’d like to be able to take a quick and efficient bus to work.</p><p>All of these hopes depend on land-use policy and zoning. The way our communities are designed — to bring people together, or keep them apart — is dependent on how we use our land.</p><p></p><h3>Why is Edmonton creating a brand new zoning bylaw?</h3><p>Our current zoning bylaw was first drafted in the 1960s, meaning its fundamental structure is still tied to a vision of Edmonton from over 50 years ago. Our population, demographics, land-area, economics and technology have all changed dramatically in that time. The challenges we face as a City, provincially, nationally and globally are also dramatically different.</p><p>At this point, Edmonton’s zoning bylaw is cumbersome, difficult to navigate and understand, and often in conflict with itself. The most innovative, forward-thinking development in our City, often runs contrary to the regulations. Some small businesses need to go through rezoning simply to open their doors, without any changes to the building. This often makes it prohibitive to build more diverse and affordable housing, more complete communities, new local businesses, and needed neighbourhood amenities. Our zoning bylaw does not reflect the goals of our City Plan, the values of our communities, or the practical realities of a diverse and growing ciity.</p><p>Land-use policy is the single most powerful tool that our City has to create a more economically, socially, and environmentally sustainable place. It is essential that this set of tools is relevant to our current context, and adaptable to a rapidly changing world. The new zoning bylaw sets the groundwork for incremental, but more strategic, generational change.</p>",
+					"markdown": "### Why should I care about zoning?\n\nDo you want a grocery store in your neighbourhood? Do you want the local coffee shop to stay in business? Your local school to stay open? Your public services to be high quality? Your taxes to be reasonable? Maybe you’d like to build a suite for a parent or child on your property. Or you’d like to be able to take a quick and efficient bus to work.\n\nAll of these hopes depend on land-use policy and zoning. The way our communities are designed — to bring people together, or keep them apart — is dependent on how we use our land.\n\n\n\n### Why is Edmonton creating a brand new zoning bylaw?\n\nOur current zoning bylaw was first drafted in the 1960s, meaning its fundamental structure is still tied to a vision of Edmonton from over 50 years ago. Our population, demographics, land-area, economics and technology have all changed dramatically in that time. The challenges we face as a City, provincially, nationally and globally are also dramatically different.\n\nAt this point, Edmonton’s zoning bylaw is cumbersome, difficult to navigate and understand, and often in conflict with itself. The most innovative, forward-thinking development in our City, often runs contrary to the regulations. Some small businesses need to go through rezoning simply to open their doors, without any changes to the building. This often makes it prohibitive to build more diverse and affordable housing, more complete communities, new local businesses, and needed neighbourhood amenities. Our zoning bylaw does not reflect the goals of our City Plan, the values of our communities, or the practical realities of a diverse and growing ciity.\n\nLand-use policy is the single most powerful tool that our City has to create a more economically, socially, and environmentally sustainable place. It is essential that this set of tools is relevant to our current context, and adaptable to a rapidly changing world. The new zoning bylaw sets the groundwork for incremental, but more strategic, generational change.\n\n"
 				}
 			}
 		});
@@ -4624,37 +4805,20 @@ function create_fragment$7(ctx) {
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
 				},
-				heading: "Get Involved",
-				subheading: "We'll need all hands on deck to help build a better Edmonton. Follow us on social media or join our mailing list to stay up to date on Zoning Bylaw Renewal, events and volunteer opportunities. ",
-				social: [
-					{
-						"icon": "mdi:twitter",
-						"link": {
-							"url": "/https://twitter.com/GrowTogetherYEG",
-							"label": "Twitter"
-						}
-					},
-					{
-						"icon": "mdi:instagram",
-						"link": {
-							"url": "https://www.instagram.com/growtogetheryeg/",
-							"label": "Instagram"
-						}
-					}
-				],
-				inputs: [
-					{
-						"type": "text",
-						"label": "Name",
-						"placeholder": "John Doe"
-					},
-					{
-						"type": "email",
-						"label": "Email",
-						"placeholder": "johndoe@johndoe.com"
-					}
-				],
-				submit_label: "Submit"
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
+				},
+				image: {
+					"alt": "An Edmonton zoning map from the 1980s",
+					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1692391173889oldzones2.jpg",
+					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1692391173889oldzones2.jpg",
+					"size": 8794
+				},
+				max_height: "400"
 			}
 		});
 
@@ -4667,6 +4831,102 @@ function create_fragment$7(ctx) {
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
+				},
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
+				},
+				content: {
+					"html": "<h3>What will these changes actually look like?</h3><p>It’s hard to summarize in a few sentences: your experience of the new bylaws will depend a lot on what sort of neighbourhood you live in. But generally speaking, buildings will be allowed to be a little bit taller and a little bit closer together. Mixed-use developments, where businesses are allowed to be below or beside residences, will be a bit more common.</p><p>For a broad overview, the City of Edmonton has an explanation of the new zones and some of the key ways the new bylaw is different on its <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://www.google.com/url?q=https://pub-edmonton.escribemeetings.com/filestream.ashx?DocumentId%3D168554&amp;sa=D&amp;source=docs&amp;ust=1692394265754806&amp;usg=AOvVaw0Z033bL3sTuB23IGJ9yEAn\">website</a>. They also offer a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://gis.edmonton.ca/portal/apps/instant/lookup/index.html?appalias=KnowYourZone&amp;appid=e62a2ae63b4141958ffa44b82da09ee9&amp;id=e62a2ae63b4141958ffa44b82da09ee9\">tool</a> to help you figure out which zones will apply to your neighbourhood. Councillors <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://www.ashleysalvador.com/post/revamping-the-rulebook-zoning-bylaw-renewal\">Ashley Salvador</a> and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://www.erinrutherford.ca/updates-blog/zoningbylawrenewalvideoandlinks\">Erin Rutherford</a> have also put together deeper considerations of what zoning might mean for their constituents.</p><p>An important thing to remember, though, is that these changes are evolutionary, not revolutionary. Though they’re a necessary step toward building the city we want, that will be a long and slow process.</p>",
+					"markdown": "### What will these changes actually look like?\n\nIt’s hard to summarize in a few sentences: your experience of the new bylaws will depend a lot on what sort of neighbourhood you live in. But generally speaking, buildings will be allowed to be a little bit taller and a little bit closer together. Mixed-use developments, where businesses are allowed to be below or beside residences, will be a bit more common.\n\nFor a broad overview, the City of Edmonton has an explanation of the new zones and some of the key ways the new bylaw is different on its [website](<https://www.google.com/url?q=https://pub-edmonton.escribemeetings.com/filestream.ashx?DocumentId%3D168554&sa=D&source=docs&ust=1692394265754806&usg=AOvVaw0Z033bL3sTuB23IGJ9yEAn>). They also offer a [tool](<https://gis.edmonton.ca/portal/apps/instant/lookup/index.html?appalias=KnowYourZone&appid=e62a2ae63b4141958ffa44b82da09ee9&id=e62a2ae63b4141958ffa44b82da09ee9>) to help you figure out which zones will apply to your neighbourhood. Councillors [Ashley Salvador](<https://www.ashleysalvador.com/post/revamping-the-rulebook-zoning-bylaw-renewal>) and [Erin Rutherford](<https://www.erinrutherford.ca/updates-blog/zoningbylawrenewalvideoandlinks>) have also put together deeper considerations of what zoning might mean for their constituents.\n\nAn important thing to remember, though, is that these changes are evolutionary, not revolutionary. Though they’re a necessary step toward building the city we want, that will be a long and slow process.\n\n"
+				}
+			}
+		});
+
+	component_7 = new Component$8({
+			props: {
+				color1: "#A9CD37",
+				color2: "",
+				favicon: {
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
+					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
+					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
+					"size": 1
+				},
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
+				},
+				quote: {
+					"html": "<h3>We have to build the future we want. </h3><p></p><h3><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link link\" href=\"https://www.gtyeg.ca/#take-action\">Get involved</a> and help create an Edmonton that’s sustainable, affordable and vibrant for everyone.</h3>",
+					"markdown": "### We have to build the future we want. \n\n\n\n### [Get involved](<https://www.gtyeg.ca/#take-action>) and help create an Edmonton that’s sustainable, affordable and vibrant for everyone.\n\n"
+				},
+				attribution: ""
+			}
+		});
+
+	component_8 = new Component$9({
+			props: {
+				color1: "#A9CD37",
+				color2: "",
+				favicon: {
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
+					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
+					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
+					"size": 1
+				},
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
+				},
+				heading: "Make your voice heard",
+				subheading: "Email your city councillor to let them know you support the new zoning bylaw. We've got a template letter you can use as a draft.",
+				inputs: [
+					{
+						"type": "text",
+						"label": "Your Name",
+						"placeholder": "Ad exercitation quis"
+					},
+					{
+						"type": "text",
+						"label": "Subject",
+						"placeholder": "Mollit nulla veniam"
+					},
+					{
+						"type": "text",
+						"label": "Your Ward",
+						"placeholder": "Papastew"
+					}
+				],
+				button_text: "Open Draft Email"
+			}
+		});
+
+	component_9 = new Component$a({
+			props: {
+				color1: "#A9CD37",
+				color2: "",
+				favicon: {
+					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
+					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
+					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
+					"size": 1
+				},
+				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
+					"size": null
 				}
 			}
 		});
@@ -4686,6 +4946,12 @@ function create_fragment$7(ctx) {
 			create_component(component_5.$$.fragment);
 			t5 = space();
 			create_component(component_6.$$.fragment);
+			t6 = space();
+			create_component(component_7.$$.fragment);
+			t7 = space();
+			create_component(component_8.$$.fragment);
+			t8 = space();
+			create_component(component_9.$$.fragment);
 		},
 		l(nodes) {
 			claim_component(component_0.$$.fragment, nodes);
@@ -4701,6 +4967,12 @@ function create_fragment$7(ctx) {
 			claim_component(component_5.$$.fragment, nodes);
 			t5 = claim_space(nodes);
 			claim_component(component_6.$$.fragment, nodes);
+			t6 = claim_space(nodes);
+			claim_component(component_7.$$.fragment, nodes);
+			t7 = claim_space(nodes);
+			claim_component(component_8.$$.fragment, nodes);
+			t8 = claim_space(nodes);
+			claim_component(component_9.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(component_0, target, anchor);
@@ -4716,6 +4988,12 @@ function create_fragment$7(ctx) {
 			mount_component(component_5, target, anchor);
 			insert_hydration(target, t5, anchor);
 			mount_component(component_6, target, anchor);
+			insert_hydration(target, t6, anchor);
+			mount_component(component_7, target, anchor);
+			insert_hydration(target, t7, anchor);
+			mount_component(component_8, target, anchor);
+			insert_hydration(target, t8, anchor);
+			mount_component(component_9, target, anchor);
 			current = true;
 		},
 		p: noop,
@@ -4728,6 +5006,9 @@ function create_fragment$7(ctx) {
 			transition_in(component_4.$$.fragment, local);
 			transition_in(component_5.$$.fragment, local);
 			transition_in(component_6.$$.fragment, local);
+			transition_in(component_7.$$.fragment, local);
+			transition_in(component_8.$$.fragment, local);
+			transition_in(component_9.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
@@ -4738,6 +5019,9 @@ function create_fragment$7(ctx) {
 			transition_out(component_4.$$.fragment, local);
 			transition_out(component_5.$$.fragment, local);
 			transition_out(component_6.$$.fragment, local);
+			transition_out(component_7.$$.fragment, local);
+			transition_out(component_8.$$.fragment, local);
+			transition_out(component_9.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
@@ -4754,15 +5038,21 @@ function create_fragment$7(ctx) {
 			destroy_component(component_5, detaching);
 			if (detaching) detach(t5);
 			destroy_component(component_6, detaching);
+			if (detaching) detach(t6);
+			destroy_component(component_7, detaching);
+			if (detaching) detach(t7);
+			destroy_component(component_8, detaching);
+			if (detaching) detach(t8);
+			destroy_component(component_9, detaching);
 		}
 	};
 }
 
-class Component$8 extends SvelteComponent {
+class Component$b extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, null, create_fragment$7, safe_not_equal, {});
+		init(this, options, null, create_fragment$a, safe_not_equal, {});
 	}
 }
 
-export default Component$8;
+export default Component$b;

@@ -3,7 +3,7 @@
 
 <head>
     <meta name="generator" content="Primo" />
-    <!-- HEAD_svelte-i0xzl7_START -->
+    <!-- HEAD_svelte-5vjgeh_START -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="32x32" href="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png">
@@ -19,10 +19,10 @@
         /* Design tokens (apply to components) */
         :root {
             /* Custom theme options */
-            --color-accent: #004700;
-
-            /* Base values */
-            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+            --color-accent: #027648;
+            --color1: #4C5760
+                /* Base values */
+                --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
             --border-radius: 0;
             --border-color: #e0e1e1;
         }
@@ -50,10 +50,10 @@
             transform: translateY(-2px);
             /* move link back into place */
             transition: var(--transition, 0.1s border);
-        }
 
-        a.link:hover {
-            border-color: transparent;
+            &:hover {
+                border-color: transparent;
+            }
         }
 
         .heading {
@@ -71,15 +71,15 @@
             border: 0;
             /* reset */
             max-height: 80px;
-        }
 
-        .button:hover {
-            box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
-        }
+            &:hover {
+                box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+            }
 
-        .button.inverted {
-            background: transparent;
-            color: var(--color-accent, rebeccapurple);
+            &.inverted {
+                background: transparent;
+                color: var(--color-accent, rebeccapurple);
+            }
         }
 
         /* Content Section */
@@ -87,71 +87,71 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 3rem 2rem;
-        }
 
-        .content p {
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
+            p {
+                margin-bottom: 1rem;
+                line-height: 1.5;
+            }
 
-        .content img {
-            width: 100%;
-            margin: 2rem 0;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius);
-        }
+            img {
+                width: 100%;
+                margin: 2rem 0;
+                box-shadow: var(--box-shadow);
+                border-radius: var(--border-radius);
+            }
 
-        .content a.link {
-            line-height: 1.3;
-            font-weight: 500;
-            border-bottom: 2px solid var(--color-accent);
-            transform: translateY(-2px);
-            /* move link back into place */
-            transition: var(--transition, 0.1s border);
-        }
+            a.link {
+                line-height: 1.3;
+                font-weight: 500;
+                border-bottom: 2px solid var(--color-accent);
+                transform: translateY(-2px);
+                /* move link back into place */
+                transition: var(--transition, 0.1s border);
 
-        .content a.link:hover {
-            border-color: transparent;
-        }
+                &:hover {
+                    border-color: transparent;
+                }
+            }
 
-        .content h1 {
-            font-size: 3rem;
-            font-weight: 500;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
+            h1 {
+                font-size: 3rem;
+                font-weight: 500;
+                line-height: 1.1;
+                margin-bottom: 1.5rem;
+            }
 
-        .content h2 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
+            h2 {
+                font-size: 2.5rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
 
-        .content h3 {
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
+            h3 {
+                font-size: 2rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
 
-        .content ul {
-            list-style: disc;
-            padding: 0.5rem 0;
-            padding-left: 1.25rem;
-        }
+            ul {
+                list-style: disc;
+                padding: 0.5rem 0;
+                padding-left: 1.25rem;
+            }
 
-        .content ol {
-            list-style: decimal;
-            padding: 0.5rem 0;
-            padding-left: 1.25rem;
-        }
+            ol {
+                list-style: decimal;
+                padding: 0.5rem 0;
+                padding-left: 1.25rem;
+            }
 
-        .content blockquote {
-            padding: 2rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 5px solid var(--color-accent);
+            blockquote {
+                padding: 2rem;
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+                border-left: 5px solid var(--color-accent);
+            }
         }
-    </style><!-- HEAD_svelte-i0xzl7_END -->
+    </style><!-- HEAD_svelte-5vjgeh_END -->
     <style>
         .section-container.svelte-ci1c6c.svelte-ci1c6c {
             display: flex;
@@ -363,17 +363,7 @@
             </div>
             <div class="mobile-nav svelte-ci1c6c"><a href="/" class="logo svelte-ci1c6c"><img class="logo svelte-ci1c6c" src="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1692331070906gtyeg_logo_no_text.svg" alt="">
                     Grow Together YEG</a>
-                <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START -->
-                        <g id="iconifySvelte0">
-                            <g id="iconifySvelte1">
-                                <g id="iconifySvelte2" fill="currentColor">
-                                    <rect width="18" height="2" x="3" y="11" rx=".95" ry=".95" />
-                                    <rect width="18" height="2" x="3" y="16" rx=".95" ry=".95" />
-                                    <rect width="18" height="2" x="3" y="6" rx=".95" ry=".95" />
-                                </g>
-                            </g>
-                        </g><!-- HTML_TAG_END -->
-                    </svg></button>
+                <button id="open" aria-label="Open mobile navigation"></button>
             </div>
         </header>
     </div>
@@ -395,17 +385,13 @@
         </div>
     </div>
     <div class="section" id="section-eee1a1f8">
-        <section class="section-container svelte-1s2usg3" id="take-action">
+        <section class="section-container svelte-1s2usg3">
             <div class="content svelte-1s2usg3">
                 <h2 class="heading">Get Involved</h2>
                 <div class="body svelte-1s2usg3"><!-- HTML_TAG_START -->We'll need all hands on deck to help build a better Edmonton. Follow us on social media or join our mailing list to stay up to date on Zoning Bylaw Renewal, events and ways you can make an impact.<!-- HTML_TAG_END --></div>
-                <div class="social-links svelte-1s2usg3"><a href="/https://twitter.com/GrowTogetherYEG" class="svelte-1s2usg3"><span class="icon svelte-1s2usg3"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
-                                <path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z" /><!-- HTML_TAG_END -->
-                            </svg></span>
+                <div class="social-links svelte-1s2usg3"><a href="/https://twitter.com/GrowTogetherYEG" class="svelte-1s2usg3"><span class="icon svelte-1s2usg3"></span>
                         Twitter
-                    </a><a href="https://www.instagram.com/growtogetheryeg/" class="svelte-1s2usg3"><span class="icon svelte-1s2usg3"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
-                                <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3Z" /><!-- HTML_TAG_END -->
-                            </svg></span>
+                    </a><a href="https://www.instagram.com/growtogetheryeg/" class="svelte-1s2usg3"><span class="icon svelte-1s2usg3"></span>
                         Instagram
                     </a></div>
             </div>

@@ -3,7 +3,7 @@
 
 <head>
     <meta name="generator" content="Primo" />
-    <title>Blog</title><!-- HEAD_svelte-1epl9hz_START -->
+    <title>Blog</title><!-- HEAD_svelte-heb3vx_START -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="32x32" href="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png">
@@ -17,10 +17,10 @@
         /* Design tokens (apply to components) */
         :root {
             /* Custom theme options */
-            --color-accent: #004700;
-
-            /* Base values */
-            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+            --color-accent: #027648;
+            --color1: #4C5760
+                /* Base values */
+                --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
             --border-radius: 0;
             --border-color: #e0e1e1;
         }
@@ -48,10 +48,10 @@
             transform: translateY(-2px);
             /* move link back into place */
             transition: var(--transition, 0.1s border);
-        }
 
-        a.link:hover {
-            border-color: transparent;
+            &:hover {
+                border-color: transparent;
+            }
         }
 
         .heading {
@@ -69,15 +69,15 @@
             border: 0;
             /* reset */
             max-height: 80px;
-        }
 
-        .button:hover {
-            box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
-        }
+            &:hover {
+                box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+            }
 
-        .button.inverted {
-            background: transparent;
-            color: var(--color-accent, rebeccapurple);
+            &.inverted {
+                background: transparent;
+                color: var(--color-accent, rebeccapurple);
+            }
         }
 
         /* Content Section */
@@ -85,76 +85,193 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 3rem 2rem;
+
+            p {
+                margin-bottom: 1rem;
+                line-height: 1.5;
+            }
+
+            img {
+                width: 100%;
+                margin: 2rem 0;
+                box-shadow: var(--box-shadow);
+                border-radius: var(--border-radius);
+            }
+
+            a.link {
+                line-height: 1.3;
+                font-weight: 500;
+                border-bottom: 2px solid var(--color-accent);
+                transform: translateY(-2px);
+                /* move link back into place */
+                transition: var(--transition, 0.1s border);
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+
+            h1 {
+                font-size: 3rem;
+                font-weight: 500;
+                line-height: 1.1;
+                margin-bottom: 1.5rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                list-style: disc;
+                padding: 0.5rem 0;
+                padding-left: 1.25rem;
+            }
+
+            ol {
+                list-style: decimal;
+                padding: 0.5rem 0;
+                padding-left: 1.25rem;
+            }
+
+            blockquote {
+                padding: 2rem;
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+                border-left: 5px solid var(--color-accent);
+            }
+        }
+    </style><!-- HEAD_svelte-heb3vx_END -->
+    <style>
+        .section-container.svelte-ci1c6c.svelte-ci1c6c {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem
         }
 
-        .content p {
-            margin-bottom: 1rem;
-            line-height: 1.5;
+        .logo.svelte-ci1c6c.svelte-ci1c6c {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            display: flex;
+            flex-direction: row;
+            align-items: center
         }
 
-        .content img {
-            width: 100%;
-            margin: 2rem 0;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius);
+        .logo.svelte-ci1c6c>img.svelte-ci1c6c {
+            max-width: 100px;
+            max-height: 100px
         }
 
-        .content a.link {
-            line-height: 1.3;
-            font-weight: 500;
-            border-bottom: 2px solid var(--color-accent);
-            transform: translateY(-2px);
-            /* move link back into place */
-            transition: var(--transition, 0.1s border);
+        .desktop-nav.svelte-ci1c6c.svelte-ci1c6c {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%
         }
 
-        .content a.link:hover {
+        .desktop-nav.svelte-ci1c6c nav.svelte-ci1c6c {
+            display: flex;
+            gap: 2rem
+        }
+
+        .desktop-nav.svelte-ci1c6c nav a.link.svelte-ci1c6c {
             border-color: transparent;
+            transition: border-color 0.1s;
+            font-size: 0.95rem
         }
 
-        .content h1 {
-            font-size: 3rem;
-            font-weight: 500;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+        .desktop-nav.svelte-ci1c6c nav a.link.svelte-ci1c6c:hover {
+            border-color: initial
         }
 
-        .content h2 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
+        @media(min-width: 800px) {
+            .desktop-nav.svelte-ci1c6c.svelte-ci1c6c {
+                display: flex
+            }
         }
 
-        .content h3 {
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
+        .mobile-nav.svelte-ci1c6c.svelte-ci1c6c {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 500
         }
 
-        .content ul {
-            list-style: disc;
-            padding: 0.5rem 0;
-            padding-left: 1.25rem;
+        @media(min-width: 800px) {
+            .mobile-nav.svelte-ci1c6c.svelte-ci1c6c {
+                display: none
+            }
         }
 
-        .content ol {
-            list-style: decimal;
-            padding: 0.5rem 0;
-            padding-left: 1.25rem;
-        }
-
-        .content blockquote {
+        #popup.svelte-ci1c6c.svelte-ci1c6c {
+            font-size: 1.25rem;
+            display: grid;
+            gap: 1rem;
+            position: absolute;
+            text-align: center;
+            background-color: var(--background-color, white);
+            box-shadow: var(--box-shadow, 0px 4px 30px rgba(0, 0, 0, 0.1));
+            border-radius: var(--border-radius);
+            inset: 0.5rem;
+            bottom: initial;
             padding: 2rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 5px solid var(--color-accent);
+            z-index: 1
         }
-    </style><!-- HEAD_svelte-1epl9hz_END -->
-    <style></style>
+
+        #popup.svelte-ci1c6c button#close.svelte-ci1c6c {
+            position: absolute;
+            right: 1rem;
+            top: 1rem
+        }
+
+        .section-container.svelte-so1len {
+            display: grid;
+            gap: 1rem;
+            place-items: center
+        }
+
+        .heading.svelte-so1len {
+            margin-bottom: 2rem
+        }
+
+        img.svelte-so1len {
+            width: 100%
+        }
+    </style>
 </head>
 
 <body id="page">
 
+    <div class="section" id="section-adaa0cc9">
+        <header class="section-container svelte-ci1c6c">
+            <div class="desktop-nav svelte-ci1c6c"><a href="/" class="logo svelte-ci1c6c"><img src="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1692331070906gtyeg_logo_no_text.svg" alt="" class="svelte-ci1c6c">
+                    Grow Together YEG</a>
+                <nav class="svelte-ci1c6c"><a class="link svelte-ci1c6c" href="/">Home</a><a class="link svelte-ci1c6c" href="/about">About</a></nav>
+            </div>
+            <div class="mobile-nav svelte-ci1c6c"><a href="/" class="logo svelte-ci1c6c"><img class="logo svelte-ci1c6c" src="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1692331070906gtyeg_logo_no_text.svg" alt="">
+                    Grow Together YEG</a>
+                <button id="open" aria-label="Open mobile navigation"></button>
+            </div>
+        </header>
+    </div>
+    <div class="section" id="section-b2b13623">
+        <header class="section-container svelte-so1len"><span class="superhead svelte-so1len">Cillum labore aliquip</span>
+            <h1 class="heading svelte-so1len">Aute ex est</h1>
+            <img src="https://images.unsplash.com/photo-1513185727240-e54323adb7f4?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1773&amp;q=80" alt="" class="svelte-so1len">
+        </header>
+    </div>
 
     <script type="module">
         const path = window.location.pathname === '/' ? '' : window.location.pathname

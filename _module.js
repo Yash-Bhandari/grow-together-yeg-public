@@ -259,13 +259,6 @@ function listen(node, event, handler, options) {
     node.addEventListener(event, handler, options);
     return () => node.removeEventListener(event, handler, options);
 }
-function prevent_default(fn) {
-    return function (event) {
-        event.preventDefault();
-        // @ts-ignore
-        return fn.call(this, event);
-    };
-}
 function attr(node, attribute, value) {
     if (value == null)
         node.removeAttribute(attribute);
@@ -1036,11 +1029,11 @@ function create_fragment(ctx) {
 			script = element("script");
 			meta2 = element("meta");
 			style = element("style");
-			t = text("/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #004700;\n\n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = text("/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n\n  &:hover {\n    border-color: transparent;\n  }\n}\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n\n  &:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n  &.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n}\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n\n  p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n\n  img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n\n  a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n\n    &:hover {\n      border-color: transparent;\n    }\n  }\n\n  h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n\n  h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }\n}");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-8mi8ds', document.head);
+			const head_nodes = head_selector('svelte-ii94sq', document.head);
 			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
 			meta1 = claim_element(head_nodes, "META", { charset: true });
 
@@ -1058,7 +1051,7 @@ function create_fragment(ctx) {
 			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
-			t = claim_text(style_nodes, "/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #004700;\n\n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = claim_text(style_nodes, "/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n\n  &:hover {\n    border-color: transparent;\n  }\n}\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n\n  &:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n  &.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n}\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n\n  p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n\n  img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n\n  a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n\n    &:hover {\n      border-color: transparent;\n    }\n  }\n\n  h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n\n  h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }\n}");
 			style_nodes.forEach(detach);
 			head_nodes.forEach(detach);
 			this.h();
@@ -1117,23 +1110,34 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 
 	$$self.$$set = $$props => {
+		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
 		if ('description' in $$props) $$invalidate(2, description = $$props.description);
 	};
 
-	return [favicon, title, description];
+	return [favicon, title, description, color1, color2];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			color1: 3,
+			color2: 4,
+			favicon: 0,
+			title: 1,
+			description: 2
+		});
 	}
 }
 
@@ -3002,18 +3006,18 @@ class Component$1 extends SvelteComponent {
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[11] = list[i].link;
+	child_ctx[13] = list[i].link;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[11] = list[i].link;
+	child_ctx[13] = list[i].link;
 	return child_ctx;
 }
 
-// (129:33) 
-function create_if_block_4(ctx) {
+// (139:6) {#if logo.image.url}
+function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
 	let img_alt_value;
@@ -3024,12 +3028,13 @@ function create_if_block_4(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			img = claim_element(nodes, "IMG", { src: true, alt: true });
+			img = claim_element(nodes, "IMG", { src: true, alt: true, class: true });
 			this.h();
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[2].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[2].image.alt);
+			attr(img, "class", "svelte-1ugrquu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3049,34 +3054,10 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (127:8) {#if logo.title}
-function create_if_block_3(ctx) {
-	let t_value = /*logo*/ ctx[2].title + "";
-	let t;
-
-	return {
-		c() {
-			t = text(t_value);
-		},
-		l(nodes) {
-			t = claim_text(nodes, t_value);
-		},
-		m(target, anchor) {
-			insert_hydration(target, t, anchor);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*logo*/ 4 && t_value !== (t_value = /*logo*/ ctx[2].title + "")) set_data(t, t_value);
-		},
-		d(detaching) {
-			if (detaching) detach(t);
-		}
-	};
-}
-
-// (134:8) {#each site_nav as { link }}
+// (145:8) {#each site_nav as { link }}
 function create_each_block_1(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[11].label + "";
+	let t_value = /*link*/ ctx[13].label + "";
 	let t;
 	let a_href_value;
 
@@ -3094,23 +3075,23 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-1jfkv96");
-			attr(a, "href", a_href_value = /*link*/ ctx[11].url);
-			toggle_class(a, "active", /*link*/ ctx[11].url === window.location.pathname);
+			attr(a, "class", "link svelte-1ugrquu");
+			attr(a, "href", a_href_value = /*link*/ ctx[13].url);
+			toggle_class(a, "active", /*link*/ ctx[13].url === window.location.pathname);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 8 && t_value !== (t_value = /*link*/ ctx[11].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 8 && t_value !== (t_value = /*link*/ ctx[13].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 8 && a_href_value !== (a_href_value = /*link*/ ctx[11].url)) {
+			if (dirty & /*site_nav*/ 8 && a_href_value !== (a_href_value = /*link*/ ctx[13].url)) {
 				attr(a, "href", a_href_value);
 			}
 
 			if (dirty & /*site_nav, window*/ 8) {
-				toggle_class(a, "active", /*link*/ ctx[11].url === window.location.pathname);
+				toggle_class(a, "active", /*link*/ ctx[13].url === window.location.pathname);
 			}
 		},
 		d(detaching) {
@@ -3119,8 +3100,8 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (143:33) 
-function create_if_block_2(ctx) {
+// (152:6) {#if logo.image.url}
+function create_if_block_1$1(ctx) {
 	let img;
 	let img_src_value;
 	let img_alt_value;
@@ -3131,12 +3112,13 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			img = claim_element(nodes, "IMG", { src: true, alt: true });
+			img = claim_element(nodes, "IMG", { src: true, alt: true, class: true });
 			this.h();
 		},
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[2].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[2].image.alt);
+			attr(img, "class", "svelte-1ugrquu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3156,31 +3138,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (141:8) {#if logo.title}
-function create_if_block_1$1(ctx) {
-	let t_value = /*logo*/ ctx[2].title + "";
-	let t;
-
-	return {
-		c() {
-			t = text(t_value);
-		},
-		l(nodes) {
-			t = claim_text(nodes, t_value);
-		},
-		m(target, anchor) {
-			insert_hydration(target, t, anchor);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*logo*/ 4 && t_value !== (t_value = /*logo*/ ctx[2].title + "")) set_data(t, t_value);
-		},
-		d(detaching) {
-			if (detaching) detach(t);
-		}
-	};
-}
-
-// (153:6) {#if mobileNavOpen}
+// (163:6) {#if mobileNavOpen}
 function create_if_block$1(ctx) {
 	let nav;
 	let t;
@@ -3237,9 +3195,9 @@ function create_if_block$1(ctx) {
 		h() {
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Close Navigation");
-			attr(button, "class", "svelte-1jfkv96");
+			attr(button, "class", "svelte-1ugrquu");
 			attr(nav, "id", "popup");
-			attr(nav, "class", "svelte-1jfkv96");
+			attr(nav, "class", "svelte-1ugrquu");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -3256,7 +3214,7 @@ function create_if_block$1(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler_1*/ ctx[9]);
+				dispose = listen(button, "click", /*click_handler_1*/ ctx[11]);
 				mounted = true;
 			}
 		},
@@ -3313,10 +3271,10 @@ function create_if_block$1(ctx) {
 	};
 }
 
-// (155:10) {#each site_nav as { link }}
+// (165:10) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[11].label + "";
+	let t_value = /*link*/ ctx[13].label + "";
 	let t;
 	let a_href_value;
 
@@ -3334,16 +3292,16 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[11].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[13].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 8 && t_value !== (t_value = /*link*/ ctx[11].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 8 && t_value !== (t_value = /*link*/ ctx[13].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 8 && a_href_value !== (a_href_value = /*link*/ ctx[11].url)) {
+			if (dirty & /*site_nav*/ 8 && a_href_value !== (a_href_value = /*link*/ ctx[13].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3360,30 +3318,29 @@ function create_fragment$2(ctx) {
 	let div0;
 	let a0;
 	let t0;
-	let nav;
+	let t1_value = /*logo*/ ctx[2].title + "";
 	let t1;
+	let t2;
+	let nav;
+	let t3;
 	let div1;
 	let a1;
-	let t2;
+	let t4;
+	let t5_value = /*logo*/ ctx[2].title + "";
+	let t5;
+	let t6;
 	let button;
 	let icon;
-	let t3;
-	let t4;
+	let t7;
+	let t8;
 	let div3;
 	let h1;
-	let t5;
+	let t9;
 	let header_aria_label_value;
 	let current;
 	let mounted;
 	let dispose;
-
-	function select_block_type(ctx, dirty) {
-		if (/*logo*/ ctx[2].title) return create_if_block_3;
-		if (/*logo*/ ctx[2].image.url) return create_if_block_4;
-	}
-
-	let current_block_type = select_block_type(ctx);
-	let if_block0 = current_block_type && current_block_type(ctx);
+	let if_block0 = /*logo*/ ctx[2].image.url && create_if_block_2(ctx);
 	let each_value_1 = /*site_nav*/ ctx[3];
 	let each_blocks = [];
 
@@ -3391,13 +3348,7 @@ function create_fragment$2(ctx) {
 		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
 	}
 
-	function select_block_type_1(ctx, dirty) {
-		if (/*logo*/ ctx[2].title) return create_if_block_1$1;
-		if (/*logo*/ ctx[2].image.url) return create_if_block_2;
-	}
-
-	let current_block_type_1 = select_block_type_1(ctx);
-	let if_block1 = current_block_type_1 && current_block_type_1(ctx);
+	let if_block1 = /*logo*/ ctx[2].image.url && create_if_block_1$1(ctx);
 
 	icon = new Component$1({
 			props: { height: "30", icon: "eva:menu-outline" }
@@ -3414,25 +3365,29 @@ function create_fragment$2(ctx) {
 			a0 = element("a");
 			if (if_block0) if_block0.c();
 			t0 = space();
+			t1 = text(t1_value);
+			t2 = space();
 			nav = element("nav");
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
-			t1 = space();
+			t3 = space();
 			div1 = element("div");
 			a1 = element("a");
 			if (if_block1) if_block1.c();
-			t2 = space();
+			t4 = space();
+			t5 = text(t5_value);
+			t6 = space();
 			button = element("button");
 			create_component(icon.$$.fragment);
-			t3 = space();
+			t7 = space();
 			if (if_block2) if_block2.c();
-			t4 = space();
+			t8 = space();
 			div3 = element("div");
 			h1 = element("h1");
-			t5 = text(/*headline*/ ctx[1]);
+			t9 = text(/*headline*/ ctx[1]);
 			this.h();
 		},
 		l(nodes) {
@@ -3454,8 +3409,10 @@ function create_fragment$2(ctx) {
 			a0 = claim_element(div0_nodes, "A", { href: true, class: true });
 			var a0_nodes = children(a0);
 			if (if_block0) if_block0.l(a0_nodes);
+			t0 = claim_space(a0_nodes);
+			t1 = claim_text(a0_nodes, t1_value);
 			a0_nodes.forEach(detach);
-			t0 = claim_space(div0_nodes);
+			t2 = claim_space(div0_nodes);
 			nav = claim_element(div0_nodes, "NAV", { class: true });
 			var nav_nodes = children(nav);
 
@@ -3465,28 +3422,30 @@ function create_fragment$2(ctx) {
 
 			nav_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
-			t1 = claim_space(div2_nodes);
+			t3 = claim_space(div2_nodes);
 			div1 = claim_element(div2_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
 			a1 = claim_element(div1_nodes, "A", { href: true, class: true });
 			var a1_nodes = children(a1);
 			if (if_block1) if_block1.l(a1_nodes);
+			t4 = claim_space(a1_nodes);
+			t5 = claim_text(a1_nodes, t5_value);
 			a1_nodes.forEach(detach);
-			t2 = claim_space(div1_nodes);
+			t6 = claim_space(div1_nodes);
 			button = claim_element(div1_nodes, "BUTTON", { id: true, "aria-label": true });
 			var button_nodes = children(button);
 			claim_component(icon.$$.fragment, button_nodes);
 			button_nodes.forEach(detach);
-			t3 = claim_space(div1_nodes);
+			t7 = claim_space(div1_nodes);
 			if (if_block2) if_block2.l(div1_nodes);
 			div1_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
-			t4 = claim_space(header_nodes);
+			t8 = claim_space(header_nodes);
 			div3 = claim_element(header_nodes, "DIV", { class: true });
 			var div3_nodes = children(div3);
 			h1 = claim_element(div3_nodes, "H1", { class: true });
 			var h1_nodes = children(h1);
-			t5 = claim_text(h1_nodes, /*headline*/ ctx[1]);
+			t9 = claim_text(h1_nodes, /*headline*/ ctx[1]);
 			h1_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
 			header_nodes.forEach(detach);
@@ -3495,21 +3454,21 @@ function create_fragment$2(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "logo svelte-1jfkv96");
-			attr(nav, "class", "svelte-1jfkv96");
-			attr(div0, "class", "desktop-nav svelte-1jfkv96");
+			attr(a0, "class", "logo svelte-1ugrquu");
+			attr(nav, "class", "svelte-1ugrquu");
+			attr(div0, "class", "desktop-nav svelte-1ugrquu");
 			attr(a1, "href", "/");
-			attr(a1, "class", "logo svelte-1jfkv96");
+			attr(a1, "class", "logo svelte-1ugrquu");
 			attr(button, "id", "open");
 			attr(button, "aria-label", "Open mobile navigation");
-			attr(div1, "class", "mobile-nav svelte-1jfkv96");
-			attr(div2, "class", "section-container svelte-1jfkv96");
-			attr(h1, "class", "headline svelte-1jfkv96");
-			attr(div3, "class", "section-container svelte-1jfkv96");
+			attr(div1, "class", "mobile-nav svelte-1ugrquu");
+			attr(div2, "class", "section-container svelte-1ugrquu");
+			attr(h1, "class", "headline svelte-1ugrquu");
+			attr(div3, "class", "section-container svelte-1ugrquu");
 			set_style(header, "background-image", "url('" + /*background*/ ctx[0].url + "')");
 			attr(header, "role", "img");
 			attr(header, "aria-label", header_aria_label_value = /*background*/ ctx[0].alt);
-			attr(header, "class", "svelte-1jfkv96");
+			attr(header, "class", "svelte-1ugrquu");
 			attr(div4, "class", "section");
 			attr(div4, "id", "section-7bb86296");
 		},
@@ -3520,7 +3479,9 @@ function create_fragment$2(ctx) {
 			append_hydration(div2, div0);
 			append_hydration(div0, a0);
 			if (if_block0) if_block0.m(a0, null);
-			append_hydration(div0, t0);
+			append_hydration(a0, t0);
+			append_hydration(a0, t1);
+			append_hydration(div0, t2);
 			append_hydration(div0, nav);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -3529,38 +3490,43 @@ function create_fragment$2(ctx) {
 				}
 			}
 
-			append_hydration(div2, t1);
+			append_hydration(div2, t3);
 			append_hydration(div2, div1);
 			append_hydration(div1, a1);
 			if (if_block1) if_block1.m(a1, null);
-			append_hydration(div1, t2);
+			append_hydration(a1, t4);
+			append_hydration(a1, t5);
+			append_hydration(div1, t6);
 			append_hydration(div1, button);
 			mount_component(icon, button, null);
-			append_hydration(div1, t3);
+			append_hydration(div1, t7);
 			if (if_block2) if_block2.m(div1, null);
-			append_hydration(header, t4);
+			append_hydration(header, t8);
 			append_hydration(header, div3);
 			append_hydration(div3, h1);
-			append_hydration(h1, t5);
+			append_hydration(h1, t9);
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler*/ ctx[8]);
+				dispose = listen(button, "click", /*click_handler*/ ctx[10]);
 				mounted = true;
 			}
 		},
 		p(ctx, [dirty]) {
-			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block0) {
-				if_block0.p(ctx, dirty);
-			} else {
-				if (if_block0) if_block0.d(1);
-				if_block0 = current_block_type && current_block_type(ctx);
-
+			if (/*logo*/ ctx[2].image.url) {
 				if (if_block0) {
+					if_block0.p(ctx, dirty);
+				} else {
+					if_block0 = create_if_block_2(ctx);
 					if_block0.c();
-					if_block0.m(a0, null);
+					if_block0.m(a0, t0);
 				}
+			} else if (if_block0) {
+				if_block0.d(1);
+				if_block0 = null;
 			}
+
+			if ((!current || dirty & /*logo*/ 4) && t1_value !== (t1_value = /*logo*/ ctx[2].title + "")) set_data(t1, t1_value);
 
 			if (dirty & /*site_nav, window*/ 8) {
 				each_value_1 = /*site_nav*/ ctx[3];
@@ -3585,17 +3551,20 @@ function create_fragment$2(ctx) {
 				each_blocks.length = each_value_1.length;
 			}
 
-			if (current_block_type_1 === (current_block_type_1 = select_block_type_1(ctx)) && if_block1) {
-				if_block1.p(ctx, dirty);
-			} else {
-				if (if_block1) if_block1.d(1);
-				if_block1 = current_block_type_1 && current_block_type_1(ctx);
-
+			if (/*logo*/ ctx[2].image.url) {
 				if (if_block1) {
+					if_block1.p(ctx, dirty);
+				} else {
+					if_block1 = create_if_block_1$1(ctx);
 					if_block1.c();
-					if_block1.m(a1, null);
+					if_block1.m(a1, t4);
 				}
+			} else if (if_block1) {
+				if_block1.d(1);
+				if_block1 = null;
 			}
+
+			if ((!current || dirty & /*logo*/ 4) && t5_value !== (t5_value = /*logo*/ ctx[2].title + "")) set_data(t5, t5_value);
 
 			if (/*mobileNavOpen*/ ctx[4]) {
 				if (if_block2) {
@@ -3620,7 +3589,7 @@ function create_fragment$2(ctx) {
 				check_outros();
 			}
 
-			if (!current || dirty & /*headline*/ 2) set_data(t5, /*headline*/ ctx[1]);
+			if (!current || dirty & /*headline*/ 2) set_data(t9, /*headline*/ ctx[1]);
 
 			if (!current || dirty & /*background*/ 1) {
 				set_style(header, "background-image", "url('" + /*background*/ ctx[0].url + "')");
@@ -3643,17 +3612,9 @@ function create_fragment$2(ctx) {
 		},
 		d(detaching) {
 			if (detaching) detach(div4);
-
-			if (if_block0) {
-				if_block0.d();
-			}
-
+			if (if_block0) if_block0.d();
 			destroy_each(each_blocks, detaching);
-
-			if (if_block1) {
-				if_block1.d();
-			}
-
+			if (if_block1) if_block1.d();
 			destroy_component(icon);
 			if (if_block2) if_block2.d();
 			mounted = false;
@@ -3663,6 +3624,8 @@ function create_fragment$2(ctx) {
 }
 
 function instance$2($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -3676,9 +3639,11 @@ function instance$2($$self, $$props, $$invalidate) {
 	const click_handler_1 = () => $$invalidate(4, mobileNavOpen = false);
 
 	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(6, title = $$props.title);
-		if ('description' in $$props) $$invalidate(7, description = $$props.description);
+		if ('color1' in $$props) $$invalidate(5, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(6, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(7, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(8, title = $$props.title);
+		if ('description' in $$props) $$invalidate(9, description = $$props.description);
 		if ('background' in $$props) $$invalidate(0, background = $$props.background);
 		if ('headline' in $$props) $$invalidate(1, headline = $$props.headline);
 		if ('logo' in $$props) $$invalidate(2, logo = $$props.logo);
@@ -3691,6 +3656,8 @@ function instance$2($$self, $$props, $$invalidate) {
 		logo,
 		site_nav,
 		mobileNavOpen,
+		color1,
+		color2,
 		favicon,
 		title,
 		description,
@@ -3704,9 +3671,11 @@ class Component$2 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$2, create_fragment$2, safe_not_equal, {
-			favicon: 5,
-			title: 6,
-			description: 7,
+			color1: 5,
+			color2: 6,
+			favicon: 7,
+			title: 8,
+			description: 9,
 			background: 0,
 			headline: 1,
 			logo: 2,
@@ -3719,11 +3688,11 @@ class Component$2 extends SvelteComponent {
 
 function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[4] = list[i];
+	child_ctx[6] = list[i];
 	return child_ctx;
 }
 
-// (102:10) {#if teaser.image.url}
+// (104:10) {#if teaser.image.url}
 function create_if_block_1$2(ctx) {
 	let img;
 	let img_src_value;
@@ -3739,19 +3708,19 @@ function create_if_block_1$2(ctx) {
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*teaser*/ ctx[4].image.url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*teaser*/ ctx[4].image.alt);
+			if (!src_url_equal(img.src, img_src_value = /*teaser*/ ctx[6].image.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*teaser*/ ctx[6].image.alt);
 			attr(img, "class", "svelte-1qwgcet");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*teasers*/ 1 && !src_url_equal(img.src, img_src_value = /*teaser*/ ctx[4].image.url)) {
+			if (dirty & /*teasers*/ 1 && !src_url_equal(img.src, img_src_value = /*teaser*/ ctx[6].image.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*teasers*/ 1 && img_alt_value !== (img_alt_value = /*teaser*/ ctx[4].image.alt)) {
+			if (dirty & /*teasers*/ 1 && img_alt_value !== (img_alt_value = /*teaser*/ ctx[6].image.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -3761,10 +3730,10 @@ function create_if_block_1$2(ctx) {
 	};
 }
 
-// (108:12) {#if teaser.link.url}
+// (110:12) {#if teaser.link.url}
 function create_if_block$2(ctx) {
 	let a;
-	let t_value = /*teaser*/ ctx[4].link.label + "";
+	let t_value = /*teaser*/ ctx[6].link.label + "";
 	let t;
 	let a_href_value;
 
@@ -3783,16 +3752,16 @@ function create_if_block$2(ctx) {
 		},
 		h() {
 			attr(a, "class", "button svelte-1qwgcet");
-			attr(a, "href", a_href_value = /*teaser*/ ctx[4].link.url);
+			attr(a, "href", a_href_value = /*teaser*/ ctx[6].link.url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*teasers*/ 1 && t_value !== (t_value = /*teaser*/ ctx[4].link.label + "")) set_data(t, t_value);
+			if (dirty & /*teasers*/ 1 && t_value !== (t_value = /*teaser*/ ctx[6].link.label + "")) set_data(t, t_value);
 
-			if (dirty & /*teasers*/ 1 && a_href_value !== (a_href_value = /*teaser*/ ctx[4].link.url)) {
+			if (dirty & /*teasers*/ 1 && a_href_value !== (a_href_value = /*teaser*/ ctx[6].link.url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3802,21 +3771,21 @@ function create_if_block$2(ctx) {
 	};
 }
 
-// (100:6) {#each teasers as teaser}
+// (102:6) {#each teasers as teaser}
 function create_each_block$1(ctx) {
 	let div2;
 	let t0;
 	let div1;
 	let h2;
-	let t1_value = /*teaser*/ ctx[4].title + "";
+	let t1_value = /*teaser*/ ctx[6].title + "";
 	let t1;
 	let t2;
 	let div0;
-	let raw_value = /*teaser*/ ctx[4].body.html + "";
+	let raw_value = /*teaser*/ ctx[6].body.html + "";
 	let t3;
 	let t4;
-	let if_block0 = /*teaser*/ ctx[4].image.url && create_if_block_1$2(ctx);
-	let if_block1 = /*teaser*/ ctx[4].link.url && create_if_block$2(ctx);
+	let if_block0 = /*teaser*/ ctx[6].image.url && create_if_block_1$2(ctx);
+	let if_block1 = /*teaser*/ ctx[6].link.url && create_if_block$2(ctx);
 
 	return {
 		c() {
@@ -3876,7 +3845,7 @@ function create_each_block$1(ctx) {
 			append_hydration(div2, t4);
 		},
 		p(ctx, dirty) {
-			if (/*teaser*/ ctx[4].image.url) {
+			if (/*teaser*/ ctx[6].image.url) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -3889,9 +3858,9 @@ function create_each_block$1(ctx) {
 				if_block0 = null;
 			}
 
-			if (dirty & /*teasers*/ 1 && t1_value !== (t1_value = /*teaser*/ ctx[4].title + "")) set_data(t1, t1_value);
-			if (dirty & /*teasers*/ 1 && raw_value !== (raw_value = /*teaser*/ ctx[4].body.html + "")) div0.innerHTML = raw_value;
-			if (/*teaser*/ ctx[4].link.url) {
+			if (dirty & /*teasers*/ 1 && t1_value !== (t1_value = /*teaser*/ ctx[6].title + "")) set_data(t1, t1_value);
+			if (dirty & /*teasers*/ 1 && raw_value !== (raw_value = /*teaser*/ ctx[6].body.html + "")) div0.innerHTML = raw_value;
+			if (/*teaser*/ ctx[6].link.url) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
@@ -4010,19 +3979,23 @@ function create_fragment$3(ctx) {
 }
 
 function instance$3($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { teasers } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(1, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(2, title = $$props.title);
-		if ('description' in $$props) $$invalidate(3, description = $$props.description);
+		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('description' in $$props) $$invalidate(5, description = $$props.description);
 		if ('teasers' in $$props) $$invalidate(0, teasers = $$props.teasers);
 	};
 
-	return [teasers, favicon, title, description];
+	return [teasers, color1, color2, favicon, title, description];
 }
 
 class Component$3 extends SvelteComponent {
@@ -4030,9 +4003,11 @@ class Component$3 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
-			favicon: 1,
-			title: 2,
-			description: 3,
+			color1: 1,
+			color2: 2,
+			favicon: 3,
+			title: 4,
+			description: 5,
 			teasers: 0
 		});
 	}
@@ -4141,6 +4116,8 @@ function create_fragment$4(ctx) {
 }
 
 function instance$4($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -4149,15 +4126,17 @@ function instance$4($$self, $$props, $$invalidate) {
 	let { link } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(4, title = $$props.title);
-		if ('description' in $$props) $$invalidate(5, description = $$props.description);
+		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(6, title = $$props.title);
+		if ('description' in $$props) $$invalidate(7, description = $$props.description);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('body' in $$props) $$invalidate(1, body = $$props.body);
 		if ('link' in $$props) $$invalidate(2, link = $$props.link);
 	};
 
-	return [heading, body, link, favicon, title, description];
+	return [heading, body, link, color1, color2, favicon, title, description];
 }
 
 class Component$4 extends SvelteComponent {
@@ -4165,9 +4144,11 @@ class Component$4 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
-			favicon: 3,
-			title: 4,
-			description: 5,
+			color1: 3,
+			color2: 4,
+			favicon: 5,
+			title: 6,
+			description: 7,
 			heading: 0,
 			body: 1,
 			link: 2
@@ -4179,23 +4160,23 @@ class Component$4 extends SvelteComponent {
 
 function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[8] = list[i].link;
-	child_ctx[9] = list[i].icon;
+	child_ctx[10] = list[i].link;
+	child_ctx[11] = list[i].icon;
 	return child_ctx;
 }
 
-// (75:6) {#each social as { link, icon }}
+// (77:6) {#each social as { link, icon }}
 function create_each_block$2(ctx) {
 	let a;
 	let span;
 	let icon;
 	let t0;
-	let t1_value = /*link*/ ctx[8].label + "";
+	let t1_value = /*link*/ ctx[10].label + "";
 	let t1;
 	let t2;
 	let a_href_value;
 	let current;
-	icon = new Component$1({ props: { icon: /*icon*/ ctx[9] } });
+	icon = new Component$1({ props: { icon: /*icon*/ ctx[11] } });
 
 	return {
 		c() {
@@ -4222,7 +4203,7 @@ function create_each_block$2(ctx) {
 		},
 		h() {
 			attr(span, "class", "icon svelte-1s2usg3");
-			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
 			attr(a, "class", "svelte-1s2usg3");
 		},
 		m(target, anchor) {
@@ -4236,11 +4217,11 @@ function create_each_block$2(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[9];
+			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[11];
 			icon.$set(icon_changes);
-			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[8].label + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[10].label + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[8].url)) {
+			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -4416,7 +4397,7 @@ function create_fragment$5(ctx) {
 		l(nodes) {
 			div15 = claim_element(nodes, "DIV", { class: true, id: true });
 			var div15_nodes = children(div15);
-			section = claim_element(div15_nodes, "SECTION", { class: true, id: true });
+			section = claim_element(div15_nodes, "SECTION", { class: true });
 			var section_nodes = children(section);
 			div2 = claim_element(section_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
@@ -4622,7 +4603,6 @@ function create_fragment$5(ctx) {
 			if (!src_url_equal(script1.src, script1_src_value = "https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128")) attr(script1, "src", script1_src_value);
 			attr(script1, "type", "text/javascript");
 			attr(section, "class", "section-container svelte-1s2usg3");
-			attr(section, "id", "take-action");
 			attr(div15, "class", "section");
 			attr(div15, "id", "section-97da4d56");
 		},
@@ -4758,6 +4738,8 @@ function create_fragment$5(ctx) {
 }
 
 function instance$5($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -4780,17 +4762,30 @@ function instance$5($$self, $$props, $$invalidate) {
 	); //ml('account', '511328')
 
 	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(4, title = $$props.title);
-		if ('description' in $$props) $$invalidate(5, description = $$props.description);
+		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(6, title = $$props.title);
+		if ('description' in $$props) $$invalidate(7, description = $$props.description);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
 		if ('social' in $$props) $$invalidate(2, social = $$props.social);
-		if ('inputs' in $$props) $$invalidate(6, inputs = $$props.inputs);
-		if ('submit_label' in $$props) $$invalidate(7, submit_label = $$props.submit_label);
+		if ('inputs' in $$props) $$invalidate(8, inputs = $$props.inputs);
+		if ('submit_label' in $$props) $$invalidate(9, submit_label = $$props.submit_label);
 	};
 
-	return [heading, subheading, social, favicon, title, description, inputs, submit_label];
+	return [
+		heading,
+		subheading,
+		social,
+		color1,
+		color2,
+		favicon,
+		title,
+		description,
+		inputs,
+		submit_label
+	];
 }
 
 class Component$5 extends SvelteComponent {
@@ -4798,387 +4793,97 @@ class Component$5 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
-			favicon: 3,
-			title: 4,
-			description: 5,
+			color1: 3,
+			color2: 4,
+			favicon: 5,
+			title: 6,
+			description: 7,
 			heading: 0,
 			subheading: 1,
 			social: 2,
-			inputs: 6,
-			submit_label: 7
+			inputs: 8,
+			submit_label: 9
 		});
 	}
 }
 
 /* generated by Svelte v3.58.0 */
 
-function get_each_context$3(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[12] = list[i][0];
-	child_ctx[13] = list[i][1];
-	child_ctx[14] = list[i][2];
-	return child_ctx;
-}
-
-// (154:6) {#each wards as [wardName, councillor, email]}
-function create_each_block$3(ctx) {
-	let option;
-	let t0_value = /*councillor*/ ctx[13] + "";
-	let t0;
-	let t1;
-	let t2_value = /*wardName*/ ctx[12] + "";
-	let t2;
-	let t3;
-	let option_value_value;
-
-	return {
-		c() {
-			option = element("option");
-			t0 = text(t0_value);
-			t1 = text(" (ward ");
-			t2 = text(t2_value);
-			t3 = text(")");
-			this.h();
-		},
-		l(nodes) {
-			option = claim_element(nodes, "OPTION", {});
-			var option_nodes = children(option);
-			t0 = claim_text(option_nodes, t0_value);
-			t1 = claim_text(option_nodes, " (ward ");
-			t2 = claim_text(option_nodes, t2_value);
-			t3 = claim_text(option_nodes, ")");
-			option_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			option.__value = option_value_value = /*councillor*/ ctx[13];
-			option.value = option.__value;
-		},
-		m(target, anchor) {
-			insert_hydration(target, option, anchor);
-			append_hydration(option, t0);
-			append_hydration(option, t1);
-			append_hydration(option, t2);
-			append_hydration(option, t3);
-		},
-		p: noop,
-		d(detaching) {
-			if (detaching) detach(option);
-		}
-	};
-}
-
 function create_fragment$6(ctx) {
-	let div2;
-	let section;
 	let div1;
 	let div0;
-	let h2;
-	let t0;
-	let t1;
-	let p;
-	let t2;
-	let t3;
-	let form;
-	let label0;
-	let span;
-	let t4;
-	let t5;
-	let input;
-	let t6;
-	let label1;
-	let t7;
-	let select;
-	let t8;
-	let button;
-	let t9;
-	let mounted;
-	let dispose;
-	let each_value = /*wards*/ ctx[3];
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
-	}
+	let iframe;
+	let iframe_src_value;
 
 	return {
 		c() {
-			div2 = element("div");
-			section = element("section");
 			div1 = element("div");
 			div0 = element("div");
-			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[0]);
-			t1 = space();
-			p = element("p");
-			t2 = text(/*subheading*/ ctx[1]);
-			t3 = space();
-			form = element("form");
-			label0 = element("label");
-			span = element("span");
-			t4 = text("Your Name:");
-			t5 = space();
-			input = element("input");
-			t6 = space();
-			label1 = element("label");
-			t7 = text("Your Councillor:\n    ");
-			select = element("select");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			t8 = space();
-			button = element("button");
-			t9 = text(/*button_text*/ ctx[2]);
+			iframe = element("iframe");
 			this.h();
 		},
 		l(nodes) {
-			div2 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div2_nodes = children(div2);
-			section = claim_element(div2_nodes, "SECTION", { class: true });
-			var section_nodes = children(section);
-			div1 = claim_element(section_nodes, "DIV", { class: true });
+			div1 = claim_element(nodes, "DIV", { class: true, id: true });
 			var div1_nodes = children(div1);
-			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			div0 = claim_element(div1_nodes, "DIV", {});
 			var div0_nodes = children(div0);
-			h2 = claim_element(div0_nodes, "H2", { class: true });
-			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
-			h2_nodes.forEach(detach);
-			t1 = claim_space(div0_nodes);
-			p = claim_element(div0_nodes, "P", { class: true });
-			var p_nodes = children(p);
-			t2 = claim_text(p_nodes, /*subheading*/ ctx[1]);
-			p_nodes.forEach(detach);
-			div0_nodes.forEach(detach);
-			t3 = claim_space(div1_nodes);
-			form = claim_element(div1_nodes, "FORM", { class: true });
-			var form_nodes = children(form);
-			label0 = claim_element(form_nodes, "LABEL", { class: true });
-			var label0_nodes = children(label0);
-			span = claim_element(label0_nodes, "SPAN", { class: true });
-			var span_nodes = children(span);
-			t4 = claim_text(span_nodes, "Your Name:");
-			span_nodes.forEach(detach);
-			t5 = claim_space(label0_nodes);
 
-			input = claim_element(label0_nodes, "INPUT", {
+			iframe = claim_element(div0_nodes, "IFRAME", {
 				id: true,
-				name: true,
-				class: true,
-				type: true,
-				placeholder: true
+				title: true,
+				src: true,
+				width: true,
+				height: true,
+				style: true
 			});
 
-			label0_nodes.forEach(detach);
-			t6 = claim_space(form_nodes);
-			label1 = claim_element(form_nodes, "LABEL", { class: true });
-			var label1_nodes = children(label1);
-			t7 = claim_text(label1_nodes, "Your Councillor:\n    ");
-			select = claim_element(label1_nodes, "SELECT", { id: true, name: true, class: true });
-			var select_nodes = children(select);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(select_nodes);
-			}
-
-			select_nodes.forEach(detach);
-			label1_nodes.forEach(detach);
-			t8 = claim_space(form_nodes);
-			button = claim_element(form_nodes, "BUTTON", { type: true, class: true });
-			var button_nodes = children(button);
-			t9 = claim_text(button_nodes, /*button_text*/ ctx[2]);
-			button_nodes.forEach(detach);
-			form_nodes.forEach(detach);
+			children(iframe).forEach(detach);
+			div0_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
-			section_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading");
-			attr(p, "class", "subheaging");
-			attr(div0, "class", "heading-group svelte-13kke8f");
-			attr(span, "class", "label svelte-13kke8f");
-			attr(input, "id", "name");
-			attr(input, "name", "name");
-			attr(input, "class", "placeholder svelte-13kke8f");
-			attr(input, "type", "text");
-			attr(input, "placeholder", "John Doe");
-			attr(label0, "class", "svelte-13kke8f");
-			attr(select, "id", "councillor");
-			attr(select, "name", "councillor");
-			attr(select, "class", "svelte-13kke8f");
-			attr(label1, "class", "label svelte-13kke8f");
-			attr(button, "type", "submit");
-			attr(button, "class", "button svelte-13kke8f");
-			attr(form, "class", "svelte-13kke8f");
-			attr(div1, "class", "box svelte-13kke8f");
-			attr(section, "class", "section-container svelte-13kke8f");
-			attr(div2, "class", "section");
-			attr(div2, "id", "section-69450977");
+			attr(iframe, "id", "take-action");
+			attr(iframe, "title", "Take Action");
+			if (!src_url_equal(iframe.src, iframe_src_value = "https://gte-form.vercel.app/")) attr(iframe, "src", iframe_src_value);
+			attr(iframe, "width", "100%");
+			attr(iframe, "height", "1200px");
+			set_style(iframe, "border", "0px");
+			set_style(iframe, "overflow", "hidden");
+			set_style(iframe, "margin", "auto");
+			attr(div1, "class", "section");
+			attr(div1, "id", "section-503cd312");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div2, anchor);
-			append_hydration(div2, section);
-			append_hydration(section, div1);
+			insert_hydration(target, div1, anchor);
 			append_hydration(div1, div0);
-			append_hydration(div0, h2);
-			append_hydration(h2, t0);
-			append_hydration(div0, t1);
-			append_hydration(div0, p);
-			append_hydration(p, t2);
-			append_hydration(div1, t3);
-			append_hydration(div1, form);
-			append_hydration(form, label0);
-			append_hydration(label0, span);
-			append_hydration(span, t4);
-			append_hydration(label0, t5);
-			append_hydration(label0, input);
-			append_hydration(form, t6);
-			append_hydration(form, label1);
-			append_hydration(label1, t7);
-			append_hydration(label1, select);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(select, null);
-				}
-			}
-
-			append_hydration(form, t8);
-			append_hydration(form, button);
-			append_hydration(button, t9);
-
-			if (!mounted) {
-				dispose = listen(form, "submit", prevent_default(/*submit_handler*/ ctx[9]));
-				mounted = true;
-			}
+			append_hydration(div0, iframe);
 		},
-		p(ctx, [dirty]) {
-			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (dirty & /*subheading*/ 2) set_data(t2, /*subheading*/ ctx[1]);
-
-			if (dirty & /*wards*/ 8) {
-				each_value = /*wards*/ ctx[3];
-				let i;
-
-				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context$3(ctx, each_value, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-					} else {
-						each_blocks[i] = create_each_block$3(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(select, null);
-					}
-				}
-
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
-				}
-
-				each_blocks.length = each_value.length;
-			}
-
-			if (dirty & /*button_text*/ 4) set_data(t9, /*button_text*/ ctx[2]);
-		},
+		p: noop,
 		i: noop,
 		o: noop,
 		d(detaching) {
-			if (detaching) detach(div2);
-			destroy_each(each_blocks, detaching);
-			mounted = false;
-			dispose();
+			if (detaching) detach(div1);
 		}
 	};
 }
 
 function instance$6($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
-	let { heading } = $$props;
-	let { subheading } = $$props;
-	let { inputs } = $$props;
-	let { button_text } = $$props;
-
-	const wards = [
-		["papastew", "Michael Janz", "michael.janz@edmonton.ca"],
-		["Nakota Isga", "Andrew Knack", "andrew.knack@edmonton.ca"],
-		["Anirniq", "Erin Rutherford", "erin.rutherford@edmonton.ca"],
-		["Dene", "Aaron Paquette", "aaron.paquette@edmonton.ca"],
-		["Ipiihkoohkanipiaohtsi", "Jennifer Rice", "jennifer.rice@edmonton.ca"],
-		["Karhiio", "Keren Tang", "keren.tang@edmonton.ca"],
-		["Métis", "Ashley Salvador", "ashley.salvador@edmonton.ca"],
-		["O-day’min", "Anne Stevenson", "anne.stevenson@edmonton.ca"],
-		["pihêsiwin", "Tim Cartmell", "tim.cartmell@edmonton.ca"],
-		["sipiwiyiniwak", "Sarah Hamilton", "sarah.hamilton@edmonton.ca"],
-		["Sspomitapi", "Jo-Anne Wright", "jo-anne.wright@edmonton.ca"],
-		["tastawiyiniwak", "Karen Principe", "karen.principe@edmonton.ca"]
-	];
-
-	const draftLetter = (councillorName, name) => {
-		const [wardName, _, councillorEmail] = wards.find(ward => ward[1] === councillorName);
-		const lastName = councillorName.split(" ")[1];
-		let letter = `Dear Councillor ${lastName}` + "\n\nI’m writing in support of Edmonton’s new zoning bylaw, an important step in ensuring Edmonton remains a progressive, inclusive, vibrant city." + "\nI support the new zoning bylaw and its proposed changes for three important reasons." + "\n\n1. Gently increasing our density is the simplest and most effective way to increase Edmonton's environment sustainability. Denser neighbourhoods reduce energy usage, make active and public transportation easier and more cost efficient, and preserve our region's dwindling supply of woodlands, wetlands and farmlands by putting houses in areas that are already built." + "\n2. Greater density improves services and helps lower costs for all residents.  Sprawling development has and continues to cost the city more money than it brings in: the city currently has an infrastructure maintenance deficit of $470 million per year, and every new neighbourhood adds tens of millions to that number. At a time when the cost of living continues to rise dramatically, the city cannot afford to build so inefficiently." + "\n3. A variety of housing will help neighbourhoods stay vibrant, livable places by supporting local amenities, services and recreation.  As previous generations have seen, we cannot preserve lively neighbourhoods by preventing them from changing: a single-house-fits-all model does not work for the diverse array of people that flock to a city. New housing options and the new neighbours they bring allow our neighbourhood institutions, businesses, parks and infrastructure to reach their fullest potential." + "\n\nI urge you to support the new zoning bylaw and help prepare Edmonton for a future that's brighter for everyone. " + "\n\nSIGNED" + `\n${name}, resident of ward ${wardName}`;
-		const subjectLine = encodeURIComponent(getSubjectLine());
-		letter = encodeURIComponent(letter);
-		const mailto = `mailto:${councillorEmail}?subject=${subjectLine}&body=${letter}`;
-		console.log(mailto);
-		window.open(mailto);
-	};
-
-	const possibleSubjectLines = [
-		"I support the Draft Zoning Bylaw",
-		"I support the new zoning bylaw",
-		"Don't delay the new zoning bylaw",
-		"New zoning bylaw is good for Edmonton",
-		"Zoning bylaw renewal is good for Edmonton",
-		"Pass the new zoning bylaw without delay",
-		"Why the new zoning bylaw is crucial for our community",
-		"Support the new zoning bylaw for a better city",
-		"Approve the zoning bylaw",
-		"The new zoning rules will make Edmonton a better place to live",
-		"Promote Smart Growth: Approve the New Zoning Bylaw",
-		"Approve the zoning bylaw for a more sustainable Edmonton"
-	];
-
-	const getSubjectLine = () => {
-		let index = Math.floor(Math.random() * possibleSubjectLines.length);
-		return possibleSubjectLines[index];
-	};
-
-	const submit_handler = ({ target }) => {
-		const data = new FormData(target);
-		console.log(data);
-		draftLetter(data.get("councillor"), data.get("name"));
-	};
 
 	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(6, title = $$props.title);
-		if ('description' in $$props) $$invalidate(7, description = $$props.description);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
-		if ('inputs' in $$props) $$invalidate(8, inputs = $$props.inputs);
-		if ('button_text' in $$props) $$invalidate(2, button_text = $$props.button_text);
+		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(3, title = $$props.title);
+		if ('description' in $$props) $$invalidate(4, description = $$props.description);
 	};
 
-	return [
-		heading,
-		subheading,
-		button_text,
-		wards,
-		draftLetter,
-		favicon,
-		title,
-		description,
-		inputs,
-		submit_handler
-	];
+	return [color1, color2, favicon, title, description];
 }
 
 class Component$6 extends SvelteComponent {
@@ -5186,13 +4891,11 @@ class Component$6 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
-			favicon: 5,
-			title: 6,
-			description: 7,
-			heading: 0,
-			subheading: 1,
-			inputs: 8,
-			button_text: 2
+			color1: 0,
+			color2: 1,
+			favicon: 2,
+			title: 3,
+			description: 4
 		});
 	}
 }
@@ -5200,23 +4903,34 @@ class Component$6 extends SvelteComponent {
 /* generated by Svelte v3.58.0 */
 
 function instance$7($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-		if ('description' in $$props) $$invalidate(2, description = $$props.description);
+		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(3, title = $$props.title);
+		if ('description' in $$props) $$invalidate(4, description = $$props.description);
 	};
 
-	return [favicon, title, description];
+	return [color1, color2, favicon, title, description];
 }
 
 class Component$7 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$7, null, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+
+		init(this, options, instance$7, null, safe_not_equal, {
+			color1: 0,
+			color2: 1,
+			favicon: 2,
+			title: 3,
+			description: 4
+		});
 	}
 }
 
@@ -5240,6 +4954,8 @@ function create_fragment$7(ctx) {
 
 	component_0 = new Component({
 			props: {
+				color1: "#A9CD37",
+				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
@@ -5253,6 +4969,8 @@ function create_fragment$7(ctx) {
 
 	component_1 = new Component$2({
 			props: {
+				color1: "#A9CD37",
+				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
@@ -5269,13 +4987,13 @@ function create_fragment$7(ctx) {
 				},
 				headline: "Edmonton's new zoning bylaw will help us fight climate change, fix our finances and keep the city affordable. ",
 				logo: {
+					"title": "Grow Together YEG",
 					"image": {
 						"alt": "",
-						"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689478011/housing_logo_big_rbothm.png",
-						"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689478011/housing_logo_big_rbothm.png",
+						"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692586283/gtyeg_logo_no_text_darker_skpuoe.svg",
+						"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692586283/gtyeg_logo_no_text_darker_skpuoe.svg",
 						"size": null
-					},
-					"title": "Grow Together YEG"
+					}
 				},
 				site_nav: [
 					{
@@ -5297,6 +5015,8 @@ function create_fragment$7(ctx) {
 
 	component_2 = new Component$3({
 			props: {
+				color1: "#A9CD37",
+				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
@@ -5354,6 +5074,8 @@ function create_fragment$7(ctx) {
 
 	component_3 = new Component$4({
 			props: {
+				color1: "#A9CD37",
+				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
@@ -5373,6 +5095,8 @@ function create_fragment$7(ctx) {
 
 	component_4 = new Component$5({
 			props: {
+				color1: "#A9CD37",
+				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
@@ -5419,6 +5143,8 @@ function create_fragment$7(ctx) {
 
 	component_5 = new Component$6({
 			props: {
+				color1: "#A9CD37",
+				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
@@ -5426,32 +5152,14 @@ function create_fragment$7(ctx) {
 					"size": 1
 				},
 				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
-				heading: "Make your voice heard",
-				subheading: "Email your city councillor to let them know you support the new zoning bylaw. We've got a template letter you can use as a draft.",
-				inputs: [
-					{
-						"type": "text",
-						"label": "Your Name",
-						"placeholder": "Ad exercitation quis"
-					},
-					{
-						"type": "text",
-						"label": "Subject",
-						"placeholder": "Mollit nulla veniam"
-					},
-					{
-						"type": "text",
-						"label": "Your Ward",
-						"placeholder": "Papastew"
-					}
-				],
-				button_text: "Open Draft Email"
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan."
 			}
 		});
 
 	component_6 = new Component$7({
 			props: {
+				color1: "#A9CD37",
+				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
