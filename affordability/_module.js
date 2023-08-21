@@ -3756,24 +3756,24 @@ class Component$3 extends SvelteComponent {
 
 function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[8] = list[i];
+	child_ctx[9] = list[i];
 	return child_ctx;
 }
 
-// (79:2) {#each data as city}
+// (80:2) {#each data as city}
 function create_each_block$1(ctx) {
 	let tr;
 	let td0;
-	let t0_value = /*city*/ ctx[8].city + "";
+	let t0_value = /*city*/ ctx[9].city + "";
 	let t0;
 	let t1;
 	let td1;
-	let t2_value = /*moneyFormatter*/ ctx[1].format(/*city*/ ctx[8].rent) + "";
+	let t2_value = /*moneyFormatter*/ ctx[2].format(/*city*/ ctx[9].rent) + "";
 	let t2;
 	let t3;
 	let td2;
 	let t4;
-	let t5_value = /*city*/ ctx[8].change + "";
+	let t5_value = /*city*/ ctx[9].change + "";
 	let t5;
 	let t6;
 	let t7;
@@ -3838,9 +3838,9 @@ function create_each_block$1(ctx) {
 			append_hydration(tr, t7);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*data*/ 1 && t0_value !== (t0_value = /*city*/ ctx[8].city + "")) set_data(t0, t0_value);
-			if (dirty & /*data*/ 1 && t2_value !== (t2_value = /*moneyFormatter*/ ctx[1].format(/*city*/ ctx[8].rent) + "")) set_data(t2, t2_value);
-			if (dirty & /*data*/ 1 && t5_value !== (t5_value = /*city*/ ctx[8].change + "")) set_data(t5, t5_value);
+			if (dirty & /*data*/ 1 && t0_value !== (t0_value = /*city*/ ctx[9].city + "")) set_data(t0, t0_value);
+			if (dirty & /*data*/ 1 && t2_value !== (t2_value = /*moneyFormatter*/ ctx[2].format(/*city*/ ctx[9].rent) + "")) set_data(t2, t2_value);
+			if (dirty & /*data*/ 1 && t5_value !== (t5_value = /*city*/ ctx[9].change + "")) set_data(t5, t5_value);
 		},
 		d(detaching) {
 			if (detaching) detach(tr);
@@ -3869,7 +3869,9 @@ function create_fragment$4(ctx) {
 	let td;
 	let t7;
 	let a;
+	let t8_value = /*data_source*/ ctx[1].name + "";
 	let t8;
+	let a_href_value;
 	let each_value = /*data*/ ctx[0];
 	let each_blocks = [];
 
@@ -3904,7 +3906,7 @@ function create_fragment$4(ctx) {
 			td = element("td");
 			t7 = text("Data source: ");
 			a = element("a");
-			t8 = text("Rentals.ca July Rent Report");
+			t8 = text(t8_value);
 			this.h();
 		},
 		l(nodes) {
@@ -3950,7 +3952,7 @@ function create_fragment$4(ctx) {
 			t7 = claim_text(td_nodes, "Data source: ");
 			a = claim_element(td_nodes, "A", { href: true, class: true });
 			var a_nodes = children(a);
-			t8 = claim_text(a_nodes, "Rentals.ca July Rent Report");
+			t8 = claim_text(a_nodes, t8_value);
 			a_nodes.forEach(detach);
 			td_nodes.forEach(detach);
 			tr1_nodes.forEach(detach);
@@ -3966,7 +3968,7 @@ function create_fragment$4(ctx) {
 			attr(th2, "class", "svelte-yi0kic");
 			attr(tr0, "class", "svelte-yi0kic");
 			attr(tbody, "class", "svelte-yi0kic");
-			attr(a, "href", "https://rentals.ca/national-rent-report");
+			attr(a, "href", a_href_value = /*data_source*/ ctx[1].url);
 			attr(a, "class", "svelte-yi0kic");
 			attr(td, "colspan", "3");
 			attr(td, "class", "svelte-yi0kic");
@@ -4007,7 +4009,7 @@ function create_fragment$4(ctx) {
 			append_hydration(a, t8);
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*data, moneyFormatter*/ 3) {
+			if (dirty & /*data, moneyFormatter*/ 5) {
 				each_value = /*data*/ ctx[0];
 				let i;
 
@@ -4029,6 +4031,12 @@ function create_fragment$4(ctx) {
 
 				each_blocks.length = each_value.length;
 			}
+
+			if (dirty & /*data_source*/ 2 && t8_value !== (t8_value = /*data_source*/ ctx[1].name + "")) set_data(t8, t8_value);
+
+			if (dirty & /*data_source*/ 2 && a_href_value !== (a_href_value = /*data_source*/ ctx[1].url)) {
+				attr(a, "href", a_href_value);
+			}
 		},
 		i: noop,
 		o: noop,
@@ -4047,6 +4055,7 @@ function instance$4($$self, $$props, $$invalidate) {
 	let { preview_image } = $$props;
 	let { content } = $$props;
 	let { data } = $$props;
+	let { data_source } = $$props;
 
 	const moneyFormatter = new Intl.NumberFormat('en-US',
 	{
@@ -4056,16 +4065,27 @@ function instance$4($$self, $$props, $$invalidate) {
 		});
 
 	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(2, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(3, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(5, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(6, preview_image = $$props.preview_image);
-		if ('content' in $$props) $$invalidate(7, content = $$props.content);
+		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(6, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(7, preview_image = $$props.preview_image);
+		if ('content' in $$props) $$invalidate(8, content = $$props.content);
 		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+		if ('data_source' in $$props) $$invalidate(1, data_source = $$props.data_source);
 	};
 
-	return [data, moneyFormatter, color1, color2, favicon, title, preview_image, content];
+	return [
+		data,
+		data_source,
+		moneyFormatter,
+		color1,
+		color2,
+		favicon,
+		title,
+		preview_image,
+		content
+	];
 }
 
 class Component$4 extends SvelteComponent {
@@ -4073,13 +4093,14 @@ class Component$4 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
-			color1: 2,
-			color2: 3,
-			favicon: 4,
-			title: 5,
-			preview_image: 6,
-			content: 7,
-			data: 0
+			color1: 3,
+			color2: 4,
+			favicon: 5,
+			title: 6,
+			preview_image: 7,
+			content: 8,
+			data: 0,
+			data_source: 1
 		});
 	}
 }
@@ -5134,8 +5155,8 @@ function create_fragment$9(ctx) {
 					"size": null
 				},
 				content: {
-					"html": "<h3 id=\"rentsarereachingcrisislevelsduetocanadasmassivehousingshortage\">Rents are reaching crisis levels due to Canada's massive housing shortage</h3>\n<p>In Vancouver, where the vacancy rate is <a href=\"https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/\">under 1%</a>, it costs more than <strong>$3000/month to rent a 1 bedroom apartment</strong>. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at <a href=\"https://economicdashboard.alberta.ca/dashboard/net-migration/\">record numbers</a> in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.</p>\n<p>In fact, housing costs here have already started to surge. In Calgary, the average rent for a 1 bedroom apartment is now up to $1687/month—that's about 3 weeks of pre-tax earnings for a full time minimum wage worker. And in just the past year, <strong>rents in Edmonton have risen 13%</strong> while <a href=\"https://edmontonjournal.com/news/local-news/rents-may-rise-in-edmonton-as-vacancy-rate-hits-10-year-low-affordability-crunched\">our vacancy rate dropped from 7% to 4%, reaching a 10-year low</a>.</p>",
-					"markdown": "### Rents are reaching crisis levels due to Canada's massive housing shortage\n\nIn Vancouver, where the vacancy rate is [under 1%](<https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/>), it costs more than **$3000/month to rent a 1 bedroom apartment**. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at [record numbers](<https://economicdashboard.alberta.ca/dashboard/net-migration/>) in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.\n\nIn fact, housing costs here have already started to surge. In Calgary, the average rent for a 1 bedroom apartment is now up to $1687/month—that's about 3 weeks of pre-tax earnings for a full time minimum wage worker. And in just the past year, **rents in Edmonton have risen 13%** while [our vacancy rate dropped from 7% to 4%, reaching a 10-year low](<https://edmontonjournal.com/news/local-news/rents-may-rise-in-edmonton-as-vacancy-rate-hits-10-year-low-affordability-crunched>).\n\n"
+					"html": "<h3>Rents are reaching crisis levels due to Canada's massive housing shortage</h3><p>In Vancouver, where the vacancy rate is <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/\">under 1%</a>, it costs more than <strong>$3000/month to rent a 1 bedroom apartment</strong>. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://economicdashboard.alberta.ca/dashboard/net-migration/\">record numbers</a> in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.</p><p>In fact, housing costs here have already started to surge. In Calgary, the average rent for a 1 bedroom apartment is now up to $1718/month—that's about 3 weeks of pre-tax earnings for a full time minimum wage worker. And in just the past year, <strong>rents in Edmonton have risen 13%</strong> while <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://edmontonjournal.com/news/local-news/rents-may-rise-in-edmonton-as-vacancy-rate-hits-10-year-low-affordability-crunched\">our vacancy rate dropped from 7% to 4%, reaching a 10-year low</a>.</p>",
+					"markdown": "### Rents are reaching crisis levels due to Canada's massive housing shortage\n\nIn Vancouver, where the vacancy rate is [under 1%](<https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/>), it costs more than **$3000/month to rent a 1 bedroom apartment**. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at [record numbers](<https://economicdashboard.alberta.ca/dashboard/net-migration/>) in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.\n\nIn fact, housing costs here have already started to surge. In Calgary, the average rent for a 1 bedroom apartment is now up to $1718/month—that's about 3 weeks of pre-tax earnings for a full time minimum wage worker. And in just the past year, **rents in Edmonton have risen 13%** while [our vacancy rate dropped from 7% to 4%, reaching a 10-year low](<https://edmontonjournal.com/news/local-news/rents-may-rise-in-edmonton-as-vacancy-rate-hits-10-year-low-affordability-crunched>).\n\n"
 				}
 			}
 		});
@@ -5164,30 +5185,34 @@ function create_fragment$9(ctx) {
 				data: [
 					{
 						"city": "Vancouver",
-						"rent": "2945",
-						"change": "18.1"
+						"rent": "3013",
+						"change": "16.2"
 					},
 					{
 						"city": "Toronto",
-						"rent": "2572",
-						"change": "14.1"
-					},
-					{
-						"city": "Ottawa",
-						"rent": "1995",
+						"rent": "2591",
 						"change": "13.4"
 					},
 					{
+						"city": "Mississauga",
+						"rent": "2364",
+						"change": "20.0"
+					},
+					{
 						"city": "Calgary",
-						"rent": "1687",
-						"change": "12.7"
+						"rent": "1717",
+						"change": "17.2"
 					},
 					{
 						"city": "Edmonton",
-						"rent": "1196",
-						"change": "11.5"
+						"rent": "1197",
+						"change": "12.8"
 					}
-				]
+				],
+				data_source: {
+					"url": "https://images.rentals.ca/images/Rent_Report_Graphic_-_August_2023_v1.width-720.png",
+					"name": "Rentals.ca August Rent Report"
+				}
 			}
 		});
 
