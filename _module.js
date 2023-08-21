@@ -3034,7 +3034,7 @@ function create_if_block_2(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[2].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[2].image.alt);
-			attr(img, "class", "svelte-7n7jae");
+			attr(img, "class", "svelte-18ypq0y");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3075,7 +3075,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-7n7jae");
+			attr(a, "class", "link svelte-18ypq0y");
 			attr(a, "href", a_href_value = /*link*/ ctx[13].url);
 			toggle_class(a, "active", /*link*/ ctx[13].url === window.location.pathname);
 		},
@@ -3118,7 +3118,7 @@ function create_if_block_1$1(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[2].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[2].image.alt);
-			attr(img, "class", "svelte-7n7jae");
+			attr(img, "class", "svelte-18ypq0y");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3195,9 +3195,9 @@ function create_if_block$1(ctx) {
 		h() {
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Close Navigation");
-			attr(button, "class", "svelte-7n7jae");
+			attr(button, "class", "svelte-18ypq0y");
 			attr(nav, "id", "popup");
-			attr(nav, "class", "svelte-7n7jae");
+			attr(nav, "class", "svelte-18ypq0y");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -3454,21 +3454,21 @@ function create_fragment$2(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "logo svelte-7n7jae");
-			attr(nav, "class", "svelte-7n7jae");
-			attr(div0, "class", "desktop-nav svelte-7n7jae");
+			attr(a0, "class", "logo svelte-18ypq0y");
+			attr(nav, "class", "svelte-18ypq0y");
+			attr(div0, "class", "desktop-nav svelte-18ypq0y");
 			attr(a1, "href", "/");
-			attr(a1, "class", "logo svelte-7n7jae");
+			attr(a1, "class", "logo svelte-18ypq0y");
 			attr(button, "id", "open");
 			attr(button, "aria-label", "Open mobile navigation");
-			attr(div1, "class", "mobile-nav svelte-7n7jae");
-			attr(div2, "class", "section-container svelte-7n7jae");
-			attr(h1, "class", "headline svelte-7n7jae");
-			attr(div3, "class", "section-container svelte-7n7jae");
+			attr(div1, "class", "mobile-nav svelte-18ypq0y");
+			attr(div2, "class", "section-container svelte-18ypq0y");
+			attr(h1, "class", "headline svelte-18ypq0y");
+			attr(div3, "class", "section-container svelte-18ypq0y");
 			set_style(header, "background-image", "url('" + /*background*/ ctx[0].url + "')");
 			attr(header, "role", "img");
 			attr(header, "aria-label", header_aria_label_value = /*background*/ ctx[0].alt);
-			attr(header, "class", "svelte-7n7jae");
+			attr(header, "class", "svelte-18ypq0y");
 			attr(div4, "class", "section");
 			attr(div4, "id", "section-7bb86296");
 		},
@@ -4983,13 +4983,13 @@ function create_fragment$7(ctx) {
 				},
 				headline: "Edmonton's new zoning bylaw will help us fight climate change, fix our finances and keep the city affordable. ",
 				logo: {
-					"title": "Grow Together Edmonton",
 					"image": {
 						"alt": "",
 						"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
 						"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
 						"size": null
-					}
+					},
+					"title": "Grow Together Edmonton"
 				},
 				site_nav: [
 					{ "link": { "url": "/", "label": "Home" } },
