@@ -4861,7 +4861,7 @@ function create_fragment$6(ctx) {
 			attr(iframe, "title", "Take Action");
 			if (!src_url_equal(iframe.src, iframe_src_value = "https://gte-form.vercel.app/")) attr(iframe, "src", iframe_src_value);
 			attr(iframe, "width", "100%");
-			attr(iframe, "height", "900px");
+			attr(iframe, "height", "1060px");
 			set_style(iframe, "border", "0px");
 			set_style(iframe, "overflow", "hidden");
 			set_style(iframe, "margin", "auto");
