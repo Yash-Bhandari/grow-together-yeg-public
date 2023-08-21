@@ -5107,13 +5107,13 @@ function create_fragment$9(ctx) {
 					"size": null
 				},
 				logo: {
-					"title": "Grow Together Edmonton",
 					"image": {
 						"alt": "",
 						"src": "\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
 						"url": "\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
 						"size": null
-					}
+					},
+					"title": "Grow Together Edmonton"
 				},
 				site_nav: [
 					{
@@ -5128,14 +5128,14 @@ function create_fragment$9(ctx) {
 					},
 					{
 						"link": {
-							"label": "Zoning Bylaw",
-							"url": "/zoning-bylaw"
+							"url": "/zoning-bylaw",
+							"label": "Zoning Bylaw"
 						}
 					},
 					{
 						"link": {
-							"label": "Take Action",
-							"url": "/#take-action"
+							"url": "/#take-action",
+							"label": "Take Action"
 						}
 					}
 				],

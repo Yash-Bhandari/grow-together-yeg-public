@@ -5020,8 +5020,8 @@ function create_fragment$7(ctx) {
 					},
 					{
 						"link": {
-							"label": "Zoning Bylaw",
-							"url": "/zoning-bylaw"
+							"url": "/zoning-bylaw",
+							"label": "Zoning Bylaw"
 						}
 					},
 					{

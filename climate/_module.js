@@ -4591,13 +4591,13 @@ function create_fragment$7(ctx) {
 					"size": null
 				},
 				logo: {
-					"title": "Grow Together Edmonton",
 					"image": {
 						"alt": "",
 						"src": "\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
 						"url": "\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
 						"size": null
-					}
+					},
+					"title": "Grow Together Edmonton"
 				},
 				site_nav: [
 					{
@@ -4612,14 +4612,14 @@ function create_fragment$7(ctx) {
 					},
 					{
 						"link": {
-							"label": "Zoning Bylaw",
-							"url": "/zoning-bylaw"
+							"url": "/zoning-bylaw",
+							"label": "Zoning Bylaw"
 						}
 					},
 					{
 						"link": {
-							"label": "Take Action",
-							"url": "/#take-action"
+							"url": "/#take-action",
+							"label": "Take Action"
 						}
 					}
 				],
@@ -4638,8 +4638,8 @@ function create_fragment$7(ctx) {
 					"size": null
 				},
 				content: {
-					"html": "<h3 id=\"densityisthecitysbesttooltofightclimatechange\">Density is the city's best tool to fight climate change</h3>\n<p>When we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that <strong>low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas</strong>. </p>",
-					"markdown": "### Density is the city's best tool to fight climate change\n\nWhen we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that **low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas**. \n"
+					"html": "<h2 id=\"densityisthecitysbesttooltofightclimatechange\">Density is the city's best tool to fight climate change</h2>\n<p>When we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that <strong>low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas</strong>.</p>",
+					"markdown": "##Density is the city's best tool to fight climate change\n\nWhen we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that **low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas**.\n\n"
 				}
 			}
 		});
