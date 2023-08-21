@@ -1011,6 +1011,10 @@ function create_fragment(ctx) {
 	let link1;
 	let script;
 	let script_src_value;
+	let meta2;
+	let meta3;
+	let meta4;
+	let meta4_content_value;
 	let style;
 	let t;
 
@@ -1021,12 +1025,15 @@ function create_fragment(ctx) {
 			link0 = element("link");
 			link1 = element("link");
 			script = element("script");
+			meta2 = element("meta");
+			meta3 = element("meta");
+			meta4 = element("meta");
 			style = element("style");
 			t = text("/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n\n  &:hover {\n    border-color: transparent;\n  }\n}\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n\n  &:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n  &.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n}\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n\n  p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n\n  img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n\n  a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n\n    &:hover {\n      border-color: transparent;\n    }\n  }\n\n  h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n\n  h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }\n}\n.content a {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    transition: var(--transition, 0.1s border);\n}\n\n.content a {\n    border-color: transparent;\n}");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-1wpuxgs', document.head);
+			const head_nodes = head_selector('svelte-162r8g4', document.head);
 			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
 			meta1 = claim_element(head_nodes, "META", { charset: true });
 
@@ -1041,6 +1048,9 @@ function create_fragment(ctx) {
 			script = claim_element(head_nodes, "SCRIPT", { src: true, "data-website-id": true });
 			var script_nodes = children(script);
 			script_nodes.forEach(detach);
+			meta2 = claim_element(head_nodes, "META", { property: true, content: true });
+			meta3 = claim_element(head_nodes, "META", { property: true, content: true });
+			meta4 = claim_element(head_nodes, "META", { property: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
 			t = claim_text(style_nodes, "/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n\n  &:hover {\n    border-color: transparent;\n  }\n}\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n\n  &:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n  &.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n}\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n\n  p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n\n  img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n\n  a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n\n    &:hover {\n      border-color: transparent;\n    }\n  }\n\n  h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n\n  h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n\n  ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n\n  blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }\n}\n.content a {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    transition: var(--transition, 0.1s border);\n}\n\n.content a {\n    border-color: transparent;\n}");
@@ -1061,6 +1071,12 @@ function create_fragment(ctx) {
 			script.async = true;
 			if (!src_url_equal(script.src, script_src_value = "https://analytics.umami.is/script.js")) attr(script, "src", script_src_value);
 			attr(script, "data-website-id", "541fddec-8517-45e6-b5e5-6a9e36cb83c3");
+			attr(meta2, "property", "og:title");
+			attr(meta2, "content", /*title*/ ctx[1]);
+			attr(meta3, "property", "og:type");
+			attr(meta3, "content", "article");
+			attr(meta4, "property", "og:image");
+			attr(meta4, "content", meta4_content_value = /*preview_image*/ ctx[2].url);
 		},
 		m(target, anchor) {
 			append_hydration(document.head, meta0);
@@ -1068,12 +1084,23 @@ function create_fragment(ctx) {
 			append_hydration(document.head, link0);
 			append_hydration(document.head, link1);
 			append_hydration(document.head, script);
+			append_hydration(document.head, meta2);
+			append_hydration(document.head, meta3);
+			append_hydration(document.head, meta4);
 			append_hydration(document.head, style);
 			append_hydration(style, t);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*favicon*/ 1 && link0_href_value !== (link0_href_value = /*favicon*/ ctx[0].url)) {
 				attr(link0, "href", link0_href_value);
+			}
+
+			if (dirty & /*title*/ 2) {
+				attr(meta2, "content", /*title*/ ctx[1]);
+			}
+
+			if (dirty & /*preview_image*/ 4 && meta4_content_value !== (meta4_content_value = /*preview_image*/ ctx[2].url)) {
+				attr(meta4, "content", meta4_content_value);
 			}
 		},
 		i: noop,
@@ -1084,6 +1111,9 @@ function create_fragment(ctx) {
 			detach(link0);
 			detach(link1);
 			detach(script);
+			detach(meta2);
+			detach(meta3);
+			detach(meta4);
 			detach(style);
 		}
 	};
@@ -1093,20 +1123,31 @@ function instance($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
+		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(1, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(2, preview_image = $$props.preview_image);
 	};
 
-	return [favicon, color1, color2];
+	return [favicon, title, preview_image, color1, color2];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { color1: 1, color2: 2, favicon: 0 });
+
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			color1: 3,
+			color2: 4,
+			favicon: 0,
+			title: 1,
+			preview_image: 2
+		});
 	}
 }
 
@@ -2975,17 +3016,17 @@ class Component$1 extends SvelteComponent {
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i].link;
+	child_ctx[12] = list[i].link;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i].link;
+	child_ctx[12] = list[i].link;
 	return child_ctx;
 }
 
-// (112:6) {#if logo.image.url}
+// (115:6) {#if logo.image.url}
 function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
@@ -3010,7 +3051,7 @@ function create_if_block_2(ctx) {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
 			set_style(img, "max-width", /*logo_width*/ ctx[2] + "px");
-			attr(img, "class", "svelte-1c6jx8w");
+			attr(img, "class", "svelte-pc52kz");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3034,10 +3075,10 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (118:6) {#each site_nav as { link }}
+// (121:6) {#each site_nav as { link }}
 function create_each_block_1(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[10].label + "";
+	let t_value = /*link*/ ctx[12].label + "";
 	let t;
 	let a_href_value;
 
@@ -3055,17 +3096,17 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-1c6jx8w");
-			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
+			attr(a, "class", "link svelte-pc52kz");
+			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[12].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3075,7 +3116,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (125:6) {#if logo.image.url}
+// (128:6) {#if logo.image.url}
 function create_if_block_1$1(ctx) {
 	let img;
 	let img_src_value;
@@ -3097,7 +3138,7 @@ function create_if_block_1$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(img, "class", "logo svelte-1c6jx8w");
+			attr(img, "class", "logo svelte-pc52kz");
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
 			set_style(img, "max-width", /*logo_width*/ ctx[2] + "px");
@@ -3124,7 +3165,7 @@ function create_if_block_1$1(ctx) {
 	};
 }
 
-// (136:4) {#if mobileNavOpen}
+// (139:4) {#if mobileNavOpen}
 function create_if_block$1(ctx) {
 	let nav;
 	let t;
@@ -3181,9 +3222,9 @@ function create_if_block$1(ctx) {
 		h() {
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Close Navigation");
-			attr(button, "class", "svelte-1c6jx8w");
+			attr(button, "class", "svelte-pc52kz");
 			attr(nav, "id", "popup");
-			attr(nav, "class", "svelte-1c6jx8w");
+			attr(nav, "class", "svelte-pc52kz");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -3200,7 +3241,7 @@ function create_if_block$1(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler_1*/ ctx[8]);
+				dispose = listen(button, "click", /*click_handler_1*/ ctx[10]);
 				mounted = true;
 			}
 		},
@@ -3257,10 +3298,10 @@ function create_if_block$1(ctx) {
 	};
 }
 
-// (138:8) {#each site_nav as { link }}
+// (141:8) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[10].label + "";
+	let t_value = /*link*/ ctx[12].label + "";
 	let t;
 	let a_href_value;
 
@@ -3278,16 +3319,16 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[12].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3411,15 +3452,15 @@ function create_fragment$2(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "logo svelte-1c6jx8w");
-			attr(nav, "class", "svelte-1c6jx8w");
-			attr(div0, "class", "desktop-nav svelte-1c6jx8w");
+			attr(a0, "class", "logo svelte-pc52kz");
+			attr(nav, "class", "svelte-pc52kz");
+			attr(div0, "class", "desktop-nav svelte-pc52kz");
 			attr(a1, "href", "/");
-			attr(a1, "class", "logo svelte-1c6jx8w");
+			attr(a1, "class", "logo svelte-pc52kz");
 			attr(button, "id", "open");
 			attr(button, "aria-label", "Open mobile navigation");
-			attr(div1, "class", "mobile-nav svelte-1c6jx8w");
-			attr(header, "class", "section-container svelte-1c6jx8w");
+			attr(div1, "class", "mobile-nav svelte-pc52kz");
+			attr(header, "class", "section-container svelte-pc52kz");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-17ec1161");
 		},
@@ -3454,7 +3495,7 @@ function create_fragment$2(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler*/ ctx[7]);
+				dispose = listen(button, "click", /*click_handler*/ ctx[9]);
 				mounted = true;
 			}
 		},
@@ -3563,6 +3604,8 @@ function instance$2($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { logo } = $$props;
 	let { site_nav } = $$props;
 	let { logo_width } = $$props;
@@ -3575,6 +3618,8 @@ function instance$2($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(4, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(5, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(6, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(7, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(8, preview_image = $$props.preview_image);
 		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
 		if ('site_nav' in $$props) $$invalidate(1, site_nav = $$props.site_nav);
 		if ('logo_width' in $$props) $$invalidate(2, logo_width = $$props.logo_width);
@@ -3588,6 +3633,8 @@ function instance$2($$self, $$props, $$invalidate) {
 		color1,
 		color2,
 		favicon,
+		title,
+		preview_image,
 		click_handler,
 		click_handler_1
 	];
@@ -3601,6 +3648,8 @@ class Component$2 extends SvelteComponent {
 			color1: 4,
 			color2: 5,
 			favicon: 6,
+			title: 7,
+			preview_image: 8,
 			logo: 0,
 			site_nav: 1,
 			logo_width: 2
@@ -3661,16 +3710,20 @@ function instance$3($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { content } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
 		if ('content' in $$props) $$invalidate(0, content = $$props.content);
 	};
 
-	return [content, color1, color2, favicon];
+	return [content, color1, color2, favicon, title, preview_image];
 }
 
 class Component$3 extends SvelteComponent {
@@ -3681,6 +3734,8 @@ class Component$3 extends SvelteComponent {
 			color1: 1,
 			color2: 2,
 			favicon: 3,
+			title: 4,
+			preview_image: 5,
 			content: 0
 		});
 	}
@@ -3690,24 +3745,24 @@ class Component$3 extends SvelteComponent {
 
 function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[6] = list[i];
+	child_ctx[8] = list[i];
 	return child_ctx;
 }
 
-// (77:2) {#each data as city}
+// (79:2) {#each data as city}
 function create_each_block$1(ctx) {
 	let tr;
 	let td0;
-	let t0_value = /*city*/ ctx[6].city + "";
+	let t0_value = /*city*/ ctx[8].city + "";
 	let t0;
 	let t1;
 	let td1;
-	let t2_value = /*moneyFormatter*/ ctx[1].format(/*city*/ ctx[6].rent) + "";
+	let t2_value = /*moneyFormatter*/ ctx[1].format(/*city*/ ctx[8].rent) + "";
 	let t2;
 	let t3;
 	let td2;
 	let t4;
-	let t5_value = /*city*/ ctx[6].change + "";
+	let t5_value = /*city*/ ctx[8].change + "";
 	let t5;
 	let t6;
 	let t7;
@@ -3772,9 +3827,9 @@ function create_each_block$1(ctx) {
 			append_hydration(tr, t7);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*data*/ 1 && t0_value !== (t0_value = /*city*/ ctx[6].city + "")) set_data(t0, t0_value);
-			if (dirty & /*data*/ 1 && t2_value !== (t2_value = /*moneyFormatter*/ ctx[1].format(/*city*/ ctx[6].rent) + "")) set_data(t2, t2_value);
-			if (dirty & /*data*/ 1 && t5_value !== (t5_value = /*city*/ ctx[6].change + "")) set_data(t5, t5_value);
+			if (dirty & /*data*/ 1 && t0_value !== (t0_value = /*city*/ ctx[8].city + "")) set_data(t0, t0_value);
+			if (dirty & /*data*/ 1 && t2_value !== (t2_value = /*moneyFormatter*/ ctx[1].format(/*city*/ ctx[8].rent) + "")) set_data(t2, t2_value);
+			if (dirty & /*data*/ 1 && t5_value !== (t5_value = /*city*/ ctx[8].change + "")) set_data(t5, t5_value);
 		},
 		d(detaching) {
 			if (detaching) detach(tr);
@@ -3977,6 +4032,8 @@ function instance$4($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { content } = $$props;
 	let { data } = $$props;
 
@@ -3991,11 +4048,13 @@ function instance$4($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(2, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(3, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
-		if ('content' in $$props) $$invalidate(5, content = $$props.content);
+		if ('title' in $$props) $$invalidate(5, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(6, preview_image = $$props.preview_image);
+		if ('content' in $$props) $$invalidate(7, content = $$props.content);
 		if ('data' in $$props) $$invalidate(0, data = $$props.data);
 	};
 
-	return [data, moneyFormatter, color1, color2, favicon, content];
+	return [data, moneyFormatter, color1, color2, favicon, title, preview_image, content];
 }
 
 class Component$4 extends SvelteComponent {
@@ -4006,7 +4065,9 @@ class Component$4 extends SvelteComponent {
 			color1: 2,
 			color2: 3,
 			favicon: 4,
-			content: 5,
+			title: 5,
+			preview_image: 6,
+			content: 7,
 			data: 0
 		});
 	}
@@ -4065,16 +4126,20 @@ function instance$5($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { content } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
 		if ('content' in $$props) $$invalidate(0, content = $$props.content);
 	};
 
-	return [content, color1, color2, favicon];
+	return [content, color1, color2, favicon, title, preview_image];
 }
 
 class Component$5 extends SvelteComponent {
@@ -4085,6 +4150,8 @@ class Component$5 extends SvelteComponent {
 			color1: 1,
 			color2: 2,
 			favicon: 3,
+			title: 4,
+			preview_image: 5,
 			content: 0
 		});
 	}
@@ -4094,23 +4161,23 @@ class Component$5 extends SvelteComponent {
 
 function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[8] = list[i].link;
-	child_ctx[9] = list[i].icon;
+	child_ctx[10] = list[i].link;
+	child_ctx[11] = list[i].icon;
 	return child_ctx;
 }
 
-// (75:6) {#each social as { link, icon }}
+// (77:6) {#each social as { link, icon }}
 function create_each_block$2(ctx) {
 	let a;
 	let span;
 	let icon;
 	let t0;
-	let t1_value = /*link*/ ctx[8].label + "";
+	let t1_value = /*link*/ ctx[10].label + "";
 	let t1;
 	let t2;
 	let a_href_value;
 	let current;
-	icon = new Component$1({ props: { icon: /*icon*/ ctx[9] } });
+	icon = new Component$1({ props: { icon: /*icon*/ ctx[11] } });
 
 	return {
 		c() {
@@ -4137,7 +4204,7 @@ function create_each_block$2(ctx) {
 		},
 		h() {
 			attr(span, "class", "icon svelte-1s2usg3");
-			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
 			attr(a, "class", "svelte-1s2usg3");
 		},
 		m(target, anchor) {
@@ -4151,11 +4218,11 @@ function create_each_block$2(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[9];
+			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[11];
 			icon.$set(icon_changes);
-			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[8].label + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[10].label + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[8].url)) {
+			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -4675,6 +4742,8 @@ function instance$6($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { heading } = $$props;
 	let { subheading } = $$props;
 	let { social } = $$props;
@@ -4697,14 +4766,27 @@ function instance$6($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(6, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(7, preview_image = $$props.preview_image);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
 		if ('social' in $$props) $$invalidate(2, social = $$props.social);
-		if ('inputs' in $$props) $$invalidate(6, inputs = $$props.inputs);
-		if ('submit_label' in $$props) $$invalidate(7, submit_label = $$props.submit_label);
+		if ('inputs' in $$props) $$invalidate(8, inputs = $$props.inputs);
+		if ('submit_label' in $$props) $$invalidate(9, submit_label = $$props.submit_label);
 	};
 
-	return [heading, subheading, social, color1, color2, favicon, inputs, submit_label];
+	return [
+		heading,
+		subheading,
+		social,
+		color1,
+		color2,
+		favicon,
+		title,
+		preview_image,
+		inputs,
+		submit_label
+	];
 }
 
 class Component$6 extends SvelteComponent {
@@ -4715,11 +4797,13 @@ class Component$6 extends SvelteComponent {
 			color1: 3,
 			color2: 4,
 			favicon: 5,
+			title: 6,
+			preview_image: 7,
 			heading: 0,
 			subheading: 1,
 			social: 2,
-			inputs: 6,
-			submit_label: 7
+			inputs: 8,
+			submit_label: 9
 		});
 	}
 }
@@ -4730,20 +4814,31 @@ function instance$7($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(3, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(4, preview_image = $$props.preview_image);
 	};
 
-	return [color1, color2, favicon];
+	return [color1, color2, favicon, title, preview_image];
 }
 
 class Component$7 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$7, null, safe_not_equal, { color1: 0, color2: 1, favicon: 2 });
+
+		init(this, options, instance$7, null, safe_not_equal, {
+			color1: 0,
+			color2: 1,
+			favicon: 2,
+			title: 3,
+			preview_image: 4
+		});
 	}
 }
 
@@ -4774,6 +4869,13 @@ function create_fragment$7(ctx) {
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
+				},
+				title: "Affordability",
+				preview_image: {
+					"alt": "",
+					"src": "",
+					"url": "",
+					"size": null
 				}
 			}
 		});
@@ -4787,6 +4889,13 @@ function create_fragment$7(ctx) {
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
+				},
+				title: "Affordability",
+				preview_image: {
+					"alt": "",
+					"src": "",
+					"url": "",
+					"size": null
 				},
 				logo: {
 					"title": "Grow Together YEG",
@@ -4823,6 +4932,13 @@ function create_fragment$7(ctx) {
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
 				},
+				title: "Affordability",
+				preview_image: {
+					"alt": "",
+					"src": "",
+					"url": "",
+					"size": null
+				},
 				content: {
 					"html": "<h3 id=\"rentsarereachingcrisislevelsduetocanadasmassivehousingshortage\">Rents are reaching crisis levels due to Canada's massive housing shortage</h3>\n<p>In Vancouver, where the vacancy rate is <a href=\"https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/\">under 1%</a>, it costs almost <strong>$3000/month to rent a 1 bedroom apartment</strong>. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at <a href=\"https://economicdashboard.alberta.ca/dashboard/net-migration/\">record numbers</a> in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.</p>\n<p>In fact, housing costs here have already started to surge. In Calgary, the average rent for a 1 bedroom apartment is now up to $1687/month—that's about 3 weeks of pre-tax earnings for a full time minimum wage worker. And in just the past year, <strong>rents in Edmonton have risen 13%</strong> while <a href=\"https://edmontonjournal.com/news/local-news/rents-may-rise-in-edmonton-as-vacancy-rate-hits-10-year-low-affordability-crunched\">our vacancy rate dropped from 7% to 4%, reaching a 10-year low</a>.</p>",
 					"markdown": "### Rents are reaching crisis levels due to Canada's massive housing shortage\n\nIn Vancouver, where the vacancy rate is [under 1%](<https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/>), it costs almost **$3000/month to rent a 1 bedroom apartment**. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at [record numbers](<https://economicdashboard.alberta.ca/dashboard/net-migration/>) in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.\n\nIn fact, housing costs here have already started to surge. In Calgary, the average rent for a 1 bedroom apartment is now up to $1687/month—that's about 3 weeks of pre-tax earnings for a full time minimum wage worker. And in just the past year, **rents in Edmonton have risen 13%** while [our vacancy rate dropped from 7% to 4%, reaching a 10-year low](<https://edmontonjournal.com/news/local-news/rents-may-rise-in-edmonton-as-vacancy-rate-hits-10-year-low-affordability-crunched>).\n\n"
@@ -4839,6 +4955,13 @@ function create_fragment$7(ctx) {
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
+				},
+				title: "Affordability",
+				preview_image: {
+					"alt": "",
+					"src": "",
+					"url": "",
+					"size": null
 				},
 				content: {
 					"html": "<p>According to Rentals.ca, the cost of housing has reached astronomical levels.</p>",
@@ -4884,6 +5007,13 @@ function create_fragment$7(ctx) {
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
 				},
+				title: "Affordability",
+				preview_image: {
+					"alt": "",
+					"src": "",
+					"url": "",
+					"size": null
+				},
 				content: {
 					"html": "<p>The crux of the issue is that we don't have enough homes. In Canada, <a href=\"https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3410012601\"><strong>we build fewer houses today than we did back in 1976</strong></a> even though <a href=\"https://www.statcan.gc.ca/en/subjects-start/population_and_demography/40-million\">population growth has more than tripled</a>. We have the fewest houses per person <a href=\"https://businesscouncilab.com/insights-category/economic-insights/weekly-econ-minute-canada-housing-shortage/#:~:text=In%20fact%2C%20Canada%20has%20the,480%20dwellings%20per%201%2C000%20residents.\">out of all G7 countries</a>. <a href=\"https://doodles.mountainmath.ca/blog/2019/08/19/running-on-empties/\">There isn't some massive secret supply of vacant homes</a>. Canada just doesn't have enough homes. </p>\n<h3 id=\"relaxingzoningrulesbooststhesupplyofhousingslowingdownrentincreases\">Relaxing zoning rules boosts the supply of housing, slowing down rent increases</h3>\n<p>For decades, zoning bylaws in Canadian cities have outlawed medium density housing by default on the vast majority of residential land. To build anything denser than a detached home or a duplex typically requires a long, risky and expensive rezoning process. And even in areas they are allowed, row houses, multiplexes and small apartments face many onerous restrictions that make them significantly more expensive to build.</p>\n<p>If Edmonton is to remain affordable, then we need to remove barriers to building new homes. That's exactly what our new zoning bylaw will do by allowing for more homes in more neighborhoods. Developable land will be cheaper (because it will be less scarce) and the approval process will be shorter and less risky, so more housing projects will make financial sense to build. That means we'll have a greater supply of housing and higher vacancy rates, which will help keep rents in check.</p>\n<h3 id=\"casestudyaucklandnz\">Case Study: Auckland, NZ</h3>\n<p>Auckland, New Zealand is a rare example of a city that undertook zoning reform as as comprehensive as ours. Since upzoning, their housing starts have skyrocketed and their rents stayed flat (adjusted for inflation), even though they rose rapidly in the rest of the country. <a href=\"https://cdn.auckland.ac.nz/assets/business/about/our-research/research-institutes-and-centres/Economic-Policy-Centre--EPC-/006WP%20-%204.pdf\">Sophisticated analysis from the University of Auckland</a> shows that ~21,000 extra homes were built over just 5 years as a direct result of the zoning reform. That’s about 4% of their entire housing supply that only exists because zoning laws in Auckland had been relaxed.</p>\n<p>This chart shows how rents have changed in Auckland since they updated their zoning bylaw compared to the rest of New Zealand. <a href=\"https://onefinaleffort.com/auckland\">Source</a>\n<img src=\"https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689461104/Screenshot_2023-07-15_164425_iphids.png\" alt=\"Rents\" /></p>\n<p>This chart shows how housing starts have skyrocketed in Auckland since they updated their zoning bylaw. <a href=\"https://onefinaleffort.com/auckland\">Source</a>\n<img src=\"https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689461386/auckland-housing-starts_ffjno9.png\" alt=\"Housing Starts\" /></p>",
 					"markdown": "The crux of the issue is that we don't have enough homes. In Canada, [**we build fewer houses today than we did back in 1976**](<https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3410012601>) even though [population growth has more than tripled](<https://www.statcan.gc.ca/en/subjects-start/population_and_demography/40-million>). We have the fewest houses per person [out of all G7 countries](<https://businesscouncilab.com/insights-category/economic-insights/weekly-econ-minute-canada-housing-shortage/#:~:text=In%20fact%2C%20Canada%20has%20the,480%20dwellings%20per%201%2C000%20residents.>). [There isn't some massive secret supply of vacant homes](<https://doodles.mountainmath.ca/blog/2019/08/19/running-on-empties/>). Canada just doesn't have enough homes. \n\n### Relaxing zoning rules boosts the supply of housing, slowing down rent increases\n\nFor decades, zoning bylaws in Canadian cities have outlawed medium density housing by default on the vast majority of residential land. To build anything denser than a detached home or a duplex typically requires a long, risky and expensive rezoning process. And even in areas they are allowed, row houses, multiplexes and small apartments face many onerous restrictions that make them significantly more expensive to build.\n\nIf Edmonton is to remain affordable, then we need to remove barriers to building new homes. That's exactly what our new zoning bylaw will do by allowing for more homes in more neighborhoods. Developable land will be cheaper (because it will be less scarce) and the approval process will be shorter and less risky, so more housing projects will make financial sense to build. That means we'll have a greater supply of housing and higher vacancy rates, which will help keep rents in check.\n\n### Case Study: Auckland, NZ\n\nAuckland, New Zealand is a rare example of a city that undertook zoning reform as as comprehensive as ours. Since upzoning, their housing starts have skyrocketed and their rents stayed flat (adjusted for inflation), even though they rose rapidly in the rest of the country. [Sophisticated analysis from the University of Auckland](<https://cdn.auckland.ac.nz/assets/business/about/our-research/research-institutes-and-centres/Economic-Policy-Centre--EPC-/006WP%20-%204.pdf>) shows that \\~21,000 extra homes were built over just 5 years as a direct result of the zoning reform. That’s about 4% of their entire housing supply that only exists because zoning laws in Auckland had been relaxed.\n\nThis chart shows how rents have changed in Auckland since they updated their zoning bylaw compared to the rest of New Zealand. [Source](https://onefinaleffort.com/auckland)\n![Rents](https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689461104/Screenshot_2023-07-15_164425_iphids.png)\n\nThis chart shows how housing starts have skyrocketed in Auckland since they updated their zoning bylaw. [Source](https://onefinaleffort.com/auckland)\n![Housing Starts](https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689461386/auckland-housing-starts_ffjno9.png)\n"
@@ -4900,6 +5030,13 @@ function create_fragment$7(ctx) {
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
+				},
+				title: "Affordability",
+				preview_image: {
+					"alt": "",
+					"src": "",
+					"url": "",
+					"size": null
 				},
 				heading: "Get Involved",
 				subheading: "We'll need all hands on deck to help build a better Edmonton. Follow us on social media or join our mailing list to stay up to date on Zoning Bylaw Renewal, events and volunteer opportunities. ",
@@ -4944,6 +5081,13 @@ function create_fragment$7(ctx) {
 					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
 					"size": 1
+				},
+				title: "Affordability",
+				preview_image: {
+					"alt": "",
+					"src": "",
+					"url": "",
+					"size": null
 				}
 			}
 		});
