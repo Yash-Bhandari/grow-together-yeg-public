@@ -4573,9 +4573,9 @@ function create_fragment$7(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				}
 			}
 		});
@@ -4586,9 +4586,9 @@ function create_fragment$7(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				logo: {
 					"title": "Grow Together Edmonton",
@@ -4612,8 +4612,14 @@ function create_fragment$7(ctx) {
 					},
 					{
 						"link": {
-							"label": "Draft Zoning Bylaw",
+							"label": "Zoning Bylaw",
 							"url": "/zoning-bylaw"
+						}
+					},
+					{
+						"link": {
+							"label": "Take Action",
+							"url": "/#take-action"
 						}
 					}
 				],
@@ -4627,9 +4633,9 @@ function create_fragment$7(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				content: {
 					"html": "<h3 id=\"densityisthecitysbesttooltofightclimatechange\">Density is the city's best tool to fight climate change</h3>\n<p>When we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that <strong>low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas</strong>. </p>",
@@ -4644,9 +4650,9 @@ function create_fragment$7(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				image: {
 					"alt": "CO2 Usage of Urban and Suburban areas ",
@@ -4665,9 +4671,9 @@ function create_fragment$7(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				content: {
 					"html": "<p>And the knock-on effects can be even bigger. Spreading out where we live means more of us require cars for day-to-day life: in Canada, suburban households drive on average three times further than those in core areas. This is a huge issue when <strong>the average automobile emits more CO2 annually than 200 mature trees can remove from the air.</strong> </p>\n<h3 id=\"thesolutionpreservenaturalareasandreduceenergyusagebybuildingwithinourborders\">The solution: Preserve natural areas and reduce energy usage by building within our borders</h3>\n<p>The new zoning bylaw will make it easier to meet our climate goals by helping to reduce the environmental footprint of both new and existing houses.  </p>\n<ol>\n<li>Multi-family homes like duplexes, townhomes and small apartments require 30-40%  less energy than single family homes to heat, cool and live in comfortably. </li>\n<li>Denser, more mixed-use neighbourhoods will make it easier for everyone to reduce their dependency on cars, helping reducing energy usage for transportation by as much as 50%.</li>\n<li>Every new home accommodated within existing neighborhoods is one that doesn't have to be built on top of natural land outside the city.</li>\n</ol>",
@@ -4682,9 +4688,9 @@ function create_fragment$7(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				heading: "Get Involved",
 				subheading: "We'll need all hands on deck to help build a better Edmonton. Follow us on social media or join our mailing list to stay up to date on Zoning Bylaw Renewal, events and volunteer opportunities. ",
@@ -4726,9 +4732,9 @@ function create_fragment$7(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				}
 			}
 		});

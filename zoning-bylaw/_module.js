@@ -4736,9 +4736,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
@@ -4756,9 +4756,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
@@ -4789,8 +4789,14 @@ function create_fragment$a(ctx) {
 					},
 					{
 						"link": {
-							"label": "Draft Zoning Bylaw",
+							"label": "Zoning Bylaw",
 							"url": "/zoning-bylaw"
+						}
+					},
+					{
+						"link": {
+							"label": "Take Action",
+							"url": "/#take-action"
 						}
 					}
 				],
@@ -4804,9 +4810,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
@@ -4816,8 +4822,8 @@ function create_fragment$a(ctx) {
 					"size": null
 				},
 				content: {
-					"html": "<h1>Zoning Bylaw Renewal: What it is and why it matters</h1><p>The City of Edmonton is in the midst of rewriting its Zoning Bylaw.</p><p>It’s a huge undertaking, but the Zoning Bylaw Renewal process is also the most powerful tool we have for building the city we need to be in the 21st century.</p><h3>What is Zoning?</h3><p>The zoning bylaw is the set of regulations guiding land-use in the City. Zoning sets out what types of uses and what types of development are expected and permitted in a given area. In simple terms, it’s what prevents oil refineries from going up next to schools. In the real world, zoning has often been used as a tool to segregate communities, restrict more diverse housing options, and build communities without amenities or public transportation.</p><p>Over time, the decisions we make about how to regulate land-use have significant impacts on social inclusion, public health and safety, affordability, access to public services, infrastructure demands, transportation, economic development and environmental impact.</p>",
-					"markdown": "# Zoning Bylaw Renewal: What it is and why it matters\n\nThe City of Edmonton is in the midst of rewriting its Zoning Bylaw.\n\nIt’s a huge undertaking, but the Zoning Bylaw Renewal process is also the most powerful tool we have for building the city we need to be in the 21st century.\n\n### What is Zoning?\n\nThe zoning bylaw is the set of regulations guiding land-use in the City. Zoning sets out what types of uses and what types of development are expected and permitted in a given area. In simple terms, it’s what prevents oil refineries from going up next to schools. In the real world, zoning has often been used as a tool to segregate communities, restrict more diverse housing options, and build communities without amenities or public transportation.\n\nOver time, the decisions we make about how to regulate land-use have significant impacts on social inclusion, public health and safety, affordability, access to public services, infrastructure demands, transportation, economic development and environmental impact.\n\n"
+					"html": "<h1>Zoning Bylaw Renewal: What it is and why it matters</h1><p>The City of Edmonton is in the midst of rewriting its Zoning Bylaw.</p><p>It’s a huge undertaking, but the Zoning Bylaw Renewal process is also the most powerful tool we have for building the city we need to be in the 21st century.</p><h3>What is Zoning?</h3><p>The zoning bylaw is the set of regulations guiding land-use in the City. Zoning sets out what types of uses and what types of development are expected and permitted in a given area. In simple terms, it’s what prevents oil refineries from going up next to schools. In the real world, zoning has often been used as a tool to segregate communities, restrict more diverse housing options, and build communities without amenities or public transportation.</p><p>Over time, the decisions we make about how to regulate land-use have significant impacts on social inclusion, public health and safety, <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://www.gtyeg.ca/affordability\">affordability</a>, <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://www.gtyeg.ca/finances\">access to public services, infrastructure demands</a>, transportation, economic development and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://www.gtyeg.ca/climate\">environmental impact</a>.</p>",
+					"markdown": "# Zoning Bylaw Renewal: What it is and why it matters\n\nThe City of Edmonton is in the midst of rewriting its Zoning Bylaw.\n\nIt’s a huge undertaking, but the Zoning Bylaw Renewal process is also the most powerful tool we have for building the city we need to be in the 21st century.\n\n### What is Zoning?\n\nThe zoning bylaw is the set of regulations guiding land-use in the City. Zoning sets out what types of uses and what types of development are expected and permitted in a given area. In simple terms, it’s what prevents oil refineries from going up next to schools. In the real world, zoning has often been used as a tool to segregate communities, restrict more diverse housing options, and build communities without amenities or public transportation.\n\nOver time, the decisions we make about how to regulate land-use have significant impacts on social inclusion, public health and safety, [affordability](<https://www.gtyeg.ca/affordability>), [access to public services, infrastructure demands](<https://www.gtyeg.ca/finances>), transportation, economic development and [environmental impact](<https://www.gtyeg.ca/climate>).\n\n"
 				}
 			}
 		});
@@ -4828,9 +4834,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
@@ -4856,9 +4862,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
@@ -4880,9 +4886,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
@@ -4908,9 +4914,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
@@ -4932,9 +4938,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
@@ -4957,9 +4963,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
@@ -4997,9 +5003,9 @@ function create_fragment$a(ctx) {
 				color2: "",
 				favicon: {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689315518066favicon-32x32.png",
-					"size": 1
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
 				},
 				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
 				preview_image: {
