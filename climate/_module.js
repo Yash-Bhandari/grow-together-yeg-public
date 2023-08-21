@@ -3021,7 +3021,7 @@ function create_if_block_2(ctx) {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
 			set_style(img, "max-width", /*logo_width*/ ctx[2] + "px");
-			attr(img, "class", "svelte-pc52kz");
+			attr(img, "class", "svelte-nnp8i3");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3066,7 +3066,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-pc52kz");
+			attr(a, "class", "link svelte-nnp8i3");
 			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
 		},
 		m(target, anchor) {
@@ -3108,7 +3108,7 @@ function create_if_block_1$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(img, "class", "logo svelte-pc52kz");
+			attr(img, "class", "logo svelte-nnp8i3");
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
 			set_style(img, "max-width", /*logo_width*/ ctx[2] + "px");
@@ -3192,9 +3192,9 @@ function create_if_block$1(ctx) {
 		h() {
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Close Navigation");
-			attr(button, "class", "svelte-pc52kz");
+			attr(button, "class", "svelte-nnp8i3");
 			attr(nav, "id", "popup");
-			attr(nav, "class", "svelte-pc52kz");
+			attr(nav, "class", "svelte-nnp8i3");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -3422,15 +3422,15 @@ function create_fragment$2(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "logo svelte-pc52kz");
-			attr(nav, "class", "svelte-pc52kz");
-			attr(div0, "class", "desktop-nav svelte-pc52kz");
+			attr(a0, "class", "logo svelte-nnp8i3");
+			attr(nav, "class", "svelte-nnp8i3");
+			attr(div0, "class", "desktop-nav svelte-nnp8i3");
 			attr(a1, "href", "/");
-			attr(a1, "class", "logo svelte-pc52kz");
+			attr(a1, "class", "logo svelte-nnp8i3");
 			attr(button, "id", "open");
 			attr(button, "aria-label", "Open mobile navigation");
-			attr(div1, "class", "mobile-nav svelte-pc52kz");
-			attr(header, "class", "section-container svelte-pc52kz");
+			attr(div1, "class", "mobile-nav svelte-nnp8i3");
+			attr(header, "class", "section-container svelte-nnp8i3");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-e8c503b1");
 		},
@@ -4591,11 +4591,11 @@ function create_fragment$7(ctx) {
 					"size": 1
 				},
 				logo: {
-					"title": "Grow Together YEG",
+					"title": "Grow Together Edmonton",
 					"image": {
 						"alt": "",
-						"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
-						"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
+						"src": "\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
+						"url": "\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
 						"size": null
 					}
 				},
@@ -4608,7 +4608,13 @@ function create_fragment$7(ctx) {
 						}
 					},
 					{
-						"link": { "url": "/about", "label": "About" }
+						"link": { "url": "/about", "label": "About Us" }
+					},
+					{
+						"link": {
+							"label": "Draft Zoning Bylaw",
+							"url": "/zoning-bylaw"
+						}
 					}
 				],
 				logo_width: "100"

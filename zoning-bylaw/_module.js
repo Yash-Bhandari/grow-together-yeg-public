@@ -3069,7 +3069,7 @@ function create_if_block_2(ctx) {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
 			set_style(img, "max-width", /*logo_width*/ ctx[2] + "px");
-			attr(img, "class", "svelte-pc52kz");
+			attr(img, "class", "svelte-nnp8i3");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -3114,7 +3114,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-pc52kz");
+			attr(a, "class", "link svelte-nnp8i3");
 			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
 		},
 		m(target, anchor) {
@@ -3156,7 +3156,7 @@ function create_if_block_1$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(img, "class", "logo svelte-pc52kz");
+			attr(img, "class", "logo svelte-nnp8i3");
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
 			set_style(img, "max-width", /*logo_width*/ ctx[2] + "px");
@@ -3240,9 +3240,9 @@ function create_if_block$1(ctx) {
 		h() {
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Close Navigation");
-			attr(button, "class", "svelte-pc52kz");
+			attr(button, "class", "svelte-nnp8i3");
 			attr(nav, "id", "popup");
-			attr(nav, "class", "svelte-pc52kz");
+			attr(nav, "class", "svelte-nnp8i3");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -3470,15 +3470,15 @@ function create_fragment$2(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "logo svelte-pc52kz");
-			attr(nav, "class", "svelte-pc52kz");
-			attr(div0, "class", "desktop-nav svelte-pc52kz");
+			attr(a0, "class", "logo svelte-nnp8i3");
+			attr(nav, "class", "svelte-nnp8i3");
+			attr(div0, "class", "desktop-nav svelte-nnp8i3");
 			attr(a1, "href", "/");
-			attr(a1, "class", "logo svelte-pc52kz");
+			attr(a1, "class", "logo svelte-nnp8i3");
 			attr(button, "id", "open");
 			attr(button, "aria-label", "Open mobile navigation");
-			attr(div1, "class", "mobile-nav svelte-pc52kz");
-			attr(header, "class", "section-container svelte-pc52kz");
+			attr(div1, "class", "mobile-nav svelte-nnp8i3");
+			attr(header, "class", "section-container svelte-nnp8i3");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-b6b049eb");
 		},
@@ -3703,7 +3703,7 @@ function create_fragment$3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-5mws8s");
+			attr(div0, "class", "section-container content svelte-5lc1zj");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-917853d6");
@@ -3910,7 +3910,7 @@ function create_fragment$5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-5mws8s");
+			attr(div0, "class", "section-container content svelte-5lc1zj");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-87500d52");
@@ -4117,7 +4117,7 @@ function create_fragment$7(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-5mws8s");
+			attr(div0, "class", "section-container content svelte-5lc1zj");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-b26be9f9");
@@ -4768,11 +4768,11 @@ function create_fragment$a(ctx) {
 					"size": null
 				},
 				logo: {
-					"title": "Grow Together YEG",
+					"title": "Grow Together Edmonton",
 					"image": {
 						"alt": "",
-						"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
-						"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
+						"src": "\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
+						"url": "\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg",
 						"size": null
 					}
 				},
@@ -4785,7 +4785,13 @@ function create_fragment$a(ctx) {
 						}
 					},
 					{
-						"link": { "url": "/about", "label": "About" }
+						"link": { "url": "/about", "label": "About Us" }
+					},
+					{
+						"link": {
+							"label": "Draft Zoning Bylaw",
+							"url": "/zoning-bylaw"
+						}
 					}
 				],
 				logo_width: "100"
@@ -4914,7 +4920,7 @@ function create_fragment$a(ctx) {
 					"size": null
 				},
 				content: {
-					"html": "<h3>What will these changes actually look like?</h3><p>It’s hard to summarize in a few sentences: your experience of the new bylaws will depend a lot on what sort of neighbourhood you live in. But generally speaking, buildings will be allowed to be a little bit taller and a little bit closer together. Mixed-use developments, where businesses are allowed to be below or beside residences, will be a bit more common.</p><p>For a broad overview, the City of Edmonton has an explanation of the new zones and some of the key ways the new bylaw is different on its <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://www.google.com/url?q=https://pub-edmonton.escribemeetings.com/filestream.ashx?DocumentId%3D168554&amp;sa=D&amp;source=docs&amp;ust=1692394265754806&amp;usg=AOvVaw0Z033bL3sTuB23IGJ9yEAn\">website</a>. They also offer a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://gis.edmonton.ca/portal/apps/instant/lookup/index.html?appalias=KnowYourZone&amp;appid=e62a2ae63b4141958ffa44b82da09ee9&amp;id=e62a2ae63b4141958ffa44b82da09ee9\">tool</a> to help you figure out which zones will apply to your neighbourhood. Councillors <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://www.ashleysalvador.com/post/revamping-the-rulebook-zoning-bylaw-renewal\">Ashley Salvador</a> and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://www.erinrutherford.ca/updates-blog/zoningbylawrenewalvideoandlinks\">Erin Rutherford</a> have also put together deeper considerations of what zoning might mean for their constituents.</p><p>An important thing to remember, though, is that these changes are evolutionary, not revolutionary. Though they’re a necessary step toward building the city we want, that will be a long and slow process.</p>",
+					"html": "<h3>What will these changes actually look like?</h3><p>It’s hard to summarize in a few sentences: your experience of the new bylaws will depend a lot on what sort of neighbourhood you live in. But generally speaking, buildings will be allowed to be a little bit taller and a little bit closer together. Mixed-use developments, where businesses are allowed to be below or beside residences, will be a bit more common.</p><p>For a broad overview, the City of Edmonton has an explanation of the new zones and some of the key ways the new bylaw is different on its <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link link\" href=\"https://www.google.com/url?q=https://pub-edmonton.escribemeetings.com/filestream.ashx?DocumentId%3D168554&amp;sa=D&amp;source=docs&amp;ust=1692394265754806&amp;usg=AOvVaw0Z033bL3sTuB23IGJ9yEAn\">website</a>. They also offer a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link link\" href=\"https://gis.edmonton.ca/portal/apps/instant/lookup/index.html?appalias=KnowYourZone&amp;appid=e62a2ae63b4141958ffa44b82da09ee9&amp;id=e62a2ae63b4141958ffa44b82da09ee9\">tool</a> to help you figure out which zones will apply to your neighbourhood. Councillors <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link link\" href=\"https://www.ashleysalvador.com/post/revamping-the-rulebook-zoning-bylaw-renewal\">Ashley Salvador</a> and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link link\" href=\"https://www.erinrutherford.ca/updates-blog/zoningbylawrenewalvideoandlinks\">Erin Rutherford</a> have also put together deeper considerations of what zoning might mean for their constituents.</p><p>An important thing to remember, though, is that these changes are evolutionary, not revolutionary. Though they’re a necessary step toward building the city we want, that will be a long and slow process.</p>",
 					"markdown": "### What will these changes actually look like?\n\nIt’s hard to summarize in a few sentences: your experience of the new bylaws will depend a lot on what sort of neighbourhood you live in. But generally speaking, buildings will be allowed to be a little bit taller and a little bit closer together. Mixed-use developments, where businesses are allowed to be below or beside residences, will be a bit more common.\n\nFor a broad overview, the City of Edmonton has an explanation of the new zones and some of the key ways the new bylaw is different on its [website](<https://www.google.com/url?q=https://pub-edmonton.escribemeetings.com/filestream.ashx?DocumentId%3D168554&sa=D&source=docs&ust=1692394265754806&usg=AOvVaw0Z033bL3sTuB23IGJ9yEAn>). They also offer a [tool](<https://gis.edmonton.ca/portal/apps/instant/lookup/index.html?appalias=KnowYourZone&appid=e62a2ae63b4141958ffa44b82da09ee9&id=e62a2ae63b4141958ffa44b82da09ee9>) to help you figure out which zones will apply to your neighbourhood. Councillors [Ashley Salvador](<https://www.ashleysalvador.com/post/revamping-the-rulebook-zoning-bylaw-renewal>) and [Erin Rutherford](<https://www.erinrutherford.ca/updates-blog/zoningbylawrenewalvideoandlinks>) have also put together deeper considerations of what zoning might mean for their constituents.\n\nAn important thing to remember, though, is that these changes are evolutionary, not revolutionary. Though they’re a necessary step toward building the city we want, that will be a long and slow process.\n\n"
 				}
 			}

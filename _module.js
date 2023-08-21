@@ -3787,9 +3787,10 @@ function create_each_block$1(ctx) {
 	let div2;
 	let t0;
 	let div1;
-	let h2;
+	let a;
 	let t1_value = /*teaser*/ ctx[6].title + "";
 	let t1;
+	let a_href_value;
 	let t2;
 	let div0;
 	let raw_value = /*teaser*/ ctx[6].body.html + "";
@@ -3804,7 +3805,7 @@ function create_each_block$1(ctx) {
 			if (if_block0) if_block0.c();
 			t0 = space();
 			div1 = element("div");
-			h2 = element("h2");
+			a = element("a");
 			t1 = text(t1_value);
 			t2 = space();
 			div0 = element("div");
@@ -3820,10 +3821,10 @@ function create_each_block$1(ctx) {
 			t0 = claim_space(div2_nodes);
 			div1 = claim_element(div2_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
-			h2 = claim_element(div1_nodes, "H2", { class: true });
-			var h2_nodes = children(h2);
-			t1 = claim_text(h2_nodes, t1_value);
-			h2_nodes.forEach(detach);
+			a = claim_element(div1_nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t1 = claim_text(a_nodes, t1_value);
+			a_nodes.forEach(detach);
 			t2 = claim_space(div1_nodes);
 			div0 = claim_element(div1_nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
@@ -3836,7 +3837,8 @@ function create_each_block$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-1qwgcet");
+			attr(a, "href", a_href_value = /*teaser*/ ctx[6].link.url);
+			attr(a, "class", "heading svelte-1qwgcet");
 			attr(div0, "class", "body svelte-1qwgcet");
 			attr(div1, "class", "content-section svelte-1qwgcet");
 			attr(div2, "class", "teaser svelte-1qwgcet");
@@ -3846,8 +3848,8 @@ function create_each_block$1(ctx) {
 			if (if_block0) if_block0.m(div2, null);
 			append_hydration(div2, t0);
 			append_hydration(div2, div1);
-			append_hydration(div1, h2);
-			append_hydration(h2, t1);
+			append_hydration(div1, a);
+			append_hydration(a, t1);
 			append_hydration(div1, t2);
 			append_hydration(div1, div0);
 			div0.innerHTML = raw_value;
@@ -3870,6 +3872,11 @@ function create_each_block$1(ctx) {
 			}
 
 			if (dirty & /*teasers*/ 1 && t1_value !== (t1_value = /*teaser*/ ctx[6].title + "")) set_data(t1, t1_value);
+
+			if (dirty & /*teasers*/ 1 && a_href_value !== (a_href_value = /*teaser*/ ctx[6].link.url)) {
+				attr(a, "href", a_href_value);
+			}
+
 			if (dirty & /*teasers*/ 1 && raw_value !== (raw_value = /*teaser*/ ctx[6].body.html + "")) div0.innerHTML = raw_value;
 			if (/*teaser*/ ctx[6].link.url) {
 				if (if_block1) {

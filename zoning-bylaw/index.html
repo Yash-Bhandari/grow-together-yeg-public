@@ -164,7 +164,7 @@
         }
     </style><!-- HEAD_svelte-1rcccom_END -->
     <style>
-        .section-container.svelte-pc52kz.svelte-pc52kz {
+        .section-container.svelte-nnp8i3.svelte-nnp8i3 {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -172,7 +172,7 @@
             padding-bottom: 1rem
         }
 
-        .logo.svelte-pc52kz.svelte-pc52kz {
+        .logo.svelte-nnp8i3.svelte-nnp8i3 {
             font-size: 1.5rem;
             font-weight: 600;
             line-height: 1.2;
@@ -181,40 +181,40 @@
             align-items: center
         }
 
-        .logo.svelte-pc52kz>img.svelte-pc52kz {
+        .logo.svelte-nnp8i3>img.svelte-nnp8i3 {
             max-width: 100px;
             margin-right: 1rem
         }
 
-        .desktop-nav.svelte-pc52kz.svelte-pc52kz {
+        .desktop-nav.svelte-nnp8i3.svelte-nnp8i3 {
             display: none;
             align-items: center;
             justify-content: space-between;
             width: 100%
         }
 
-        .desktop-nav.svelte-pc52kz nav.svelte-pc52kz {
+        .desktop-nav.svelte-nnp8i3 nav.svelte-nnp8i3 {
             display: flex;
             gap: 2rem
         }
 
-        .desktop-nav.svelte-pc52kz nav a.link.svelte-pc52kz {
+        @media(min-width: 800px) {
+            .desktop-nav.svelte-nnp8i3.svelte-nnp8i3 {
+                display: flex
+            }
+        }
+
+        nav.svelte-nnp8i3>a.link.svelte-nnp8i3 {
             border-color: transparent;
             transition: border-color 0.1s;
             font-size: 0.95rem
         }
 
-        .desktop-nav.svelte-pc52kz nav a.link.svelte-pc52kz:hover {
-            border-color: initial
+        nav.svelte-nnp8i3>a.link.svelte-nnp8i3:hover {
+            border-color: var(--color-accent)
         }
 
-        @media(min-width: 800px) {
-            .desktop-nav.svelte-pc52kz.svelte-pc52kz {
-                display: flex
-            }
-        }
-
-        .mobile-nav.svelte-pc52kz.svelte-pc52kz {
+        .mobile-nav.svelte-nnp8i3.svelte-nnp8i3 {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -223,12 +223,12 @@
         }
 
         @media(min-width: 800px) {
-            .mobile-nav.svelte-pc52kz.svelte-pc52kz {
+            .mobile-nav.svelte-nnp8i3.svelte-nnp8i3 {
                 display: none
             }
         }
 
-        #popup.svelte-pc52kz.svelte-pc52kz {
+        #popup.svelte-nnp8i3.svelte-nnp8i3 {
             font-size: 1.25rem;
             display: grid;
             gap: 1rem;
@@ -243,27 +243,27 @@
             z-index: 1
         }
 
-        #popup.svelte-pc52kz button#close.svelte-pc52kz {
+        #popup.svelte-nnp8i3 button#close.svelte-nnp8i3 {
             position: absolute;
             right: 1rem;
             top: 1rem
         }
 
-        .section-container.svelte-5mws8s {
+        .section-container.svelte-5lc1zj {
             max-width: var(--inner-max-width, 800px);
             padding: 4rem 2rem;
             margin-bottom: 0;
             padding-bottom: 0
         }
 
-        .content.svelte-5mws8s img {
+        .content.svelte-5lc1zj img {
             width: 100%;
             margin: 2rem 0;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius)
         }
 
-        .content.svelte-5mws8s p {
+        .content.svelte-5lc1zj p {
             padding: 0.25rem 0;
             line-height: 1.5;
             font-family: var(--body-font);
@@ -272,11 +272,15 @@
             color: #2d3339
         }
 
-        .content.svelte-5mws8s a {
-            text-decoration: none
+        .content.svelte-5lc1zj a.link {
+            border-color: var(--color-accent)
         }
 
-        .content.svelte-5mws8s h1 {
+        .content.svelte-5lc1zj a.link:hover {
+            color: var(--color-accent)
+        }
+
+        .content.svelte-5lc1zj h1 {
             font-size: clamp(1.75rem, 10vw, 2.25rem);
             font-weight: 600;
             letter-spacing: -0.08rem;
@@ -284,7 +288,7 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s h2 {
+        .content.svelte-5lc1zj h2 {
             font-size: clamp(1.5rem, 10vw, 2.125rem);
             font-weight: 600;
             margin-bottom: 1rem;
@@ -292,7 +296,7 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s h3 {
+        .content.svelte-5lc1zj h3 {
             font-size: clamp(1.25rem, 10vw, 1.75rem);
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -300,19 +304,19 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s ul {
+        .content.svelte-5lc1zj ul {
             list-style: disc;
             padding: 0.25rem 0;
             padding-left: 1.25rem
         }
 
-        .content.svelte-5mws8s ol {
+        .content.svelte-5lc1zj ol {
             list-style: decimal;
             padding-left: 1.25rem;
             margin-bottom: 2rem
         }
 
-        .content.svelte-5mws8s blockquote {
+        .content.svelte-5lc1zj blockquote {
             padding: 2rem;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius)
@@ -332,21 +336,21 @@
             padding: 0px
         }
 
-        .section-container.svelte-5mws8s {
+        .section-container.svelte-5lc1zj {
             max-width: var(--inner-max-width, 800px);
             padding: 4rem 2rem;
             margin-bottom: 0;
             padding-bottom: 0
         }
 
-        .content.svelte-5mws8s img {
+        .content.svelte-5lc1zj img {
             width: 100%;
             margin: 2rem 0;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius)
         }
 
-        .content.svelte-5mws8s p {
+        .content.svelte-5lc1zj p {
             padding: 0.25rem 0;
             line-height: 1.5;
             font-family: var(--body-font);
@@ -355,11 +359,15 @@
             color: #2d3339
         }
 
-        .content.svelte-5mws8s a {
-            text-decoration: none
+        .content.svelte-5lc1zj a.link {
+            border-color: var(--color-accent)
         }
 
-        .content.svelte-5mws8s h1 {
+        .content.svelte-5lc1zj a.link:hover {
+            color: var(--color-accent)
+        }
+
+        .content.svelte-5lc1zj h1 {
             font-size: clamp(1.75rem, 10vw, 2.25rem);
             font-weight: 600;
             letter-spacing: -0.08rem;
@@ -367,7 +375,7 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s h2 {
+        .content.svelte-5lc1zj h2 {
             font-size: clamp(1.5rem, 10vw, 2.125rem);
             font-weight: 600;
             margin-bottom: 1rem;
@@ -375,7 +383,7 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s h3 {
+        .content.svelte-5lc1zj h3 {
             font-size: clamp(1.25rem, 10vw, 1.75rem);
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -383,19 +391,19 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s ul {
+        .content.svelte-5lc1zj ul {
             list-style: disc;
             padding: 0.25rem 0;
             padding-left: 1.25rem
         }
 
-        .content.svelte-5mws8s ol {
+        .content.svelte-5lc1zj ol {
             list-style: decimal;
             padding-left: 1.25rem;
             margin-bottom: 2rem
         }
 
-        .content.svelte-5mws8s blockquote {
+        .content.svelte-5lc1zj blockquote {
             padding: 2rem;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius)
@@ -415,21 +423,21 @@
             padding: 0px
         }
 
-        .section-container.svelte-5mws8s {
+        .section-container.svelte-5lc1zj {
             max-width: var(--inner-max-width, 800px);
             padding: 4rem 2rem;
             margin-bottom: 0;
             padding-bottom: 0
         }
 
-        .content.svelte-5mws8s img {
+        .content.svelte-5lc1zj img {
             width: 100%;
             margin: 2rem 0;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius)
         }
 
-        .content.svelte-5mws8s p {
+        .content.svelte-5lc1zj p {
             padding: 0.25rem 0;
             line-height: 1.5;
             font-family: var(--body-font);
@@ -438,11 +446,15 @@
             color: #2d3339
         }
 
-        .content.svelte-5mws8s a {
-            text-decoration: none
+        .content.svelte-5lc1zj a.link {
+            border-color: var(--color-accent)
         }
 
-        .content.svelte-5mws8s h1 {
+        .content.svelte-5lc1zj a.link:hover {
+            color: var(--color-accent)
+        }
+
+        .content.svelte-5lc1zj h1 {
             font-size: clamp(1.75rem, 10vw, 2.25rem);
             font-weight: 600;
             letter-spacing: -0.08rem;
@@ -450,7 +462,7 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s h2 {
+        .content.svelte-5lc1zj h2 {
             font-size: clamp(1.5rem, 10vw, 2.125rem);
             font-weight: 600;
             margin-bottom: 1rem;
@@ -458,7 +470,7 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s h3 {
+        .content.svelte-5lc1zj h3 {
             font-size: clamp(1.25rem, 10vw, 1.75rem);
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -466,19 +478,19 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s ul {
+        .content.svelte-5lc1zj ul {
             list-style: disc;
             padding: 0.25rem 0;
             padding-left: 1.25rem
         }
 
-        .content.svelte-5mws8s ol {
+        .content.svelte-5lc1zj ol {
             list-style: decimal;
             padding-left: 1.25rem;
             margin-bottom: 2rem
         }
 
-        .content.svelte-5mws8s blockquote {
+        .content.svelte-5lc1zj blockquote {
             padding: 2rem;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius)
@@ -559,13 +571,13 @@
 <body id="page">
 
     <div class="section" id="section-b6b049eb">
-        <header class="section-container svelte-pc52kz">
-            <div class="desktop-nav svelte-pc52kz"><a href="/" class="logo svelte-pc52kz"><img src="https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;" class="svelte-pc52kz">
-                    Grow Together YEG</a>
-                <nav class="svelte-pc52kz"><a class="link svelte-pc52kz" href="/">Home</a><a class="link svelte-pc52kz" href="/about">About</a></nav>
+        <header class="section-container svelte-nnp8i3">
+            <div class="desktop-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;" class="svelte-nnp8i3">
+                    Grow Together Edmonton</a>
+                <nav class="svelte-nnp8i3"><a class="link svelte-nnp8i3" href="/">Home</a><a class="link svelte-nnp8i3" href="/about">About Us</a><a class="link svelte-nnp8i3" href="/zoning-bylaw">Draft Zoning Bylaw</a></nav>
             </div>
-            <div class="mobile-nav svelte-pc52kz"><a href="/" class="logo svelte-pc52kz"><img class="logo svelte-pc52kz" src="https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;">
-                    Grow Together YEG</a>
+            <div class="mobile-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img class="logo svelte-nnp8i3" src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;">
+                    Grow Together Edmonton</a>
                 <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START -->
                         <g id="iconifySvelte0">
                             <g id="iconifySvelte1">
@@ -582,7 +594,7 @@
     </div>
     <div class="section" id="section-917853d6">
         <div class="section">
-            <div class="section-container content svelte-5mws8s"><!-- HTML_TAG_START -->
+            <div class="section-container content svelte-5lc1zj"><!-- HTML_TAG_START -->
                 <h1>Zoning Bylaw Renewal: What it is and why it matters</h1>
                 <p>The City of Edmonton is in the midst of rewriting its Zoning Bylaw.</p>
                 <p>It’s a huge undertaking, but the Zoning Bylaw Renewal process is also the most powerful tool we have for building the city we need to be in the 21st century.</p>
@@ -599,7 +611,7 @@
     </div>
     <div class="section" id="section-87500d52">
         <div class="section">
-            <div class="section-container content svelte-5mws8s"><!-- HTML_TAG_START -->
+            <div class="section-container content svelte-5lc1zj"><!-- HTML_TAG_START -->
                 <h3>Why should I care about zoning?</h3>
                 <p>Do you want a grocery store in your neighbourhood? Do you want the local coffee shop to stay in business? Your local school to stay open? Your public services to be high quality? Your taxes to be reasonable? Maybe you’d like to build a suite for a parent or child on your property. Or you’d like to be able to take a quick and efficient bus to work.</p>
                 <p>All of these hopes depend on land-use policy and zoning. The way our communities are designed — to bring people together, or keep them apart — is dependent on how we use our land.</p>
@@ -618,10 +630,10 @@
     </div>
     <div class="section" id="section-b26be9f9">
         <div class="section">
-            <div class="section-container content svelte-5mws8s"><!-- HTML_TAG_START -->
+            <div class="section-container content svelte-5lc1zj"><!-- HTML_TAG_START -->
                 <h3>What will these changes actually look like?</h3>
                 <p>It’s hard to summarize in a few sentences: your experience of the new bylaws will depend a lot on what sort of neighbourhood you live in. But generally speaking, buildings will be allowed to be a little bit taller and a little bit closer together. Mixed-use developments, where businesses are allowed to be below or beside residences, will be a bit more common.</p>
-                <p>For a broad overview, the City of Edmonton has an explanation of the new zones and some of the key ways the new bylaw is different on its <a target="_blank" rel="noopener noreferrer nofollow" class="link link link" href="https://www.google.com/url?q=https://pub-edmonton.escribemeetings.com/filestream.ashx?DocumentId%3D168554&amp;sa=D&amp;source=docs&amp;ust=1692394265754806&amp;usg=AOvVaw0Z033bL3sTuB23IGJ9yEAn">website</a>. They also offer a <a target="_blank" rel="noopener noreferrer nofollow" class="link link link" href="https://gis.edmonton.ca/portal/apps/instant/lookup/index.html?appalias=KnowYourZone&amp;appid=e62a2ae63b4141958ffa44b82da09ee9&amp;id=e62a2ae63b4141958ffa44b82da09ee9">tool</a> to help you figure out which zones will apply to your neighbourhood. Councillors <a target="_blank" rel="noopener noreferrer nofollow" class="link link link" href="https://www.ashleysalvador.com/post/revamping-the-rulebook-zoning-bylaw-renewal">Ashley Salvador</a> and <a target="_blank" rel="noopener noreferrer nofollow" class="link link link" href="https://www.erinrutherford.ca/updates-blog/zoningbylawrenewalvideoandlinks">Erin Rutherford</a> have also put together deeper considerations of what zoning might mean for their constituents.</p>
+                <p>For a broad overview, the City of Edmonton has an explanation of the new zones and some of the key ways the new bylaw is different on its <a target="_blank" rel="noopener noreferrer nofollow" class="link link link link" href="https://www.google.com/url?q=https://pub-edmonton.escribemeetings.com/filestream.ashx?DocumentId%3D168554&amp;sa=D&amp;source=docs&amp;ust=1692394265754806&amp;usg=AOvVaw0Z033bL3sTuB23IGJ9yEAn">website</a>. They also offer a <a target="_blank" rel="noopener noreferrer nofollow" class="link link link link" href="https://gis.edmonton.ca/portal/apps/instant/lookup/index.html?appalias=KnowYourZone&amp;appid=e62a2ae63b4141958ffa44b82da09ee9&amp;id=e62a2ae63b4141958ffa44b82da09ee9">tool</a> to help you figure out which zones will apply to your neighbourhood. Councillors <a target="_blank" rel="noopener noreferrer nofollow" class="link link link link" href="https://www.ashleysalvador.com/post/revamping-the-rulebook-zoning-bylaw-renewal">Ashley Salvador</a> and <a target="_blank" rel="noopener noreferrer nofollow" class="link link link link" href="https://www.erinrutherford.ca/updates-blog/zoningbylawrenewalvideoandlinks">Erin Rutherford</a> have also put together deeper considerations of what zoning might mean for their constituents.</p>
                 <p>An important thing to remember, though, is that these changes are evolutionary, not revolutionary. Though they’re a necessary step toward building the city we want, that will be a long and slow process.</p><!-- HTML_TAG_END -->
             </div>
         </div>

@@ -176,7 +176,7 @@
         }
     </style><!-- HEAD_svelte-vh6k5n_END -->
     <style>
-        .section-container.svelte-pc52kz.svelte-pc52kz {
+        .section-container.svelte-nnp8i3.svelte-nnp8i3 {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -184,7 +184,7 @@
             padding-bottom: 1rem
         }
 
-        .logo.svelte-pc52kz.svelte-pc52kz {
+        .logo.svelte-nnp8i3.svelte-nnp8i3 {
             font-size: 1.5rem;
             font-weight: 600;
             line-height: 1.2;
@@ -193,40 +193,40 @@
             align-items: center
         }
 
-        .logo.svelte-pc52kz>img.svelte-pc52kz {
+        .logo.svelte-nnp8i3>img.svelte-nnp8i3 {
             max-width: 100px;
             margin-right: 1rem
         }
 
-        .desktop-nav.svelte-pc52kz.svelte-pc52kz {
+        .desktop-nav.svelte-nnp8i3.svelte-nnp8i3 {
             display: none;
             align-items: center;
             justify-content: space-between;
             width: 100%
         }
 
-        .desktop-nav.svelte-pc52kz nav.svelte-pc52kz {
+        .desktop-nav.svelte-nnp8i3 nav.svelte-nnp8i3 {
             display: flex;
             gap: 2rem
         }
 
-        .desktop-nav.svelte-pc52kz nav a.link.svelte-pc52kz {
+        @media(min-width: 800px) {
+            .desktop-nav.svelte-nnp8i3.svelte-nnp8i3 {
+                display: flex
+            }
+        }
+
+        nav.svelte-nnp8i3>a.link.svelte-nnp8i3 {
             border-color: transparent;
             transition: border-color 0.1s;
             font-size: 0.95rem
         }
 
-        .desktop-nav.svelte-pc52kz nav a.link.svelte-pc52kz:hover {
-            border-color: initial
+        nav.svelte-nnp8i3>a.link.svelte-nnp8i3:hover {
+            border-color: var(--color-accent)
         }
 
-        @media(min-width: 800px) {
-            .desktop-nav.svelte-pc52kz.svelte-pc52kz {
-                display: flex
-            }
-        }
-
-        .mobile-nav.svelte-pc52kz.svelte-pc52kz {
+        .mobile-nav.svelte-nnp8i3.svelte-nnp8i3 {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -235,12 +235,12 @@
         }
 
         @media(min-width: 800px) {
-            .mobile-nav.svelte-pc52kz.svelte-pc52kz {
+            .mobile-nav.svelte-nnp8i3.svelte-nnp8i3 {
                 display: none
             }
         }
 
-        #popup.svelte-pc52kz.svelte-pc52kz {
+        #popup.svelte-nnp8i3.svelte-nnp8i3 {
             font-size: 1.25rem;
             display: grid;
             gap: 1rem;
@@ -255,27 +255,27 @@
             z-index: 1
         }
 
-        #popup.svelte-pc52kz button#close.svelte-pc52kz {
+        #popup.svelte-nnp8i3 button#close.svelte-nnp8i3 {
             position: absolute;
             right: 1rem;
             top: 1rem
         }
 
-        .section-container.svelte-5mws8s {
+        .section-container.svelte-5lc1zj {
             max-width: var(--inner-max-width, 800px);
             padding: 4rem 2rem;
             margin-bottom: 0;
             padding-bottom: 0
         }
 
-        .content.svelte-5mws8s img {
+        .content.svelte-5lc1zj img {
             width: 100%;
             margin: 2rem 0;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius)
         }
 
-        .content.svelte-5mws8s p {
+        .content.svelte-5lc1zj p {
             padding: 0.25rem 0;
             line-height: 1.5;
             font-family: var(--body-font);
@@ -284,11 +284,15 @@
             color: #2d3339
         }
 
-        .content.svelte-5mws8s a {
-            text-decoration: none
+        .content.svelte-5lc1zj a.link {
+            border-color: var(--color-accent)
         }
 
-        .content.svelte-5mws8s h1 {
+        .content.svelte-5lc1zj a.link:hover {
+            color: var(--color-accent)
+        }
+
+        .content.svelte-5lc1zj h1 {
             font-size: clamp(1.75rem, 10vw, 2.25rem);
             font-weight: 600;
             letter-spacing: -0.08rem;
@@ -296,7 +300,7 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s h2 {
+        .content.svelte-5lc1zj h2 {
             font-size: clamp(1.5rem, 10vw, 2.125rem);
             font-weight: 600;
             margin-bottom: 1rem;
@@ -304,7 +308,7 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s h3 {
+        .content.svelte-5lc1zj h3 {
             font-size: clamp(1.25rem, 10vw, 1.75rem);
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -312,19 +316,19 @@
             line-height: 1.1
         }
 
-        .content.svelte-5mws8s ul {
+        .content.svelte-5lc1zj ul {
             list-style: disc;
             padding: 0.25rem 0;
             padding-left: 1.25rem
         }
 
-        .content.svelte-5mws8s ol {
+        .content.svelte-5lc1zj ol {
             list-style: decimal;
             padding-left: 1.25rem;
             margin-bottom: 2rem
         }
 
-        .content.svelte-5mws8s blockquote {
+        .content.svelte-5lc1zj blockquote {
             padding: 2rem;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius)
@@ -381,6 +385,157 @@
             text-decoration: underline
         }
 
+        .section-container.svelte-5lc1zj {
+            max-width: var(--inner-max-width, 800px);
+            padding: 4rem 2rem;
+            margin-bottom: 0;
+            padding-bottom: 0
+        }
+
+        .content.svelte-5lc1zj img {
+            width: 100%;
+            margin: 2rem 0;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius)
+        }
+
+        .content.svelte-5lc1zj p {
+            padding: 0.25rem 0;
+            line-height: 1.5;
+            font-family: var(--body-font);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #2d3339
+        }
+
+        .content.svelte-5lc1zj a.link {
+            border-color: var(--color-accent)
+        }
+
+        .content.svelte-5lc1zj a.link:hover {
+            color: var(--color-accent)
+        }
+
+        .content.svelte-5lc1zj h1 {
+            font-size: clamp(1.75rem, 10vw, 2.25rem);
+            font-weight: 600;
+            letter-spacing: -0.08rem;
+            margin-bottom: 1rem;
+            line-height: 1.1
+        }
+
+        .content.svelte-5lc1zj h2 {
+            font-size: clamp(1.5rem, 10vw, 2.125rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.06rem;
+            line-height: 1.1
+        }
+
+        .content.svelte-5lc1zj h3 {
+            font-size: clamp(1.25rem, 10vw, 1.75rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05rem;
+            line-height: 1.1
+        }
+
+        .content.svelte-5lc1zj ul {
+            list-style: disc;
+            padding: 0.25rem 0;
+            padding-left: 1.25rem
+        }
+
+        .content.svelte-5lc1zj ol {
+            list-style: decimal;
+            padding-left: 1.25rem;
+            margin-bottom: 2rem
+        }
+
+        .content.svelte-5lc1zj blockquote {
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius)
+        }
+
+        .section-container.svelte-5lc1zj {
+            max-width: var(--inner-max-width, 800px);
+            padding: 4rem 2rem;
+            margin-bottom: 0;
+            padding-bottom: 0
+        }
+
+        .content.svelte-5lc1zj img {
+            width: 100%;
+            margin: 2rem 0;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius)
+        }
+
+        .content.svelte-5lc1zj p {
+            padding: 0.25rem 0;
+            line-height: 1.5;
+            font-family: var(--body-font);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #2d3339
+        }
+
+        .content.svelte-5lc1zj a.link {
+            border-color: var(--color-accent)
+        }
+
+        .content.svelte-5lc1zj a.link:hover {
+            color: var(--color-accent)
+        }
+
+        .content.svelte-5lc1zj h1 {
+            font-size: clamp(1.75rem, 10vw, 2.25rem);
+            font-weight: 600;
+            letter-spacing: -0.08rem;
+            margin-bottom: 1rem;
+            line-height: 1.1
+        }
+
+        .content.svelte-5lc1zj h2 {
+            font-size: clamp(1.5rem, 10vw, 2.125rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.06rem;
+            line-height: 1.1
+        }
+
+        .content.svelte-5lc1zj h3 {
+            font-size: clamp(1.25rem, 10vw, 1.75rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05rem;
+            line-height: 1.1
+        }
+
+        .content.svelte-5lc1zj ul {
+            list-style: disc;
+            padding: 0.25rem 0;
+            padding-left: 1.25rem
+        }
+
+        .content.svelte-5lc1zj ol {
+            list-style: decimal;
+            padding-left: 1.25rem;
+            margin-bottom: 2rem
+        }
+
+        .content.svelte-5lc1zj blockquote {
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius)
+        }
+
+        iframe.svelte-1o7w9hc {
+            margin-bottom: 0px;
+            padding-bottom: 0px
+        }
+
         .section-container.svelte-1s2usg3.svelte-1s2usg3 {
             display: grid;
             gap: 2rem;
@@ -431,13 +586,13 @@
 <body id="page">
 
     <div class="section" id="section-17ec1161">
-        <header class="section-container svelte-pc52kz">
-            <div class="desktop-nav svelte-pc52kz"><a href="/" class="logo svelte-pc52kz"><img src="https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;" class="svelte-pc52kz">
-                    Grow Together YEG</a>
-                <nav class="svelte-pc52kz"><a class="link svelte-pc52kz" href="/">Home</a><a class="link svelte-pc52kz" href="/about">About</a></nav>
+        <header class="section-container svelte-nnp8i3">
+            <div class="desktop-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;" class="svelte-nnp8i3">
+                    Grow Together Edmonton</a>
+                <nav class="svelte-nnp8i3"><a class="link svelte-nnp8i3" href="/">Home</a><a class="link svelte-nnp8i3" href="/about">About Us</a><a class="link svelte-nnp8i3" href="/zoning-bylaw">Draft Zoning Bylaw</a></nav>
             </div>
-            <div class="mobile-nav svelte-pc52kz"><a href="/" class="logo svelte-pc52kz"><img class="logo svelte-pc52kz" src="https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;">
-                    Grow Together YEG</a>
+            <div class="mobile-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img class="logo svelte-nnp8i3" src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;">
+                    Grow Together Edmonton</a>
                 <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START -->
                         <g id="iconifySvelte0">
                             <g id="iconifySvelte1">
@@ -454,9 +609,9 @@
     </div>
     <div class="section" id="section-1c8b26e1">
         <div class="section">
-            <div class="section-container content svelte-5mws8s"><!-- HTML_TAG_START -->
+            <div class="section-container content svelte-5lc1zj"><!-- HTML_TAG_START -->
                 <h3 id="rentsarereachingcrisislevelsduetocanadasmassivehousingshortage">Rents are reaching crisis levels due to Canada's massive housing shortage</h3>
-                <p>In Vancouver, where the vacancy rate is <a href="https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/">under 1%</a>, it costs almost <strong>$3000/month to rent a 1 bedroom apartment</strong>. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at <a href="https://economicdashboard.alberta.ca/dashboard/net-migration/">record numbers</a> in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.</p>
+                <p>In Vancouver, where the vacancy rate is <a href="https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/">under 1%</a>, it costs more than <strong>$3000/month to rent a 1 bedroom apartment</strong>. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at <a href="https://economicdashboard.alberta.ca/dashboard/net-migration/">record numbers</a> in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.</p>
                 <p>In fact, housing costs here have already started to surge. In Calgary, the average rent for a 1 bedroom apartment is now up to $1687/month—that's about 3 weeks of pre-tax earnings for a full time minimum wage worker. And in just the past year, <strong>rents in Edmonton have risen 13%</strong> while <a href="https://edmontonjournal.com/news/local-news/rents-may-rise-in-edmonton-as-vacancy-rate-hits-10-year-low-affordability-crunched">our vacancy rate dropped from 7% to 4%, reaching a 10-year low</a>.</p><!-- HTML_TAG_END -->
             </div>
         </div>
@@ -504,15 +659,21 @@
             </table>
         </div>
     </div>
-    <div class="section" id="section-b0f426ea">
+    <div class="section" id="section-19f40b4b">
         <div class="section">
-            <div class="section-container content"><!-- HTML_TAG_START -->
-                <p>The crux of the issue is that we don't have enough homes. In Canada, <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3410012601"><strong>we build fewer houses today than we did back in 1976</strong></a> even though <a href="https://www.statcan.gc.ca/en/subjects-start/population_and_demography/40-million">population growth has more than tripled</a>. We have the fewest houses per person <a href="https://businesscouncilab.com/insights-category/economic-insights/weekly-econ-minute-canada-housing-shortage/#:~:text=In%20fact%2C%20Canada%20has%20the,480%20dwellings%20per%201%2C000%20residents.">out of all G7 countries</a>. <a href="https://doodles.mountainmath.ca/blog/2019/08/19/running-on-empties/">There isn't some massive secret supply of vacant homes</a>. Canada just doesn't have enough homes. </p>
+            <div class="section-container content svelte-5lc1zj"><!-- HTML_TAG_START -->
+                <p>The crux of the issue is that we don't have enough homes. In Canada, <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3410012601"><strong>we build fewer houses today than we did back in 1976</strong></a> even though <a href="https://www.statcan.gc.ca/en/subjects-start/population_and_demography/40-million">population growth has more than tripled</a>. We have the fewest houses per person <a href="https://businesscouncilab.com/insights-category/economic-insights/weekly-econ-minute-canada-housing-shortage/#:~:text=In%20fact%2C%20Canada%20has%20the,480%20dwellings%20per%201%2C000%20residents.">out of all G7 countries</a>. <a href="https://doodles.mountainmath.ca/blog/2019/08/19/running-on-empties/">There isn't some massive secret supply of vacant homes</a>. Canada just doesn't have enough homes.</p>
                 <h3 id="relaxingzoningrulesbooststhesupplyofhousingslowingdownrentincreases">Relaxing zoning rules boosts the supply of housing, slowing down rent increases</h3>
-                <p>For decades, zoning bylaws in Canadian cities have outlawed medium density housing by default on the vast majority of residential land. To build anything denser than a detached home or a duplex typically requires a long, risky and expensive rezoning process. And even in areas they are allowed, row houses, multiplexes and small apartments face many onerous restrictions that make them significantly more expensive to build.</p>
+                <p>For decades, zoning bylaws in Canadian cities have outlawed medium density housing by default on the vast majority of residential land. In Edmonton, there are entire neighborhoods where the only infill housing that can feasibly be built <a href="https://www.datalabto.ca/a-visual-guide-to-detached-houses-in-5-canadian-cities/">under our current rules</a> are $600k+ detached/semi-detached houses. To build anything denser would require a long, risky and expensive rezoning process. And even in areas where row houses, multiplexes and small apartments are allowd, they face many onerous restrictions that make them significantly more expensive to build.</p>
                 <p>If Edmonton is to remain affordable, then we need to remove barriers to building new homes. That's exactly what our new zoning bylaw will do by allowing for more homes in more neighborhoods. Developable land will be cheaper (because it will be less scarce) and the approval process will be shorter and less risky, so more housing projects will make financial sense to build. That means we'll have a greater supply of housing and higher vacancy rates, which will help keep rents in check.</p>
                 <h3 id="casestudyaucklandnz">Case Study: Auckland, NZ</h3>
-                <p>Auckland, New Zealand is a rare example of a city that undertook zoning reform as as comprehensive as ours. Since upzoning, their housing starts have skyrocketed and their rents stayed flat (adjusted for inflation), even though they rose rapidly in the rest of the country. <a href="https://cdn.auckland.ac.nz/assets/business/about/our-research/research-institutes-and-centres/Economic-Policy-Centre--EPC-/006WP%20-%204.pdf">Sophisticated analysis from the University of Auckland</a> shows that ~21,000 extra homes were built over just 5 years as a direct result of the zoning reform. That’s about 4% of their entire housing supply that only exists because zoning laws in Auckland had been relaxed.</p>
+                <p>Auckland, New Zealand is a rare example of a city that undertook zoning reform as as comprehensive as ours. Since upzoning, their housing starts have skyrocketed and their rents stayed flat (adjusted for inflation), even though they rose rapidly in the rest of the country. <a href="https://cdn.auckland.ac.nz/assets/business/about/our-research/research-institutes-and-centres/Economic-Policy-Centre--EPC-/006WP%20-%204.pdf">Sophisticated analysis from the University of Auckland</a> shows that ~21,000 extra homes were built over just 5 years as a direct result of the zoning reform. That’s about 4% of their entire housing supply that only exists because zoning laws in Auckland had been relaxed.</p><!-- HTML_TAG_END -->
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section-1019baf1">
+        <div class="section">
+            <div class="section-container content svelte-5lc1zj"><!-- HTML_TAG_START -->
                 <p>This chart shows how rents have changed in Auckland since they updated their zoning bylaw compared to the rest of New Zealand. <a href="https://onefinaleffort.com/auckland">Source</a>
                     <img src="https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689461104/Screenshot_2023-07-15_164425_iphids.png" alt="Rents" />
                 </p>
@@ -522,6 +683,7 @@
             </div>
         </div>
     </div>
+    <div class="section" id="section-dbfc7790"><iframe id="take-action" title="Take Action" src="https://gte-form.vercel.app/" width="100%" height="900px" style="border: 0px; overflow: hidden; margin:auto;" class="svelte-1o7w9hc"></iframe></div>
     <div class="section" id="section-af42101b">
         <section class="section-container svelte-1s2usg3">
             <div class="content svelte-1s2usg3">
