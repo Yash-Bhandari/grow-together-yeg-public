@@ -3887,7 +3887,7 @@ function get_each_context$1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (75:6) {#each social as { link, icon }}
+// (79:6) {#each social as { link, icon }}
 function create_each_block$1(ctx) {
 	let a;
 	let span;
@@ -3924,9 +3924,9 @@ function create_each_block$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "icon svelte-1s2usg3");
+			attr(span, "class", "icon svelte-1w1k30g");
 			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
-			attr(a, "class", "svelte-1s2usg3");
+			attr(a, "class", "svelte-1w1k30g");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -4274,9 +4274,9 @@ function create_fragment$6(ctx) {
 		},
 		h() {
 			attr(h2, "class", "heading");
-			attr(div0, "class", "body svelte-1s2usg3");
-			attr(div1, "class", "social-links svelte-1s2usg3");
-			attr(div2, "class", "content svelte-1s2usg3");
+			attr(div0, "class", "body svelte-1w1k30g");
+			attr(div1, "class", "social-links svelte-1w1k30g");
+			attr(div2, "class", "content svelte-1w1k30g");
 			attr(style0, "type", "text/css");
 			attr(style1, "type", "text/css");
 			attr(div3, "class", "ml-form-embedContent");
@@ -4324,7 +4324,7 @@ function create_fragment$6(ctx) {
 			attr(div14, "class", "ml-form-embedContainer ml-subscribe-form ml-subscribe-form-6312828");
 			if (!src_url_equal(script1.src, script1_src_value = "https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128")) attr(script1, "src", script1_src_value);
 			attr(script1, "type", "text/javascript");
-			attr(section, "class", "section-container svelte-1s2usg3");
+			attr(section, "class", "section-container svelte-1w1k30g");
 			attr(div15, "class", "section");
 			attr(div15, "id", "section-be0dce07");
 		},
