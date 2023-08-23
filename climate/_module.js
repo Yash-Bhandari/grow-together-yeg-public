@@ -3743,9 +3743,9 @@ function create_fragment$4(ctx) {
 			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[0].url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*image*/ ctx[0].alt);
 			set_style(img, "max-height", /*max_height*/ ctx[1] + "px");
-			attr(img, "class", "svelte-1vvwb");
-			attr(div0, "class", "section-container content svelte-1vvwb");
-			attr(section, "class", "section-container svelte-1vvwb");
+			attr(img, "class", "svelte-1qe5oiy");
+			attr(div0, "class", "content svelte-1qe5oiy");
+			attr(section, "class", "section-container svelte-1qe5oiy");
 			attr(div1, "class", "section");
 			attr(div1, "id", "section-fe016241");
 		},

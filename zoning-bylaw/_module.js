@@ -3696,7 +3696,7 @@ function create_fragment$3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-5lc1zj");
+			attr(div0, "class", "section-container content svelte-1sinmo4");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-917853d6");
@@ -3798,9 +3798,9 @@ function create_fragment$4(ctx) {
 			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[0].url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*image*/ ctx[0].alt);
 			set_style(img, "max-height", /*max_height*/ ctx[1] + "px");
-			attr(img, "class", "svelte-1vvwb");
-			attr(div0, "class", "section-container content svelte-1vvwb");
-			attr(section, "class", "section-container svelte-1vvwb");
+			attr(img, "class", "svelte-1qe5oiy");
+			attr(div0, "class", "content svelte-1qe5oiy");
+			attr(section, "class", "section-container svelte-1qe5oiy");
 			attr(div1, "class", "section");
 			attr(div1, "id", "section-1be78ed5");
 		},
@@ -3903,7 +3903,7 @@ function create_fragment$5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-5lc1zj");
+			attr(div0, "class", "section-container content svelte-1sinmo4");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-87500d52");
@@ -4005,9 +4005,9 @@ function create_fragment$6(ctx) {
 			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[0].url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*image*/ ctx[0].alt);
 			set_style(img, "max-height", /*max_height*/ ctx[1] + "px");
-			attr(img, "class", "svelte-1vvwb");
-			attr(div0, "class", "section-container content svelte-1vvwb");
-			attr(section, "class", "section-container svelte-1vvwb");
+			attr(img, "class", "svelte-1qe5oiy");
+			attr(div0, "class", "content svelte-1qe5oiy");
+			attr(section, "class", "section-container svelte-1qe5oiy");
 			attr(div1, "class", "section");
 			attr(div1, "id", "section-5fdaa7e0");
 		},
@@ -4110,7 +4110,7 @@ function create_fragment$7(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-5lc1zj");
+			attr(div0, "class", "section-container content svelte-1sinmo4");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-b26be9f9");

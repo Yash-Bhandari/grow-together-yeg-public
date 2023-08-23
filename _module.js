@@ -5149,6 +5149,13 @@ function create_fragment$7(ctx) {
 							"url": "https://www.threads.net/@growtogetheryeg",
 							"label": "Threads"
 						}
+					},
+					{
+						"icon": "mdi:discord",
+						"link": {
+							"url": "https://discord.gg/xKnmPDdeN2",
+							"label": "Discord"
+						}
 					}
 				],
 				inputs: [
