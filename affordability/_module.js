@@ -1013,12 +1013,14 @@ function create_fragment(ctx) {
 	let script0_src_value;
 	let script1;
 	let t0;
+	let title_value;
 	let meta2;
 	let meta3;
 	let meta4;
 	let meta4_content_value;
 	let style;
 	let t1;
+	document.title = title_value = /*title*/ ctx[1];
 
 	return {
 		c() {
@@ -1037,7 +1039,7 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-4g4wx4', document.head);
+			const head_nodes = head_selector('svelte-57tisj', document.head);
 			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
 			meta1 = claim_element(head_nodes, "META", { charset: true });
 
@@ -1103,6 +1105,10 @@ function create_fragment(ctx) {
 		p(ctx, [dirty]) {
 			if (dirty & /*favicon*/ 1 && link0_href_value !== (link0_href_value = /*favicon*/ ctx[0].url)) {
 				attr(link0, "href", link0_href_value);
+			}
+
+			if (dirty & /*title*/ 2 && title_value !== (title_value = /*title*/ ctx[1])) {
+				document.title = title_value;
 			}
 
 			if (dirty & /*title*/ 2) {
@@ -5620,8 +5626,8 @@ function create_fragment$c(ctx) {
 					"size": null
 				},
 				content: {
-					"html": "<h3 id=\"rentsarereachingcrisislevelsduetocanadasmassivehousingshortage\">Rents are reaching crisis levels due to Canada's massive housing shortage</h3>\n<p>In Vancouver, where the vacancy rate is <a href=\"https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/\">under 1%</a>, it now costs more than <strong>$3000/month to rent a 1 bedroom apartment</strong>. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at <a href=\"https://economicdashboard.alberta.ca/dashboard/net-migration/\">record numbers</a> in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.</p>",
-					"markdown": "### Rents are reaching crisis levels due to Canada's massive housing shortage\n\nIn Vancouver, where the vacancy rate is [under 1%](<https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/>), it now costs more than **$3000/month to rent a 1 bedroom apartment**. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Canadians are being priced out of cities (big and small) across the country and they're moving to Alberta at [record numbers](<https://economicdashboard.alberta.ca/dashboard/net-migration/>) in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.\n\n"
+					"html": "<h3 id=\"rentsarereachingcrisislevelsduetocanadasmassivehousingshortage\">Rents are reaching crisis levels due to Canada's massive housing shortage</h3>\n<p>In Vancouver, where the vacancy rate is <a href=\"https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/\">under 1%</a>, it now costs more than <strong>$3000/month to rent a 1 bedroom apartment</strong>. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Priced out of cities (big and small) across the country, Canadians are moving to Alberta at <a href=\"https://economicdashboard.alberta.ca/dashboard/net-migration/\">record numbers</a> in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.</p>",
+					"markdown": "### Rents are reaching crisis levels due to Canada's massive housing shortage\n\nIn Vancouver, where the vacancy rate is [under 1%](<https://vancouver.citynews.ca/2023/01/26/vancouvers-vacancy-rate-drops/>), it now costs more than **$3000/month to rent a 1 bedroom apartment**. In Toronto, it's more than $2500/month. For most young residents, home ownership in these cities is entirely out of reach. Priced out of cities (big and small) across the country, Canadians are moving to Alberta at [record numbers](<https://economicdashboard.alberta.ca/dashboard/net-migration/>) in search of affordable housing. But if we don't build enough homes to keep up, then we won't stay affordable for very long.\n\n"
 				}
 			}
 		});
