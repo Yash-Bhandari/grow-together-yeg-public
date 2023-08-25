@@ -3,7 +3,7 @@
 
 <head>
     <meta name="generator" content="Primo" />
-    <!-- HEAD_svelte-dczaee_START -->
+    <title>Development Myth #1: Our infrastructure can't handle infill</title><!-- HEAD_svelte-1ixit61_START -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png">
@@ -20,6 +20,8 @@
         (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
         ml('account', '511328');
     </script>
+    <meta property="og:title" content="Development Myth #1: Our infrastructure can't handle infill">
+    <meta property="og:type" content="article">
     <style>
         /* Reset & standardize default styles */
         @import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
@@ -159,7 +161,7 @@
                 border-left: 5px solid var(--color-accent);
             }
         }
-    </style><!-- HEAD_svelte-dczaee_END -->
+    </style><!-- HEAD_svelte-1ixit61_END -->
     <style>
         .section-container.svelte-nnp8i3.svelte-nnp8i3 {
             display: flex;
@@ -246,68 +248,110 @@
             top: 1rem
         }
 
-        .teasers.svelte-zvxqyf.svelte-zvxqyf {
-            display: grid;
-            gap: 6rem
+        .section-container.svelte-7kabnb {
+            max-width: var(--inner-max-width, 800px);
+            padding: 1rem 2rem
         }
 
-        .teaser.svelte-zvxqyf.svelte-zvxqyf {
-            display: grid;
-            gap: 3rem
+        .heading.svelte-7kabnb {
+            margin-top: 0rem;
+            margin-bottom: 1rem;
+            font-family: var(--body-font)
         }
 
-        .teaser.svelte-zvxqyf img.svelte-zvxqyf {
+        .subhead.svelte-7kabnb,
+        .author.svelte-7kabnb {
+            color: rgb(128, 128, 128)
+        }
+
+        img.svelte-7kabnb {
+            margin-top: 1rem;
+            width: 100%
+        }
+
+        hr.svelte-7kabnb {
+            margin-top: 1rem;
+            border-top: 2px solid rgb(128, 128, 128)
+        }
+
+        .section-container.svelte-1sinmo4 {
+            max-width: var(--inner-max-width, 800px);
+            padding: 1rem 2rem;
+            margin-bottom: 0;
+            padding-bottom: 0
+        }
+
+        .content.svelte-1sinmo4 img {
             width: 100%;
+            margin: 2rem 0;
+            box-shadow: var(--box-shadow);
             border-radius: var(--border-radius)
         }
 
-        .teaser.svelte-zvxqyf .body.svelte-zvxqyf {
-            display: grid;
-            place-items: flex-start;
-            gap: 1.5rem;
-            padding: 0;
-            line-height: 1.5
+        .content.svelte-1sinmo4 p {
+            padding: 0.25rem 0;
+            line-height: 1.5;
+            font-family: var(--body-font);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #2d3339
         }
 
-        .teaser.svelte-zvxqyf .body .title.svelte-zvxqyf {
-            font-size: 2.25rem;
-            font-weight: 500;
-            line-height: 1.25
+        .content.svelte-1sinmo4 a.link {
+            border-color: var(--color-accent)
         }
 
-        @media(min-width: 800px) {
-            .teaser.svelte-zvxqyf.svelte-zvxqyf {
-                grid-template-columns: 1fr 1fr;
-                place-items: center
-                    /* switch direction for even items */
-            }
-
-            .teaser.svelte-zvxqyf:nth-child(even) .body.svelte-zvxqyf {
-                grid-row: 1;
-                grid-column: 2
-            }
-
-            .teaser.svelte-zvxqyf:nth-child(even) img.svelte-zvxqyf {
-                grid-row: 1;
-                grid-column: 1
-            }
+        .content.svelte-1sinmo4 a.link:hover {
+            color: var(--color-accent)
         }
 
-        @media(min-width: 1200px) {
-            section.svelte-zvxqyf.svelte-zvxqyf {
-                gap: 6rem
-            }
+        .content.svelte-1sinmo4 h1 {
+            font-size: clamp(1.75rem, 10vw, 2.25rem);
+            font-weight: 600;
+            letter-spacing: -0.08rem;
+            margin-bottom: 1rem;
+            line-height: 1.1
+        }
 
-            .teaser.svelte-zvxqyf.svelte-zvxqyf {
-                gap: 6rem
-            }
+        .content.svelte-1sinmo4 h2 {
+            font-size: clamp(1.5rem, 10vw, 2.125rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.06rem;
+            line-height: 1.1
+        }
+
+        .content.svelte-1sinmo4 h3 {
+            font-size: clamp(1.25rem, 10vw, 1.75rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05rem;
+            line-height: 1.1
+        }
+
+        .content.svelte-1sinmo4 ul {
+            list-style: disc;
+            padding: 0.25rem 0;
+            padding-left: 1.25rem
+        }
+
+        .content.svelte-1sinmo4 ol {
+            list-style: decimal;
+            padding-left: 1.25rem;
+            margin-bottom: 2rem
+        }
+
+        .content.svelte-1sinmo4 blockquote {
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius)
         }
     </style>
 </head>
 
 <body id="page">
 
-    <div class="section" id="section-b9f6bd09">
+    <div class="section" id="section-13ce6cc9">
         <header class="section-container svelte-nnp8i3">
             <div class="desktop-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;" class="svelte-nnp8i3">
                     Grow Together Edmonton</a>
@@ -329,19 +373,26 @@
             </div>
         </header>
     </div>
-    <div class="section" id="section-af5389ab">
-        <section class="section-container svelte-zvxqyf">
-            <div class="teasers svelte-zvxqyf">
-                <div class="teaser svelte-zvxqyf">
-                    <div class="body svelte-zvxqyf"><a href="/blog/development-myth1" class="title svelte-zvxqyf">Development Myth #1: Our infrastructure can't handle infill</a>
-                        <div class="description"><!-- HTML_TAG_START -->
-                            <p>Sprawl is bankrupting our city by adding infrastructure we can't afford to maintain. Building housing in core neighbourhoods where infrastructure is underutilized is how we grow responsibly.</p><!-- HTML_TAG_END -->
-                        </div>
-                    </div>
-                    <img src="https://beta.ctvnews.ca/content/dam/ctvnews/videos/axis/2021/5/7/2197996/_jcr_content/renditions/videothumbnail.1620442935981.jpg" alt="" class="svelte-zvxqyf">
-                </div>
+    <div class="section" id="section-bb86a2af">
+        <header class="section-container svelte-7kabnb">
+            <h1 class="heading svelte-7kabnb">Development Myth #1: Our infrastructure can't handle infill</h1>
+            <span class="subhead svelte-7kabnb">Sprawl is bankrupting our city by adding infrastructure we can't afford to maintain. Building housing in core neighbourhoods where infrastructure is underutilized is how we grow responsibly.</span>
+            <div class="author svelte-7kabnb">By David Berry</div>
+            <img src="https://beta.ctvnews.ca/content/dam/ctvnews/videos/axis/2021/5/7/2197996/_jcr_content/renditions/videothumbnail.1620442935981.jpg" alt="" class="svelte-7kabnb">
+            <hr class="svelte-7kabnb">
+        </header>
+    </div>
+    <div class="section" id="section-213f9d56">
+        <div class="section">
+            <div class="section-container content svelte-1sinmo4"><!-- HTML_TAG_START -->
+                <p>Edmonton currently has a massive infrastructure deficit. Digging a hole that big takes many shovels, but the biggest contributors are generations of underfunding and downloading on to municipal governments by higher orders of government, which we cannot control, and a fiscally and environmentally unsustainable low density, car-centric growth pattern, which we can.</p>
+                <p>We have more infrastructure per capita than most equivalent cities (in land area or population). We have more kilometers of roads and their attendant maintenance, more kilometers of bus routes and the costs of running them, more kilometers of water lines and sewers and their upkeep, more coverage for emergency services and more free parking. Our tax base cannot maintain, let alone upgrade, our existing infrastructure needs. </p>
+                <p>But that’s only one aspect of the problem. Because many of our mature neighbourhoods have lost population since they were originally built, there are now issues that frequently arise from underutilization. Sewage and drainage are two of the most common: if you notice a distinct sewer-y smell on your block, there’s a good chance it’s because there isn’t enough water moving through the pipe to push the things you’ve flushed away to their intended destination. </p>
+                <p>Because infrastructure in mature neighbourhoods is old and underutilized, new developments are often required to pay for infrastructure upgrades. This can create the mistaken impression that these upgrades are only required because of the increase in density. In most cases, they are upgrades that would be needed to provide currently expected service levels to the existing neighbourhoods, without any additional development. </p>
+                <p>If there is one thing our infrastructure cannot handle, it’s continued underfunding as a result of expansive growth. When you find yourself in a hole the first thing to do is stop digging: in order for us to pay for much needed maintenance — as well as upgrades, climate mitigation strategies, neighbourhood amenities like recreation centers, affordable housing investments, efficient transit, plowing and pot-hole repair — the City will need to access a lot more money. Money that can come from things like more property tax generation from underused land.</p>
+                <p>We can’t have low density neighbourhoods, low or even moderate taxes, reliable and needed services and well-maintained infrastructure — the math doesn’t work. </p><!-- HTML_TAG_END -->
             </div>
-        </section>
+        </div>
     </div>
 
     <script type="module">
