@@ -5613,7 +5613,7 @@ function create_fragment$c(ctx) {
 					"url": "",
 					"size": null
 				},
-				author: "David Berry"
+				author: ""
 			}
 		});
 
