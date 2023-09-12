@@ -3647,10 +3647,10 @@ function create_fragment$3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-1gdxc6h");
+			attr(div0, "class", "section-container content svelte-1sinmo4");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
-			attr(div2, "id", "section-193a121c");
+			attr(div2, "id", "section-0531f880");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -3828,10 +3828,10 @@ function create_fragment$5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content");
+			attr(div0, "class", "section-container content svelte-1sinmo4");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
-			attr(div2, "id", "section-9e79ef82");
+			attr(div2, "id", "section-2803c430");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -4624,7 +4624,7 @@ function create_fragment$7(ctx) {
 					"size": null
 				},
 				content: {
-					"html": "<h2>Density is the city's best tool to fight climate change</h2><p>When we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that <strong>low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas</strong>.</p>",
+					"html": "<h2 id=\"densityisthecitysbesttooltofightclimatechange\">Density is the city's best tool to fight climate change</h2>\n<p>When we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that <strong>low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas</strong>.</p>",
 					"markdown": "## Density is the city's best tool to fight climate change\n\nWhen we sprawl out, we massively increase both our existing footprint and our energy usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that **low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas**.\n\n"
 				}
 			}
