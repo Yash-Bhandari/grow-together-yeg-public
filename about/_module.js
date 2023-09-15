@@ -4804,6 +4804,10 @@ function create_fragment$6(ctx) {
 					{
 						"name": "Jacob Smigorosky",
 						"title": "A Bannerman resident and university student"
+					},
+					{
+						"name": "Jacob Dawang",
+						"title": "A Queen Alexandra resident, data scientist and new Edmontonian"
 					}
 				]
 			}
