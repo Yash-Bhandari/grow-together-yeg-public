@@ -5010,59 +5010,25 @@ function create_fragment$7(ctx) {
 					"title": "Grow Together Edmonton"
 				},
 				site_nav: [
+					{ "link": { "url": "/", "label": "Home" } },
 					{
-						"p": "",
-						"pr": "",
-						"pro": "",
-						"link": { "url": "/", "label": "Home" },
-						"prop": "",
-						"prope": "",
-						"proper": "",
-						"propert": "",
-						"property": ""
-					},
-					{
-						"p": "",
-						"pr": "",
-						"pro": "",
 						"link": {
 							"url": "/about",
 							"label": "About Us",
 							"active": false
-						},
-						"prop": "",
-						"prope": "",
-						"proper": "",
-						"propert": "",
-						"property": ""
+						}
 					},
 					{
-						"p": "",
-						"pr": "",
-						"pro": "",
 						"link": {
 							"url": "/zoning-bylaw",
 							"label": "Zoning Bylaw"
-						},
-						"prop": "",
-						"prope": "",
-						"proper": "",
-						"propert": "",
-						"property": ""
+						}
 					},
 					{
-						"p": "",
-						"pr": "",
-						"pro": "",
 						"link": {
 							"url": "/#take-action",
 							"label": "Take Action"
-						},
-						"prop": "",
-						"prope": "",
-						"proper": "",
-						"propert": "",
-						"property": ""
+						}
 					}
 				]
 			}
