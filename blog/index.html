@@ -3,7 +3,7 @@
 
 <head>
     <meta name="generator" content="Primo" />
-    <!-- HEAD_svelte-dczaee_START -->
+    <!-- HEAD_svelte-1ljoqeu_START -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png">
@@ -28,9 +28,10 @@
         :root {
             /* Custom theme options */
             --color-accent: #027648;
-            --color1: #4C5760
-                /* Base values */
-                --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+            --color1: #4C5760;
+
+            /* Base values */
+            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
             --border-radius: 0;
             --border-color: #e0e1e1;
         }
@@ -58,10 +59,10 @@
             transform: translateY(-2px);
             /* move link back into place */
             transition: var(--transition, 0.1s border);
+        }
 
-            &:hover {
-                border-color: transparent;
-            }
+        a.link:hover {
+            border-color: transparent;
         }
 
         .heading {
@@ -79,87 +80,17 @@
             border: 0;
             /* reset */
             max-height: 80px;
-
-            &:hover {
-                box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
-            }
-
-            &.inverted {
-                background: transparent;
-                color: var(--color-accent, rebeccapurple);
-            }
         }
 
-        /* Content Section */
-        .content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-
-            p {
-                margin-bottom: 1rem;
-                line-height: 1.5;
-            }
-
-            img {
-                width: 100%;
-                margin: 2rem 0;
-                box-shadow: var(--box-shadow);
-                border-radius: var(--border-radius);
-            }
-
-            a.link {
-                line-height: 1.3;
-                font-weight: 500;
-                border-bottom: 2px solid var(--color-accent);
-                transform: translateY(-2px);
-                /* move link back into place */
-                transition: var(--transition, 0.1s border);
-
-                &:hover {
-                    border-color: transparent;
-                }
-            }
-
-            h1 {
-                font-size: 3rem;
-                font-weight: 500;
-                line-height: 1.1;
-                margin-bottom: 1.5rem;
-            }
-
-            h2 {
-                font-size: 2.5rem;
-                font-weight: 500;
-                margin-bottom: 1rem;
-            }
-
-            h3 {
-                font-size: 2rem;
-                font-weight: 500;
-                margin-bottom: 1rem;
-            }
-
-            ul {
-                list-style: disc;
-                padding: 0.5rem 0;
-                padding-left: 1.25rem;
-            }
-
-            ol {
-                list-style: decimal;
-                padding: 0.5rem 0;
-                padding-left: 1.25rem;
-            }
-
-            blockquote {
-                padding: 2rem;
-                margin-top: 1.5rem;
-                margin-bottom: 1.5rem;
-                border-left: 5px solid var(--color-accent);
-            }
+        .button:hover {
+            box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
         }
-    </style><!-- HEAD_svelte-dczaee_END -->
+
+        .button.inverted {
+            background: transparent;
+            color: var(--color-accent, rebeccapurple);
+        }
+    </style><!-- HEAD_svelte-1ljoqeu_END -->
     <style>
         .section-container.svelte-nnp8i3.svelte-nnp8i3 {
             display: flex;
@@ -315,7 +246,17 @@
             </div>
             <div class="mobile-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img class="logo svelte-nnp8i3" src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;">
                     Grow Together Edmonton</a>
-                <button id="open" aria-label="Open mobile navigation"></button>
+                <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START -->
+                        <g id="iconifySvelte0">
+                            <g id="iconifySvelte1">
+                                <g id="iconifySvelte2" fill="currentColor">
+                                    <rect width="18" height="2" x="3" y="11" rx=".95" ry=".95" />
+                                    <rect width="18" height="2" x="3" y="16" rx=".95" ry=".95" />
+                                    <rect width="18" height="2" x="3" y="6" rx=".95" ry=".95" />
+                                </g>
+                            </g>
+                        </g><!-- HTML_TAG_END -->
+                    </svg></button>
             </div>
         </header>
     </div>
