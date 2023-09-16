@@ -5829,6 +5829,13 @@ function create_fragment$c(ctx) {
 							"url": "https://www.instagram.com/growtogetheryeg/",
 							"label": "Instagram"
 						}
+					},
+					{
+						"icon": "mdi:discord",
+						"link": {
+							"url": "https://discord.com/invite/bQsDZ3KWra",
+							"label": "Discord"
+						}
 					}
 				],
 				inputs: [
