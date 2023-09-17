@@ -3994,8 +3994,8 @@ class Component$4 extends SvelteComponent {
 
 function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i].link;
-	child_ctx[11] = list[i].icon;
+	child_ctx[9] = list[i].link;
+	child_ctx[10] = list[i].icon;
 	return child_ctx;
 }
 
@@ -4005,12 +4005,12 @@ function create_each_block$2(ctx) {
 	let span;
 	let icon;
 	let t0;
-	let t1_value = /*link*/ ctx[10].label + "";
+	let t1_value = /*link*/ ctx[9].label + "";
 	let t1;
 	let t2;
 	let a_href_value;
 	let current;
-	icon = new Component$1({ props: { icon: /*icon*/ ctx[11] } });
+	icon = new Component$1({ props: { icon: /*icon*/ ctx[10] } });
 
 	return {
 		c() {
@@ -4036,9 +4036,9 @@ function create_each_block$2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "icon svelte-1w1k30g");
-			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
-			attr(a, "class", "svelte-1w1k30g");
+			attr(span, "class", "icon svelte-e5uttf");
+			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
+			attr(a, "class", "svelte-e5uttf");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -4051,11 +4051,11 @@ function create_each_block$2(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[11];
+			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[10];
 			icon.$set(icon_changes);
-			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[10].label + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[9].label + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[9].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -4083,6 +4083,7 @@ function create_fragment$5(ctx) {
 	let t0;
 	let t1;
 	let div0;
+	let raw_value = /*subheading*/ ctx[1].html + "";
 	let t2;
 	let div1;
 	let t3;
@@ -4386,9 +4387,9 @@ function create_fragment$5(ctx) {
 		},
 		h() {
 			attr(h2, "class", "heading");
-			attr(div0, "class", "body svelte-1w1k30g");
-			attr(div1, "class", "social-links svelte-1w1k30g");
-			attr(div2, "class", "content svelte-1w1k30g");
+			attr(div0, "class", "body svelte-e5uttf");
+			attr(div1, "class", "social-links svelte-e5uttf");
+			attr(div2, "class", "content svelte-e5uttf");
 			attr(style0, "type", "text/css");
 			attr(style1, "type", "text/css");
 			attr(div3, "class", "ml-form-embedContent");
@@ -4436,7 +4437,7 @@ function create_fragment$5(ctx) {
 			attr(div14, "class", "ml-form-embedContainer ml-subscribe-form ml-subscribe-form-6312828");
 			if (!src_url_equal(script1.src, script1_src_value = "https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128")) attr(script1, "src", script1_src_value);
 			attr(script1, "type", "text/javascript");
-			attr(section, "class", "section-container svelte-1w1k30g");
+			attr(section, "class", "section-container svelte-e5uttf");
 			attr(div15, "class", "section");
 			attr(div15, "id", "section-b5b6d267");
 		},
@@ -4448,7 +4449,7 @@ function create_fragment$5(ctx) {
 			append_hydration(h2, t0);
 			append_hydration(div2, t1);
 			append_hydration(div2, div0);
-			div0.innerHTML = /*subheading*/ ctx[1];
+			div0.innerHTML = raw_value;
 			append_hydration(div2, t2);
 			append_hydration(div2, div1);
 
@@ -4518,7 +4519,7 @@ function create_fragment$5(ctx) {
 		},
 		p(ctx, [dirty]) {
 			if (!current || dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (!current || dirty & /*subheading*/ 2) div0.innerHTML = /*subheading*/ ctx[1];
+			if ((!current || dirty & /*subheading*/ 2) && raw_value !== (raw_value = /*subheading*/ ctx[1].html + "")) div0.innerHTML = raw_value;
 			if (dirty & /*social*/ 4) {
 				each_value = /*social*/ ctx[2];
 				let i;
@@ -4580,8 +4581,7 @@ function instance$5($$self, $$props, $$invalidate) {
 	let { heading } = $$props;
 	let { subheading } = $$props;
 	let { social } = $$props;
-	let { inputs } = $$props;
-	let { submit_label } = $$props;
+	let { event } = $$props;
 
 	// Mailerlite
 	window.setTimeout(
@@ -4604,8 +4604,7 @@ function instance$5($$self, $$props, $$invalidate) {
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
 		if ('social' in $$props) $$invalidate(2, social = $$props.social);
-		if ('inputs' in $$props) $$invalidate(8, inputs = $$props.inputs);
-		if ('submit_label' in $$props) $$invalidate(9, submit_label = $$props.submit_label);
+		if ('event' in $$props) $$invalidate(8, event = $$props.event);
 	};
 
 	return [
@@ -4617,8 +4616,7 @@ function instance$5($$self, $$props, $$invalidate) {
 		favicon,
 		title,
 		description,
-		inputs,
-		submit_label
+		event
 	];
 }
 
@@ -4635,8 +4633,7 @@ class Component$5 extends SvelteComponent {
 			heading: 0,
 			subheading: 1,
 			social: 2,
-			inputs: 8,
-			submit_label: 9
+			event: 8
 		});
 	}
 }
@@ -4856,21 +4853,19 @@ function create_fragment$6(ctx) {
 							"url": "https://www.instagram.com/growtogetheryeg/",
 							"label": "Instagram"
 						}
-					}
-				],
-				inputs: [
-					{
-						"type": "text",
-						"label": "Name",
-						"placeholder": "John Doe"
 					},
 					{
-						"type": "email",
-						"label": "Email",
-						"placeholder": "johndoe@johndoe.com"
+						"icon": "mdi:discord",
+						"link": {
+							"url": "https://discord.com/invite/bQsDZ3KWra",
+							"label": "Discord"
+						}
 					}
 				],
-				submit_label: "Submit"
+				event: {
+					"link": "https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator",
+					"description": "Join us on Sept. 25th for our \"Drinks for Density\" event. "
+				}
 			}
 		});
 
