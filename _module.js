@@ -4093,13 +4093,13 @@ function create_fragment$4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-11gst4s");
-			attr(div0, "class", "body svelte-11gst4s");
-			attr(div1, "class", "content svelte-11gst4s");
+			attr(h2, "class", "heading svelte-6kznwl");
+			attr(div0, "class", "body svelte-6kznwl");
+			attr(div1, "class", "content svelte-6kznwl");
 			attr(a, "href", a_href_value = /*link*/ ctx[2].url);
 			attr(a, "class", "button");
-			attr(div2, "class", "actions svelte-11gst4s");
-			attr(section, "class", "section-container svelte-11gst4s");
+			attr(div2, "class", "actions svelte-6kznwl");
+			attr(section, "class", "section-container svelte-6kznwl");
 			attr(div3, "class", "section");
 			attr(div3, "id", "section-c12381d0");
 		},
@@ -4623,7 +4623,7 @@ function create_fragment$5(ctx) {
 			attr(script1, "type", "text/javascript");
 			attr(section, "class", "section-container svelte-e5uttf");
 			attr(div15, "class", "section");
-			attr(div15, "id", "section-97da4d56");
+			attr(div15, "id", "section-215744b8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div15, anchor);
@@ -5138,8 +5138,8 @@ function create_fragment$7(ctx) {
 				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				heading: "Who We Are",
 				body: {
-					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p><p>You can email us at info@gtyeg.ca</p>",
-					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\nYou can email us at info@gtyeg.ca\n\n"
+					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p>\n<p>You can email us at growtogetheryeg@gmail.com</p>",
+					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\nYou can email us at growtogetheryeg@gmail.com\n\n"
 				},
 				link: { "url": "/about", "text": "About Us" }
 			}
@@ -5158,7 +5158,10 @@ function create_fragment$7(ctx) {
 				title: "Grow Together Edmonton",
 				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				heading: "Get Involved",
-				subheading: "Follow us on social media or join our mailing list to stay up to date on Zoning Bylaw Renewal, events and volunteer opportunities. ",
+				subheading: {
+					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.</p>\n<p>Join us on Sept. 25 for <a href=\"https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator\"><strong>Drinks For Density</strong></a>, an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. </p>",
+					"markdown": "Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.\n\nJoin us on Sept. 25 for [**Drinks For Density**](https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator), an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. "
+				},
 				social: [
 					{
 						"icon": "mdi:twitter",

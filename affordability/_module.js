@@ -5812,8 +5812,8 @@ function create_fragment$c(ctx) {
 				},
 				heading: "Get Involved",
 				subheading: {
-					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote in October and their will be a lot of opposition from NIMBYs.</p>\n<p>Join us on Sept. 25 for <a href=\"https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator\"><strong>Drinks For Density</strong></a>, an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. </p>",
-					"markdown": "Zoning Bylaw Renewal goes to a public hearing and vote in October and their will be a lot of opposition from NIMBYs.\n\nJoin us on Sept. 25 for [**Drinks For Density**](https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator), an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. "
+					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.</p>\n<p>Join us on Sept. 25 for <a href=\"https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator\"><strong>Drinks For Density</strong></a>, an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. </p>",
+					"markdown": "Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.\n\nJoin us on Sept. 25 for [**Drinks For Density**](https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator), an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. "
 				},
 				social: [
 					{
