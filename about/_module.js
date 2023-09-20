@@ -3659,21 +3659,21 @@ class Component$2 extends SvelteComponent {
 
 function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[7] = list[i];
+	child_ctx[8] = list[i];
 	return child_ctx;
 }
 
-// (100:4) {#each people as person}
+// (108:4) {#each people as person}
 function create_each_block$1(ctx) {
 	let li;
 	let div1;
 	let div0;
 	let span0;
-	let t0_value = /*person*/ ctx[7].name + "";
+	let t0_value = /*person*/ ctx[8].name + "";
 	let t0;
 	let t1;
 	let span1;
-	let t2_value = /*person*/ ctx[7].title + "";
+	let t2_value = /*person*/ ctx[8].title + "";
 	let t2;
 	let t3;
 
@@ -3713,11 +3713,11 @@ function create_each_block$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span0, "class", "name svelte-nns4t8");
-			attr(span1, "class", "title svelte-nns4t8");
-			attr(div0, "class", "details svelte-nns4t8");
+			attr(span0, "class", "name svelte-1wiv058");
+			attr(span1, "class", "title svelte-1wiv058");
+			attr(div0, "class", "details svelte-1wiv058");
 			attr(div1, "class", "info");
-			attr(li, "class", "svelte-nns4t8");
+			attr(li, "class", "svelte-1wiv058");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -3731,8 +3731,8 @@ function create_each_block$1(ctx) {
 			append_hydration(li, t3);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*people*/ 4 && t0_value !== (t0_value = /*person*/ ctx[7].name + "")) set_data(t0, t0_value);
-			if (dirty & /*people*/ 4 && t2_value !== (t2_value = /*person*/ ctx[7].title + "")) set_data(t2, t2_value);
+			if (dirty & /*people*/ 8 && t0_value !== (t0_value = /*person*/ ctx[8].name + "")) set_data(t0, t0_value);
+			if (dirty & /*people*/ 8 && t2_value !== (t2_value = /*person*/ ctx[8].title + "")) set_data(t2, t2_value);
 		},
 		d(detaching) {
 			if (detaching) detach(li);
@@ -3749,8 +3749,11 @@ function create_fragment$3(ctx) {
 	let p;
 	let t2;
 	let t3;
+	let a;
+	let t4;
+	let t5;
 	let ul;
-	let each_value = /*people*/ ctx[2];
+	let each_value = /*people*/ ctx[3];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -3767,6 +3770,9 @@ function create_fragment$3(ctx) {
 			p = element("p");
 			t2 = text(/*description*/ ctx[0]);
 			t3 = space();
+			a = element("a");
+			t4 = text(/*email*/ ctx[2]);
+			t5 = space();
 			ul = element("ul");
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -3790,6 +3796,11 @@ function create_fragment$3(ctx) {
 			t2 = claim_text(p_nodes, /*description*/ ctx[0]);
 			p_nodes.forEach(detach);
 			t3 = claim_space(section_nodes);
+			a = claim_element(section_nodes, "A", { class: true, href: true });
+			var a_nodes = children(a);
+			t4 = claim_text(a_nodes, /*email*/ ctx[2]);
+			a_nodes.forEach(detach);
+			t5 = claim_space(section_nodes);
 			ul = claim_element(section_nodes, "UL", { class: true });
 			var ul_nodes = children(ul);
 
@@ -3803,10 +3814,12 @@ function create_fragment$3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-nns4t8");
-			attr(p, "class", "description svelte-nns4t8");
-			attr(ul, "class", "cards svelte-nns4t8");
-			attr(section, "class", "section-container svelte-nns4t8");
+			attr(h2, "class", "heading svelte-1wiv058");
+			attr(p, "class", "description svelte-1wiv058");
+			attr(a, "class", "email svelte-1wiv058");
+			attr(a, "href", /*email*/ ctx[2]);
+			attr(ul, "class", "cards svelte-1wiv058");
+			attr(section, "class", "section-container svelte-1wiv058");
 			attr(div, "class", "section");
 			attr(div, "id", "section-fa218753");
 		},
@@ -3819,6 +3832,9 @@ function create_fragment$3(ctx) {
 			append_hydration(section, p);
 			append_hydration(p, t2);
 			append_hydration(section, t3);
+			append_hydration(section, a);
+			append_hydration(a, t4);
+			append_hydration(section, t5);
 			append_hydration(section, ul);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -3830,9 +3846,14 @@ function create_fragment$3(ctx) {
 		p(ctx, [dirty]) {
 			if (dirty & /*heading*/ 2) set_data(t0, /*heading*/ ctx[1]);
 			if (dirty & /*description*/ 1) set_data(t2, /*description*/ ctx[0]);
+			if (dirty & /*email*/ 4) set_data(t4, /*email*/ ctx[2]);
 
-			if (dirty & /*people*/ 4) {
-				each_value = /*people*/ ctx[2];
+			if (dirty & /*email*/ 4) {
+				attr(a, "href", /*email*/ ctx[2]);
+			}
+
+			if (dirty & /*people*/ 8) {
+				each_value = /*people*/ ctx[3];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -3870,19 +3891,21 @@ function instance$3($$self, $$props, $$invalidate) {
 	let { title } = $$props;
 	let { description } = $$props;
 	let { heading } = $$props;
+	let { email } = $$props;
 	let { people } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(6, title = $$props.title);
+		if ('color1' in $$props) $$invalidate(4, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(5, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(6, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(7, title = $$props.title);
 		if ('description' in $$props) $$invalidate(0, description = $$props.description);
 		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('people' in $$props) $$invalidate(2, people = $$props.people);
+		if ('email' in $$props) $$invalidate(2, email = $$props.email);
+		if ('people' in $$props) $$invalidate(3, people = $$props.people);
 	};
 
-	return [description, heading, people, color1, color2, favicon, title];
+	return [description, heading, email, people, color1, color2, favicon, title];
 }
 
 class Component$3 extends SvelteComponent {
@@ -3890,13 +3913,14 @@ class Component$3 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
-			color1: 3,
-			color2: 4,
-			favicon: 5,
-			title: 6,
+			color1: 4,
+			color2: 5,
+			favicon: 6,
+			title: 7,
 			description: 0,
 			heading: 1,
-			people: 2
+			email: 2,
+			people: 3
 		});
 	}
 }
@@ -4765,6 +4789,7 @@ function create_fragment$6(ctx) {
 				title: "Team",
 				description: "Grow Together YEG is volunteer organization run by ordinary Edmontonians. We are passionate about housing, climate and urban vibrancy. We are wholly independent and do not receive any funding from the development industry or the City of Edmonton.",
 				heading: "Who are we?",
+				email: "info@growtogetheryeg.com",
 				people: [
 					{
 						"name": "David Berry",

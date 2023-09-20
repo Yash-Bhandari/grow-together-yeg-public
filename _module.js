@@ -4093,13 +4093,13 @@ function create_fragment$4(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "heading svelte-6kznwl");
-			attr(div0, "class", "body svelte-6kznwl");
-			attr(div1, "class", "content svelte-6kznwl");
+			attr(h2, "class", "heading svelte-pguuc6");
+			attr(div0, "class", "body svelte-pguuc6");
+			attr(div1, "class", "content svelte-pguuc6");
 			attr(a, "href", a_href_value = /*link*/ ctx[2].url);
 			attr(a, "class", "button");
-			attr(div2, "class", "actions svelte-6kznwl");
-			attr(section, "class", "section-container svelte-6kznwl");
+			attr(div2, "class", "actions svelte-pguuc6");
+			attr(section, "class", "section-container svelte-pguuc6");
 			attr(div3, "class", "section");
 			attr(div3, "id", "section-c12381d0");
 		},
@@ -5138,8 +5138,8 @@ function create_fragment$7(ctx) {
 				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				heading: "Who We Are",
 				body: {
-					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p>\n<p>You can email us at growtogetheryeg@gmail.com</p>",
-					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\nYou can email us at growtogetheryeg@gmail.com\n\n"
+					"html": "<p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p>",
+					"markdown": "Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.\n\n"
 				},
 				link: { "url": "/about", "text": "About Us" }
 			}
