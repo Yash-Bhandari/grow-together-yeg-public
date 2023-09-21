@@ -3887,7 +3887,7 @@ function get_each_context$1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (79:6) {#each social as { link, icon }}
+// (84:6) {#each social as { link, icon }}
 function create_each_block$1(ctx) {
 	let a;
 	let span;
@@ -3924,9 +3924,9 @@ function create_each_block$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "icon svelte-e5uttf");
+			attr(span, "class", "icon svelte-1mgn2yk");
 			attr(a, "href", a_href_value = /*link*/ ctx[7].url);
-			attr(a, "class", "svelte-e5uttf");
+			attr(a, "class", "svelte-1mgn2yk");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -4275,9 +4275,9 @@ function create_fragment$6(ctx) {
 		},
 		h() {
 			attr(h2, "class", "heading");
-			attr(div0, "class", "body svelte-e5uttf");
-			attr(div1, "class", "social-links svelte-e5uttf");
-			attr(div2, "class", "content svelte-e5uttf");
+			attr(div0, "class", "body svelte-1mgn2yk");
+			attr(div1, "class", "social-links svelte-1mgn2yk");
+			attr(div2, "class", "content svelte-1mgn2yk");
 			attr(style0, "type", "text/css");
 			attr(style1, "type", "text/css");
 			attr(div3, "class", "ml-form-embedContent");
@@ -4325,7 +4325,7 @@ function create_fragment$6(ctx) {
 			attr(div14, "class", "ml-form-embedContainer ml-subscribe-form ml-subscribe-form-6312828");
 			if (!src_url_equal(script1.src, script1_src_value = "https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128")) attr(script1, "src", script1_src_value);
 			attr(script1, "type", "text/javascript");
-			attr(section, "class", "section-container svelte-e5uttf");
+			attr(section, "class", "section-container svelte-1mgn2yk");
 			attr(div15, "class", "section");
 			attr(div15, "id", "section-08af653b");
 		},
@@ -4758,8 +4758,8 @@ function create_fragment$8(ctx) {
 				},
 				heading: "Get Involved",
 				subheading: {
-					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.</p>\n<p>Join us on Sept. 25 for <a href=\"https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator\"><strong>Drinks For Density</strong></a>, an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. </p>",
-					"markdown": "Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.\n\nJoin us on Sept. 25 for [**Drinks For Density**](https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator), an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. "
+					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.</p>\n<p>Join us on Sept. 25 for <strong>Drinks For Density</strong>, an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. <a href=\"https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator\">Click here for details and sign-up.</a></p>",
+					"markdown": "Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.\n\nJoin us on Sept. 25 for **Drinks For Density**, an in-person event where we'll prepare you to speak in front of council. It's not as scary as it sounds, we promise. And even if you're not speaking, it'll still be a lot of fun. [Click here for details and sign-up.](https://www.eventbrite.com/e/drinks-for-density-tickets-708836467957?aff=oddtdtcreator>)\n\n"
 				},
 				social: [
 					{
