@@ -4864,8 +4864,8 @@ function create_fragment$6(ctx) {
 				description: "Our team members at the organization",
 				heading: "Get Involved",
 				subheading: {
-					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.</p>\n<p>Make sure your voice is heard too! We've got a <a href=\"https://gtyeg.ca/speaking\">step by step guide for signing up for the public hearing</a> and speaking to council.</p>",
-					"markdown": "Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.\n\nMake sure your voice is heard too! We've got a [step by step guide for signing up for the public hearing](https://gtyeg.ca/speaking) and speaking to council.\n\n"
+					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.</p><p>Make sure your voice is heard too! We've got a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://gtyeg.ca/speaking\">step by step guide for signing up for the public hearing</a> and speaking to council.</p>",
+					"markdown": "Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.\n\nMake sure your voice is heard too! We've got a [step by step guide for signing up for the public hearing](<https://gtyeg.ca/speaking>) and speaking to council.\n\n"
 				},
 				social: [
 					{

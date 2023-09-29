@@ -259,6 +259,13 @@ function listen(node, event, handler, options) {
     node.addEventListener(event, handler, options);
     return () => node.removeEventListener(event, handler, options);
 }
+function prevent_default(fn) {
+    return function (event) {
+        event.preventDefault();
+        // @ts-ignore
+        return fn.call(this, event);
+    };
+}
 function attr(node, attribute, value) {
     if (value == null)
         node.removeAttribute(attribute);
@@ -1013,12 +1020,11 @@ function create_fragment(ctx) {
 	let script0_src_value;
 	let script1;
 	let t0;
+	let title_value;
 	let meta2;
-	let meta3;
-	let meta4;
-	let meta4_content_value;
 	let style;
 	let t1;
+	document.title = title_value = /*title*/ ctx[1];
 
 	return {
 		c() {
@@ -1030,14 +1036,12 @@ function create_fragment(ctx) {
 			script1 = element("script");
 			t0 = text("(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])\n    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,\n    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})\n    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');\n    ml('account', '511328');\n");
 			meta2 = element("meta");
-			meta3 = element("meta");
-			meta4 = element("meta");
 			style = element("style");
 			t1 = text("/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760;\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-cojgm', document.head);
+			const head_nodes = head_selector('svelte-ccebu9', document.head);
 			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
 			meta1 = claim_element(head_nodes, "META", { charset: true });
 
@@ -1056,9 +1060,7 @@ function create_fragment(ctx) {
 			var script1_nodes = children(script1);
 			t0 = claim_text(script1_nodes, "(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])\n    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,\n    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})\n    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');\n    ml('account', '511328');\n");
 			script1_nodes.forEach(detach);
-			meta2 = claim_element(head_nodes, "META", { property: true, content: true });
-			meta3 = claim_element(head_nodes, "META", { property: true, content: true });
-			meta4 = claim_element(head_nodes, "META", { property: true, content: true });
+			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
 			t1 = claim_text(style_nodes, "/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760;\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }");
@@ -1079,12 +1081,8 @@ function create_fragment(ctx) {
 			script0.async = true;
 			if (!src_url_equal(script0.src, script0_src_value = "https://analytics.umami.is/script.js")) attr(script0, "src", script0_src_value);
 			attr(script0, "data-website-id", "541fddec-8517-45e6-b5e5-6a9e36cb83c3");
-			attr(meta2, "property", "og:title");
-			attr(meta2, "content", /*title*/ ctx[1]);
-			attr(meta3, "property", "og:type");
-			attr(meta3, "content", "article");
-			attr(meta4, "property", "og:image");
-			attr(meta4, "content", meta4_content_value = /*preview_image*/ ctx[2].url);
+			attr(meta2, "name", "description");
+			attr(meta2, "content", /*description*/ ctx[2]);
 		},
 		m(target, anchor) {
 			append_hydration(document.head, meta0);
@@ -1095,8 +1093,6 @@ function create_fragment(ctx) {
 			append_hydration(document.head, script1);
 			append_hydration(script1, t0);
 			append_hydration(document.head, meta2);
-			append_hydration(document.head, meta3);
-			append_hydration(document.head, meta4);
 			append_hydration(document.head, style);
 			append_hydration(style, t1);
 		},
@@ -1105,12 +1101,12 @@ function create_fragment(ctx) {
 				attr(link0, "href", link0_href_value);
 			}
 
-			if (dirty & /*title*/ 2) {
-				attr(meta2, "content", /*title*/ ctx[1]);
+			if (dirty & /*title*/ 2 && title_value !== (title_value = /*title*/ ctx[1])) {
+				document.title = title_value;
 			}
 
-			if (dirty & /*preview_image*/ 4 && meta4_content_value !== (meta4_content_value = /*preview_image*/ ctx[2].url)) {
-				attr(meta4, "content", meta4_content_value);
+			if (dirty & /*description*/ 4) {
+				attr(meta2, "content", /*description*/ ctx[2]);
 			}
 		},
 		i: noop,
@@ -1123,8 +1119,6 @@ function create_fragment(ctx) {
 			detach(script0);
 			detach(script1);
 			detach(meta2);
-			detach(meta3);
-			detach(meta4);
 			detach(style);
 		}
 	};
@@ -1135,17 +1129,17 @@ function instance($$self, $$props, $$invalidate) {
 	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
-	let { preview_image } = $$props;
+	let { description } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(2, preview_image = $$props.preview_image);
+		if ('description' in $$props) $$invalidate(2, description = $$props.description);
 	};
 
-	return [favicon, title, preview_image, color1, color2];
+	return [favicon, title, description, color1, color2];
 }
 
 class Component extends SvelteComponent {
@@ -1157,7 +1151,7 @@ class Component extends SvelteComponent {
 			color2: 4,
 			favicon: 0,
 			title: 1,
-			preview_image: 2
+			description: 2
 		});
 	}
 }
@@ -3473,7 +3467,7 @@ function create_fragment$2(ctx) {
 			attr(div1, "class", "mobile-nav svelte-nnp8i3");
 			attr(header, "class", "section-container svelte-nnp8i3");
 			attr(div2, "class", "section");
-			attr(div2, "id", "section-6d21afb0");
+			attr(div2, "id", "section-9b3026b5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -3616,7 +3610,7 @@ function instance$2($$self, $$props, $$invalidate) {
 	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
-	let { preview_image } = $$props;
+	let { description } = $$props;
 	let { logo } = $$props;
 	let { site_nav } = $$props;
 	let { logo_width } = $$props;
@@ -3630,7 +3624,7 @@ function instance$2($$self, $$props, $$invalidate) {
 		if ('color2' in $$props) $$invalidate(5, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(6, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(7, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(8, preview_image = $$props.preview_image);
+		if ('description' in $$props) $$invalidate(8, description = $$props.description);
 		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
 		if ('site_nav' in $$props) $$invalidate(1, site_nav = $$props.site_nav);
 		if ('logo_width' in $$props) $$invalidate(2, logo_width = $$props.logo_width);
@@ -3645,7 +3639,7 @@ function instance$2($$self, $$props, $$invalidate) {
 		color2,
 		favicon,
 		title,
-		preview_image,
+		description,
 		click_handler,
 		click_handler_1
 	];
@@ -3660,7 +3654,7 @@ class Component$2 extends SvelteComponent {
 			color2: 5,
 			favicon: 6,
 			title: 7,
-			preview_image: 8,
+			description: 8,
 			logo: 0,
 			site_nav: 1,
 			logo_width: 2
@@ -3670,196 +3664,286 @@ class Component$2 extends SvelteComponent {
 
 /* generated by Svelte v3.58.0 */
 
-function create_if_block_1$2(ctx) {
-	let div;
-	let t0;
-	let t1;
-
-	return {
-		c() {
-			div = element("div");
-			t0 = text("By ");
-			t1 = text(/*author*/ ctx[3]);
-			this.h();
-		},
-		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true });
-			var div_nodes = children(div);
-			t0 = claim_text(div_nodes, "By ");
-			t1 = claim_text(div_nodes, /*author*/ ctx[3]);
-			div_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(div, "class", "author svelte-7kabnb");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			append_hydration(div, t0);
-			append_hydration(div, t1);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*author*/ 8) set_data(t1, /*author*/ ctx[3]);
-		},
-		d(detaching) {
-			if (detaching) detach(div);
-		}
-	};
+function get_each_context$1(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[14] = list[i][0];
+	child_ctx[15] = list[i][1];
+	child_ctx[16] = list[i][2];
+	return child_ctx;
 }
 
-// (46:2) {#if image.url}
-function create_if_block$2(ctx) {
-	let img;
-	let img_src_value;
-	let img_alt_value;
+// (157:6) {#each wards as [wardName, councillor, email]}
+function create_each_block$1(ctx) {
+	let option;
+	let t0_value = /*councillor*/ ctx[15] + "";
+	let t0;
+	let t1;
+	let t2_value = /*wardName*/ ctx[14] + "";
+	let t2;
+	let t3;
+	let option_value_value;
 
 	return {
 		c() {
-			img = element("img");
+			option = element("option");
+			t0 = text(t0_value);
+			t1 = text(" (ward ");
+			t2 = text(t2_value);
+			t3 = text(")");
 			this.h();
 		},
 		l(nodes) {
-			img = claim_element(nodes, "IMG", { src: true, alt: true, class: true });
+			option = claim_element(nodes, "OPTION", {});
+			var option_nodes = children(option);
+			t0 = claim_text(option_nodes, t0_value);
+			t1 = claim_text(option_nodes, " (ward ");
+			t2 = claim_text(option_nodes, t2_value);
+			t3 = claim_text(option_nodes, ")");
+			option_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[2].url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*image*/ ctx[2].alt);
-			attr(img, "class", "svelte-7kabnb");
+			option.__value = option_value_value = /*councillor*/ ctx[15];
+			option.value = option.__value;
 		},
 		m(target, anchor) {
-			insert_hydration(target, img, anchor);
+			insert_hydration(target, option, anchor);
+			append_hydration(option, t0);
+			append_hydration(option, t1);
+			append_hydration(option, t2);
+			append_hydration(option, t3);
 		},
-		p(ctx, dirty) {
-			if (dirty & /*image*/ 4 && !src_url_equal(img.src, img_src_value = /*image*/ ctx[2].url)) {
-				attr(img, "src", img_src_value);
-			}
-
-			if (dirty & /*image*/ 4 && img_alt_value !== (img_alt_value = /*image*/ ctx[2].alt)) {
-				attr(img, "alt", img_alt_value);
-			}
-		},
+		p: noop,
 		d(detaching) {
-			if (detaching) detach(img);
+			if (detaching) detach(option);
 		}
 	};
 }
 
 function create_fragment$3(ctx) {
-	let div;
-	let header;
-	let h1;
+	let div2;
+	let section;
+	let div1;
+	let div0;
+	let h2;
 	let t0;
 	let t1;
-	let span;
+	let p;
 	let t2;
 	let t3;
+	let form;
+	let label0;
+	let span;
 	let t4;
 	let t5;
-	let hr;
-	let if_block0 = /*author*/ ctx[3] && create_if_block_1$2(ctx);
-	let if_block1 = /*image*/ ctx[2].url && create_if_block$2(ctx);
+	let input;
+	let t6;
+	let label1;
+	let t7;
+	let select;
+	let t8;
+	let button;
+	let t9;
+	let mounted;
+	let dispose;
+	let each_value = /*wards*/ ctx[3];
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value.length; i += 1) {
+		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+	}
 
 	return {
 		c() {
-			div = element("div");
-			header = element("header");
-			h1 = element("h1");
+			div2 = element("div");
+			section = element("section");
+			div1 = element("div");
+			div0 = element("div");
+			h2 = element("h2");
 			t0 = text(/*heading*/ ctx[0]);
 			t1 = space();
-			span = element("span");
-			t2 = text(/*subhead*/ ctx[1]);
+			p = element("p");
+			t2 = text(/*subheading*/ ctx[1]);
 			t3 = space();
-			if (if_block0) if_block0.c();
-			t4 = space();
-			if (if_block1) if_block1.c();
+			form = element("form");
+			label0 = element("label");
+			span = element("span");
+			t4 = text("Your Name:");
 			t5 = space();
-			hr = element("hr");
+			input = element("input");
+			t6 = space();
+			label1 = element("label");
+			t7 = text("Your Councillor:\n    ");
+			select = element("select");
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			t8 = space();
+			button = element("button");
+			t9 = text(/*button_text*/ ctx[2]);
 			this.h();
 		},
 		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true, id: true });
-			var div_nodes = children(div);
-			header = claim_element(div_nodes, "HEADER", { class: true });
-			var header_nodes = children(header);
-			h1 = claim_element(header_nodes, "H1", { class: true });
-			var h1_nodes = children(h1);
-			t0 = claim_text(h1_nodes, /*heading*/ ctx[0]);
-			h1_nodes.forEach(detach);
-			t1 = claim_space(header_nodes);
-			span = claim_element(header_nodes, "SPAN", { class: true });
+			div2 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div2_nodes = children(div2);
+			section = claim_element(div2_nodes, "SECTION", { class: true });
+			var section_nodes = children(section);
+			div1 = claim_element(section_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			h2 = claim_element(div0_nodes, "H2", { class: true });
+			var h2_nodes = children(h2);
+			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
+			h2_nodes.forEach(detach);
+			t1 = claim_space(div0_nodes);
+			p = claim_element(div0_nodes, "P", { class: true });
+			var p_nodes = children(p);
+			t2 = claim_text(p_nodes, /*subheading*/ ctx[1]);
+			p_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			t3 = claim_space(div1_nodes);
+			form = claim_element(div1_nodes, "FORM", { class: true });
+			var form_nodes = children(form);
+			label0 = claim_element(form_nodes, "LABEL", { class: true });
+			var label0_nodes = children(label0);
+			span = claim_element(label0_nodes, "SPAN", { class: true });
 			var span_nodes = children(span);
-			t2 = claim_text(span_nodes, /*subhead*/ ctx[1]);
+			t4 = claim_text(span_nodes, "Your Name:");
 			span_nodes.forEach(detach);
-			t3 = claim_space(header_nodes);
-			if (if_block0) if_block0.l(header_nodes);
-			t4 = claim_space(header_nodes);
-			if (if_block1) if_block1.l(header_nodes);
-			t5 = claim_space(header_nodes);
-			hr = claim_element(header_nodes, "HR", { class: true });
-			header_nodes.forEach(detach);
-			div_nodes.forEach(detach);
+			t5 = claim_space(label0_nodes);
+
+			input = claim_element(label0_nodes, "INPUT", {
+				id: true,
+				name: true,
+				class: true,
+				type: true,
+				placeholder: true
+			});
+
+			label0_nodes.forEach(detach);
+			t6 = claim_space(form_nodes);
+			label1 = claim_element(form_nodes, "LABEL", { class: true });
+			var label1_nodes = children(label1);
+			t7 = claim_text(label1_nodes, "Your Councillor:\n    ");
+			select = claim_element(label1_nodes, "SELECT", { id: true, name: true, class: true });
+			var select_nodes = children(select);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(select_nodes);
+			}
+
+			select_nodes.forEach(detach);
+			label1_nodes.forEach(detach);
+			t8 = claim_space(form_nodes);
+			button = claim_element(form_nodes, "BUTTON", { type: true, class: true });
+			var button_nodes = children(button);
+			t9 = claim_text(button_nodes, /*button_text*/ ctx[2]);
+			button_nodes.forEach(detach);
+			form_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			section_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h1, "class", "heading svelte-7kabnb");
-			attr(span, "class", "subhead svelte-7kabnb");
-			attr(hr, "class", "svelte-7kabnb");
-			attr(header, "class", "section-container svelte-7kabnb");
-			attr(div, "class", "section");
-			attr(div, "id", "section-2ba1b259");
+			attr(h2, "class", "heading");
+			attr(p, "class", "subheaging");
+			attr(div0, "class", "heading-group svelte-13kke8f");
+			attr(span, "class", "label svelte-13kke8f");
+			attr(input, "id", "name");
+			attr(input, "name", "name");
+			attr(input, "class", "placeholder svelte-13kke8f");
+			attr(input, "type", "text");
+			attr(input, "placeholder", "John Doe");
+			attr(label0, "class", "svelte-13kke8f");
+			attr(select, "id", "councillor");
+			attr(select, "name", "councillor");
+			attr(select, "class", "svelte-13kke8f");
+			attr(label1, "class", "label svelte-13kke8f");
+			attr(button, "type", "submit");
+			attr(button, "class", "button svelte-13kke8f");
+			attr(form, "class", "svelte-13kke8f");
+			attr(div1, "class", "box svelte-13kke8f");
+			attr(section, "class", "section-container svelte-13kke8f");
+			attr(div2, "class", "section");
+			attr(div2, "id", "section-c8982f80");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			append_hydration(div, header);
-			append_hydration(header, h1);
-			append_hydration(h1, t0);
-			append_hydration(header, t1);
-			append_hydration(header, span);
-			append_hydration(span, t2);
-			append_hydration(header, t3);
-			if (if_block0) if_block0.m(header, null);
-			append_hydration(header, t4);
-			if (if_block1) if_block1.m(header, null);
-			append_hydration(header, t5);
-			append_hydration(header, hr);
+			insert_hydration(target, div2, anchor);
+			append_hydration(div2, section);
+			append_hydration(section, div1);
+			append_hydration(div1, div0);
+			append_hydration(div0, h2);
+			append_hydration(h2, t0);
+			append_hydration(div0, t1);
+			append_hydration(div0, p);
+			append_hydration(p, t2);
+			append_hydration(div1, t3);
+			append_hydration(div1, form);
+			append_hydration(form, label0);
+			append_hydration(label0, span);
+			append_hydration(span, t4);
+			append_hydration(label0, t5);
+			append_hydration(label0, input);
+			append_hydration(form, t6);
+			append_hydration(form, label1);
+			append_hydration(label1, t7);
+			append_hydration(label1, select);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(select, null);
+				}
+			}
+
+			append_hydration(form, t8);
+			append_hydration(form, button);
+			append_hydration(button, t9);
+
+			if (!mounted) {
+				dispose = listen(form, "submit", prevent_default(/*submit_handler*/ ctx[11]));
+				mounted = true;
+			}
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if (dirty & /*subhead*/ 2) set_data(t2, /*subhead*/ ctx[1]);
+			if (dirty & /*subheading*/ 2) set_data(t2, /*subheading*/ ctx[1]);
 
-			if (/*author*/ ctx[3]) {
-				if (if_block0) {
-					if_block0.p(ctx, dirty);
-				} else {
-					if_block0 = create_if_block_1$2(ctx);
-					if_block0.c();
-					if_block0.m(header, t4);
+			if (dirty & /*wards*/ 8) {
+				each_value = /*wards*/ ctx[3];
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block$1(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(select, null);
+					}
 				}
-			} else if (if_block0) {
-				if_block0.d(1);
-				if_block0 = null;
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value.length;
 			}
 
-			if (/*image*/ ctx[2].url) {
-				if (if_block1) {
-					if_block1.p(ctx, dirty);
-				} else {
-					if_block1 = create_if_block$2(ctx);
-					if_block1.c();
-					if_block1.m(header, t5);
-				}
-			} else if (if_block1) {
-				if_block1.d(1);
-				if_block1 = null;
-			}
+			if (dirty & /*button_text*/ 4) set_data(t9, /*button_text*/ ctx[2]);
 		},
 		i: noop,
 		o: noop,
 		d(detaching) {
-			if (detaching) detach(div);
-			if (if_block0) if_block0.d();
-			if (if_block1) if_block1.d();
+			if (detaching) detach(div2);
+			destroy_each(each_blocks, detaching);
+			mounted = false;
+			dispose();
 		}
 	};
 }
@@ -3869,25 +3953,91 @@ function instance$3($$self, $$props, $$invalidate) {
 	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
-	let { preview_image } = $$props;
+	let { description } = $$props;
 	let { heading } = $$props;
-	let { subhead } = $$props;
-	let { image } = $$props;
-	let { author } = $$props;
+	let { subheading } = $$props;
+	let { inputs } = $$props;
+	let { button_text } = $$props;
 
-	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(4, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(5, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(6, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(7, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(8, preview_image = $$props.preview_image);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('subhead' in $$props) $$invalidate(1, subhead = $$props.subhead);
-		if ('image' in $$props) $$invalidate(2, image = $$props.image);
-		if ('author' in $$props) $$invalidate(3, author = $$props.author);
+	const wards = [
+		["papastew", "Michael Janz", "michael.janz@edmonton.ca"],
+		["Nakota Isga", "Andrew Knack", "andrew.knack@edmonton.ca"],
+		["Anirniq", "Erin Rutherford", "erin.rutherford@edmonton.ca"],
+		["Dene", "Aaron Paquette", "aaron.paquette@edmonton.ca"],
+		["Ipiihkoohkanipiaohtsi", "Jennifer Rice", "jennifer.rice@edmonton.ca"],
+		["Karhiio", "Keren Tang", "keren.tang@edmonton.ca"],
+		["Métis", "Ashley Salvador", "ashley.salvador@edmonton.ca"],
+		["O-day’min", "Anne Stevenson", "anne.stevenson@edmonton.ca"],
+		["pihêsiwin", "Tim Cartmell", "tim.cartmell@edmonton.ca"],
+		["sipiwiyiniwak", "Sarah Hamilton", "sarah.hamilton@edmonton.ca"],
+		["Sspomitapi", "Jo-Anne Wright", "jo-anne.wright@edmonton.ca"],
+		["tastawiyiniwak", "Karen Principe", "karen.principe@edmonton.ca"]
+	];
+
+	const draftLetter = (councillorName, name) => {
+		const [wardName, _, councillorEmail] = wards.find(ward => ward[1] === councillorName);
+		const lastName = councillorName.split(" ")[1];
+		let letter = `Dear Councillor ${lastName}` + "\n\nI’m writing in support of Edmonton’s new zoning bylaw, an important step in ensuring Edmonton remains a progressive, inclusive, vibrant city." + "\nI support the new zoning bylaw and its proposed changes for three important reasons." + "\n\n1. Gently increasing our density is the simplest and most effective way to increase Edmonton's environment sustainability. Denser neighbourhoods reduce energy usage, make active and public transportation easier and more cost efficient, and preserve our region's dwindling supply of woodlands, wetlands and farmlands by putting houses in areas that are already built." + "\n2. Greater density improves services and helps lower costs for all residents.  Sprawling development has and continues to cost the city more money than it brings in: the city currently has an infrastructure maintenance deficit of $470 million per year, and every new neighbourhood adds tens of millions to that number. At a time when the cost of living continues to rise dramatically, the city cannot afford to build so inefficiently." + "\n3. A variety of housing will help neighbourhoods stay vibrant, livable places by supporting local amenities, services and recreation.  As previous generations have seen, we cannot preserve lively neighbourhoods by preventing them from changing: a single-house-fits-all model does not work for the diverse array of people that flock to a city. New housing options and the new neighbours they bring allow our neighbourhood institutions, businesses, parks and infrastructure to reach their fullest potential." + "\n\nI urge you to support the new zoning bylaw and help prepare Edmonton for a future that's brighter for everyone. " + "\n\nSIGNED" + `\n${name}, resident of ward ${wardName}`;
+		const subjectLine = encodeURIComponent(getSubjectLine());
+		letter = encodeURIComponent(letter);
+		const mailto = `mailto:${councillorEmail}?subject=${subjectLine}&body=${letter}`;
+		console.log(mailto);
+		window.open(mailto);
 	};
 
-	return [heading, subhead, image, author, color1, color2, favicon, title, preview_image];
+	const possibleSubjectLines = [
+		"I support the Draft Zoning Bylaw",
+		"I support the new zoning bylaw",
+		"Don't delay the new zoning bylaw",
+		"New zoning bylaw is good for Edmonton",
+		"Zoning bylaw renewal is good for Edmonton",
+		"Pass the new zoning bylaw without delay",
+		"Why the new zoning bylaw is crucial for our community",
+		"Support the new zoning bylaw for a better city",
+		"Approve the zoning bylaw",
+		"The new zoning rules will make Edmonton a better place to live",
+		"Promote Smart Growth: Approve the New Zoning Bylaw",
+		"Approve the zoning bylaw for a more sustainable Edmonton",
+		"Revamp zoning rules to keep Edmonton affordable"
+	];
+
+	const getSubjectLine = () => {
+		let index = Math.floor(Math.random() * possibleSubjectLines.length);
+		return possibleSubjectLines[index];
+	};
+
+	const submit_handler = ({ target }) => {
+		const data = new FormData(target);
+		console.log(data);
+		draftLetter(data.get("councillor"), data.get("name"));
+	};
+
+	$$self.$$set = $$props => {
+		if ('color1' in $$props) $$invalidate(5, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(6, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(7, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(8, title = $$props.title);
+		if ('description' in $$props) $$invalidate(9, description = $$props.description);
+		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
+		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
+		if ('inputs' in $$props) $$invalidate(10, inputs = $$props.inputs);
+		if ('button_text' in $$props) $$invalidate(2, button_text = $$props.button_text);
+	};
+
+	return [
+		heading,
+		subheading,
+		button_text,
+		wards,
+		draftLetter,
+		color1,
+		color2,
+		favicon,
+		title,
+		description,
+		inputs,
+		submit_handler
+	];
 }
 
 class Component$3 extends SvelteComponent {
@@ -3895,299 +4045,22 @@ class Component$3 extends SvelteComponent {
 		super();
 
 		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
-			color1: 4,
-			color2: 5,
-			favicon: 6,
-			title: 7,
-			preview_image: 8,
+			color1: 5,
+			color2: 6,
+			favicon: 7,
+			title: 8,
+			description: 9,
 			heading: 0,
-			subhead: 1,
-			image: 2,
-			author: 3
+			subheading: 1,
+			inputs: 10,
+			button_text: 2
 		});
 	}
 }
 
 /* generated by Svelte v3.58.0 */
 
-function create_fragment$4(ctx) {
-	let div2;
-	let div1;
-	let div0;
-	let raw_value = /*content*/ ctx[0].html + "";
-
-	return {
-		c() {
-			div2 = element("div");
-			div1 = element("div");
-			div0 = element("div");
-			this.h();
-		},
-		l(nodes) {
-			div2 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div2_nodes = children(div2);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-			div0 = claim_element(div1_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(div0, "class", "section-container content svelte-1sinmo4");
-			attr(div1, "class", "section");
-			attr(div2, "class", "section");
-			attr(div2, "id", "section-cfecf18a");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div2, anchor);
-			append_hydration(div2, div1);
-			append_hydration(div1, div0);
-			div0.innerHTML = raw_value;
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*content*/ 1 && raw_value !== (raw_value = /*content*/ ctx[0].html + "")) div0.innerHTML = raw_value;		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div2);
-		}
-	};
-}
-
-function instance$4($$self, $$props, $$invalidate) {
-	let { color1 } = $$props;
-	let { color2 } = $$props;
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { preview_image } = $$props;
-	let { content } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(4, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
-		if ('content' in $$props) $$invalidate(0, content = $$props.content);
-	};
-
-	return [content, color1, color2, favicon, title, preview_image];
-}
-
-class Component$4 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
-			color1: 1,
-			color2: 2,
-			favicon: 3,
-			title: 4,
-			preview_image: 5,
-			content: 0
-		});
-	}
-}
-
-/* generated by Svelte v3.58.0 */
-
-function create_fragment$5(ctx) {
-	let div;
-	let section;
-	let img;
-	let img_src_value;
-	let img_alt_value;
-
-	return {
-		c() {
-			div = element("div");
-			section = element("section");
-			img = element("img");
-			this.h();
-		},
-		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true, id: true });
-			var div_nodes = children(div);
-			section = claim_element(div_nodes, "SECTION", { class: true });
-			var section_nodes = children(section);
-
-			img = claim_element(section_nodes, "IMG", {
-				src: true,
-				alt: true,
-				style: true,
-				class: true
-			});
-
-			section_nodes.forEach(detach);
-			div_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[0].url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*image*/ ctx[0].alt);
-			set_style(img, "max-height", /*max_height*/ ctx[1] + "px");
-			attr(img, "class", "svelte-1qe5oiy");
-			attr(section, "class", "section-container svelte-1qe5oiy");
-			attr(div, "class", "section");
-			attr(div, "id", "section-31110281");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			append_hydration(div, section);
-			append_hydration(section, img);
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*image*/ 1 && !src_url_equal(img.src, img_src_value = /*image*/ ctx[0].url)) {
-				attr(img, "src", img_src_value);
-			}
-
-			if (dirty & /*image*/ 1 && img_alt_value !== (img_alt_value = /*image*/ ctx[0].alt)) {
-				attr(img, "alt", img_alt_value);
-			}
-
-			if (dirty & /*max_height*/ 2) {
-				set_style(img, "max-height", /*max_height*/ ctx[1] + "px");
-			}
-		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div);
-		}
-	};
-}
-
-function instance$5($$self, $$props, $$invalidate) {
-	let { color1 } = $$props;
-	let { color2 } = $$props;
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { preview_image } = $$props;
-	let { image } = $$props;
-	let { max_height } = $$props;
-	let { caption } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(2, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(3, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(5, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(6, preview_image = $$props.preview_image);
-		if ('image' in $$props) $$invalidate(0, image = $$props.image);
-		if ('max_height' in $$props) $$invalidate(1, max_height = $$props.max_height);
-		if ('caption' in $$props) $$invalidate(7, caption = $$props.caption);
-	};
-
-	return [image, max_height, color1, color2, favicon, title, preview_image, caption];
-}
-
-class Component$5 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
-			color1: 2,
-			color2: 3,
-			favicon: 4,
-			title: 5,
-			preview_image: 6,
-			image: 0,
-			max_height: 1,
-			caption: 7
-		});
-	}
-}
-
-/* generated by Svelte v3.58.0 */
-
-function create_fragment$6(ctx) {
-	let div2;
-	let div1;
-	let div0;
-	let raw_value = /*content*/ ctx[0].html + "";
-
-	return {
-		c() {
-			div2 = element("div");
-			div1 = element("div");
-			div0 = element("div");
-			this.h();
-		},
-		l(nodes) {
-			div2 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div2_nodes = children(div2);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-			div0 = claim_element(div1_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(div0, "class", "section-container content svelte-1sinmo4");
-			attr(div1, "class", "section");
-			attr(div2, "class", "section");
-			attr(div2, "id", "section-5adcb9aa");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div2, anchor);
-			append_hydration(div2, div1);
-			append_hydration(div1, div0);
-			div0.innerHTML = raw_value;
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*content*/ 1 && raw_value !== (raw_value = /*content*/ ctx[0].html + "")) div0.innerHTML = raw_value;		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div2);
-		}
-	};
-}
-
-function instance$6($$self, $$props, $$invalidate) {
-	let { color1 } = $$props;
-	let { color2 } = $$props;
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { preview_image } = $$props;
-	let { content } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(4, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
-		if ('content' in $$props) $$invalidate(0, content = $$props.content);
-	};
-
-	return [content, color1, color2, favicon, title, preview_image];
-}
-
-class Component$6 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
-			color1: 1,
-			color2: 2,
-			favicon: 3,
-			title: 4,
-			preview_image: 5,
-			content: 0
-		});
-	}
-}
-
-/* generated by Svelte v3.58.0 */
-
-function get_each_context$1(ctx, list, i) {
+function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
 	child_ctx[9] = list[i].link;
 	child_ctx[10] = list[i].icon;
@@ -4195,7 +4068,7 @@ function get_each_context$1(ctx, list, i) {
 }
 
 // (86:6) {#each social as { link, icon }}
-function create_each_block$1(ctx) {
+function create_each_block$2(ctx) {
 	let a;
 	let span;
 	let icon;
@@ -4270,7 +4143,7 @@ function create_each_block$1(ctx) {
 	};
 }
 
-function create_fragment$7(ctx) {
+function create_fragment$4(ctx) {
 	let div15;
 	let section;
 	let div2;
@@ -4343,7 +4216,7 @@ function create_fragment$7(ctx) {
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
 	}
 
 	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -4634,7 +4507,7 @@ function create_fragment$7(ctx) {
 			attr(script1, "type", "text/javascript");
 			attr(section, "class", "section-container svelte-1mgn2yk");
 			attr(div15, "class", "section");
-			attr(div15, "id", "section-eee1a1f8");
+			attr(div15, "id", "section-8f17e846");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div15, anchor);
@@ -4720,13 +4593,13 @@ function create_fragment$7(ctx) {
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context$1(ctx, each_value, i);
+					const child_ctx = get_each_context$2(ctx, each_value, i);
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
 						transition_in(each_blocks[i], 1);
 					} else {
-						each_blocks[i] = create_each_block$1(child_ctx);
+						each_blocks[i] = create_each_block$2(child_ctx);
 						each_blocks[i].c();
 						transition_in(each_blocks[i], 1);
 						each_blocks[i].m(div1, null);
@@ -4767,12 +4640,12 @@ function create_fragment$7(ctx) {
 	};
 }
 
-function instance$7($$self, $$props, $$invalidate) {
+function instance$4($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
-	let { preview_image } = $$props;
+	let { description } = $$props;
 	let { heading } = $$props;
 	let { subheading } = $$props;
 	let { social } = $$props;
@@ -4795,7 +4668,7 @@ function instance$7($$self, $$props, $$invalidate) {
 		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(6, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(7, preview_image = $$props.preview_image);
+		if ('description' in $$props) $$invalidate(7, description = $$props.description);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
 		if ('social' in $$props) $$invalidate(2, social = $$props.social);
@@ -4810,21 +4683,21 @@ function instance$7($$self, $$props, $$invalidate) {
 		color2,
 		favicon,
 		title,
-		preview_image,
+		description,
 		event
 	];
 }
 
-class Component$7 extends SvelteComponent {
+class Component$4 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$7, create_fragment$7, safe_not_equal, {
+		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
 			color1: 3,
 			color2: 4,
 			favicon: 5,
 			title: 6,
-			preview_image: 7,
+			description: 7,
 			heading: 0,
 			subheading: 1,
 			social: 2,
@@ -4835,130 +4708,41 @@ class Component$7 extends SvelteComponent {
 
 /* generated by Svelte v3.58.0 */
 
-function create_fragment$8(ctx) {
-	let div;
-	let iframe;
-	let iframe_src_value;
-
-	return {
-		c() {
-			div = element("div");
-			iframe = element("iframe");
-			this.h();
-		},
-		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true, id: true });
-			var div_nodes = children(div);
-
-			iframe = claim_element(div_nodes, "IFRAME", {
-				id: true,
-				title: true,
-				src: true,
-				width: true,
-				height: true,
-				style: true,
-				class: true
-			});
-
-			children(iframe).forEach(detach);
-			div_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(iframe, "id", "take-action");
-			attr(iframe, "title", "Take Action");
-			if (!src_url_equal(iframe.src, iframe_src_value = "https://gte-form.vercel.app/")) attr(iframe, "src", iframe_src_value);
-			attr(iframe, "width", "100%");
-			attr(iframe, "height", "1060px");
-			set_style(iframe, "border", "0px");
-			set_style(iframe, "overflow", "hidden");
-			set_style(iframe, "margin", "auto");
-			attr(iframe, "class", "svelte-1o7w9hc");
-			attr(div, "class", "section");
-			attr(div, "id", "section-9051539d");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			append_hydration(div, iframe);
-		},
-		p: noop,
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div);
-		}
-	};
-}
-
-function instance$8($$self, $$props, $$invalidate) {
+function instance$5($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
 	let { title } = $$props;
-	let { preview_image } = $$props;
+	let { description } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(3, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(4, preview_image = $$props.preview_image);
+		if ('description' in $$props) $$invalidate(4, description = $$props.description);
 	};
 
-	return [color1, color2, favicon, title, preview_image];
+	return [color1, color2, favicon, title, description];
 }
 
-class Component$8 extends SvelteComponent {
+class Component$5 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$8, create_fragment$8, safe_not_equal, {
+		init(this, options, instance$5, null, safe_not_equal, {
 			color1: 0,
 			color2: 1,
 			favicon: 2,
 			title: 3,
-			preview_image: 4
+			description: 4
 		});
 	}
 }
 
 /* generated by Svelte v3.58.0 */
 
-function instance$9($$self, $$props, $$invalidate) {
-	let { color1 } = $$props;
-	let { color2 } = $$props;
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { preview_image } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(3, title = $$props.title);
-		if ('preview_image' in $$props) $$invalidate(4, preview_image = $$props.preview_image);
-	};
-
-	return [color1, color2, favicon, title, preview_image];
-}
-
-class Component$9 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$9, null, safe_not_equal, {
-			color1: 0,
-			color2: 1,
-			favicon: 2,
-			title: 3,
-			preview_image: 4
-		});
-	}
-}
-
-/* generated by Svelte v3.58.0 */
-
-function create_fragment$9(ctx) {
+function create_fragment$5(ctx) {
 	let component_0;
 	let t0;
 	let component_1;
@@ -4968,14 +4752,6 @@ function create_fragment$9(ctx) {
 	let component_3;
 	let t3;
 	let component_4;
-	let t4;
-	let component_5;
-	let t5;
-	let component_6;
-	let t6;
-	let component_7;
-	let t7;
-	let component_8;
 	let current;
 
 	component_0 = new Component({
@@ -4988,13 +4764,8 @@ function create_fragment$9(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
-				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
-				preview_image: {
-					"alt": "Fiscal Sustainability",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"size": null
-				}
+				title: "Grow Together Edmonton",
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan."
 			}
 		});
 
@@ -5008,13 +4779,8 @@ function create_fragment$9(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
-				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
-				preview_image: {
-					"alt": "Fiscal Sustainability",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"size": null
-				},
+				title: "Grow Together Edmonton",
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				logo: {
 					"image": {
 						"alt": "",
@@ -5062,22 +4828,28 @@ function create_fragment$9(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
-				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
-				preview_image: {
-					"alt": "Fiscal Sustainability",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"size": null
-				},
-				heading: "Zoning Renewal and Fiscal Sustainability",
-				subhead: "Suburban sprawl is bankrupting Edmonton. ",
-				image: {
-					"alt": "",
-					"src": "",
-					"url": "",
-					"size": null
-				},
-				author: ""
+				title: "Grow Together Edmonton",
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
+				heading: "Make your voice heard",
+				subheading: "Email your city councillor to let them know that your Edmonton includes renters, and you support the new zoning bylaw. We've got a template letter you can use as a draft.",
+				inputs: [
+					{
+						"type": "text",
+						"label": "Your Name",
+						"placeholder": "Ad exercitation quis"
+					},
+					{
+						"type": "text",
+						"label": "Subject",
+						"placeholder": "Mollit nulla veniam"
+					},
+					{
+						"type": "text",
+						"label": "Your Ward",
+						"placeholder": "Papastew"
+					}
+				],
+				button_text: "Open Draft Email"
 			}
 		});
 
@@ -5091,92 +4863,8 @@ function create_fragment$9(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
-				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
-				preview_image: {
-					"alt": "Fiscal Sustainability",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"size": null
-				},
-				content: {
-					"html": "<h3>Edmonton can't afford its infrastructure — and building new neighbourhoods makes the problem worse</h3><p>The city has an infrastructure maintenance deficit of <strong>$470 million per year</strong>. That's more than our entire public transit budget ($385 million) and more than we spend on police ($407 million). And since we can't afford to do critical preventative maintenance, that number will only grow with time. To fill the deficit at its current value, we would have to <strong>raise property taxes by 28%</strong>.</p><p>Why can't we afford to maintain the roads, bridges and sewage systems we already have? It's because we've been growing in an unsustainable way for decades. Urban sprawl has wrought havoc on our balance sheets because the city loses money on every new neighborhood that gets built on the outskirts. For example, the new neighbourhood of Decoteau will add hundreds of millions of dollars to our budget shortfall.</p>",
-					"markdown": "### Edmonton can't afford its infrastructure — and building new neighbourhoods makes the problem worse\n\nThe city has an infrastructure maintenance deficit of **$470 million per year**. That's more than our entire public transit budget ($385 million) and more than we spend on police ($407 million). And since we can't afford to do critical preventative maintenance, that number will only grow with time. To fill the deficit at its current value, we would have to **raise property taxes by 28%**.\n\nWhy can't we afford to maintain the roads, bridges and sewage systems we already have? It's because we've been growing in an unsustainable way for decades. Urban sprawl has wrought havoc on our balance sheets because the city loses money on every new neighborhood that gets built on the outskirts. For example, the new neighbourhood of Decoteau will add hundreds of millions of dollars to our budget shortfall.\n\n"
-				}
-			}
-		});
-
-	component_4 = new Component$5({
-			props: {
-				color1: "#A9CD37",
-				color2: "",
-				favicon: {
-					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"size": null
-				},
-				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
-				preview_image: {
-					"alt": "Fiscal Sustainability",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"size": null
-				},
-				image: {
-					"alt": "Revenue vs Expenditures for a typical new neighbourhood",
-					"src": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689308724419Decoteau%20Revenue.png",
-					"url": "https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/1689308724419Decoteau%20Revenue.png",
-					"size": null
-				},
-				max_height: "400",
-				caption: {
-					"html": "<p>Source: Urban Planning Committee Aug 23, 2022</p>",
-					"markdown": "Source: Urban Planning Committee Aug 23, 2022"
-				}
-			}
-		});
-
-	component_5 = new Component$6({
-			props: {
-				color1: "#A9CD37",
-				color2: "",
-				favicon: {
-					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"size": null
-				},
-				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
-				preview_image: {
-					"alt": "Fiscal Sustainability",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"size": null
-				},
-				content: {
-					"html": "<p>Source: Urban Planning Committee Aug 23, 2022</p>\n<h3 id=\"thesolutionbuildupourexistingneighbourhoods\">The solution: Build up our existing neighbourhoods</h3>\n<p>The new zoning bylaw will make it easier to build new middle-density homes in mature communities. That helps lower property taxes for everyone because <strong>increasing density raises our tax base without substantially increasing costs for the city</strong></p>\n<p>There are two reasons for this:</p>\n<ol>\n<li><p><strong>Upfront costs are lower</strong>. In our mature neighbourhoods, roads have already been built and utilities are <a href=\"https://www.jacobdawang.com/blog/2023/edmonton-mature-neighbourhoods/\">typically underutilized due to declining populations</a>. The city doesn't need to pay for a bunch of new infrastructure if we can use what already exists.</p></li>\n<li><p><strong>Servicing costs are lower</strong>. It's <a href=\"https://usa.streetsblog.org/2015/03/05/sprawl-costs-the-public-more-than-twice-as-much-as-compact-development\">much cheaper</a> to provide road maintenance, transit, and garbage disposal services to higher density residences. There's less road to resurface, </p></li>\n</ol>",
-					"markdown": "Source: Urban Planning Committee Aug 23, 2022\n\n### The solution: Build up our existing neighbourhoods\n\nThe new zoning bylaw will make it easier to build new middle-density homes in mature communities. That helps lower property taxes for everyone because **increasing density raises our tax base without substantially increasing costs for the city**\n\nThere are two reasons for this:\n\n1. **Upfront costs are lower**. In our mature neighbourhoods, roads have already been built and utilities are [typically underutilized due to declining populations](https://www.jacobdawang.com/blog/2023/edmonton-mature-neighbourhoods/). The city doesn't need to pay for a bunch of new infrastructure if we can use what already exists.\n\n2. **Servicing costs are lower**. It's [much cheaper](https://usa.streetsblog.org/2015/03/05/sprawl-costs-the-public-more-than-twice-as-much-as-compact-development) to provide road maintenance, transit, and garbage disposal services to higher density residences. There's less road to resurface, \n"
-				}
-			}
-		});
-
-	component_6 = new Component$7({
-			props: {
-				color1: "#A9CD37",
-				color2: "",
-				favicon: {
-					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"size": null
-				},
-				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
-				preview_image: {
-					"alt": "Fiscal Sustainability",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"size": null
-				},
+				title: "Grow Together Edmonton",
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				heading: "Get Involved",
 				subheading: {
 					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote in October and there will be a lot of opposition from NIMBYs.</p><p>Make sure your voice is heard too! We've got a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://gtyeg.ca/speaking\">step by step guide for signing up for the public hearing</a> and speaking to council.</p>",
@@ -5212,7 +4900,7 @@ function create_fragment$9(ctx) {
 			}
 		});
 
-	component_7 = new Component$8({
+	component_4 = new Component$5({
 			props: {
 				color1: "#A9CD37",
 				color2: "",
@@ -5222,33 +4910,8 @@ function create_fragment$9(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
-				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
-				preview_image: {
-					"alt": "Fiscal Sustainability",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"size": null
-				}
-			}
-		});
-
-	component_8 = new Component$9({
-			props: {
-				color1: "#A9CD37",
-				color2: "",
-				favicon: {
-					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"size": null
-				},
-				title: "Zoning bylaw renewal will help keep Edmonton solvent.",
-				preview_image: {
-					"alt": "Fiscal Sustainability",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
-					"size": null
-				}
+				title: "Grow Together Edmonton",
+				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan."
 			}
 		});
 
@@ -5263,14 +4926,6 @@ function create_fragment$9(ctx) {
 			create_component(component_3.$$.fragment);
 			t3 = space();
 			create_component(component_4.$$.fragment);
-			t4 = space();
-			create_component(component_5.$$.fragment);
-			t5 = space();
-			create_component(component_6.$$.fragment);
-			t6 = space();
-			create_component(component_7.$$.fragment);
-			t7 = space();
-			create_component(component_8.$$.fragment);
 		},
 		l(nodes) {
 			claim_component(component_0.$$.fragment, nodes);
@@ -5282,14 +4937,6 @@ function create_fragment$9(ctx) {
 			claim_component(component_3.$$.fragment, nodes);
 			t3 = claim_space(nodes);
 			claim_component(component_4.$$.fragment, nodes);
-			t4 = claim_space(nodes);
-			claim_component(component_5.$$.fragment, nodes);
-			t5 = claim_space(nodes);
-			claim_component(component_6.$$.fragment, nodes);
-			t6 = claim_space(nodes);
-			claim_component(component_7.$$.fragment, nodes);
-			t7 = claim_space(nodes);
-			claim_component(component_8.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(component_0, target, anchor);
@@ -5301,14 +4948,6 @@ function create_fragment$9(ctx) {
 			mount_component(component_3, target, anchor);
 			insert_hydration(target, t3, anchor);
 			mount_component(component_4, target, anchor);
-			insert_hydration(target, t4, anchor);
-			mount_component(component_5, target, anchor);
-			insert_hydration(target, t5, anchor);
-			mount_component(component_6, target, anchor);
-			insert_hydration(target, t6, anchor);
-			mount_component(component_7, target, anchor);
-			insert_hydration(target, t7, anchor);
-			mount_component(component_8, target, anchor);
 			current = true;
 		},
 		p: noop,
@@ -5319,10 +4958,6 @@ function create_fragment$9(ctx) {
 			transition_in(component_2.$$.fragment, local);
 			transition_in(component_3.$$.fragment, local);
 			transition_in(component_4.$$.fragment, local);
-			transition_in(component_5.$$.fragment, local);
-			transition_in(component_6.$$.fragment, local);
-			transition_in(component_7.$$.fragment, local);
-			transition_in(component_8.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
@@ -5331,10 +4966,6 @@ function create_fragment$9(ctx) {
 			transition_out(component_2.$$.fragment, local);
 			transition_out(component_3.$$.fragment, local);
 			transition_out(component_4.$$.fragment, local);
-			transition_out(component_5.$$.fragment, local);
-			transition_out(component_6.$$.fragment, local);
-			transition_out(component_7.$$.fragment, local);
-			transition_out(component_8.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
@@ -5347,23 +4978,15 @@ function create_fragment$9(ctx) {
 			destroy_component(component_3, detaching);
 			if (detaching) detach(t3);
 			destroy_component(component_4, detaching);
-			if (detaching) detach(t4);
-			destroy_component(component_5, detaching);
-			if (detaching) detach(t5);
-			destroy_component(component_6, detaching);
-			if (detaching) detach(t6);
-			destroy_component(component_7, detaching);
-			if (detaching) detach(t7);
-			destroy_component(component_8, detaching);
 		}
 	};
 }
 
-class Component$a extends SvelteComponent {
+class Component$6 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, null, create_fragment$9, safe_not_equal, {});
+		init(this, options, null, create_fragment$5, safe_not_equal, {});
 	}
 }
 
-export default Component$a;
+export default Component$6;

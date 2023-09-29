@@ -93,24 +93,15 @@
         }
     </style><!-- HEAD_svelte-ccebu9_END -->
     <style>
-        header.svelte-18ypq0y.svelte-18ypq0y {
-            color: white;
-            background-size: cover;
-            display: grid;
-            gap: 5rem
-        }
-
-        .section-container.svelte-18ypq0y.svelte-18ypq0y {
-            width: 100%;
+        .section-container.svelte-nnp8i3.svelte-nnp8i3 {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding-top: 1rem;
-            padding-bottom: 1rem;
-            color: black
+            padding-bottom: 1rem
         }
 
-        .logo.svelte-18ypq0y.svelte-18ypq0y {
+        .logo.svelte-nnp8i3.svelte-nnp8i3 {
             font-size: 1.5rem;
             font-weight: 600;
             line-height: 1.2;
@@ -119,42 +110,40 @@
             align-items: center
         }
 
-        .logo.svelte-18ypq0y>img.svelte-18ypq0y {
-            width: 100px;
+        .logo.svelte-nnp8i3>img.svelte-nnp8i3 {
+            max-width: 100px;
             margin-right: 1rem
         }
 
-        .desktop-nav.svelte-18ypq0y.svelte-18ypq0y {
+        .desktop-nav.svelte-nnp8i3.svelte-nnp8i3 {
             display: none;
             align-items: center;
             justify-content: space-between;
             width: 100%
         }
 
-        .desktop-nav.svelte-18ypq0y nav.svelte-18ypq0y {
+        .desktop-nav.svelte-nnp8i3 nav.svelte-nnp8i3 {
             display: flex;
             gap: 2rem
         }
 
-        .desktop-nav.svelte-18ypq0y nav a.link.svelte-18ypq0y {
+        @media(min-width: 800px) {
+            .desktop-nav.svelte-nnp8i3.svelte-nnp8i3 {
+                display: flex
+            }
+        }
+
+        nav.svelte-nnp8i3>a.link.svelte-nnp8i3 {
             border-color: transparent;
             transition: border-color 0.1s;
             font-size: 0.95rem
         }
 
-        .desktop-nav.svelte-18ypq0y nav a.link.svelte-18ypq0y:hover,
-        .desktop-nav.svelte-18ypq0y nav a.link .active.svelte-18ypq0y {
-            border-color: var(--color-accent);
-            color: var(--color-accent)
+        nav.svelte-nnp8i3>a.link.svelte-nnp8i3:hover {
+            border-color: var(--color-accent)
         }
 
-        @media(min-width: 800px) {
-            .desktop-nav.svelte-18ypq0y.svelte-18ypq0y {
-                display: flex
-            }
-        }
-
-        .mobile-nav.svelte-18ypq0y.svelte-18ypq0y {
+        .mobile-nav.svelte-nnp8i3.svelte-nnp8i3 {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -163,20 +152,12 @@
         }
 
         @media(min-width: 800px) {
-            .mobile-nav.svelte-18ypq0y.svelte-18ypq0y {
+            .mobile-nav.svelte-nnp8i3.svelte-nnp8i3 {
                 display: none
             }
         }
 
-        .headline.svelte-18ypq0y.svelte-18ypq0y {
-            font-size: clamp(2rem, 10vw, 3.5rem);
-            max-width: 800px;
-            padding-bottom: 2rem;
-            line-height: 1.1
-        }
-
-        #popup.svelte-18ypq0y.svelte-18ypq0y {
-            color: #222;
+        #popup.svelte-nnp8i3.svelte-nnp8i3 {
             font-size: 1.25rem;
             display: grid;
             gap: 1rem;
@@ -191,119 +172,74 @@
             z-index: 1
         }
 
-        #popup.svelte-18ypq0y button#close.svelte-18ypq0y {
+        #popup.svelte-nnp8i3 button#close.svelte-nnp8i3 {
             position: absolute;
             right: 1rem;
             top: 1rem
         }
 
-        section.svelte-1qwgcet.svelte-1qwgcet {
-            background: #2b312b;
-            color: white
-        }
-
-        .teasers.svelte-1qwgcet.svelte-1qwgcet {
-            display: grid;
-            gap: 6rem
-        }
-
-        .teaser.svelte-1qwgcet.svelte-1qwgcet {
-            display: grid;
-            gap: 1rem
-        }
-
-        .teaser.svelte-1qwgcet img.svelte-1qwgcet {
+        .section-container.svelte-13kke8f.svelte-13kke8f {
+            max-width: 700px;
             width: 100%;
-            border-radius: var(--border-radius)
-        }
-
-        .teaser.svelte-1qwgcet .content-section.svelte-1qwgcet {
-            display: grid;
-            place-items: flex-start;
-            padding: 0
-        }
-
-        .teaser.svelte-1qwgcet .content-section .heading.svelte-1qwgcet {
-            margin-bottom: 1.25rem
-        }
-
-        .teaser.svelte-1qwgcet .content-section .body.svelte-1qwgcet {
-            margin-bottom: 2rem
-        }
-
-        .teaser.svelte-1qwgcet .content-section a.button.svelte-1qwgcet {
-            background-color: transparent;
-            border: 1.5px solid white
-        }
-
-        .teaser.svelte-1qwgcet .content-section a.button.svelte-1qwgcet:hover {
-            box-shadow: 0 0 0 2px white
-        }
-
-        @media(min-width: 800px) {
-            .teaser.svelte-1qwgcet.svelte-1qwgcet {
-                grid-template-columns: 1fr 1fr;
-                place-items: center;
-                gap: 4rem
-                    /* switch direction for even items */
-            }
-
-            .teaser.svelte-1qwgcet:nth-child(odd) img.svelte-1qwgcet {
-                grid-row: 1;
-                grid-column: 2
-            }
-
-            .teaser.svelte-1qwgcet:nth-child(even) img.svelte-1qwgcet {
-                grid-row: 1;
-                grid-column: 1
-            }
-        }
-
-        @media(min-width: 1200px) {
-            section.svelte-1qwgcet.svelte-1qwgcet {
-                gap: 6rem
-            }
-
-            .teaser.svelte-1qwgcet.svelte-1qwgcet {
-                gap: 10rem
-            }
-
-            .heading.svelte-1qwgcet.svelte-1qwgcet {
-                margin-bottom: 5rem
-            }
-
-            .body.svelte-1qwgcet.svelte-1qwgcet {
-                margin-bottom: 2.5rem
-            }
-        }
-
-        .section-container.svelte-pguuc6.svelte-pguuc6 {
-            display: grid;
-            gap: 2rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            max-width: 900px
-        }
-
-        @media(min-width: 800px) {
-            .section-container.svelte-pguuc6.svelte-pguuc6 {
-                grid-template-columns: 1fr 1fr;
-                gap: 9rem
-            }
-        }
-
-        .content.svelte-pguuc6.svelte-pguuc6 {
-            display: grid;
-            place-content: flex-start;
+            margin: 0 auto;
             gap: 1rem;
-            max-width: 500px;
+            margin-top: 0;
+            padding-top: 1rem
+        }
+
+        .box.svelte-13kke8f.svelte-13kke8f {
+            margin-top: 0;
+            padding: 3rem 3.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius, 4px)
+        }
+
+        .heading-group.svelte-13kke8f.svelte-13kke8f {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            margin-top: 0
+        }
+
+        form.svelte-13kke8f.svelte-13kke8f {
+            display: grid;
+            gap: 2rem
+        }
+
+        form.svelte-13kke8f input.svelte-13kke8f {
             min-width: 200px
         }
 
-        .actions.svelte-pguuc6.svelte-pguuc6 {
+        form.svelte-13kke8f label.svelte-13kke8f {
             display: grid;
-            place-items: center
+            gap: 0.25rem;
+            font-weight: 500;
+            min-width: 200px
+        }
+
+        form.svelte-13kke8f select.svelte-13kke8f {
+            min-width: 200px
+        }
+
+        form.svelte-13kke8f input.svelte-13kke8f {
+            width: 100%;
+            padding: 0.75rem 0.75rem;
+            border: 1.5px solid var(--border-color);
+            border-radius: 4px
+        }
+
+        form.svelte-13kke8f .label.svelte-13kke8f {
+            font-size: 1rem;
+            margin-bottom: 0.25rem
+        }
+
+        form.svelte-13kke8f .placeholder.svelte-13kke8f {
+            font-size: 1rem;
+            font-weight: 300
+        }
+
+        form.svelte-13kke8f .button.svelte-13kke8f {
+            place-self: start
         }
 
         .section-container.svelte-1mgn2yk.svelte-1mgn2yk {
@@ -359,80 +295,53 @@
         .content.svelte-1mgn2yk .social-links a:hover .icon.svelte-1mgn2yk {
             transform: scale(1.1)
         }
-
-        iframe.svelte-1o7w9hc {
-            margin-bottom: 0px;
-            padding-bottom: 0px
-        }
     </style>
 </head>
 
 <body id="page">
 
-    <div class="section" id="section-7bb86296">
-        <header style="background-image:url('')" role="img" aria-label="" class="svelte-18ypq0y">
-            <div class="section-container svelte-18ypq0y">
-                <div class="desktop-nav svelte-18ypq0y"><a href="/" class="logo svelte-18ypq0y"><img src="https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" class="svelte-18ypq0y">
-                        Grow Together Edmonton</a>
-                    <nav class="svelte-18ypq0y"><a class="link svelte-18ypq0y" href="/">Home</a><a class="link svelte-18ypq0y" href="/about">About Us</a><a class="link svelte-18ypq0y" href="/zoning-bylaw">Zoning Bylaw</a><a class="link svelte-18ypq0y" href="/#take-action">Take Action</a></nav>
-                </div>
-                <div class="mobile-nav svelte-18ypq0y"><a href="/" class="logo svelte-18ypq0y"><img src="https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" class="svelte-18ypq0y">
-                        Grow Together Edmonton</a>
-                    <button id="open" aria-label="Open mobile navigation"></button>
-                </div>
+    <div class="section" id="section-9b3026b5">
+        <header class="section-container svelte-nnp8i3">
+            <div class="desktop-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;" class="svelte-nnp8i3">
+                    Grow Together Edmonton</a>
+                <nav class="svelte-nnp8i3"><a class="link svelte-nnp8i3" href="/">Home</a><a class="link svelte-nnp8i3" href="/about">About Us</a><a class="link svelte-nnp8i3" href="/zoning-bylaw">Zoning Bylaw</a><a class="link svelte-nnp8i3" href="/#take-action">Take Action</a></nav>
             </div>
-            <div class="section-container svelte-18ypq0y">
-                <h1 class="headline svelte-18ypq0y">Edmonton's new zoning bylaw will help us fight climate change, fix our finances and keep the city affordable. </h1>
+            <div class="mobile-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img class="logo svelte-nnp8i3" src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;">
+                    Grow Together Edmonton</a>
+                <button id="open" aria-label="Open mobile navigation"></button>
             </div>
         </header>
     </div>
-    <div class="section" id="section-794531f5">
-        <section class="svelte-1qwgcet">
-            <div class="section-container svelte-1qwgcet">
-                <div class="teasers svelte-1qwgcet">
-                    <div class="teaser svelte-1qwgcet"><img src="https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689476148/blatchford-edmonton4480-3524-jpg_vtfy5m.webp" alt="Handsome brick rowhouse" class="svelte-1qwgcet">
-                        <div class="content-section svelte-1qwgcet"><a href="/climate" class="heading svelte-1qwgcet">Climate Action</a>
-                            <div class="body svelte-1qwgcet"><!-- HTML_TAG_START -->
-                                <p>Increasing density is the most impactful thing a city can do to reduce its GHG emissions. Allowing dense infill housing will help us reduce transport and heating emissions while preserving invaluable natural areas.</p><!-- HTML_TAG_END -->
-                            </div>
-                            <a class="button svelte-1qwgcet" href="/climate">Learn More
-                            </a>
-                        </div>
-                    </div>
-                    <div class="teaser svelte-1qwgcet"><img src="https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689476135/suburban_construction_upxstz.jpg" alt="Suburban development" class="svelte-1qwgcet">
-                        <div class="content-section svelte-1qwgcet"><a href="/finances" class="heading svelte-1qwgcet">Financial Sustainability</a>
-                            <div class="body svelte-1qwgcet"><!-- HTML_TAG_START -->
-                                <p>Edmonton loses money on every new suburb that's built. If we allow new housing in areas where infrastructure already exists, we can bolster the city's revenues, improving our services while keeping property taxes low.</p><!-- HTML_TAG_END -->
-                            </div>
-                            <a class="button svelte-1qwgcet" href="/finances">Learn More
-                            </a>
-                        </div>
-                    </div>
-                    <div class="teaser svelte-1qwgcet"><img src="https://res.cloudinary.com/dbnijop5c/image/upload/f_auto/v1689476153/low-rise-apartments_k7lbqj.jpg" alt="Low rise apartment" class="svelte-1qwgcet">
-                        <div class="content-section svelte-1qwgcet"><a href="/affordability" class="heading svelte-1qwgcet">Affordability</a>
-                            <div class="body svelte-1qwgcet"><!-- HTML_TAG_START -->
-                                <p>Housing shortages have resulted in sky-high housing costs across the country. Allowing more homes in more places will boost the supply of housing and help bring costs under control.</p><!-- HTML_TAG_END -->
-                            </div>
-                            <a class="button svelte-1qwgcet" href="/affordability">Learn More
-                            </a>
-                        </div>
-                    </div>
+    <div class="section" id="section-c8982f80">
+        <section class="section-container svelte-13kke8f">
+            <div class="box svelte-13kke8f">
+                <div class="heading-group svelte-13kke8f">
+                    <h2 class="heading">Make your voice heard</h2>
+                    <p class="subheaging">Email your city councillor to let them know that your Edmonton includes renters, and you support the new zoning bylaw. We've got a template letter you can use as a draft.</p>
                 </div>
+                <form class="svelte-13kke8f"><label class="svelte-13kke8f"><span class="label svelte-13kke8f">Your Name:</span>
+                        <input id="name" name="name" class="placeholder svelte-13kke8f" type="text" placeholder="John Doe"></label>
+                    <label class="label svelte-13kke8f">Your Councillor:
+                        <select id="councillor" name="councillor" class="svelte-13kke8f">
+                            <option value="Michael Janz">Michael Janz (ward papastew)</option>
+                            <option value="Andrew Knack">Andrew Knack (ward Nakota Isga)</option>
+                            <option value="Erin Rutherford">Erin Rutherford (ward Anirniq)</option>
+                            <option value="Aaron Paquette">Aaron Paquette (ward Dene)</option>
+                            <option value="Jennifer Rice">Jennifer Rice (ward Ipiihkoohkanipiaohtsi)</option>
+                            <option value="Keren Tang">Keren Tang (ward Karhiio)</option>
+                            <option value="Ashley Salvador">Ashley Salvador (ward Métis)</option>
+                            <option value="Anne Stevenson">Anne Stevenson (ward O-day’min)</option>
+                            <option value="Tim Cartmell">Tim Cartmell (ward pihêsiwin)</option>
+                            <option value="Sarah Hamilton">Sarah Hamilton (ward sipiwiyiniwak)</option>
+                            <option value="Jo-Anne Wright">Jo-Anne Wright (ward Sspomitapi)</option>
+                            <option value="Karen Principe">Karen Principe (ward tastawiyiniwak)</option>
+                        </select></label>
+                    <button type="submit" class="button svelte-13kke8f">Open Draft Email</button>
+                </form>
             </div>
         </section>
     </div>
-    <div class="section" id="section-c12381d0">
-        <section class="section-container svelte-pguuc6">
-            <div class="content svelte-pguuc6">
-                <h2 class="heading svelte-pguuc6">Who We Are</h2>
-                <div class="body svelte-pguuc6"><!-- HTML_TAG_START -->
-                    <p>Grow Together YEG is a coalition of everyday citizens advocating for a more sustainable, vibrant and affordable Edmonton.</p><!-- HTML_TAG_END -->
-                </div>
-            </div>
-            <div class="actions svelte-pguuc6"><a href="/about" class="button">About Us</a></div>
-        </section>
-    </div>
-    <div class="section" id="section-215744b8">
+    <div class="section" id="section-8f17e846">
         <section class="section-container svelte-1mgn2yk">
             <div class="content svelte-1mgn2yk">
                 <h2 class="heading">Get Involved</h2>
@@ -1475,7 +1384,6 @@
             </script>
         </section>
     </div>
-    <div class="section" id="section-503cd312"><iframe id="take-action" title="Take Action" src="https://gte-form.vercel.app/" width="100%" height="1060px" style="border: 0px; overflow: hidden; margin:auto;" class="svelte-1o7w9hc"></iframe></div>
 
     <script type="module">
         const path = window.location.pathname === '/' ? '' : window.location.pathname
