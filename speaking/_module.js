@@ -3949,7 +3949,7 @@ function get_each_context$1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (157:6) {#each wards as [wardName, councillor, email]}
+// (145:6) {#each wards as [wardName, councillor, email]}
 function create_each_block$1(ctx) {
 	let option;
 	let t0_value = /*councillor*/ ctx[15] + "";
@@ -4254,28 +4254,20 @@ function instance$6($$self, $$props, $$invalidate) {
 	const draftLetter = (councillorName, name) => {
 		const [wardName, _, councillorEmail] = wards.find(ward => ward[1] === councillorName);
 		const lastName = councillorName.split(" ")[1];
-		let letter = `Dear Councillor ${lastName}` + "\n\nI’m writing in support of Edmonton’s new zoning bylaw, an important step in ensuring Edmonton remains a progressive, inclusive, vibrant city." + "\nI support the new zoning bylaw and its proposed changes for three important reasons." + "\n\n1. Gently increasing our density is the simplest and most effective way to increase Edmonton's environment sustainability. Denser neighbourhoods reduce energy usage, make active and public transportation easier and more cost efficient, and preserve our region's dwindling supply of woodlands, wetlands and farmlands by putting houses in areas that are already built." + "\n2. Greater density improves services and helps lower costs for all residents.  Sprawling development has and continues to cost the city more money than it brings in: the city currently has an infrastructure maintenance deficit of $470 million per year, and every new neighbourhood adds tens of millions to that number. At a time when the cost of living continues to rise dramatically, the city cannot afford to build so inefficiently." + "\n3. A variety of housing will help neighbourhoods stay vibrant, livable places by supporting local amenities, services and recreation.  As previous generations have seen, we cannot preserve lively neighbourhoods by preventing them from changing: a single-house-fits-all model does not work for the diverse array of people that flock to a city. New housing options and the new neighbours they bring allow our neighbourhood institutions, businesses, parks and infrastructure to reach their fullest potential." + "\n\nI urge you to support the new zoning bylaw and help prepare Edmonton for a future that's brighter for everyone. " + "\n\nSIGNED" + `\n${name}, resident of ward ${wardName}`;
+		let letter = `Dear Councillor ${lastName}` + "\n\nI am writing to express my grave concern about Edmonton's rapidly rising rents and to urge you to take action. Please vote to update our zoning bylaw in order to boost our housing supply and protect affordability." + "\nRenters are not a nuisance to be regulated away. We contribute more than our fair share to Edmonton and we deserve affordable housing." + "\n\nSincerely" + `\n${name}, resident of ward ${wardName}`;
 		const subjectLine = encodeURIComponent(getSubjectLine());
 		letter = encodeURIComponent(letter);
-		const mailto = `mailto:${councillorEmail}?subject=${subjectLine}&body=${letter}`;
+		const cc = encodeURIComponent("council@edmonton.ca");
+		const mailto = `mailto:${councillorEmail}?subject=${subjectLine}&body=${letter}&cc=${cc}`;
 		console.log(mailto);
 		window.open(mailto);
 	};
 
 	const possibleSubjectLines = [
-		"I support the Draft Zoning Bylaw",
-		"I support the new zoning bylaw",
-		"Don't delay the new zoning bylaw",
-		"New zoning bylaw is good for Edmonton",
-		"Zoning bylaw renewal is good for Edmonton",
-		"Pass the new zoning bylaw without delay",
-		"Why the new zoning bylaw is crucial for our community",
-		"Support the new zoning bylaw for a better city",
-		"Approve the zoning bylaw",
-		"The new zoning rules will make Edmonton a better place to live",
-		"Promote Smart Growth: Approve the New Zoning Bylaw",
-		"Approve the zoning bylaw for a more sustainable Edmonton",
-		"Revamp zoning rules to keep Edmonton affordable"
+		"Renters deserve better: Approve the new zoning bylaw",
+		"Protect affordabity: Support the zoning bylaw",
+		"Zoning renewal needed to maintain affordability",
+		"Zoning renewal will help protect affordability"
 	];
 
 	const getSubjectLine = () => {
