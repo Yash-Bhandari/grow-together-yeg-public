@@ -3690,7 +3690,7 @@ function create_fragment$3(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-1sinmo4");
+			attr(div0, "class", "section-container content svelte-1b9cr7a");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-90132a1f");
@@ -3883,7 +3883,7 @@ function create_fragment$5(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "section-container content svelte-1sinmo4");
+			attr(div0, "class", "section-container content svelte-1b9cr7a");
 			attr(div1, "class", "section");
 			attr(div2, "class", "section");
 			attr(div2, "id", "section-ccc97785");
@@ -4456,8 +4456,8 @@ function create_fragment$7(ctx) {
 				title: "Grow Together Edmonton",
 				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				content: {
-					"html": "<h1 id=\"signinguptomarkspeakatcouncilonoctober16mark\">Signing up to <mark>speak at Council on October 16</mark></h1>\n<p>is the most important thing you can do to help make sure our new Zoning Bylaw passes</p>\n<p>Signing up only takes a minute, and you can choose to speak in person or remotely</p>\n<ol>\n<li><p><a href=\"https://docs.google.com/forms/d/e/1FAIpQLSfjK1JQOPRWVORUVKsSbRn3yLN5E9vcVLu3nifMO4N1ZfmgFg/viewform\">Follow this link</a></p></li>\n<li><p>Select \"Public Hearing\" and enter October 16 as the date</p></li>\n<li><p>Where it asks for the agenda number and title, enter: 3.1 Zoning Bylaw Renewal</p></li>\n<li><p>Select \"In Favour\" as your position</p></li>\n<li><p>Select \"no\" where it asks \"Would you like to be available to answer questions only?\"</p></li>\n<li><p>The City Clerk will send you a confirmation, and a reminder the day before.</p></li>\n</ol>\n<!-- -->",
-					"markdown": "# Signing up to <mark>speak at Council on October 16</mark>\n\n\n\nis the most important thing you can do to help make sure our new Zoning Bylaw passes\n\nSigning up only takes a minute, and you can choose to speak in person or remotely\n\n1. [Follow this link](https://docs.google.com/forms/d/e/1FAIpQLSfjK1JQOPRWVORUVKsSbRn3yLN5E9vcVLu3nifMO4N1ZfmgFg/viewform)\n2. Select \"Public Hearing\" and enter October 16 as the date\n\n3. Where it asks for the agenda number and title, enter: 3.1 Zoning Bylaw Renewal\n\n4. Select \"In Favour\" as your position\n\n5. Select \"no\" where it asks \"Would you like to be available to answer questions only?\"\n\n6. The City Clerk will send you a confirmation, and a reminder the day before.\n\n\n<!-- -->\n\n"
+					"html": "<h1 id=\"signinguptomarkspeakatcouncilonoctober16mark\">Signing up to <mark>speak at Council on October 16</mark></h1>\n<p>is the most important thing you can do to help make sure our new Zoning Bylaw passes</p>\n<p>Signing up only takes a minute, and you can choose to speak in person or remotely</p>\n<ol>\n<li><p><a href=\"https://docs.google.com/forms/d/e/1FAIpQLSfjK1JQOPRWVORUVKsSbRn3yLN5E9vcVLu3nifMO4N1ZfmgFg/viewform\">Follow this link</a></p></li>\n<li><p>Select \"Public Hearing\" and enter October 16 as the date</p></li>\n<li><p>Where it asks for the agenda number and title, enter: 3.1 Zoning Bylaw Renewal</p></li>\n<li><p>Select \"In Favour\" as your position</p></li>\n<li><p>Select \"no\" where it asks \"Would you like to be available to answer questions only?\"</p></li>\n<li><p>The City Clerk will send you a confirmation, and a reminder the day before.</p></li>\n</ol>",
+					"markdown": "# Signing up to <mark>speak at Council on October 16</mark>\n\n\n\nis the most important thing you can do to help make sure our new Zoning Bylaw passes\n\nSigning up only takes a minute, and you can choose to speak in person or remotely\n\n1. [Follow this link](https://docs.google.com/forms/d/e/1FAIpQLSfjK1JQOPRWVORUVKsSbRn3yLN5E9vcVLu3nifMO4N1ZfmgFg/viewform)\n2. Select \"Public Hearing\" and enter October 16 as the date\n\n3. Where it asks for the agenda number and title, enter: 3.1 Zoning Bylaw Renewal\n\n4. Select \"In Favour\" as your position\n\n5. Select \"no\" where it asks \"Would you like to be available to answer questions only?\"\n\n6. The City Clerk will send you a confirmation, and a reminder the day before.\n\n"
 				}
 			}
 		});
