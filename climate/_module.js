@@ -1013,8 +1013,14 @@ function create_fragment(ctx) {
 	let script0_src_value;
 	let script1;
 	let t0;
+	let title_value;
+	let meta2;
+	let meta3;
+	let meta4;
+	let meta4_content_value;
 	let style;
 	let t1;
+	document.title = title_value = /*title*/ ctx[1];
 
 	return {
 		c() {
@@ -1025,12 +1031,15 @@ function create_fragment(ctx) {
 			script0 = element("script");
 			script1 = element("script");
 			t0 = text("(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])\n    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,\n    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})\n    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');\n    ml('account', '511328');\n");
+			meta2 = element("meta");
+			meta3 = element("meta");
+			meta4 = element("meta");
 			style = element("style");
 			t1 = text("/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760;\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-1ljoqeu', document.head);
+			const head_nodes = head_selector('svelte-1jwgbch', document.head);
 			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
 			meta1 = claim_element(head_nodes, "META", { charset: true });
 
@@ -1049,6 +1058,9 @@ function create_fragment(ctx) {
 			var script1_nodes = children(script1);
 			t0 = claim_text(script1_nodes, "(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])\n    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,\n    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})\n    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');\n    ml('account', '511328');\n");
 			script1_nodes.forEach(detach);
+			meta2 = claim_element(head_nodes, "META", { property: true, content: true });
+			meta3 = claim_element(head_nodes, "META", { property: true, content: true });
+			meta4 = claim_element(head_nodes, "META", { property: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
 			t1 = claim_text(style_nodes, "/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760;\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }");
@@ -1069,6 +1081,12 @@ function create_fragment(ctx) {
 			script0.async = true;
 			if (!src_url_equal(script0.src, script0_src_value = "https://analytics.umami.is/script.js")) attr(script0, "src", script0_src_value);
 			attr(script0, "data-website-id", "541fddec-8517-45e6-b5e5-6a9e36cb83c3");
+			attr(meta2, "property", "og:title");
+			attr(meta2, "content", /*title*/ ctx[1]);
+			attr(meta3, "property", "og:type");
+			attr(meta3, "content", "article");
+			attr(meta4, "property", "og:image");
+			attr(meta4, "content", meta4_content_value = /*preview_image*/ ctx[2].url);
 		},
 		m(target, anchor) {
 			append_hydration(document.head, meta0);
@@ -1078,12 +1096,27 @@ function create_fragment(ctx) {
 			append_hydration(document.head, script0);
 			append_hydration(document.head, script1);
 			append_hydration(script1, t0);
+			append_hydration(document.head, meta2);
+			append_hydration(document.head, meta3);
+			append_hydration(document.head, meta4);
 			append_hydration(document.head, style);
 			append_hydration(style, t1);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*favicon*/ 1 && link0_href_value !== (link0_href_value = /*favicon*/ ctx[0].url)) {
 				attr(link0, "href", link0_href_value);
+			}
+
+			if (dirty & /*title*/ 2 && title_value !== (title_value = /*title*/ ctx[1])) {
+				document.title = title_value;
+			}
+
+			if (dirty & /*title*/ 2) {
+				attr(meta2, "content", /*title*/ ctx[1]);
+			}
+
+			if (dirty & /*preview_image*/ 4 && meta4_content_value !== (meta4_content_value = /*preview_image*/ ctx[2].url)) {
+				attr(meta4, "content", meta4_content_value);
 			}
 		},
 		i: noop,
@@ -1095,6 +1128,9 @@ function create_fragment(ctx) {
 			detach(link1);
 			detach(script0);
 			detach(script1);
+			detach(meta2);
+			detach(meta3);
+			detach(meta4);
 			detach(style);
 		}
 	};
@@ -1104,20 +1140,31 @@ function instance($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
+		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(1, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(2, preview_image = $$props.preview_image);
 	};
 
-	return [favicon, color1, color2];
+	return [favicon, title, preview_image, color1, color2];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { color1: 1, color2: 2, favicon: 0 });
+
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			color1: 3,
+			color2: 4,
+			favicon: 0,
+			title: 1,
+			preview_image: 2
+		});
 	}
 }
 
@@ -2986,17 +3033,17 @@ class Component$1 extends SvelteComponent {
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i].link;
+	child_ctx[12] = list[i].link;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i].link;
+	child_ctx[12] = list[i].link;
 	return child_ctx;
 }
 
-// (113:6) {#if logo.image.url}
+// (115:6) {#if logo.image.url}
 function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
@@ -3045,10 +3092,10 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (119:6) {#each site_nav as { link }}
+// (121:6) {#each site_nav as { link }}
 function create_each_block_1(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[10].label + "";
+	let t_value = /*link*/ ctx[12].label + "";
 	let t;
 	let a_href_value;
 
@@ -3067,16 +3114,16 @@ function create_each_block_1(ctx) {
 		},
 		h() {
 			attr(a, "class", "link svelte-nnp8i3");
-			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[12].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3086,7 +3133,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (126:6) {#if logo.image.url}
+// (128:6) {#if logo.image.url}
 function create_if_block_1$1(ctx) {
 	let img;
 	let img_src_value;
@@ -3135,7 +3182,7 @@ function create_if_block_1$1(ctx) {
 	};
 }
 
-// (137:4) {#if mobileNavOpen}
+// (139:4) {#if mobileNavOpen}
 function create_if_block$1(ctx) {
 	let nav;
 	let t;
@@ -3211,7 +3258,7 @@ function create_if_block$1(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler_1*/ ctx[8]);
+				dispose = listen(button, "click", /*click_handler_1*/ ctx[10]);
 				mounted = true;
 			}
 		},
@@ -3268,10 +3315,10 @@ function create_if_block$1(ctx) {
 	};
 }
 
-// (139:8) {#each site_nav as { link }}
+// (141:8) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[10].label + "";
+	let t_value = /*link*/ ctx[12].label + "";
 	let t;
 	let a_href_value;
 
@@ -3289,16 +3336,16 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[12].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3465,7 +3512,7 @@ function create_fragment$2(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler*/ ctx[7]);
+				dispose = listen(button, "click", /*click_handler*/ ctx[9]);
 				mounted = true;
 			}
 		},
@@ -3574,6 +3621,8 @@ function instance$2($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { logo } = $$props;
 	let { site_nav } = $$props;
 	let { logo_width } = $$props;
@@ -3586,6 +3635,8 @@ function instance$2($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(4, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(5, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(6, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(7, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(8, preview_image = $$props.preview_image);
 		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
 		if ('site_nav' in $$props) $$invalidate(1, site_nav = $$props.site_nav);
 		if ('logo_width' in $$props) $$invalidate(2, logo_width = $$props.logo_width);
@@ -3599,6 +3650,8 @@ function instance$2($$self, $$props, $$invalidate) {
 		color1,
 		color2,
 		favicon,
+		title,
+		preview_image,
 		click_handler,
 		click_handler_1
 	];
@@ -3612,6 +3665,8 @@ class Component$2 extends SvelteComponent {
 			color1: 4,
 			color2: 5,
 			favicon: 6,
+			title: 7,
+			preview_image: 8,
 			logo: 0,
 			site_nav: 1,
 			logo_width: 2
@@ -3672,16 +3727,20 @@ function instance$3($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { content } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
 		if ('content' in $$props) $$invalidate(0, content = $$props.content);
 	};
 
-	return [content, color1, color2, favicon];
+	return [content, color1, color2, favicon, title, preview_image];
 }
 
 class Component$3 extends SvelteComponent {
@@ -3692,6 +3751,8 @@ class Component$3 extends SvelteComponent {
 			color1: 1,
 			color2: 2,
 			favicon: 3,
+			title: 4,
+			preview_image: 5,
 			content: 0
 		});
 	}
@@ -3769,6 +3830,8 @@ function instance$4($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { image } = $$props;
 	let { max_height } = $$props;
 	let { caption } = $$props;
@@ -3777,12 +3840,14 @@ function instance$4($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(2, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(3, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(5, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(6, preview_image = $$props.preview_image);
 		if ('image' in $$props) $$invalidate(0, image = $$props.image);
 		if ('max_height' in $$props) $$invalidate(1, max_height = $$props.max_height);
-		if ('caption' in $$props) $$invalidate(5, caption = $$props.caption);
+		if ('caption' in $$props) $$invalidate(7, caption = $$props.caption);
 	};
 
-	return [image, max_height, color1, color2, favicon, caption];
+	return [image, max_height, color1, color2, favicon, title, preview_image, caption];
 }
 
 class Component$4 extends SvelteComponent {
@@ -3793,9 +3858,11 @@ class Component$4 extends SvelteComponent {
 			color1: 2,
 			color2: 3,
 			favicon: 4,
+			title: 5,
+			preview_image: 6,
 			image: 0,
 			max_height: 1,
-			caption: 5
+			caption: 7
 		});
 	}
 }
@@ -3853,16 +3920,20 @@ function instance$5($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { content } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
 		if ('content' in $$props) $$invalidate(0, content = $$props.content);
 	};
 
-	return [content, color1, color2, favicon];
+	return [content, color1, color2, favicon, title, preview_image];
 }
 
 class Component$5 extends SvelteComponent {
@@ -3873,6 +3944,8 @@ class Component$5 extends SvelteComponent {
 			color1: 1,
 			color2: 2,
 			favicon: 3,
+			title: 4,
+			preview_image: 5,
 			content: 0
 		});
 	}
@@ -3950,6 +4023,8 @@ function instance$6($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { image } = $$props;
 	let { max_height } = $$props;
 	let { caption } = $$props;
@@ -3958,12 +4033,14 @@ function instance$6($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(2, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(3, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(5, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(6, preview_image = $$props.preview_image);
 		if ('image' in $$props) $$invalidate(0, image = $$props.image);
 		if ('max_height' in $$props) $$invalidate(1, max_height = $$props.max_height);
-		if ('caption' in $$props) $$invalidate(5, caption = $$props.caption);
+		if ('caption' in $$props) $$invalidate(7, caption = $$props.caption);
 	};
 
-	return [image, max_height, color1, color2, favicon, caption];
+	return [image, max_height, color1, color2, favicon, title, preview_image, caption];
 }
 
 class Component$6 extends SvelteComponent {
@@ -3974,9 +4051,11 @@ class Component$6 extends SvelteComponent {
 			color1: 2,
 			color2: 3,
 			favicon: 4,
+			title: 5,
+			preview_image: 6,
 			image: 0,
 			max_height: 1,
-			caption: 5
+			caption: 7
 		});
 	}
 }
@@ -4034,16 +4113,20 @@ function instance$7($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { content } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(5, preview_image = $$props.preview_image);
 		if ('content' in $$props) $$invalidate(0, content = $$props.content);
 	};
 
-	return [content, color1, color2, favicon];
+	return [content, color1, color2, favicon, title, preview_image];
 }
 
 class Component$7 extends SvelteComponent {
@@ -4054,6 +4137,8 @@ class Component$7 extends SvelteComponent {
 			color1: 1,
 			color2: 2,
 			favicon: 3,
+			title: 4,
+			preview_image: 5,
 			content: 0
 		});
 	}
@@ -4063,23 +4148,23 @@ class Component$7 extends SvelteComponent {
 
 function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[7] = list[i].link;
-	child_ctx[8] = list[i].icon;
+	child_ctx[9] = list[i].link;
+	child_ctx[10] = list[i].icon;
 	return child_ctx;
 }
 
-// (84:6) {#each social as { link, icon }}
+// (86:6) {#each social as { link, icon }}
 function create_each_block$1(ctx) {
 	let a;
 	let span;
 	let icon;
 	let t0;
-	let t1_value = /*link*/ ctx[7].label + "";
+	let t1_value = /*link*/ ctx[9].label + "";
 	let t1;
 	let t2;
 	let a_href_value;
 	let current;
-	icon = new Component$1({ props: { icon: /*icon*/ ctx[8] } });
+	icon = new Component$1({ props: { icon: /*icon*/ ctx[10] } });
 
 	return {
 		c() {
@@ -4106,7 +4191,7 @@ function create_each_block$1(ctx) {
 		},
 		h() {
 			attr(span, "class", "icon svelte-1mgn2yk");
-			attr(a, "href", a_href_value = /*link*/ ctx[7].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
 			attr(a, "class", "svelte-1mgn2yk");
 		},
 		m(target, anchor) {
@@ -4120,11 +4205,11 @@ function create_each_block$1(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[8];
+			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[10];
 			icon.$set(icon_changes);
-			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[7].label + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[9].label + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[7].url)) {
+			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[9].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -4645,6 +4730,8 @@ function instance$8($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 	let { heading } = $$props;
 	let { subheading } = $$props;
 	let { social } = $$props;
@@ -4666,13 +4753,25 @@ function instance$8($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(6, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(7, preview_image = $$props.preview_image);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
 		if ('social' in $$props) $$invalidate(2, social = $$props.social);
-		if ('event' in $$props) $$invalidate(6, event = $$props.event);
+		if ('event' in $$props) $$invalidate(8, event = $$props.event);
 	};
 
-	return [heading, subheading, social, color1, color2, favicon, event];
+	return [
+		heading,
+		subheading,
+		social,
+		color1,
+		color2,
+		favicon,
+		title,
+		preview_image,
+		event
+	];
 }
 
 class Component$8 extends SvelteComponent {
@@ -4683,10 +4782,12 @@ class Component$8 extends SvelteComponent {
 			color1: 3,
 			color2: 4,
 			favicon: 5,
+			title: 6,
+			preview_image: 7,
 			heading: 0,
 			subheading: 1,
 			social: 2,
-			event: 6
+			event: 8
 		});
 	}
 }
@@ -4752,20 +4853,31 @@ function instance$9($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(3, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(4, preview_image = $$props.preview_image);
 	};
 
-	return [color1, color2, favicon];
+	return [color1, color2, favicon, title, preview_image];
 }
 
 class Component$9 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$9, create_fragment$9, safe_not_equal, { color1: 0, color2: 1, favicon: 2 });
+
+		init(this, options, instance$9, create_fragment$9, safe_not_equal, {
+			color1: 0,
+			color2: 1,
+			favicon: 2,
+			title: 3,
+			preview_image: 4
+		});
 	}
 }
 
@@ -4775,20 +4887,31 @@ function instance$a($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
+	let { title } = $$props;
+	let { preview_image } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(3, title = $$props.title);
+		if ('preview_image' in $$props) $$invalidate(4, preview_image = $$props.preview_image);
 	};
 
-	return [color1, color2, favicon];
+	return [color1, color2, favicon, title, preview_image];
 }
 
 class Component$a extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$a, null, safe_not_equal, { color1: 0, color2: 1, favicon: 2 });
+
+		init(this, options, instance$a, null, safe_not_equal, {
+			color1: 0,
+			color2: 1,
+			favicon: 2,
+			title: 3,
+			preview_image: 4
+		});
 	}
 }
 
@@ -4825,6 +4948,13 @@ function create_fragment$a(ctx) {
 					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
+				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"size": null
 				}
 			}
 		});
@@ -4837,6 +4967,13 @@ function create_fragment$a(ctx) {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
+				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
 					"size": null
 				},
 				logo: {
@@ -4886,6 +5023,13 @@ function create_fragment$a(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"size": null
+				},
 				content: {
 					"html": "<h2>Density is the city's best tool to fight climate change</h2><p>When we sprawl out, we massively increase both our energy usage and our land usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that <strong>low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas</strong>.</p>",
 					"markdown": "## Density is the city's best tool to fight climate change\n\nWhen we sprawl out, we massively increase both our energy usage and our land usage. New neighbourhoods require the destruction of existing farmland, parkland and wetlands that can never be reclaimed. Meanwhile, studies of cities from across North America show that **low-density suburbs emit 2-3 times more greenhouse gases than even medium-density urban areas**.\n\n"
@@ -4901,6 +5045,13 @@ function create_fragment$a(ctx) {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
+				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
 					"size": null
 				},
 				image: {
@@ -4924,6 +5075,13 @@ function create_fragment$a(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"size": null
+				},
 				content: {
 					"html": "<p>In Toronto, per-person CO2 emissions in suburban areas were found to be 3-4 times higher than high-density areas near transit.</p>",
 					"markdown": "In Toronto, per-person CO2 emissions in suburban areas were found to be 3-4 times higher than high-density areas near transit.\n\n"
@@ -4939,6 +5097,13 @@ function create_fragment$a(ctx) {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
+				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
 					"size": null
 				},
 				image: {
@@ -4960,9 +5125,16 @@ function create_fragment$a(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"size": null
+				},
 				content: {
-					"html": "<p>Spreading out where we live means more of us require cars for day-to-day life: in Canada, suburban households drive on average three times further than those in core areas. This is a huge issue when <strong>the average automobile emits more CO2 annually than 200 mature trees can remove from the air.</strong></p><h3>The solution: Preserve natural areas and reduce energy usage by building within our borders</h3><p>The new zoning bylaw will make it easier to meet our climate goals by helping to reduce the environmental footprint of both new and existing houses.</p><ol><li><p>Multi-family homes like duplexes, townhomes and small apartments require 30-40% less energy than single family homes to heat, cool and live in comfortably.</p></li><li><p>Denser, more mixed-use neighbourhoods will make it easier for everyone to reduce their dependency on cars, helping reducing energy usage for transportation by as much as 50%.</p></li><li><p>Every new home accommodated within existing neighborhoods is one that doesn't have to be built on top of natural land outside the city.</p></li></ol>",
-					"markdown": "Spreading out where we live means more of us require cars for day-to-day life: in Canada, suburban households drive on average three times further than those in core areas. This is a huge issue when **the average automobile emits more CO2 annually than 200 mature trees can remove from the air.**\n\n### The solution: Preserve natural areas and reduce energy usage by building within our borders\n\nThe new zoning bylaw will make it easier to meet our climate goals by helping to reduce the environmental footprint of both new and existing houses.\n\n1. Multi-family homes like duplexes, townhomes and small apartments require 30-40% less energy than single family homes to heat, cool and live in comfortably.\n\n2. Denser, more mixed-use neighbourhoods will make it easier for everyone to reduce their dependency on cars, helping reducing energy usage for transportation by as much as 50%.\n\n3. Every new home accommodated within existing neighborhoods is one that doesn't have to be built on top of natural land outside the city.\n\n\n<!-- -->\n\n"
+					"html": "<p>Spreading out where we live means more of us require cars for day-to-day life: in Canada, suburban households drive on average three times further than those in core areas. This is a huge issue when <strong>the average automobile emits more CO2 annually than 200 mature trees can remove from the air.</strong></p><h3>The solution: Preserve natural areas and reduce energy usage by building within our borders</h3><p>The new zoning bylaw will make legalize townhouses, multiplexes and small apartments across this city. This will reduce our environmental impact in a few ways:</p><ol><li><p>Multi-family homes like duplexes, townhomes and small apartments require 30-40% less energy than single family homes to heat, cool and live in comfortably.</p></li><li><p>Denser, more mixed-use neighbourhoods will make it easier for everyone to reduce their dependency on cars, helping reducing energy usage for transportation by as much as 50%.</p></li><li><p>Every new home accommodated within existing neighborhoods is one that doesn't have to be built on top of natural land outside the city.</p></li></ol>",
+					"markdown": "Spreading out where we live means more of us require cars for day-to-day life: in Canada, suburban households drive on average three times further than those in core areas. This is a huge issue when **the average automobile emits more CO2 annually than 200 mature trees can remove from the air.**\n\n### The solution: Preserve natural areas and reduce energy usage by building within our borders\n\nThe new zoning bylaw will make legalize townhouses, multiplexes and small apartments across this city. This will reduce our environmental impact in a few ways:\n\n1. Multi-family homes like duplexes, townhomes and small apartments require 30-40% less energy than single family homes to heat, cool and live in comfortably.\n\n2. Denser, more mixed-use neighbourhoods will make it easier for everyone to reduce their dependency on cars, helping reducing energy usage for transportation by as much as 50%.\n\n3. Every new home accommodated within existing neighborhoods is one that doesn't have to be built on top of natural land outside the city.\n\n\n<!-- -->\n\n"
 				}
 			}
 		});
@@ -4975,6 +5147,13 @@ function create_fragment$a(ctx) {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
+				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
 					"size": null
 				},
 				heading: "Get Involved",
@@ -5021,6 +5200,13 @@ function create_fragment$a(ctx) {
 					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
+				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"size": null
 				}
 			}
 		});
@@ -5033,6 +5219,13 @@ function create_fragment$a(ctx) {
 					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
 					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
+					"size": null
+				},
+				title: "Density is the city's best tool to fight climate change",
+				preview_image: {
+					"alt": "",
+					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
+					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1696959238/Toronto_carbon_footprints_charts_0_mrtv82.png",
 					"size": null
 				}
 			}
