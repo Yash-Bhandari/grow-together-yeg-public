@@ -1013,11 +1013,8 @@ function create_fragment(ctx) {
 	let script0_src_value;
 	let script1;
 	let t0;
-	let title_value;
-	let meta2;
 	let style;
 	let t1;
-	document.title = title_value = /*title*/ ctx[1];
 
 	return {
 		c() {
@@ -1028,13 +1025,12 @@ function create_fragment(ctx) {
 			script0 = element("script");
 			script1 = element("script");
 			t0 = text("(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])\n    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,\n    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})\n    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');\n    ml('account', '511328');\n");
-			meta2 = element("meta");
 			style = element("style");
 			t1 = text("/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760;\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-ccebu9', document.head);
+			const head_nodes = head_selector('svelte-1ljoqeu', document.head);
 			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
 			meta1 = claim_element(head_nodes, "META", { charset: true });
 
@@ -1053,7 +1049,6 @@ function create_fragment(ctx) {
 			var script1_nodes = children(script1);
 			t0 = claim_text(script1_nodes, "(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])\n    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,\n    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})\n    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');\n    ml('account', '511328');\n");
 			script1_nodes.forEach(detach);
-			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
 			t1 = claim_text(style_nodes, "/* Reset & standardize default styles */\n@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options */\n  --color-accent: #027648;\n  --color1: #4C5760;\n  \n  /* Base values */\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n}\n\n/* Root element (use instead of `body`) */\n#page {\n  font-family: system-ui, sans-serif;\n  color: #111;\n  line-height: 1.5;\n  font-size: 1.125rem;\n  background: white;\n}\n\n/* Elements */\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 5rem 2rem;\n}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0; /* reset */\n  max-height: 80px;\n}\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }");
@@ -1074,8 +1069,6 @@ function create_fragment(ctx) {
 			script0.async = true;
 			if (!src_url_equal(script0.src, script0_src_value = "https://analytics.umami.is/script.js")) attr(script0, "src", script0_src_value);
 			attr(script0, "data-website-id", "541fddec-8517-45e6-b5e5-6a9e36cb83c3");
-			attr(meta2, "name", "description");
-			attr(meta2, "content", /*description*/ ctx[2]);
 		},
 		m(target, anchor) {
 			append_hydration(document.head, meta0);
@@ -1085,21 +1078,12 @@ function create_fragment(ctx) {
 			append_hydration(document.head, script0);
 			append_hydration(document.head, script1);
 			append_hydration(script1, t0);
-			append_hydration(document.head, meta2);
 			append_hydration(document.head, style);
 			append_hydration(style, t1);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*favicon*/ 1 && link0_href_value !== (link0_href_value = /*favicon*/ ctx[0].url)) {
 				attr(link0, "href", link0_href_value);
-			}
-
-			if (dirty & /*title*/ 2 && title_value !== (title_value = /*title*/ ctx[1])) {
-				document.title = title_value;
-			}
-
-			if (dirty & /*description*/ 4) {
-				attr(meta2, "content", /*description*/ ctx[2]);
 			}
 		},
 		i: noop,
@@ -1111,7 +1095,6 @@ function create_fragment(ctx) {
 			detach(link1);
 			detach(script0);
 			detach(script1);
-			detach(meta2);
 			detach(style);
 		}
 	};
@@ -1121,31 +1104,20 @@ function instance($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
 
 	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
+		if ('color1' in $$props) $$invalidate(1, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(2, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-		if ('description' in $$props) $$invalidate(2, description = $$props.description);
 	};
 
-	return [favicon, title, description, color1, color2];
+	return [favicon, color1, color2];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-
-		init(this, options, instance, create_fragment, safe_not_equal, {
-			color1: 3,
-			color2: 4,
-			favicon: 0,
-			title: 1,
-			description: 2
-		});
+		init(this, options, instance, create_fragment, safe_not_equal, { color1: 1, color2: 2, favicon: 0 });
 	}
 }
 
@@ -1485,6 +1457,34 @@ function calculateSize(size, ratio, precision) {
     isNumber = !isNumber;
   }
 }
+function splitSVGDefs(content, tag = "defs") {
+  let defs = "";
+  const index = content.indexOf("<" + tag);
+  while (index >= 0) {
+    const start = content.indexOf(">", index);
+    const end = content.indexOf("</" + tag);
+    if (start === -1 || end === -1) {
+      break;
+    }
+    const endEnd = content.indexOf(">", end);
+    if (endEnd === -1) {
+      break;
+    }
+    defs += content.slice(start + 1, end).trim();
+    content = content.slice(0, index).trim() + content.slice(endEnd + 1);
+  }
+  return {
+    defs,
+    content
+  };
+}
+function mergeDefsAndContent(defs, content) {
+  return defs ? "<defs>" + defs + "</defs>" + content : content;
+}
+function wrapSVGContent(body, start, end) {
+  const split = splitSVGDefs(body);
+  return mergeDefsAndContent(split.defs, start + split.content + end);
+}
 const isUnsetKeyword = (value) => value === "unset" || value === "undefined" || value === "none";
 function iconToSVG(icon, customisations) {
   const fullIcon = {
@@ -1551,7 +1551,7 @@ function iconToSVG(icon, customisations) {
       }
     }
     if (transformations.length) {
-      body = '<g transform="' + transformations.join(" ") + '">' + body + "</g>";
+      body = wrapSVGContent(body, '<g transform="' + transformations.join(" ") + '">', "</g>");
     }
   });
   const customisationsWidth = fullCustomisations.width;
@@ -1575,9 +1575,11 @@ function iconToSVG(icon, customisations) {
   };
   setAttr("width", width);
   setAttr("height", height);
-  attributes.viewBox = box.left.toString() + " " + box.top.toString() + " " + boxWidth.toString() + " " + boxHeight.toString();
+  const viewBox = [box.left, box.top, boxWidth, boxHeight];
+  attributes.viewBox = viewBox.join(" ");
   return {
     attributes,
+    viewBox,
     body
   };
 }
@@ -2176,6 +2178,7 @@ const browserCacheCountKey = browserCachePrefix + "-count";
 const browserCacheVersionKey = browserCachePrefix + "-version";
 const browserStorageHour = 36e5;
 const browserStorageCacheExpiration = 168;
+const browserStorageLimit = 50;
 function getStoredItem(func, key) {
   try {
     return func.getItem(key);
@@ -2320,7 +2323,7 @@ function storeInBrowserStorage(storage2, data) {
       set.delete(index = Array.from(set).shift());
     } else {
       index = getBrowserStorageItemsCount(func);
-      if (!setBrowserStorageItemsCount(func, index + 1)) {
+      if (index >= browserStorageLimit || !setBrowserStorageItemsCount(func, index + 1)) {
         return;
       }
     }
@@ -2813,7 +2816,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (113:1) {:else}
+// (115:1) {:else}
 function create_else_block(ctx) {
 	let span;
 	let span_levels = [/*data*/ ctx[0].attributes];
@@ -2848,7 +2851,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (109:1) {#if data.svg}
+// (111:1) {#if data.svg}
 function create_if_block_1(ctx) {
 	let svg;
 	let raw_value = /*data*/ ctx[0].body + "";
@@ -3014,17 +3017,17 @@ class Component$1 extends SvelteComponent {
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[12] = list[i].link;
+	child_ctx[10] = list[i].link;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[12] = list[i].link;
+	child_ctx[10] = list[i].link;
 	return child_ctx;
 }
 
-// (115:6) {#if logo.image.url}
+// (113:6) {#if logo.image.url}
 function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
@@ -3073,10 +3076,10 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (121:6) {#each site_nav as { link }}
+// (119:6) {#each site_nav as { link }}
 function create_each_block_1(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[12].label + "";
+	let t_value = /*link*/ ctx[10].label + "";
 	let t;
 	let a_href_value;
 
@@ -3095,16 +3098,16 @@ function create_each_block_1(ctx) {
 		},
 		h() {
 			attr(a, "class", "link svelte-nnp8i3");
-			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[12].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3114,7 +3117,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (128:6) {#if logo.image.url}
+// (126:6) {#if logo.image.url}
 function create_if_block_1$1(ctx) {
 	let img;
 	let img_src_value;
@@ -3163,7 +3166,7 @@ function create_if_block_1$1(ctx) {
 	};
 }
 
-// (139:4) {#if mobileNavOpen}
+// (137:4) {#if mobileNavOpen}
 function create_if_block$1(ctx) {
 	let nav;
 	let t;
@@ -3239,7 +3242,7 @@ function create_if_block$1(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler_1*/ ctx[10]);
+				dispose = listen(button, "click", /*click_handler_1*/ ctx[8]);
 				mounted = true;
 			}
 		},
@@ -3296,10 +3299,10 @@ function create_if_block$1(ctx) {
 	};
 }
 
-// (141:8) {#each site_nav as { link }}
+// (139:8) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[12].label + "";
+	let t_value = /*link*/ ctx[10].label + "";
 	let t;
 	let a_href_value;
 
@@ -3317,16 +3320,16 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[12].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[12].label + "")) set_data(t, t_value);
+			if (dirty & /*site_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
 
-			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
+			if (dirty & /*site_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -3460,7 +3463,7 @@ function create_fragment$2(ctx) {
 			attr(div1, "class", "mobile-nav svelte-nnp8i3");
 			attr(header, "class", "section-container svelte-nnp8i3");
 			attr(div2, "class", "section");
-			attr(div2, "id", "section-9b3026b5");
+			attr(div2, "id", "section-12a37bf1");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div2, anchor);
@@ -3493,7 +3496,7 @@ function create_fragment$2(ctx) {
 			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler*/ ctx[9]);
+				dispose = listen(button, "click", /*click_handler*/ ctx[7]);
 				mounted = true;
 			}
 		},
@@ -3602,8 +3605,6 @@ function instance$2($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
 	let { logo } = $$props;
 	let { site_nav } = $$props;
 	let { logo_width } = $$props;
@@ -3616,8 +3617,6 @@ function instance$2($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(4, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(5, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(6, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(7, title = $$props.title);
-		if ('description' in $$props) $$invalidate(8, description = $$props.description);
 		if ('logo' in $$props) $$invalidate(0, logo = $$props.logo);
 		if ('site_nav' in $$props) $$invalidate(1, site_nav = $$props.site_nav);
 		if ('logo_width' in $$props) $$invalidate(2, logo_width = $$props.logo_width);
@@ -3631,8 +3630,6 @@ function instance$2($$self, $$props, $$invalidate) {
 		color1,
 		color2,
 		favicon,
-		title,
-		description,
 		click_handler,
 		click_handler_1
 	];
@@ -3646,8 +3643,6 @@ class Component$2 extends SvelteComponent {
 			color1: 4,
 			color2: 5,
 			favicon: 6,
-			title: 7,
-			description: 8,
 			logo: 0,
 			site_nav: 1,
 			logo_width: 2
@@ -3659,301 +3654,23 @@ class Component$2 extends SvelteComponent {
 
 function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[8] = list[i];
+	child_ctx[7] = list[i].link;
+	child_ctx[8] = list[i].icon;
 	return child_ctx;
 }
 
-// (62:6) {#each buttons as button}
+// (84:6) {#each social as { link, icon }}
 function create_each_block$1(ctx) {
 	let a;
+	let span;
 	let icon;
 	let t0;
-	let span;
-	let t1_value = /*button*/ ctx[8].link.label + "";
+	let t1_value = /*link*/ ctx[7].label + "";
 	let t1;
 	let t2;
 	let a_href_value;
 	let current;
-	icon = new Component$1({ props: { icon: /*button*/ ctx[8].icon } });
-
-	return {
-		c() {
-			a = element("a");
-			create_component(icon.$$.fragment);
-			t0 = space();
-			span = element("span");
-			t1 = text(t1_value);
-			t2 = space();
-			this.h();
-		},
-		l(nodes) {
-			a = claim_element(nodes, "A", { class: true, href: true });
-			var a_nodes = children(a);
-			claim_component(icon.$$.fragment, a_nodes);
-			t0 = claim_space(a_nodes);
-			span = claim_element(a_nodes, "SPAN", {});
-			var span_nodes = children(span);
-			t1 = claim_text(span_nodes, t1_value);
-			span_nodes.forEach(detach);
-			t2 = claim_space(a_nodes);
-			a_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(a, "class", "button svelte-1alut2s");
-			attr(a, "href", a_href_value = /*button*/ ctx[8].link.url);
-		},
-		m(target, anchor) {
-			insert_hydration(target, a, anchor);
-			mount_component(icon, a, null);
-			append_hydration(a, t0);
-			append_hydration(a, span);
-			append_hydration(span, t1);
-			append_hydration(a, t2);
-			current = true;
-		},
-		p(ctx, dirty) {
-			const icon_changes = {};
-			if (dirty & /*buttons*/ 4) icon_changes.icon = /*button*/ ctx[8].icon;
-			icon.$set(icon_changes);
-			if ((!current || dirty & /*buttons*/ 4) && t1_value !== (t1_value = /*button*/ ctx[8].link.label + "")) set_data(t1, t1_value);
-
-			if (!current || dirty & /*buttons*/ 4 && a_href_value !== (a_href_value = /*button*/ ctx[8].link.url)) {
-				attr(a, "href", a_href_value);
-			}
-		},
-		i(local) {
-			if (current) return;
-			transition_in(icon.$$.fragment, local);
-			current = true;
-		},
-		o(local) {
-			transition_out(icon.$$.fragment, local);
-			current = false;
-		},
-		d(detaching) {
-			if (detaching) detach(a);
-			destroy_component(icon);
-		}
-	};
-}
-
-function create_fragment$3(ctx) {
-	let div3;
-	let section;
-	let div2;
-	let h2;
-	let t0;
-	let t1;
-	let div0;
-	let raw_value = /*body*/ ctx[1].html + "";
-	let t2;
-	let div1;
-	let current;
-	let each_value = /*buttons*/ ctx[2];
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
-	}
-
-	const out = i => transition_out(each_blocks[i], 1, 1, () => {
-		each_blocks[i] = null;
-	});
-
-	return {
-		c() {
-			div3 = element("div");
-			section = element("section");
-			div2 = element("div");
-			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[0]);
-			t1 = space();
-			div0 = element("div");
-			t2 = space();
-			div1 = element("div");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			this.h();
-		},
-		l(nodes) {
-			div3 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div3_nodes = children(div3);
-			section = claim_element(div3_nodes, "SECTION", { class: true });
-			var section_nodes = children(section);
-			div2 = claim_element(section_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			h2 = claim_element(div2_nodes, "H2", { class: true });
-			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[0]);
-			h2_nodes.forEach(detach);
-			t1 = claim_space(div2_nodes);
-			div0 = claim_element(div2_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			t2 = claim_space(div2_nodes);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(div1_nodes);
-			}
-
-			div1_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			section_nodes.forEach(detach);
-			div3_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(h2, "class", "heading svelte-1alut2s");
-			attr(div0, "class", "body svelte-1alut2s");
-			attr(div1, "class", "buttons svelte-1alut2s");
-			attr(div2, "class", "wrapper svelte-1alut2s");
-			attr(section, "class", "section-container svelte-1alut2s");
-			attr(div3, "class", "section");
-			attr(div3, "id", "section-c32765d5");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div3, anchor);
-			append_hydration(div3, section);
-			append_hydration(section, div2);
-			append_hydration(div2, h2);
-			append_hydration(h2, t0);
-			append_hydration(div2, t1);
-			append_hydration(div2, div0);
-			div0.innerHTML = raw_value;
-			append_hydration(div2, t2);
-			append_hydration(div2, div1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(div1, null);
-				}
-			}
-
-			current = true;
-		},
-		p(ctx, [dirty]) {
-			if (!current || dirty & /*heading*/ 1) set_data(t0, /*heading*/ ctx[0]);
-			if ((!current || dirty & /*body*/ 2) && raw_value !== (raw_value = /*body*/ ctx[1].html + "")) div0.innerHTML = raw_value;
-			if (dirty & /*buttons*/ 4) {
-				each_value = /*buttons*/ ctx[2];
-				let i;
-
-				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context$1(ctx, each_value, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-						transition_in(each_blocks[i], 1);
-					} else {
-						each_blocks[i] = create_each_block$1(child_ctx);
-						each_blocks[i].c();
-						transition_in(each_blocks[i], 1);
-						each_blocks[i].m(div1, null);
-					}
-				}
-
-				group_outros();
-
-				for (i = each_value.length; i < each_blocks.length; i += 1) {
-					out(i);
-				}
-
-				check_outros();
-			}
-		},
-		i(local) {
-			if (current) return;
-
-			for (let i = 0; i < each_value.length; i += 1) {
-				transition_in(each_blocks[i]);
-			}
-
-			current = true;
-		},
-		o(local) {
-			each_blocks = each_blocks.filter(Boolean);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				transition_out(each_blocks[i]);
-			}
-
-			current = false;
-		},
-		d(detaching) {
-			if (detaching) detach(div3);
-			destroy_each(each_blocks, detaching);
-		}
-	};
-}
-
-function instance$3($$self, $$props, $$invalidate) {
-	let { color1 } = $$props;
-	let { color2 } = $$props;
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
-	let { heading } = $$props;
-	let { body } = $$props;
-	let { buttons } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(6, title = $$props.title);
-		if ('description' in $$props) $$invalidate(7, description = $$props.description);
-		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('body' in $$props) $$invalidate(1, body = $$props.body);
-		if ('buttons' in $$props) $$invalidate(2, buttons = $$props.buttons);
-	};
-
-	return [heading, body, buttons, color1, color2, favicon, title, description];
-}
-
-class Component$3 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
-			color1: 3,
-			color2: 4,
-			favicon: 5,
-			title: 6,
-			description: 7,
-			heading: 0,
-			body: 1,
-			buttons: 2
-		});
-	}
-}
-
-/* generated by Svelte v3.58.0 */
-
-function get_each_context$2(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[9] = list[i].link;
-	child_ctx[10] = list[i].icon;
-	return child_ctx;
-}
-
-// (86:6) {#each social as { link, icon }}
-function create_each_block$2(ctx) {
-	let a;
-	let span;
-	let icon;
-	let t0;
-	let t1_value = /*link*/ ctx[9].label + "";
-	let t1;
-	let t2;
-	let a_href_value;
-	let current;
-	icon = new Component$1({ props: { icon: /*icon*/ ctx[10] } });
+	icon = new Component$1({ props: { icon: /*icon*/ ctx[8] } });
 
 	return {
 		c() {
@@ -3980,7 +3697,7 @@ function create_each_block$2(ctx) {
 		},
 		h() {
 			attr(span, "class", "icon svelte-1mgn2yk");
-			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[7].url);
 			attr(a, "class", "svelte-1mgn2yk");
 		},
 		m(target, anchor) {
@@ -3994,11 +3711,11 @@ function create_each_block$2(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[10];
+			if (dirty & /*social*/ 4) icon_changes.icon = /*icon*/ ctx[8];
 			icon.$set(icon_changes);
-			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[9].label + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*social*/ 4) && t1_value !== (t1_value = /*link*/ ctx[7].label + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[9].url)) {
+			if (!current || dirty & /*social*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[7].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -4018,7 +3735,7 @@ function create_each_block$2(ctx) {
 	};
 }
 
-function create_fragment$4(ctx) {
+function create_fragment$3(ctx) {
 	let div15;
 	let section;
 	let div2;
@@ -4091,7 +3808,7 @@ function create_fragment$4(ctx) {
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
+		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
 	}
 
 	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -4130,7 +3847,7 @@ function create_fragment$4(ctx) {
 			t8 = text("Newsletter");
 			t9 = space();
 			p0 = element("p");
-			t10 = text("Join our newsletter for updates on Zoning Bylaw Renewal and events.");
+			t10 = text("Join our mailing list for updates and events.");
 			t11 = space();
 			form = element("form");
 			div6 = element("div");
@@ -4225,7 +3942,7 @@ function create_fragment$4(ctx) {
 			t9 = claim_space(div3_nodes);
 			p0 = claim_element(div3_nodes, "P", {});
 			var p0_nodes = children(p0);
-			t10 = claim_text(p0_nodes, "Join our newsletter for updates on Zoning Bylaw Renewal and events.");
+			t10 = claim_text(p0_nodes, "Join our mailing list for updates and events.");
 			p0_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
 			t11 = claim_space(div9_nodes);
@@ -4382,7 +4099,7 @@ function create_fragment$4(ctx) {
 			attr(script1, "type", "text/javascript");
 			attr(section, "class", "section-container svelte-1mgn2yk");
 			attr(div15, "class", "section");
-			attr(div15, "id", "section-8f17e846");
+			attr(div15, "id", "section-45f7d329");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div15, anchor);
@@ -4468,13 +4185,13 @@ function create_fragment$4(ctx) {
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context$2(ctx, each_value, i);
+					const child_ctx = get_each_context$1(ctx, each_value, i);
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
 						transition_in(each_blocks[i], 1);
 					} else {
-						each_blocks[i] = create_each_block$2(child_ctx);
+						each_blocks[i] = create_each_block$1(child_ctx);
 						each_blocks[i].c();
 						transition_in(each_blocks[i], 1);
 						each_blocks[i].m(div1, null);
@@ -4515,12 +4232,10 @@ function create_fragment$4(ctx) {
 	};
 }
 
-function instance$4($$self, $$props, $$invalidate) {
+function instance$3($$self, $$props, $$invalidate) {
 	let { color1 } = $$props;
 	let { color2 } = $$props;
 	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
 	let { heading } = $$props;
 	let { subheading } = $$props;
 	let { social } = $$props;
@@ -4542,171 +4257,57 @@ function instance$4($$self, $$props, $$invalidate) {
 		if ('color1' in $$props) $$invalidate(3, color1 = $$props.color1);
 		if ('color2' in $$props) $$invalidate(4, color2 = $$props.color2);
 		if ('favicon' in $$props) $$invalidate(5, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(6, title = $$props.title);
-		if ('description' in $$props) $$invalidate(7, description = $$props.description);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
 		if ('social' in $$props) $$invalidate(2, social = $$props.social);
-		if ('event' in $$props) $$invalidate(8, event = $$props.event);
+		if ('event' in $$props) $$invalidate(6, event = $$props.event);
 	};
 
-	return [
-		heading,
-		subheading,
-		social,
-		color1,
-		color2,
-		favicon,
-		title,
-		description,
-		event
-	];
+	return [heading, subheading, social, color1, color2, favicon, event];
+}
+
+class Component$3 extends SvelteComponent {
+	constructor(options) {
+		super();
+
+		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
+			color1: 3,
+			color2: 4,
+			favicon: 5,
+			heading: 0,
+			subheading: 1,
+			social: 2,
+			event: 6
+		});
+	}
+}
+
+/* generated by Svelte v3.58.0 */
+
+function instance$4($$self, $$props, $$invalidate) {
+	let { color1 } = $$props;
+	let { color2 } = $$props;
+	let { favicon } = $$props;
+
+	$$self.$$set = $$props => {
+		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
+		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
+		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
+	};
+
+	return [color1, color2, favicon];
 }
 
 class Component$4 extends SvelteComponent {
 	constructor(options) {
 		super();
-
-		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
-			color1: 3,
-			color2: 4,
-			favicon: 5,
-			title: 6,
-			description: 7,
-			heading: 0,
-			subheading: 1,
-			social: 2,
-			event: 8
-		});
+		init(this, options, instance$4, null, safe_not_equal, { color1: 0, color2: 1, favicon: 2 });
 	}
 }
 
 /* generated by Svelte v3.58.0 */
 
-function create_fragment$5(ctx) {
-	let div;
-	let iframe;
-	let iframe_src_value;
-
-	return {
-		c() {
-			div = element("div");
-			iframe = element("iframe");
-			this.h();
-		},
-		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true, id: true });
-			var div_nodes = children(div);
-
-			iframe = claim_element(div_nodes, "IFRAME", {
-				id: true,
-				title: true,
-				src: true,
-				width: true,
-				height: true,
-				style: true,
-				class: true
-			});
-
-			children(iframe).forEach(detach);
-			div_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(iframe, "id", "take-action");
-			attr(iframe, "title", "Take Action");
-			if (!src_url_equal(iframe.src, iframe_src_value = "https://gte-form.vercel.app/")) attr(iframe, "src", iframe_src_value);
-			attr(iframe, "width", "100%");
-			attr(iframe, "height", "1060px");
-			set_style(iframe, "border", "0px");
-			set_style(iframe, "overflow", "hidden");
-			set_style(iframe, "margin", "auto");
-			attr(iframe, "class", "svelte-1o7w9hc");
-			attr(div, "class", "section");
-			attr(div, "id", "section-e9c31a76");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			append_hydration(div, iframe);
-		},
-		p: noop,
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div);
-		}
-	};
-}
-
-function instance$5($$self, $$props, $$invalidate) {
-	let { color1 } = $$props;
-	let { color2 } = $$props;
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(3, title = $$props.title);
-		if ('description' in $$props) $$invalidate(4, description = $$props.description);
-	};
-
-	return [color1, color2, favicon, title, description];
-}
-
-class Component$5 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
-			color1: 0,
-			color2: 1,
-			favicon: 2,
-			title: 3,
-			description: 4
-		});
-	}
-}
-
-/* generated by Svelte v3.58.0 */
-
-function instance$6($$self, $$props, $$invalidate) {
-	let { color1 } = $$props;
-	let { color2 } = $$props;
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('color1' in $$props) $$invalidate(0, color1 = $$props.color1);
-		if ('color2' in $$props) $$invalidate(1, color2 = $$props.color2);
-		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(3, title = $$props.title);
-		if ('description' in $$props) $$invalidate(4, description = $$props.description);
-	};
-
-	return [color1, color2, favicon, title, description];
-}
-
-class Component$6 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$6, null, safe_not_equal, {
-			color1: 0,
-			color2: 1,
-			favicon: 2,
-			title: 3,
-			description: 4
-		});
-	}
-}
-
-/* generated by Svelte v3.58.0 */
-
-function create_fragment$6(ctx) {
+function create_fragment$4(ctx) {
 	let component_0;
 	let t0;
 	let component_1;
@@ -4714,10 +4315,6 @@ function create_fragment$6(ctx) {
 	let component_2;
 	let t2;
 	let component_3;
-	let t3;
-	let component_4;
-	let t4;
-	let component_5;
 	let current;
 
 	component_0 = new Component({
@@ -4729,9 +4326,7 @@ function create_fragment$6(ctx) {
 					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
-				},
-				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan."
+				}
 			}
 		});
 
@@ -4745,8 +4340,6 @@ function create_fragment$6(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
-				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				logo: {
 					"image": {
 						"alt": "",
@@ -4768,15 +4361,12 @@ function create_fragment$6(ctx) {
 						"link": { "url": "/about", "label": "About Us" }
 					},
 					{
-						"link": {
-							"url": "/zoning-bylaw",
-							"label": "Zoning Bylaw"
-						}
+						"link": { "url": "/blog", "label": "News" }
 					},
 					{
 						"link": {
 							"url": "/#take-action",
-							"label": "Take Action"
+							"label": "Get Involved"
 						}
 					}
 				],
@@ -4794,48 +4384,10 @@ function create_fragment$6(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
 				},
-				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
-				heading: "Renters matter too.",
-				body: {
-					"html": "<p>Renters come from all walks of life and deserve housing as much as any other Edmontonian. We are people, not a nuisance to be regulated away.</p><p></p><p>By making it easier to build apartments and townhomes, <strong>zoning renewal will boost our rental supply and help protect affordability</strong>. And with a greater variety of housing options, it'll be easier to stay in the same neighbourhood as your life changes.</p><p></p><p>Zoning renewal goes to a vote at a Public Hearing on Oct. 16th. Make sure your voice is heard.</p>",
-					"markdown": "Renters come from all walks of life and deserve housing as much as any other Edmontonian. We are people, not a nuisance to be regulated away.\n\n\n\nBy making it easier to build apartments and townhomes, **zoning renewal will boost our rental supply and help protect affordability**. And with a greater variety of housing options, it'll be easier to stay in the same neighbourhood as your life changes.\n\n\n\nZoning renewal goes to a vote at a Public Hearing on Oct. 16th. Make sure your voice is heard.\n\n"
-				},
-				buttons: [
-					{
-						"icon": "",
-						"link": {
-							"url": "/#take-action",
-							"label": "Email Your Councillor"
-						}
-					},
-					{
-						"icon": "Officia velit elit",
-						"link": {
-							"url": "/speaking",
-							"label": "Sign up to Speak Oct. 16th"
-						}
-					}
-				]
-			}
-		});
-
-	component_3 = new Component$4({
-			props: {
-				color1: "#A9CD37",
-				color2: "",
-				favicon: {
-					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"size": null
-				},
-				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.",
 				heading: "Get Involved",
 				subheading: {
-					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote on October 16th and there will be a lot of opposition from NIMBYs.</p><p>Make sure your voice is heard too! We've got a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://gtyeg.ca/speaking\">step by step guide for signing up for the public hearing</a> and speaking to council.</p>",
-					"markdown": "Zoning Bylaw Renewal goes to a public hearing and vote on October 16th and there will be a lot of opposition from NIMBYs.\n\nMake sure your voice is heard too! We've got a [step by step guide for signing up for the public hearing](<https://gtyeg.ca/speaking>) and speaking to council.\n\n"
+					"html": "<p><strong>Step 1: </strong>Sign up for our mailing list.</p><p>We're empowering housing advocates with resources and information to make an impact. Get started by joining our mailing list.</p><p><strong>Step 2:</strong> Follow us on socials. Visibility generates attention. Help us get our message out to people where they're at by following us and sharing liberally.</p><p><strong>Step 3:</strong> Join Discord. Get to know other housing advocates, attend live events together, and build a movement towards change</p>",
+					"markdown": "**Step 1: **Sign up for our mailing list.\n\nWe're empowering housing advocates with resources and information to make an impact. Get started by joining our mailing list.\n\n**Step 2:** Follow us on socials. Visibility generates attention. Help us get our message out to people where they're at by following us and sharing liberally.\n\n**Step 3:** Join Discord. Get to know other housing advocates, attend live events together, and build a movement towards change\n\n"
 				},
 				social: [
 					{
@@ -4858,6 +4410,13 @@ function create_fragment$6(ctx) {
 							"url": "https://discord.com/invite/bQsDZ3KWra",
 							"label": "Discord"
 						}
+					},
+					{
+						"icon": "mdi:email",
+						"link": {
+							"url": "mailto:info@growtogetheryeg.com",
+							"label": "info@growtogetheryeg.com"
+						}
 					}
 				],
 				event: {
@@ -4867,7 +4426,7 @@ function create_fragment$6(ctx) {
 			}
 		});
 
-	component_4 = new Component$5({
+	component_3 = new Component$4({
 			props: {
 				color1: "#A9CD37",
 				color2: "",
@@ -4876,24 +4435,7 @@ function create_fragment$6(ctx) {
 					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
 					"size": null
-				},
-				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan."
-			}
-		});
-
-	component_5 = new Component$6({
-			props: {
-				color1: "#A9CD37",
-				color2: "",
-				favicon: {
-					"alt": "Grow Together YEG is an advocacy group pushing for a more sustainable and affordable Edmonton. We support the new Zoning Bylaw.",
-					"src": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png",
-					"size": null
-				},
-				title: "Grow Together Edmonton",
-				description: "Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan."
+				}
 			}
 		});
 
@@ -4906,10 +4448,6 @@ function create_fragment$6(ctx) {
 			create_component(component_2.$$.fragment);
 			t2 = space();
 			create_component(component_3.$$.fragment);
-			t3 = space();
-			create_component(component_4.$$.fragment);
-			t4 = space();
-			create_component(component_5.$$.fragment);
 		},
 		l(nodes) {
 			claim_component(component_0.$$.fragment, nodes);
@@ -4919,10 +4457,6 @@ function create_fragment$6(ctx) {
 			claim_component(component_2.$$.fragment, nodes);
 			t2 = claim_space(nodes);
 			claim_component(component_3.$$.fragment, nodes);
-			t3 = claim_space(nodes);
-			claim_component(component_4.$$.fragment, nodes);
-			t4 = claim_space(nodes);
-			claim_component(component_5.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(component_0, target, anchor);
@@ -4932,10 +4466,6 @@ function create_fragment$6(ctx) {
 			mount_component(component_2, target, anchor);
 			insert_hydration(target, t2, anchor);
 			mount_component(component_3, target, anchor);
-			insert_hydration(target, t3, anchor);
-			mount_component(component_4, target, anchor);
-			insert_hydration(target, t4, anchor);
-			mount_component(component_5, target, anchor);
 			current = true;
 		},
 		p: noop,
@@ -4945,8 +4475,6 @@ function create_fragment$6(ctx) {
 			transition_in(component_1.$$.fragment, local);
 			transition_in(component_2.$$.fragment, local);
 			transition_in(component_3.$$.fragment, local);
-			transition_in(component_4.$$.fragment, local);
-			transition_in(component_5.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
@@ -4954,8 +4482,6 @@ function create_fragment$6(ctx) {
 			transition_out(component_1.$$.fragment, local);
 			transition_out(component_2.$$.fragment, local);
 			transition_out(component_3.$$.fragment, local);
-			transition_out(component_4.$$.fragment, local);
-			transition_out(component_5.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
@@ -4966,19 +4492,15 @@ function create_fragment$6(ctx) {
 			destroy_component(component_2, detaching);
 			if (detaching) detach(t2);
 			destroy_component(component_3, detaching);
-			if (detaching) detach(t3);
-			destroy_component(component_4, detaching);
-			if (detaching) detach(t4);
-			destroy_component(component_5, detaching);
 		}
 	};
 }
 
-class Component$7 extends SvelteComponent {
+class Component$5 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, null, create_fragment$6, safe_not_equal, {});
+		init(this, options, null, create_fragment$4, safe_not_equal, {});
 	}
 }
 
-export default Component$7;
+export default Component$5;

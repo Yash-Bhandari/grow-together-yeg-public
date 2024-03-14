@@ -1498,6 +1498,34 @@ function calculateSize(size, ratio, precision) {
     isNumber = !isNumber;
   }
 }
+function splitSVGDefs(content, tag = "defs") {
+  let defs = "";
+  const index = content.indexOf("<" + tag);
+  while (index >= 0) {
+    const start = content.indexOf(">", index);
+    const end = content.indexOf("</" + tag);
+    if (start === -1 || end === -1) {
+      break;
+    }
+    const endEnd = content.indexOf(">", end);
+    if (endEnd === -1) {
+      break;
+    }
+    defs += content.slice(start + 1, end).trim();
+    content = content.slice(0, index).trim() + content.slice(endEnd + 1);
+  }
+  return {
+    defs,
+    content
+  };
+}
+function mergeDefsAndContent(defs, content) {
+  return defs ? "<defs>" + defs + "</defs>" + content : content;
+}
+function wrapSVGContent(body, start, end) {
+  const split = splitSVGDefs(body);
+  return mergeDefsAndContent(split.defs, start + split.content + end);
+}
 const isUnsetKeyword = (value) => value === "unset" || value === "undefined" || value === "none";
 function iconToSVG(icon, customisations) {
   const fullIcon = {
@@ -1564,7 +1592,7 @@ function iconToSVG(icon, customisations) {
       }
     }
     if (transformations.length) {
-      body = '<g transform="' + transformations.join(" ") + '">' + body + "</g>";
+      body = wrapSVGContent(body, '<g transform="' + transformations.join(" ") + '">', "</g>");
     }
   });
   const customisationsWidth = fullCustomisations.width;
@@ -1588,9 +1616,11 @@ function iconToSVG(icon, customisations) {
   };
   setAttr("width", width);
   setAttr("height", height);
-  attributes.viewBox = box.left.toString() + " " + box.top.toString() + " " + boxWidth.toString() + " " + boxHeight.toString();
+  const viewBox = [box.left, box.top, boxWidth, boxHeight];
+  attributes.viewBox = viewBox.join(" ");
   return {
     attributes,
+    viewBox,
     body
   };
 }
@@ -2189,6 +2219,7 @@ const browserCacheCountKey = browserCachePrefix + "-count";
 const browserCacheVersionKey = browserCachePrefix + "-version";
 const browserStorageHour = 36e5;
 const browserStorageCacheExpiration = 168;
+const browserStorageLimit = 50;
 function getStoredItem(func, key) {
   try {
     return func.getItem(key);
@@ -2333,7 +2364,7 @@ function storeInBrowserStorage(storage2, data) {
       set.delete(index = Array.from(set).shift());
     } else {
       index = getBrowserStorageItemsCount(func);
-      if (!setBrowserStorageItemsCount(func, index + 1)) {
+      if (index >= browserStorageLimit || !setBrowserStorageItemsCount(func, index + 1)) {
         return;
       }
     }
@@ -2826,7 +2857,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (113:1) {:else}
+// (115:1) {:else}
 function create_else_block(ctx) {
 	let span;
 	let span_levels = [/*data*/ ctx[0].attributes];
@@ -2861,7 +2892,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (109:1) {#if data.svg}
+// (111:1) {#if data.svg}
 function create_if_block_1(ctx) {
 	let svg;
 	let raw_value = /*data*/ ctx[0].body + "";
@@ -4382,7 +4413,7 @@ function create_fragment$7(ctx) {
 			t8 = text("Newsletter");
 			t9 = space();
 			p0 = element("p");
-			t10 = text("Join our newsletter for updates on Zoning Bylaw Renewal and events.");
+			t10 = text("Join our mailing list for updates and events.");
 			t11 = space();
 			form = element("form");
 			div6 = element("div");
@@ -4477,7 +4508,7 @@ function create_fragment$7(ctx) {
 			t9 = claim_space(div3_nodes);
 			p0 = claim_element(div3_nodes, "P", {});
 			var p0_nodes = children(p0);
-			t10 = claim_text(p0_nodes, "Join our newsletter for updates on Zoning Bylaw Renewal and events.");
+			t10 = claim_text(p0_nodes, "Join our mailing list for updates and events.");
 			p0_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
 			t11 = claim_space(div9_nodes);
@@ -5036,15 +5067,12 @@ function create_fragment$9(ctx) {
 						"link": { "url": "/about", "label": "About Us" }
 					},
 					{
-						"link": {
-							"url": "/zoning-bylaw",
-							"label": "Zoning Bylaw"
-						}
+						"link": { "url": "/blog", "label": "News" }
 					},
 					{
 						"link": {
 							"url": "/#take-action",
-							"label": "Take Action"
+							"label": "Get Involved"
 						}
 					}
 				],
@@ -5069,7 +5097,7 @@ function create_fragment$9(ctx) {
 					"url": "https://res.cloudinary.com/dbnijop5c/image/upload/v1689912328/1689308724419Decoteau_Revenue_qi8ofp.png",
 					"size": null
 				},
-				heading: "Zoning Renewal and Fiscal Sustainability",
+				heading: "Density and Fiscal Sustainability",
 				subhead: "Suburban sprawl is bankrupting Edmonton. It's time we legalized an alternative.",
 				image: {
 					"alt": "",
@@ -5154,8 +5182,8 @@ function create_fragment$9(ctx) {
 					"size": null
 				},
 				content: {
-					"html": "<p>Source: Urban Planning Committee Aug 23, 2022</p>\n<h3 id=\"thesolutionbuildupourexistingneighbourhoods\">The solution: Build up our existing neighbourhoods</h3>\n<p>The new zoning bylaw will make it easier to build new middle-density homes in mature communities. That helps lower property taxes for everyone because <strong>increasing density raises our tax base without substantially increasing costs for the city</strong></p>\n<p>There are two reasons for this:</p>\n<ol>\n<li><p><strong>Upfront costs are lower</strong>. In our mature neighbourhoods, roads have already been built and utilities are <a href=\"https://www.jacobdawang.com/blog/2023/edmonton-mature-neighbourhoods/\">typically underutilized due to declining populations</a>. The city doesn't need to pay for a bunch of new infrastructure if we can use what already exists.</p></li>\n<li><p><strong>Servicing costs are lower</strong>. It's <a href=\"https://usa.streetsblog.org/2015/03/05/sprawl-costs-the-public-more-than-twice-as-much-as-compact-development\">much cheaper</a> to provide road maintenance, transit, and garbage disposal services to higher density residences.</p></li>\n</ol>",
-					"markdown": "Source: Urban Planning Committee Aug 23, 2022\n\n### The solution: Build up our existing neighbourhoods\n\nThe new zoning bylaw will make it easier to build new middle-density homes in mature communities. That helps lower property taxes for everyone because **increasing density raises our tax base without substantially increasing costs for the city**\n\nThere are two reasons for this:\n\n1. **Upfront costs are lower**. In our mature neighbourhoods, roads have already been built and utilities are [typically underutilized due to declining populations](https://www.jacobdawang.com/blog/2023/edmonton-mature-neighbourhoods/). The city doesn't need to pay for a bunch of new infrastructure if we can use what already exists.\n\n2. **Servicing costs are lower**. It's [much cheaper](https://usa.streetsblog.org/2015/03/05/sprawl-costs-the-public-more-than-twice-as-much-as-compact-development) to provide road maintenance, transit, and garbage disposal services to higher density residences.\n"
+					"html": "<p>Source: Urban Planning Committee Aug 23, 2022</p><h3>The solution: Build up our existing neighbourhoods</h3><p>We need to make it easier to build new middle-density homes in mature communities. That helps lower property taxes for everyone because <strong>increasing density raises our tax base without substantially increasing costs for the city</strong></p><p>There are two reasons for this:</p><ol><li><p><strong>Upfront costs are lower</strong>. In our mature neighbourhoods, roads have already been built and utilities are <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://www.jacobdawang.com/blog/2023/edmonton-mature-neighbourhoods/\">typically underutilized due to declining populations</a>. The city doesn't need to pay for a bunch of new infrastructure if we can use what already exists.</p></li><li><p><strong>Servicing costs are lower</strong>. It's <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link\" href=\"https://usa.streetsblog.org/2015/03/05/sprawl-costs-the-public-more-than-twice-as-much-as-compact-development\">much cheaper</a> to provide road maintenance, transit, and garbage disposal services to higher density residences.</p></li></ol>",
+					"markdown": "Source: Urban Planning Committee Aug 23, 2022\n\n### The solution: Build up our existing neighbourhoods\n\nWe need to make it easier to build new middle-density homes in mature communities. That helps lower property taxes for everyone because **increasing density raises our tax base without substantially increasing costs for the city**\n\nThere are two reasons for this:\n\n1. **Upfront costs are lower**. In our mature neighbourhoods, roads have already been built and utilities are [typically underutilized due to declining populations](<https://www.jacobdawang.com/blog/2023/edmonton-mature-neighbourhoods/>). The city doesn't need to pay for a bunch of new infrastructure if we can use what already exists.\n\n2. **Servicing costs are lower**. It's [much cheaper](<https://usa.streetsblog.org/2015/03/05/sprawl-costs-the-public-more-than-twice-as-much-as-compact-development>) to provide road maintenance, transit, and garbage disposal services to higher density residences.\n\n\n<!-- -->\n\n"
 				}
 			}
 		});
@@ -5179,8 +5207,8 @@ function create_fragment$9(ctx) {
 				},
 				heading: "Get Involved",
 				subheading: {
-					"html": "<p>Zoning Bylaw Renewal goes to a public hearing and vote on October 16th and there will be a lot of opposition from NIMBYs.</p><p>Make sure your voice is heard too! We've got a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"link link link\" href=\"https://gtyeg.ca/speaking\">step by step guide for signing up for the public hearing</a> and speaking to council.</p>",
-					"markdown": "Zoning Bylaw Renewal goes to a public hearing and vote on October 16th and there will be a lot of opposition from NIMBYs.\n\nMake sure your voice is heard too! We've got a [step by step guide for signing up for the public hearing](<https://gtyeg.ca/speaking>) and speaking to council.\n\n"
+					"html": "<p><strong>Step 1: </strong>Sign up for our mailing list.</p><p>We're empowering housing advocates with resources and information to make an impact. Get started by joining our mailing list.</p><p><strong>Step 2:</strong> Follow us on socials. Visibility generates attention. Help us get our message out to people where they're at by following us and sharing liberally.</p><p><strong>Step 3:</strong> Join Discord. Get to know other housing advocates, attend live events together, and build a movement towards change</p>",
+					"markdown": "**Step 1: **Sign up for our mailing list.\n\nWe're empowering housing advocates with resources and information to make an impact. Get started by joining our mailing list.\n\n**Step 2:** Follow us on socials. Visibility generates attention. Help us get our message out to people where they're at by following us and sharing liberally.\n\n**Step 3:** Join Discord. Get to know other housing advocates, attend live events together, and build a movement towards change\n\n"
 				},
 				social: [
 					{
@@ -5202,6 +5230,13 @@ function create_fragment$9(ctx) {
 						"link": {
 							"url": "https://discord.com/invite/bQsDZ3KWra",
 							"label": "Discord"
+						}
+					},
+					{
+						"icon": "mdi:email",
+						"link": {
+							"url": "mailto:info@growtogetheryeg.com",
+							"label": "info@growtogetheryeg.com"
 						}
 					}
 				],
