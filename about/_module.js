@@ -4724,7 +4724,7 @@ function create_fragment$5(ctx) {
 					"size": null
 				},
 				title: "Team",
-				description: "Grow Together YEG is volunteer organization run by ordinary Edmontonians. We are passionate about housing, climate and urban vibrancy. We are wholly independent and do not receive any funding from the development industry or the City of Edmonton.",
+				description: "Grow Together Edmonton is a volunteer organization run by ordinary Edmontonians. We are passionate about housing, climate and urban vibrancy. We are wholly independent and do not receive any funding from the development industry or the City of Edmonton.",
 				heading: "Who are we?",
 				email: "info@growtogetheryeg.com",
 				people: [
