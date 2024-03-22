@@ -5749,37 +5749,37 @@ function create_fragment$b(ctx) {
 				},
 				heading: "Get Involved",
 				subheading: {
-					"html": "<p>**Step 1: **Sign up for our mailing list.</p>\n<p>We're empowering housing advocates with resources and information to make an impact. Get started by joining our mailing list.</p>\n<p><strong>Step 2:</strong> Follow us on socials. Visibility generates attention. Help us get our message out to people where they're at by following us and sharing liberally.</p>\n<p><strong>Step 3:</strong> Join Discord. Get to know other housing advocates, attend live events together, and build a movement towards change</p>",
-					"markdown": "**Step 1: **Sign up for our mailing list.\n\nWe're empowering housing advocates with resources and information to make an impact. Get started by joining our mailing list.\n\n**Step 2:** Follow us on socials. Visibility generates attention. Help us get our message out to people where they're at by following us and sharing liberally.\n\n**Step 3:** Join Discord. Get to know other housing advocates, attend live events together, and build a movement towards change\n\n"
+					"html": "<p><strong>Step 1:</strong> Sign up for our mailing list.</p>\n<p>We're empowering housing advocates with resources and information to make an impact. Get started by joining our mailing list.</p>\n<p><strong>Step 2:</strong> Follow us on socials. Visibility generates attention. Help us get our message out to people where they're at by following us and sharing liberally.</p>\n<p><strong>Step 3:</strong> Join Discord. Get to know other housing advocates, attend live events together, and build a movement towards change</p>",
+					"markdown": "**Step 1:** Sign up for our mailing list.\n\nWe're empowering housing advocates with resources and information to make an impact. Get started by joining our mailing list.\n\n**Step 2:** Follow us on socials. Visibility generates attention. Help us get our message out to people where they're at by following us and sharing liberally.\n\n**Step 3:** Join Discord. Get to know other housing advocates, attend live events together, and build a movement towards change\n\n"
 				},
 				social: [
 					{
+						"icon": "mdi:twitter",
 						"link": {
 							"url": "https://twitter.com/GrowTogetherYEG",
 							"label": "Twitter"
-						},
-						"icon": "mdi:twitter"
+						}
 					},
 					{
+						"icon": "mdi:instagram",
 						"link": {
 							"url": "https://www.instagram.com/growtogetheryeg/",
 							"label": "Instagram"
-						},
-						"icon": "mdi:instagram"
+						}
 					},
 					{
+						"icon": "mdi:discord",
 						"link": {
 							"url": "https://discord.com/invite/Mw3JtEZADJ",
 							"label": "Discord"
-						},
-						"icon": "mdi:discord"
+						}
 					},
 					{
+						"icon": "mdi:email",
 						"link": {
 							"url": "mailto:info@growtogetheryeg.com",
 							"label": "info@growtogetheryeg.com"
-						},
-						"icon": "mdi:email"
+						}
 					}
 				],
 				event: {
