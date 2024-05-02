@@ -1,532 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta name="generator" content="Primo" />
+      <title>Grow Together Edmonton</title><!-- HEAD_svelte-ccebu9_START --><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="UTF-8"><link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png"><link rel="preconnect" href="https://fonts.bunny.net"><script async src="https://analytics.umami.is/script.js" data-website-id="541fddec-8517-45e6-b5e5-6a9e36cb83c3"></script><script>(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '511328');
+</script><meta name="description" content="Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan."><style>/* Reset & standardize default styles */
+@import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
 
-<head>
-    <meta name="generator" content="Primo" />
-    <title>Grow Together Edmonton</title><!-- HEAD_svelte-ccebu9_START -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dbnijop5c/image/upload/v1692649250/gtyeg_logo_no_text_darker_32_dkly4s.png">
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <script async src="https://analytics.umami.is/script.js" data-website-id="541fddec-8517-45e6-b5e5-6a9e36cb83c3"></script>
-    <script>
-        (function(w, d, e, u, f, l, n) {
-            w[f] = w[f] || function() {
-                    (w[f].q = w[f].q || [])
-                    .push(arguments);
-                }, l = d.createElement(e), l.async = 1, l.src = u,
-                n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n);
-        })
-        (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
-        ml('account', '511328');
+/* Design tokens (apply to components) */
+:root {
+  /* Custom theme options */
+  --color-accent: #027648;
+  --color1: #4C5760;
+  
+  /* Base values */
+  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  --border-radius: 0;
+  --border-color: #e0e1e1;
+}
+
+/* Root element (use instead of `body`) */
+#page {
+  font-family: system-ui, sans-serif;
+  color: #111;
+  line-height: 1.5;
+  font-size: 1.125rem;
+  background: white;
+}
+
+/* Elements */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+a.link {
+  line-height: 1.3;
+
+  border-bottom: 2px solid var(--color-accent);
+  transform: translateY(-2px); /* move link back into place */
+  transition: var(--transition, 0.1s border);
+}
+
+a.link:hover {
+    border-color: transparent;
+  }
+
+.heading {
+  font-size: 2.5rem;
+  line-height: 1.15;
+
+}
+
+.button {
+  color: white;
+  background: var(--color-accent, rebeccapurple);
+  border-radius: 0;
+  padding: 18px 24px;
+  transition: var(--transition, 0.1s box-shadow);
+  border: 0; /* reset */
+  max-height: 80px;
+}
+
+.button:hover {
+    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+  }
+
+.button.inverted {
+    background: transparent;
+    color: var(--color-accent, rebeccapurple);
+  }
+
+
+</style><!-- HEAD_svelte-ccebu9_END -->
+      <style>.section-container.svelte-nnp8i3.svelte-nnp8i3{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;padding-bottom:1rem}.logo.svelte-nnp8i3.svelte-nnp8i3{font-size:1.5rem;font-weight:600;line-height:1.2;display:flex;flex-direction:row;align-items:center}.logo.svelte-nnp8i3>img.svelte-nnp8i3{max-width:100px;margin-right:1rem}.desktop-nav.svelte-nnp8i3.svelte-nnp8i3{display:none;align-items:center;justify-content:space-between;width:100%}.desktop-nav.svelte-nnp8i3 nav.svelte-nnp8i3{display:flex;gap:2rem}@media(min-width: 800px){.desktop-nav.svelte-nnp8i3.svelte-nnp8i3{display:flex
+}}nav.svelte-nnp8i3>a.link.svelte-nnp8i3{border-color:transparent;transition:border-color 0.1s;font-size:0.95rem}nav.svelte-nnp8i3>a.link.svelte-nnp8i3:hover{border-color:var(--color-accent)}.mobile-nav.svelte-nnp8i3.svelte-nnp8i3{display:flex;align-items:center;justify-content:space-between;width:100%;font-weight:500}@media(min-width: 800px){.mobile-nav.svelte-nnp8i3.svelte-nnp8i3{display:none
+}}#popup.svelte-nnp8i3.svelte-nnp8i3{font-size:1.25rem;display:grid;gap:1rem;position:absolute;text-align:center;background-color:var(--background-color, white);box-shadow:var(--box-shadow, 0px 4px 30px rgba(0, 0, 0, 0.1));border-radius:var(--border-radius);inset:0.5rem;bottom:initial;padding:2rem;z-index:1}#popup.svelte-nnp8i3 button#close.svelte-nnp8i3{position:absolute;right:1rem;top:1rem}
+.section-container.svelte-1b9cr7a{max-width:var(--inner-max-width,800px);padding:1rem 2rem;margin-bottom:0;padding-bottom:0
+}.content.svelte-1b9cr7a img{width:100%;margin:2rem 0;box-shadow:var(--box-shadow);border-radius:var(--border-radius)}.content.svelte-1b9cr7a p{padding:0.25rem 0;line-height:1.5;font-family:var(--body-font);font-weight:400;margin-bottom:1rem;color:#2d3339}.content.svelte-1b9cr7a a.link{border-color:var(--color-accent)}.content.svelte-1b9cr7a a.link:hover{color:var(--color-accent)     
+    }.content.svelte-1b9cr7a h1{font-size:clamp(1.75rem, 10vw, 2.25rem);font-weight:600;letter-spacing:-0.08rem;margin-bottom:1rem;line-height:1.1}.content.svelte-1b9cr7a h2{font-size:clamp(1.5rem, 10vw, 2.125rem);font-weight:600;margin-bottom:1rem;letter-spacing:-0.06rem;line-height:1.1}.content.svelte-1b9cr7a h3{font-size:clamp(1.25rem, 10vw, 1.75rem);font-weight:600;margin-bottom:0.5rem;letter-spacing:-0.05rem;line-height:1.1}.content.svelte-1b9cr7a ul{list-style:disc;padding:0.25rem 0;padding-left:1.25rem}.content.svelte-1b9cr7a ol{list-style:decimal;padding-left:1.25rem;margin-bottom:2rem}.content.svelte-1b9cr7a blockquote{padding:2rem;box-shadow:var(--box-shadow);border-radius:var(--border-radius)}
+.section-container.svelte-1qe5oiy{display:flex;flex-direction:column;align-items:center;margin:0px auto;padding:0px}img.svelte-1qe5oiy{max-width:min(90%, 800px);margin:0px;padding:0px}
+.section-container.svelte-1b9cr7a{max-width:var(--inner-max-width,800px);padding:1rem 2rem;margin-bottom:0;padding-bottom:0
+}.content.svelte-1b9cr7a img{width:100%;margin:2rem 0;box-shadow:var(--box-shadow);border-radius:var(--border-radius)}.content.svelte-1b9cr7a p{padding:0.25rem 0;line-height:1.5;font-family:var(--body-font);font-weight:400;margin-bottom:1rem;color:#2d3339}.content.svelte-1b9cr7a a.link{border-color:var(--color-accent)}.content.svelte-1b9cr7a a.link:hover{color:var(--color-accent)     
+    }.content.svelte-1b9cr7a h1{font-size:clamp(1.75rem, 10vw, 2.25rem);font-weight:600;letter-spacing:-0.08rem;margin-bottom:1rem;line-height:1.1}.content.svelte-1b9cr7a h2{font-size:clamp(1.5rem, 10vw, 2.125rem);font-weight:600;margin-bottom:1rem;letter-spacing:-0.06rem;line-height:1.1}.content.svelte-1b9cr7a h3{font-size:clamp(1.25rem, 10vw, 1.75rem);font-weight:600;margin-bottom:0.5rem;letter-spacing:-0.05rem;line-height:1.1}.content.svelte-1b9cr7a ul{list-style:disc;padding:0.25rem 0;padding-left:1.25rem}.content.svelte-1b9cr7a ol{list-style:decimal;padding-left:1.25rem;margin-bottom:2rem}.content.svelte-1b9cr7a blockquote{padding:2rem;box-shadow:var(--box-shadow);border-radius:var(--border-radius)}
+.section-container.svelte-13kke8f.svelte-13kke8f{max-width:700px;width:100%;margin:0 auto;gap:1rem;margin-top:0;padding-top:1rem}.box.svelte-13kke8f.svelte-13kke8f{margin-top:0;padding:3rem 3.25rem;border:1px solid var(--border-color);border-radius:var(--border-radius, 4px)}.heading-group.svelte-13kke8f.svelte-13kke8f{display:grid;gap:1rem;margin-bottom:2rem;margin-top:0}form.svelte-13kke8f.svelte-13kke8f{display:grid;gap:2rem}form.svelte-13kke8f input.svelte-13kke8f{min-width:200px}form.svelte-13kke8f label.svelte-13kke8f{display:grid;gap:0.25rem;font-weight:500;min-width:200px}form.svelte-13kke8f select.svelte-13kke8f{min-width:200px
+  }form.svelte-13kke8f input.svelte-13kke8f{width:100%;padding:0.75rem 0.75rem;border:1.5px solid var(--border-color);border-radius:4px}form.svelte-13kke8f .label.svelte-13kke8f{font-size:1rem;margin-bottom:0.25rem}form.svelte-13kke8f .placeholder.svelte-13kke8f{font-size:1rem;font-weight:300}form.svelte-13kke8f .button.svelte-13kke8f{place-self:start}</style>
+    </head>
+    <body id="page">
+       
+<div class="section" id="section-38add385"><header class="section-container svelte-nnp8i3"><div class="desktop-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;" class="svelte-nnp8i3">
+      Grow Together Edmonton</a>
+    <nav class="svelte-nnp8i3"><a class="link svelte-nnp8i3" href="/">Home</a><a class="link svelte-nnp8i3" href="/about">About Us</a><a class="link svelte-nnp8i3" href="/blog">News</a><a class="link svelte-nnp8i3" href="/#take-action">Get Involved</a></nav></div>
+  <div class="mobile-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img class="logo svelte-nnp8i3" src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;">
+      Grow Together Edmonton</a>
+    <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START --><rect width="18" height="2" x="3" y="11" fill="currentColor" rx=".95" ry=".95"/><rect width="18" height="2" x="3" y="16" fill="currentColor" rx=".95" ry=".95"/><rect width="18" height="2" x="3" y="6" fill="currentColor" rx=".95" ry=".95"/><!-- HTML_TAG_END --></svg></button>
+    </div></header></div> 
+<div class="section" id="section-90132a1f"><div class="section"><div class="section-container content svelte-1b9cr7a"><!-- HTML_TAG_START --><h1>Speak at Council on October 16</h1><p>Speaking to council (remotely or in-person) is the single most impactful thing you can do to help make sure our new Zoning Bylaw passes.</p><p>Signing up only takes a minute, and you can choose to speak in person or remotely</p><ol><li><p><a target="_blank" rel="noopener noreferrer nofollow" class="link link" href="https://docs.google.com/forms/d/e/1FAIpQLSfjK1JQOPRWVORUVKsSbRn3yLN5E9vcVLu3nifMO4N1ZfmgFg/viewform">Follow this link</a></p></li><li><p>Select "Public Hearing" and enter October 16 as the date</p></li><li><p>Where it asks for the agenda number and title, enter: 3.1 Zoning Bylaw Renewal</p></li><li><p>Select "In Favour" as your position</p></li><li><p>Select "no" where it asks "Would you like to be available to answer questions only?"</p></li><li><p>The City Clerk will send you a confirmation, and a reminder the day before.</p></li></ol><!-- HTML_TAG_END --></div></div></div> 
+<div class="section" id="section-058d77aa"><section class="section-container svelte-1qe5oiy"><img src="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/169566863592651631007562_4c2a8ab241_5k.jpg" alt="Edmonton City Council" style="max-height: 400px" class="svelte-1qe5oiy"></section></div> 
+<div class="section" id="section-ccc97785"><div class="section"><div class="section-container content svelte-1b9cr7a"><!-- HTML_TAG_START --><h1>Tips on speaking to council</h1><p><strong>1. Write it down</strong></p><p>You only have 5 minutes, and all eyes are on you. You don't need to write an epic poem, but make sure you have your points clearly made and easily accessible if you get lost.</p><p><strong>2. Make it personal</strong></p><p>Tell them who you are, what part of the city you live in, and why you care about this issue. You’re the expert on what you care about — you don't have to get intimate, but speaking to your specific experience means more than a talking point.</p><p><strong>3. Focus on ONE BIG TAKEAWAY</strong></p><p>You don't need to cover everything: there will be lots of speakers. Sum up your support in a line or two, then let everything that follows support that point.</p><p><strong>4. Keep it civil</strong></p><p>Earnestness and respect might not make you stand out, but a lack of them will surely get you dismissed. Keep the clever retorts and sarcastic asides for Twitter or the group chat: we’re there to convince council, not argue with the other side.</p><p><strong>5. There's nothing wrong with keeping it short</strong></p><p>We’re happy to help with anything you need — seriously, <a target="_blank" rel="noopener noreferrer nofollow" class="link link link" href="mailto:growtogetheryeg@gmail.com?subject=Speaking to council">just email us</a> — but remember your presence is the most important thing. If you just want to say you support the bylaw and yield your time, that's enough.</p><!-- HTML_TAG_END --></div></div></div> 
+<div class="section" id="section-345b3a9b"><section class="section-container svelte-13kke8f"><div class="box svelte-13kke8f"><div class="heading-group svelte-13kke8f"><h2 class="heading">Can't make council? You can still make your voice heard</h2>
+  <p class="subheaging">Email your city councillor to let them know you support the new zoning bylaw. We've got a template letter you can use as a draft.</p></div>
+  <form class="svelte-13kke8f"><label class="svelte-13kke8f"><span class="label svelte-13kke8f">Your Name:</span>
+      <input id="name" name="name" class="placeholder svelte-13kke8f" type="text" placeholder="John Doe"></label>
+    <label class="label svelte-13kke8f">Your Councillor:
+    <select id="councillor" name="councillor" class="svelte-13kke8f"><option value="Michael Janz">Michael Janz (ward papastew)</option><option value="Andrew Knack">Andrew Knack (ward Nakota Isga)</option><option value="Erin Rutherford">Erin Rutherford (ward Anirniq)</option><option value="Aaron Paquette">Aaron Paquette (ward Dene)</option><option value="Jennifer Rice">Jennifer Rice (ward Ipiihkoohkanipiaohtsi)</option><option value="Keren Tang">Keren Tang (ward Karhiio)</option><option value="Ashley Salvador">Ashley Salvador (ward Métis)</option><option value="Anne Stevenson">Anne Stevenson (ward O-day’min)</option><option value="Tim Cartmell">Tim Cartmell (ward pihêsiwin)</option><option value="Sarah Hamilton">Sarah Hamilton (ward sipiwiyiniwak)</option><option value="Jo-Anne Wright">Jo-Anne Wright (ward Sspomitapi)</option><option value="Karen Principe">Karen Principe (ward tastawiyiniwak)</option></select></label>
+    <button type="submit" class="button svelte-13kke8f">Open Draft Email</button></form></div></section></div> 
+
+      <script type="module">
+      import('/_symbols/cf04b40d-6c25-4f29-81f8-5a641d5c084f.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-38add385'),
+              hydrate: true,
+              props: {"logo":{"image":{"alt":"","src":"\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg","url":"\thttps://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg","size":null},"title":"Grow Together Edmonton"},"site_nav":[{"link":{"url":"/","label":"Home","active":false}},{"link":{"url":"/about","label":"About Us"}},{"link":{"url":"/blog","label":"News"}},{"link":{"url":"/#take-action","label":"Get Involved"}}],"logo_width":"100"}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/b51d1798-6e82-4dd7-9c9a-31450698e49b.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-345b3a9b'),
+              hydrate: true,
+              props: {"heading":"Can't make council? You can still make your voice heard","subheading":"Email your city councillor to let them know you support the new zoning bylaw. We've got a template letter you can use as a draft.","inputs":[{"type":"text","label":"Your Name","placeholder":"Ad exercitation quis"},{"type":"text","label":"Subject","placeholder":"Mollit nulla veniam"},{"type":"text","label":"Your Ward","placeholder":"Papastew"}],"button_text":"Open Draft Email"}
+            })
+          
+      })
+      .catch(e => console.error(e))
     </script>
-    <meta name="description" content="Grow Together YEG is a coalition of citizens advocating for a more sustainable, vibrant and Edmonton. We support Edmonton's new zoning bylaw and the City Plan.">
-    <style>
-        /* Reset & standardize default styles */
-        @import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
-
-        /* Design tokens (apply to components) */
-        :root {
-            /* Custom theme options */
-            --color-accent: #027648;
-            --color1: #4C5760;
-
-            /* Base values */
-            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
-            --border-radius: 0;
-            --border-color: #e0e1e1;
-        }
-
-        /* Root element (use instead of `body`) */
-        #page {
-            font-family: system-ui, sans-serif;
-            color: #111;
-            line-height: 1.5;
-            font-size: 1.125rem;
-            background: white;
-        }
-
-        /* Elements */
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        a.link {
-            line-height: 1.3;
-
-            border-bottom: 2px solid var(--color-accent);
-            transform: translateY(-2px);
-            /* move link back into place */
-            transition: var(--transition, 0.1s border);
-        }
-
-        a.link:hover {
-            border-color: transparent;
-        }
-
-        .heading {
-            font-size: 2.5rem;
-            line-height: 1.15;
-
-        }
-
-        .button {
-            color: white;
-            background: var(--color-accent, rebeccapurple);
-            border-radius: 0;
-            padding: 18px 24px;
-            transition: var(--transition, 0.1s box-shadow);
-            border: 0;
-            /* reset */
-            max-height: 80px;
-        }
-
-        .button:hover {
-            box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
-        }
-
-        .button.inverted {
-            background: transparent;
-            color: var(--color-accent, rebeccapurple);
-        }
-    </style><!-- HEAD_svelte-ccebu9_END -->
-    <style>
-        .section-container.svelte-nnp8i3.svelte-nnp8i3 {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            padding-bottom: 1rem
-        }
-
-        .logo.svelte-nnp8i3.svelte-nnp8i3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            line-height: 1.2;
-            display: flex;
-            flex-direction: row;
-            align-items: center
-        }
-
-        .logo.svelte-nnp8i3>img.svelte-nnp8i3 {
-            max-width: 100px;
-            margin-right: 1rem
-        }
-
-        .desktop-nav.svelte-nnp8i3.svelte-nnp8i3 {
-            display: none;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%
-        }
-
-        .desktop-nav.svelte-nnp8i3 nav.svelte-nnp8i3 {
-            display: flex;
-            gap: 2rem
-        }
-
-        @media(min-width: 800px) {
-            .desktop-nav.svelte-nnp8i3.svelte-nnp8i3 {
-                display: flex
-            }
-        }
-
-        nav.svelte-nnp8i3>a.link.svelte-nnp8i3 {
-            border-color: transparent;
-            transition: border-color 0.1s;
-            font-size: 0.95rem
-        }
-
-        nav.svelte-nnp8i3>a.link.svelte-nnp8i3:hover {
-            border-color: var(--color-accent)
-        }
-
-        .mobile-nav.svelte-nnp8i3.svelte-nnp8i3 {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            font-weight: 500
-        }
-
-        @media(min-width: 800px) {
-            .mobile-nav.svelte-nnp8i3.svelte-nnp8i3 {
-                display: none
-            }
-        }
-
-        #popup.svelte-nnp8i3.svelte-nnp8i3 {
-            font-size: 1.25rem;
-            display: grid;
-            gap: 1rem;
-            position: absolute;
-            text-align: center;
-            background-color: var(--background-color, white);
-            box-shadow: var(--box-shadow, 0px 4px 30px rgba(0, 0, 0, 0.1));
-            border-radius: var(--border-radius);
-            inset: 0.5rem;
-            bottom: initial;
-            padding: 2rem;
-            z-index: 1
-        }
-
-        #popup.svelte-nnp8i3 button#close.svelte-nnp8i3 {
-            position: absolute;
-            right: 1rem;
-            top: 1rem
-        }
-
-        .section-container.svelte-1b9cr7a {
-            max-width: var(--inner-max-width, 800px);
-            padding: 1rem 2rem;
-            margin-bottom: 0;
-            padding-bottom: 0
-        }
-
-        .content.svelte-1b9cr7a img {
-            width: 100%;
-            margin: 2rem 0;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius)
-        }
-
-        .content.svelte-1b9cr7a p {
-            padding: 0.25rem 0;
-            line-height: 1.5;
-            font-family: var(--body-font);
-            font-weight: 400;
-            margin-bottom: 1rem;
-            color: #2d3339
-        }
-
-        .content.svelte-1b9cr7a a.link {
-            border-color: var(--color-accent)
-        }
-
-        .content.svelte-1b9cr7a a.link:hover {
-            color: var(--color-accent)
-        }
-
-        .content.svelte-1b9cr7a h1 {
-            font-size: clamp(1.75rem, 10vw, 2.25rem);
-            font-weight: 600;
-            letter-spacing: -0.08rem;
-            margin-bottom: 1rem;
-            line-height: 1.1
-        }
-
-        .content.svelte-1b9cr7a h2 {
-            font-size: clamp(1.5rem, 10vw, 2.125rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.06rem;
-            line-height: 1.1
-        }
-
-        .content.svelte-1b9cr7a h3 {
-            font-size: clamp(1.25rem, 10vw, 1.75rem);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.05rem;
-            line-height: 1.1
-        }
-
-        .content.svelte-1b9cr7a ul {
-            list-style: disc;
-            padding: 0.25rem 0;
-            padding-left: 1.25rem
-        }
-
-        .content.svelte-1b9cr7a ol {
-            list-style: decimal;
-            padding-left: 1.25rem;
-            margin-bottom: 2rem
-        }
-
-        .content.svelte-1b9cr7a blockquote {
-            padding: 2rem;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius)
-        }
-
-        .section-container.svelte-1qe5oiy {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0px auto;
-            padding: 0px
-        }
-
-        img.svelte-1qe5oiy {
-            max-width: min(90%, 800px);
-            margin: 0px;
-            padding: 0px
-        }
-
-        .section-container.svelte-1b9cr7a {
-            max-width: var(--inner-max-width, 800px);
-            padding: 1rem 2rem;
-            margin-bottom: 0;
-            padding-bottom: 0
-        }
-
-        .content.svelte-1b9cr7a img {
-            width: 100%;
-            margin: 2rem 0;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius)
-        }
-
-        .content.svelte-1b9cr7a p {
-            padding: 0.25rem 0;
-            line-height: 1.5;
-            font-family: var(--body-font);
-            font-weight: 400;
-            margin-bottom: 1rem;
-            color: #2d3339
-        }
-
-        .content.svelte-1b9cr7a a.link {
-            border-color: var(--color-accent)
-        }
-
-        .content.svelte-1b9cr7a a.link:hover {
-            color: var(--color-accent)
-        }
-
-        .content.svelte-1b9cr7a h1 {
-            font-size: clamp(1.75rem, 10vw, 2.25rem);
-            font-weight: 600;
-            letter-spacing: -0.08rem;
-            margin-bottom: 1rem;
-            line-height: 1.1
-        }
-
-        .content.svelte-1b9cr7a h2 {
-            font-size: clamp(1.5rem, 10vw, 2.125rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.06rem;
-            line-height: 1.1
-        }
-
-        .content.svelte-1b9cr7a h3 {
-            font-size: clamp(1.25rem, 10vw, 1.75rem);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.05rem;
-            line-height: 1.1
-        }
-
-        .content.svelte-1b9cr7a ul {
-            list-style: disc;
-            padding: 0.25rem 0;
-            padding-left: 1.25rem
-        }
-
-        .content.svelte-1b9cr7a ol {
-            list-style: decimal;
-            padding-left: 1.25rem;
-            margin-bottom: 2rem
-        }
-
-        .content.svelte-1b9cr7a blockquote {
-            padding: 2rem;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius)
-        }
-
-        .section-container.svelte-13kke8f.svelte-13kke8f {
-            max-width: 700px;
-            width: 100%;
-            margin: 0 auto;
-            gap: 1rem;
-            margin-top: 0;
-            padding-top: 1rem
-        }
-
-        .box.svelte-13kke8f.svelte-13kke8f {
-            margin-top: 0;
-            padding: 3rem 3.25rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius, 4px)
-        }
-
-        .heading-group.svelte-13kke8f.svelte-13kke8f {
-            display: grid;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            margin-top: 0
-        }
-
-        form.svelte-13kke8f.svelte-13kke8f {
-            display: grid;
-            gap: 2rem
-        }
-
-        form.svelte-13kke8f input.svelte-13kke8f {
-            min-width: 200px
-        }
-
-        form.svelte-13kke8f label.svelte-13kke8f {
-            display: grid;
-            gap: 0.25rem;
-            font-weight: 500;
-            min-width: 200px
-        }
-
-        form.svelte-13kke8f select.svelte-13kke8f {
-            min-width: 200px
-        }
-
-        form.svelte-13kke8f input.svelte-13kke8f {
-            width: 100%;
-            padding: 0.75rem 0.75rem;
-            border: 1.5px solid var(--border-color);
-            border-radius: 4px
-        }
-
-        form.svelte-13kke8f .label.svelte-13kke8f {
-            font-size: 1rem;
-            margin-bottom: 0.25rem
-        }
-
-        form.svelte-13kke8f .placeholder.svelte-13kke8f {
-            font-size: 1rem;
-            font-weight: 300
-        }
-
-        form.svelte-13kke8f .button.svelte-13kke8f {
-            place-self: start
-        }
-    </style>
-</head>
-
-<body id="page">
-
-    <div class="section" id="section-38add385">
-        <header class="section-container svelte-nnp8i3">
-            <div class="desktop-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;" class="svelte-nnp8i3">
-                    Grow Together Edmonton</a>
-                <nav class="svelte-nnp8i3"><a class="link svelte-nnp8i3" href="/">Home</a><a class="link svelte-nnp8i3" href="/about">About Us</a><a class="link svelte-nnp8i3" href="/blog">News</a><a class="link svelte-nnp8i3" href="/#take-action">Get Involved</a></nav>
-            </div>
-            <div class="mobile-nav svelte-nnp8i3"><a href="/" class="logo svelte-nnp8i3"><img class="logo svelte-nnp8i3" src="	https://res.cloudinary.com/dbnijop5c/image/upload/v1692598023/gtyeg_logo_no_text_darker_kfvwjs.svg" alt="" style="max-width: 100px;">
-                    Grow Together Edmonton</a>
-                <button id="open" aria-label="Open mobile navigation">/*
-                    * [Package Error] &quot;@iconify/svelte@v4.0.1&quot; could not be built.
-                    *
-                    * [1/5] Verifying package is valid…
-                    * [2/5] Installing dependencies from npm…
-                    * [3/5] Building package using esinstall…
-                    * Running esinstall...
-                    * ENOENT: no such file or directory, open &#39;@iconify/svelte/lib/dist/functions.js&#39;
-                    * ENOENT: no such file or directory, open &#39;/tmp/cdn/_hJGvglwvKpJhhwWyDAuT/node_modules/@iconify/svelte/lib/dist/functions.js&#39;
-                    *
-                    * How to fix:
-                    * - If you believe this to be an error in Skypack, file an issue here: https://github.com/skypackjs/skypack-cdn/issues
-                    * - If you believe this to be an issue in the package, share this URL with the package authors to help them debug &amp; fix.
-                    * - Use https://skypack.dev/ to find a web-friendly alternative to find another package.
-                    */
-
-                    console.warn(&quot;[Package Error] \&quot;@iconify/svelte@v4.0.1\&quot; could not be built. \n[1/5] Verifying package is valid…\n[2/5] Installing dependencies from npm…\n[3/5] Building package using esinstall…\nRunning esinstall...\nENOENT: no such file or directory, open &#39;@iconify/svelte/lib/dist/functions.js&#39;\nENOENT: no such file or directory, open &#39;/tmp/cdn/_hJGvglwvKpJhhwWyDAuT/node_modules/@iconify/svelte/lib/dist/functions.js&#39;&quot;);
-                    throw new Error(&quot;[Package Error] \&quot;@iconify/svelte@v4.0.1\&quot; could not be built. &quot;);
-                    export default null;</button>
-            </div>
-        </header>
-    </div>
-    <div class="section" id="section-90132a1f">
-        <div class="section">
-            <div class="section-container content svelte-1b9cr7a"><!-- HTML_TAG_START -->
-                <h1>Speak at Council on October 16</h1>
-                <p>Speaking to council (remotely or in-person) is the single most impactful thing you can do to help make sure our new Zoning Bylaw passes.</p>
-                <p>Signing up only takes a minute, and you can choose to speak in person or remotely</p>
-                <ol>
-                    <li>
-                        <p><a target="_blank" rel="noopener noreferrer nofollow" class="link link" href="https://docs.google.com/forms/d/e/1FAIpQLSfjK1JQOPRWVORUVKsSbRn3yLN5E9vcVLu3nifMO4N1ZfmgFg/viewform">Follow this link</a></p>
-                    </li>
-                    <li>
-                        <p>Select "Public Hearing" and enter October 16 as the date</p>
-                    </li>
-                    <li>
-                        <p>Where it asks for the agenda number and title, enter: 3.1 Zoning Bylaw Renewal</p>
-                    </li>
-                    <li>
-                        <p>Select "In Favour" as your position</p>
-                    </li>
-                    <li>
-                        <p>Select "no" where it asks "Would you like to be available to answer questions only?"</p>
-                    </li>
-                    <li>
-                        <p>The City Clerk will send you a confirmation, and a reminder the day before.</p>
-                    </li>
-                </ol><!-- HTML_TAG_END -->
-            </div>
-        </div>
-    </div>
-    <div class="section" id="section-058d77aa">
-        <section class="section-container svelte-1qe5oiy"><img src="https://dpfecbhwrshlsbfgbgzq.supabase.co/storage/v1/object/public/images/2c45c57d-3334-49f6-bc6a-7fecf6135bc0/169566863592651631007562_4c2a8ab241_5k.jpg" alt="Edmonton City Council" style="max-height: 400px" class="svelte-1qe5oiy"></section>
-    </div>
-    <div class="section" id="section-ccc97785">
-        <div class="section">
-            <div class="section-container content svelte-1b9cr7a"><!-- HTML_TAG_START -->
-                <h1>Tips on speaking to council</h1>
-                <p><strong>1. Write it down</strong></p>
-                <p>You only have 5 minutes, and all eyes are on you. You don't need to write an epic poem, but make sure you have your points clearly made and easily accessible if you get lost.</p>
-                <p><strong>2. Make it personal</strong></p>
-                <p>Tell them who you are, what part of the city you live in, and why you care about this issue. You’re the expert on what you care about — you don't have to get intimate, but speaking to your specific experience means more than a talking point.</p>
-                <p><strong>3. Focus on ONE BIG TAKEAWAY</strong></p>
-                <p>You don't need to cover everything: there will be lots of speakers. Sum up your support in a line or two, then let everything that follows support that point.</p>
-                <p><strong>4. Keep it civil</strong></p>
-                <p>Earnestness and respect might not make you stand out, but a lack of them will surely get you dismissed. Keep the clever retorts and sarcastic asides for Twitter or the group chat: we’re there to convince council, not argue with the other side.</p>
-                <p><strong>5. There's nothing wrong with keeping it short</strong></p>
-                <p>We’re happy to help with anything you need — seriously, <a target="_blank" rel="noopener noreferrer nofollow" class="link link link" href="mailto:growtogetheryeg@gmail.com?subject=Speaking to council">just email us</a> — but remember your presence is the most important thing. If you just want to say you support the bylaw and yield your time, that's enough.</p><!-- HTML_TAG_END -->
-            </div>
-        </div>
-    </div>
-    <div class="section" id="section-345b3a9b">
-        <section class="section-container svelte-13kke8f">
-            <div class="box svelte-13kke8f">
-                <div class="heading-group svelte-13kke8f">
-                    <h2 class="heading">Can't make council? You can still make your voice heard</h2>
-                    <p class="subheaging">Email your city councillor to let them know you support the new zoning bylaw. We've got a template letter you can use as a draft.</p>
-                </div>
-                <form class="svelte-13kke8f"><label class="svelte-13kke8f"><span class="label svelte-13kke8f">Your Name:</span>
-                        <input id="name" name="name" class="placeholder svelte-13kke8f" type="text" placeholder="John Doe"></label>
-                    <label class="label svelte-13kke8f">Your Councillor:
-                        <select id="councillor" name="councillor" class="svelte-13kke8f">
-                            <option value="Michael Janz">Michael Janz (ward papastew)</option>
-                            <option value="Andrew Knack">Andrew Knack (ward Nakota Isga)</option>
-                            <option value="Erin Rutherford">Erin Rutherford (ward Anirniq)</option>
-                            <option value="Aaron Paquette">Aaron Paquette (ward Dene)</option>
-                            <option value="Jennifer Rice">Jennifer Rice (ward Ipiihkoohkanipiaohtsi)</option>
-                            <option value="Keren Tang">Keren Tang (ward Karhiio)</option>
-                            <option value="Ashley Salvador">Ashley Salvador (ward Métis)</option>
-                            <option value="Anne Stevenson">Anne Stevenson (ward O-day’min)</option>
-                            <option value="Tim Cartmell">Tim Cartmell (ward pihêsiwin)</option>
-                            <option value="Sarah Hamilton">Sarah Hamilton (ward sipiwiyiniwak)</option>
-                            <option value="Jo-Anne Wright">Jo-Anne Wright (ward Sspomitapi)</option>
-                            <option value="Karen Principe">Karen Principe (ward tastawiyiniwak)</option>
-                        </select></label>
-                    <button type="submit" class="button svelte-13kke8f">Open Draft Email</button>
-                </form>
-            </div>
-        </section>
-    </div>
-
-    <script type="module">
-        const path = window.location.pathname === '/' ? '' : window.location.pathname
-        const [{
-            default: App
-        }] = await Promise.all([
-            import(path + '/_module.js')
-        ]).catch(e => console.error(e))
-        new App({
-            target: document.querySelector('body'),
-            hydrate: true,
-        })
-    </script>
-</body>
-
-</html>
+    </body>
+  </html>
+  
