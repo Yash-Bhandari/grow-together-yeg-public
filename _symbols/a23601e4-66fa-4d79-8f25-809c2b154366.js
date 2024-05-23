@@ -1,4 +1,4 @@
-// Get Involved - Updated May 1, 2024
+// Get Involved - Updated May 22, 2024
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -2963,11 +2963,11 @@ function create_each_block(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*socials*/ 4) icon_changes.icon = /*social*/ ctx[3].icon;
+			if (dirty & /*socials*/ 2) icon_changes.icon = /*social*/ ctx[3].icon;
 			icon.$set(icon_changes);
-			if ((!current || dirty & /*socials*/ 4) && t1_value !== (t1_value = /*social*/ ctx[3].link.label + "")) set_data(t1, t1_value);
+			if ((!current || dirty & /*socials*/ 2) && t1_value !== (t1_value = /*social*/ ctx[3].link.label + "")) set_data(t1, t1_value);
 
-			if (!current || dirty & /*socials*/ 4 && a_href_value !== (a_href_value = /*social*/ ctx[3].link.url)) {
+			if (!current || dirty & /*socials*/ 2 && a_href_value !== (a_href_value = /*social*/ ctx[3].link.url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -2996,7 +2996,7 @@ function create_fragment(ctx) {
 	let t1;
 	let div3;
 	let html_tag;
-	let raw1_value = /*subheading*/ ctx[1].html + "";
+	let raw1_value = /*subheading*/ ctx[2].html + "";
 	let t2;
 	let div2;
 	let t3;
@@ -3057,7 +3057,7 @@ function create_fragment(ctx) {
 	let script2;
 	let t29;
 	let current;
-	let each_value = /*socials*/ ctx[2];
+	let each_value = /*socials*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -3432,10 +3432,10 @@ function create_fragment(ctx) {
 			current = true;
 		},
 		p(ctx, [dirty]) {
-			if (!current || dirty & /*heading*/ 1) h2.innerHTML = /*heading*/ ctx[0];			if ((!current || dirty & /*subheading*/ 2) && raw1_value !== (raw1_value = /*subheading*/ ctx[1].html + "")) html_tag.p(raw1_value);
+			if (!current || dirty & /*heading*/ 1) h2.innerHTML = /*heading*/ ctx[0];			if ((!current || dirty & /*subheading*/ 4) && raw1_value !== (raw1_value = /*subheading*/ ctx[2].html + "")) html_tag.p(raw1_value);
 
-			if (dirty & /*socials*/ 4) {
-				each_value = /*socials*/ ctx[2];
+			if (dirty & /*socials*/ 2) {
+				each_value = /*socials*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -3491,8 +3491,8 @@ function instance($$self, $$props, $$invalidate) {
 	let { event } = $$props;
 	let { social } = $$props;
 	let { heading } = $$props;
-	let { subheading } = $$props;
 	let { socials } = $$props;
+	let { subheading } = $$props;
 
 	// Mailerlite
 	window.setTimeout(
@@ -3511,11 +3511,11 @@ function instance($$self, $$props, $$invalidate) {
 		if ('event' in $$props) $$invalidate(5, event = $$props.event);
 		if ('social' in $$props) $$invalidate(3, social = $$props.social);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
-		if ('subheading' in $$props) $$invalidate(1, subheading = $$props.subheading);
-		if ('socials' in $$props) $$invalidate(2, socials = $$props.socials);
+		if ('socials' in $$props) $$invalidate(1, socials = $$props.socials);
+		if ('subheading' in $$props) $$invalidate(2, subheading = $$props.subheading);
 	};
 
-	return [heading, subheading, socials, social, props, event];
+	return [heading, socials, subheading, social, props, event];
 }
 
 class Component extends SvelteComponent {
@@ -3527,8 +3527,8 @@ class Component extends SvelteComponent {
 			event: 5,
 			social: 3,
 			heading: 0,
-			subheading: 1,
-			socials: 2
+			socials: 1,
+			subheading: 2
 		});
 	}
 }

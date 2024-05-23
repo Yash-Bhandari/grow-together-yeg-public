@@ -1,4 +1,4 @@
-// Table - Updated May 1, 2024
+// Table - Updated May 22, 2024
 function noop() { }
 function run(fn) {
     return fn();
@@ -817,8 +817,8 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
-	let { content } = $$props;
 	let { data } = $$props;
+	let { content } = $$props;
 	let { data_source } = $$props;
 
 	const moneyFormatter = new Intl.NumberFormat('en-US',
@@ -830,8 +830,8 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(3, props = $$props.props);
-		if ('content' in $$props) $$invalidate(4, content = $$props.content);
 		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+		if ('content' in $$props) $$invalidate(4, content = $$props.content);
 		if ('data_source' in $$props) $$invalidate(1, data_source = $$props.data_source);
 	};
 
@@ -844,8 +844,8 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 3,
-			content: 4,
 			data: 0,
+			content: 4,
 			data_source: 1
 		});
 	}

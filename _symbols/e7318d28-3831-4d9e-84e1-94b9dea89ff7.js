@@ -1,4 +1,4 @@
-// Featured People - Updated May 1, 2024
+// Featured People - Updated May 22, 2024
 function noop() { }
 function run(fn) {
     return fn();
@@ -1329,8 +1329,8 @@ function create_each_block(ctx) {
 			append_hydration(li, t3);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*people*/ 1 && t0_value !== (t0_value = /*person*/ ctx[5].name + "")) set_data(t0, t0_value);
-			if (dirty & /*people*/ 1 && t2_value !== (t2_value = /*person*/ ctx[5].title + "")) set_data(t2, t2_value);
+			if (dirty & /*people*/ 2 && t0_value !== (t0_value = /*person*/ ctx[5].name + "")) set_data(t0, t0_value);
+			if (dirty & /*people*/ 2 && t2_value !== (t2_value = /*person*/ ctx[5].title + "")) set_data(t2, t2_value);
 		},
 		d(detaching) {
 			if (detaching) detach(li);
@@ -1350,7 +1350,7 @@ function create_fragment(ctx) {
 	let t4;
 	let t5;
 	let ul;
-	let each_value = /*people*/ ctx[0];
+	let each_value = /*people*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -1361,13 +1361,13 @@ function create_fragment(ctx) {
 		c() {
 			section = element("section");
 			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[1]);
+			t0 = text(/*heading*/ ctx[2]);
 			t1 = space();
 			p = element("p");
-			t2 = text(/*description*/ ctx[2]);
+			t2 = text(/*description*/ ctx[3]);
 			t3 = space();
 			a = element("a");
-			t4 = text(/*email*/ ctx[3]);
+			t4 = text(/*email*/ ctx[0]);
 			t5 = space();
 			ul = element("ul");
 
@@ -1382,17 +1382,17 @@ function create_fragment(ctx) {
 			var section_nodes = children(section);
 			h2 = claim_element(section_nodes, "H2", { class: true });
 			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[1]);
+			t0 = claim_text(h2_nodes, /*heading*/ ctx[2]);
 			h2_nodes.forEach(detach);
 			t1 = claim_space(section_nodes);
 			p = claim_element(section_nodes, "P", { class: true });
 			var p_nodes = children(p);
-			t2 = claim_text(p_nodes, /*description*/ ctx[2]);
+			t2 = claim_text(p_nodes, /*description*/ ctx[3]);
 			p_nodes.forEach(detach);
 			t3 = claim_space(section_nodes);
 			a = claim_element(section_nodes, "A", { class: true, href: true });
 			var a_nodes = children(a);
-			t4 = claim_text(a_nodes, /*email*/ ctx[3]);
+			t4 = claim_text(a_nodes, /*email*/ ctx[0]);
 			a_nodes.forEach(detach);
 			t5 = claim_space(section_nodes);
 			ul = claim_element(section_nodes, "UL", { class: true });
@@ -1410,7 +1410,7 @@ function create_fragment(ctx) {
 			attr(h2, "class", "heading svelte-1wiv058");
 			attr(p, "class", "description svelte-1wiv058");
 			attr(a, "class", "email svelte-1wiv058");
-			attr(a, "href", /*email*/ ctx[3]);
+			attr(a, "href", /*email*/ ctx[0]);
 			attr(ul, "class", "cards svelte-1wiv058");
 			attr(section, "class", "section-container svelte-1wiv058");
 		},
@@ -1434,16 +1434,16 @@ function create_fragment(ctx) {
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*heading*/ 2) set_data(t0, /*heading*/ ctx[1]);
-			if (dirty & /*description*/ 4) set_data(t2, /*description*/ ctx[2]);
-			if (dirty & /*email*/ 8) set_data(t4, /*email*/ ctx[3]);
+			if (dirty & /*heading*/ 4) set_data(t0, /*heading*/ ctx[2]);
+			if (dirty & /*description*/ 8) set_data(t2, /*description*/ ctx[3]);
+			if (dirty & /*email*/ 1) set_data(t4, /*email*/ ctx[0]);
 
-			if (dirty & /*email*/ 8) {
-				attr(a, "href", /*email*/ ctx[3]);
+			if (dirty & /*email*/ 1) {
+				attr(a, "href", /*email*/ ctx[0]);
 			}
 
-			if (dirty & /*people*/ 1) {
-				each_value = /*people*/ ctx[0];
+			if (dirty & /*people*/ 2) {
+				each_value = /*people*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -1476,20 +1476,20 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
+	let { email } = $$props;
 	let { people } = $$props;
 	let { heading } = $$props;
 	let { description } = $$props;
-	let { email } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(4, props = $$props.props);
-		if ('people' in $$props) $$invalidate(0, people = $$props.people);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('description' in $$props) $$invalidate(2, description = $$props.description);
-		if ('email' in $$props) $$invalidate(3, email = $$props.email);
+		if ('email' in $$props) $$invalidate(0, email = $$props.email);
+		if ('people' in $$props) $$invalidate(1, people = $$props.people);
+		if ('heading' in $$props) $$invalidate(2, heading = $$props.heading);
+		if ('description' in $$props) $$invalidate(3, description = $$props.description);
 	};
 
-	return [people, heading, description, email, props];
+	return [email, people, heading, description, props];
 }
 
 class Component extends SvelteComponent {
@@ -1498,10 +1498,10 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 4,
-			people: 0,
-			heading: 1,
-			description: 2,
-			email: 3
+			email: 0,
+			people: 1,
+			heading: 2,
+			description: 3
 		});
 	}
 }
