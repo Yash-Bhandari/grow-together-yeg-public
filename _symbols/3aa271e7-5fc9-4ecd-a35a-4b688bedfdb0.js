@@ -1,4 +1,4 @@
-// Contact Form - Updated April 2, 2025
+// Contact Form - Updated May 10, 2025
 function noop() { }
 function run(fn) {
     return fn();
@@ -531,614 +531,490 @@ class SvelteComponent {
     }
 }
 
-const stringToIcon = (value, validate, allowSimpleName, provider = "") => {
-  const colonSeparated = value.split(":");
-  if (value.slice(0, 1) === "@") {
-    if (colonSeparated.length < 2 || colonSeparated.length > 3) {
-      return null;
-    }
-    provider = colonSeparated.shift().slice(1);
-  }
-  if (colonSeparated.length > 3 || !colonSeparated.length) {
-    return null;
-  }
-  if (colonSeparated.length > 1) {
-    const name2 = colonSeparated.pop();
-    const prefix = colonSeparated.pop();
-    const result = {
-      // Allow provider without '@': "provider:prefix:name"
-      provider: colonSeparated.length > 0 ? colonSeparated[0] : provider,
-      prefix,
-      name: name2
-    };
-    return validate && !validateIconName(result) ? null : result;
-  }
-  const name = colonSeparated[0];
-  const dashSeparated = name.split("-");
-  if (dashSeparated.length > 1) {
-    const result = {
-      provider,
-      prefix: dashSeparated.shift(),
-      name: dashSeparated.join("-")
-    };
-    return validate && !validateIconName(result) ? null : result;
-  }
-  if (allowSimpleName && provider === "") {
-    const result = {
-      provider,
-      prefix: "",
-      name
-    };
-    return validate && !validateIconName(result, allowSimpleName) ? null : result;
-  }
-  return null;
-};
-const validateIconName = (icon, allowSimpleName) => {
-  if (!icon) {
-    return false;
-  }
-  return !!// Check prefix: cannot be empty, unless allowSimpleName is enabled
-  // Check name: cannot be empty
-  ((allowSimpleName && icon.prefix === "" || !!icon.prefix) && !!icon.name);
-};
-
-const defaultIconDimensions = Object.freeze(
-  {
-    left: 0,
-    top: 0,
-    width: 16,
-    height: 16
-  }
-);
-const defaultIconTransformations = Object.freeze({
-  rotate: 0,
-  vFlip: false,
-  hFlip: false
-});
-const defaultIconProps = Object.freeze({
-  ...defaultIconDimensions,
-  ...defaultIconTransformations
-});
-const defaultExtendedIconProps = Object.freeze({
-  ...defaultIconProps,
-  body: "",
-  hidden: false
-});
-
-function mergeIconTransformations(obj1, obj2) {
-  const result = {};
-  if (!obj1.hFlip !== !obj2.hFlip) {
-    result.hFlip = true;
-  }
-  if (!obj1.vFlip !== !obj2.vFlip) {
-    result.vFlip = true;
-  }
-  const rotate = ((obj1.rotate || 0) + (obj2.rotate || 0)) % 4;
-  if (rotate) {
-    result.rotate = rotate;
-  }
-  return result;
+function createCommonjsModule(fn, basedir, module) {
+	return module = {
+		path: basedir,
+		exports: {},
+		require: function (path, base) {
+			return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
+		}
+	}, fn(module, module.exports), module.exports;
 }
 
-function mergeIconData(parent, child) {
-  const result = mergeIconTransformations(parent, child);
-  for (const key in defaultExtendedIconProps) {
-    if (key in defaultIconTransformations) {
-      if (key in parent && !(key in result)) {
-        result[key] = defaultIconTransformations[key];
-      }
-    } else if (key in child) {
-      result[key] = child[key];
-    } else if (key in parent) {
-      result[key] = parent[key];
-    }
-  }
-  return result;
+function commonjsRequire () {
+	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
 }
 
-function getIconsTree(data, names) {
-  const icons = data.icons;
-  const aliases = data.aliases || /* @__PURE__ */ Object.create(null);
-  const resolved = /* @__PURE__ */ Object.create(null);
-  function resolve(name) {
-    if (icons[name]) {
-      return resolved[name] = [];
-    }
-    if (!(name in resolved)) {
-      resolved[name] = null;
-      const parent = aliases[name] && aliases[name].parent;
-      const value = parent && resolve(parent);
-      if (value) {
-        resolved[name] = [parent].concat(value);
-      }
-    }
-    return resolved[name];
-  }
-  (Object.keys(icons).concat(Object.keys(aliases))).forEach(resolve);
-  return resolved;
-}
-
-function internalGetIconData(data, name, tree) {
-  const icons = data.icons;
-  const aliases = data.aliases || /* @__PURE__ */ Object.create(null);
-  let currentProps = {};
-  function parse(name2) {
-    currentProps = mergeIconData(
-      icons[name2] || aliases[name2],
-      currentProps
-    );
-  }
-  parse(name);
-  tree.forEach(parse);
-  return mergeIconData(data, currentProps);
-}
-
-function parseIconSet(data, callback) {
-  const names = [];
-  if (typeof data !== "object" || typeof data.icons !== "object") {
-    return names;
-  }
-  if (data.not_found instanceof Array) {
-    data.not_found.forEach((name) => {
-      callback(name, null);
-      names.push(name);
-    });
-  }
-  const tree = getIconsTree(data);
-  for (const name in tree) {
-    const item = tree[name];
-    if (item) {
-      callback(name, internalGetIconData(data, name, item));
-      names.push(name);
-    }
-  }
-  return names;
-}
-
-const optionalPropertyDefaults = {
-  provider: "",
-  aliases: {},
-  not_found: {},
-  ...defaultIconDimensions
-};
-function checkOptionalProps(item, defaults) {
-  for (const prop in defaults) {
-    if (prop in item && typeof item[prop] !== typeof defaults[prop]) {
-      return false;
-    }
-  }
-  return true;
-}
-function quicklyValidateIconSet(obj) {
-  if (typeof obj !== "object" || obj === null) {
-    return null;
-  }
-  const data = obj;
-  if (typeof data.prefix !== "string" || !obj.icons || typeof obj.icons !== "object") {
-    return null;
-  }
-  if (!checkOptionalProps(obj, optionalPropertyDefaults)) {
-    return null;
-  }
-  const icons = data.icons;
-  for (const name in icons) {
-    const icon = icons[name];
-    if (
-      // Name cannot be empty
-      !name || // Must have body
-      typeof icon.body !== "string" || // Check other props
-      !checkOptionalProps(
-        icon,
-        defaultExtendedIconProps
-      )
-    ) {
-      return null;
-    }
-  }
-  const aliases = data.aliases || /* @__PURE__ */ Object.create(null);
-  for (const name in aliases) {
-    const icon = aliases[name];
-    const parent = icon.parent;
-    if (
-      // Name cannot be empty
-      !name || // Parent must be set and point to existing icon
-      typeof parent !== "string" || !icons[parent] && !aliases[parent] || // Check other props
-      !checkOptionalProps(
-        icon,
-        defaultExtendedIconProps
-      )
-    ) {
-      return null;
-    }
-  }
-  return data;
-}
-
-const dataStorage = /* @__PURE__ */ Object.create(null);
-function newStorage(provider, prefix) {
-  return {
-    provider,
-    prefix,
-    icons: /* @__PURE__ */ Object.create(null),
-    missing: /* @__PURE__ */ new Set()
-  };
-}
-function getStorage(provider, prefix) {
-  const providerStorage = dataStorage[provider] || (dataStorage[provider] = /* @__PURE__ */ Object.create(null));
-  return providerStorage[prefix] || (providerStorage[prefix] = newStorage(provider, prefix));
-}
-function addIconSet(storage, data) {
-  if (!quicklyValidateIconSet(data)) {
-    return [];
-  }
-  return parseIconSet(data, (name, icon) => {
-    if (icon) {
-      storage.icons[name] = icon;
-    } else {
-      storage.missing.add(name);
-    }
-  });
-}
-function addIconToStorage(storage, name, icon) {
-  try {
-    if (typeof icon.body === "string") {
-      storage.icons[name] = { ...icon };
-      return true;
-    }
-  } catch (err) {
-  }
-  return false;
-}
-
-let simpleNames = false;
-function allowSimpleNames(allow) {
-  if (typeof allow === "boolean") {
-    simpleNames = allow;
-  }
-  return simpleNames;
-}
-function addIcon(name, data) {
-  const icon = stringToIcon(name, true, simpleNames);
-  if (!icon) {
-    return false;
-  }
-  const storage = getStorage(icon.provider, icon.prefix);
-  if (data) {
-    return addIconToStorage(storage, icon.name, data);
-  } else {
-    storage.missing.add(icon.name);
-    return true;
-  }
-}
-function addCollection(data, provider) {
-  if (typeof data !== "object") {
-    return false;
-  }
-  if (typeof provider !== "string") {
-    provider = data.provider || "";
-  }
-  if (simpleNames && !provider && !data.prefix) {
-    let added = false;
-    if (quicklyValidateIconSet(data)) {
-      data.prefix = "";
-      parseIconSet(data, (name, icon) => {
-        if (addIcon(name, icon)) {
-          added = true;
-        }
-      });
-    }
-    return added;
-  }
-  const prefix = data.prefix;
-  if (!validateIconName({
-    provider,
-    prefix,
-    name: "a"
-  })) {
-    return false;
-  }
-  const storage = getStorage(provider, prefix);
-  return !!addIconSet(storage, data);
-}
-
-const defaultIconSizeCustomisations = Object.freeze({
-  width: null,
-  height: null
-});
-const defaultIconCustomisations = Object.freeze({
-  // Dimensions
-  ...defaultIconSizeCustomisations,
-  // Transformations
-  ...defaultIconTransformations
-});
-"IconifyId" + Date.now().toString(16) + (Math.random() * 16777216 | 0).toString(16);
-
-const storage = /* @__PURE__ */ Object.create(null);
-function setAPIModule(provider, item) {
-  storage[provider] = item;
-}
-
-function createAPIConfig(source) {
-  let resources;
-  if (typeof source.resources === "string") {
-    resources = [source.resources];
-  } else {
-    resources = source.resources;
-    if (!(resources instanceof Array) || !resources.length) {
-      return null;
-    }
-  }
-  const result = {
-    // API hosts
-    resources,
-    // Root path
-    path: source.path || "/",
-    // URL length limit
-    maxURL: source.maxURL || 500,
-    // Timeout before next host is used.
-    rotate: source.rotate || 750,
-    // Timeout before failing query.
-    timeout: source.timeout || 5e3,
-    // Randomise default API end point.
-    random: source.random === true,
-    // Start index
-    index: source.index || 0,
-    // Receive data after time out (used if time out kicks in first, then API module sends data anyway).
-    dataAfterTimeout: source.dataAfterTimeout !== false
-  };
-  return result;
-}
-const configStorage = /* @__PURE__ */ Object.create(null);
-const fallBackAPISources = [
-  "https://api.simplesvg.com",
-  "https://api.unisvg.com"
-];
-const fallBackAPI = [];
-while (fallBackAPISources.length > 0) {
-  if (fallBackAPISources.length === 1) {
-    fallBackAPI.push(fallBackAPISources.shift());
-  } else {
-    if (Math.random() > 0.5) {
-      fallBackAPI.push(fallBackAPISources.shift());
-    } else {
-      fallBackAPI.push(fallBackAPISources.pop());
-    }
-  }
-}
-configStorage[""] = createAPIConfig({
-  resources: ["https://api.iconify.design"].concat(fallBackAPI)
-});
-function addAPIProvider(provider, customConfig) {
-  const config = createAPIConfig(customConfig);
-  if (config === null) {
-    return false;
-  }
-  configStorage[provider] = config;
-  return true;
-}
-function getAPIConfig(provider) {
-  return configStorage[provider];
-}
-
-const detectFetch = () => {
-  let callback;
-  try {
-    callback = fetch;
-    if (typeof callback === "function") {
-      return callback;
-    }
-  } catch (err) {
-  }
-};
-let fetchModule = detectFetch();
-function calculateMaxLength(provider, prefix) {
-  const config = getAPIConfig(provider);
-  if (!config) {
-    return 0;
-  }
-  let result;
-  if (!config.maxURL) {
-    result = 0;
-  } else {
-    let maxHostLength = 0;
-    config.resources.forEach((item) => {
-      const host = item;
-      maxHostLength = Math.max(maxHostLength, host.length);
-    });
-    const url = prefix + ".json?icons=";
-    result = config.maxURL - maxHostLength - config.path.length - url.length;
-  }
-  return result;
-}
-function shouldAbort(status) {
-  return status === 404;
-}
-const prepare = (provider, prefix, icons) => {
-  const results = [];
-  const maxLength = calculateMaxLength(provider, prefix);
-  const type = "icons";
-  let item = {
-    type,
-    provider,
-    prefix,
-    icons: []
-  };
-  let length = 0;
-  icons.forEach((name, index) => {
-    length += name.length + 1;
-    if (length >= maxLength && index > 0) {
-      results.push(item);
-      item = {
-        type,
-        provider,
-        prefix,
-        icons: []
-      };
-      length = name.length;
-    }
-    item.icons.push(name);
-  });
-  results.push(item);
-  return results;
-};
-function getPath(provider) {
-  if (typeof provider === "string") {
-    const config = getAPIConfig(provider);
-    if (config) {
-      return config.path;
-    }
-  }
-  return "/";
-}
-const send = (host, params, callback) => {
-  if (!fetchModule) {
-    callback("abort", 424);
-    return;
-  }
-  let path = getPath(params.provider);
-  switch (params.type) {
-    case "icons": {
-      const prefix = params.prefix;
-      const icons = params.icons;
-      const iconsList = icons.join(",");
-      const urlParams = new URLSearchParams({
-        icons: iconsList
-      });
-      path += prefix + ".json?" + urlParams.toString();
-      break;
-    }
-    case "custom": {
-      const uri = params.uri;
-      path += uri.slice(0, 1) === "/" ? uri.slice(1) : uri;
-      break;
-    }
-    default:
-      callback("abort", 400);
-      return;
-  }
-  let defaultError = 503;
-  fetchModule(host + path).then((response) => {
-    const status = response.status;
-    if (status !== 200) {
-      setTimeout(() => {
-        callback(shouldAbort(status) ? "abort" : "next", status);
-      });
-      return;
-    }
-    defaultError = 501;
-    return response.json();
-  }).then((data) => {
-    if (typeof data !== "object" || data === null) {
-      setTimeout(() => {
-        if (data === 404) {
-          callback("abort", data);
-        } else {
-          callback("next", defaultError);
-        }
-      });
-      return;
-    }
-    setTimeout(() => {
-      callback("success", data);
-    });
-  }).catch(() => {
-    callback("next", defaultError);
-  });
-};
-const fetchAPIModule = {
-  prepare,
-  send
-};
-
-({
-    ...defaultIconCustomisations,
-    inline: false,
-});
-const monotoneProps = {
-    'background-color': 'currentColor',
-};
-const coloredProps = {
-    'background-color': 'transparent',
-};
-// Dynamically add common props to variables above
-const propsToAdd = {
-    image: 'var(--svg)',
-    repeat: 'no-repeat',
-    size: '100% 100%',
-};
-const propsToAddTo = {
-    '-webkit-mask': monotoneProps,
-    'mask': monotoneProps,
-    'background': coloredProps,
-};
-for (const prefix in propsToAddTo) {
-    const list = propsToAddTo[prefix];
-    for (const prop in propsToAdd) {
-        list[prefix + '-' + prop] = propsToAdd[prop];
-    }
-}
+var merge_1 = createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.merge = void 0;
 /**
- * Initialise stuff
+ * Merge two objects
+ *
+ * Replacement for Object.assign() that is not supported by IE, so it cannot be used in production yet.
  */
-// Enable short names
-allowSimpleNames(true);
-// Set API module
-setAPIModule('', fetchAPIModule);
-/**
- * Browser stuff
- */
-if (typeof document !== 'undefined' && typeof window !== 'undefined') {
-    const _window = window;
-    // Load icons from global "IconifyPreload"
-    if (_window.IconifyPreload !== void 0) {
-        const preload = _window.IconifyPreload;
-        const err = 'Invalid IconifyPreload syntax.';
-        if (typeof preload === 'object' && preload !== null) {
-            (preload instanceof Array ? preload : [preload]).forEach((item) => {
-                try {
-                    if (
-                    // Check if item is an object and not null/array
-                    typeof item !== 'object' ||
-                        item === null ||
-                        item instanceof Array ||
-                        // Check for 'icons' and 'prefix'
-                        typeof item.icons !== 'object' ||
-                        typeof item.prefix !== 'string' ||
-                        // Add icon set
-                        !addCollection(item)) {
-                        console.error(err);
-                    }
-                }
-                catch (e) {
-                    console.error(err);
-                }
-            });
-        }
-    }
-    // Set API from global "IconifyProviders"
-    if (_window.IconifyProviders !== void 0) {
-        const providers = _window.IconifyProviders;
-        if (typeof providers === 'object' && providers !== null) {
-            for (let key in providers) {
-                const err = 'IconifyProviders[' + key + '] is invalid.';
-                try {
-                    const value = providers[key];
-                    if (typeof value !== 'object' ||
-                        !value ||
-                        value.resources === void 0) {
-                        continue;
-                    }
-                    if (!addAPIProvider(key, value)) {
-                        console.error(err);
-                    }
-                }
-                catch (e) {
-                    console.error(err);
-                }
+function merge(item1, item2, item3) {
+    const result = Object.create(null);
+    const items = [item1, item2, item3];
+    for (let i = 0; i < 3; i++) {
+        const item = items[i];
+        if (typeof item === 'object' && item) {
+            for (const key in item) {
+                result[key] = item[key];
             }
         }
     }
+    return result;
 }
+exports.merge = merge;
+
+});
+
+createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fullCustomisations = exports.defaults = void 0;
+
+/**
+ * Default icon customisations values
+ */
+exports.defaults = Object.freeze({
+    // Display mode
+    inline: false,
+    // Dimensions
+    width: null,
+    height: null,
+    // Alignment
+    hAlign: 'center',
+    vAlign: 'middle',
+    slice: false,
+    // Transformations
+    hFlip: false,
+    vFlip: false,
+    rotate: 0,
+});
+/**
+ * Convert IconifyIconCustomisations to FullIconCustomisations
+ */
+function fullCustomisations(item) {
+    return merge_1.merge(exports.defaults, item);
+}
+exports.fullCustomisations = fullCustomisations;
+
+});
+
+createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.alignmentFromString = exports.flipFromString = void 0;
+const separator = /[\s,]+/;
+/**
+ * Apply "flip" string to icon customisations
+ */
+function flipFromString(custom, flip) {
+    flip.split(separator).forEach((str) => {
+        const value = str.trim();
+        switch (value) {
+            case 'horizontal':
+                custom.hFlip = true;
+                break;
+            case 'vertical':
+                custom.vFlip = true;
+                break;
+        }
+    });
+}
+exports.flipFromString = flipFromString;
+/**
+ * Apply "align" string to icon customisations
+ */
+function alignmentFromString(custom, align) {
+    align.split(separator).forEach((str) => {
+        const value = str.trim();
+        switch (value) {
+            case 'left':
+            case 'center':
+            case 'right':
+                custom.hAlign = value;
+                break;
+            case 'top':
+            case 'middle':
+            case 'bottom':
+                custom.vAlign = value;
+                break;
+            case 'slice':
+            case 'crop':
+                custom.slice = true;
+                break;
+            case 'meet':
+                custom.slice = false;
+        }
+    });
+}
+exports.alignmentFromString = alignmentFromString;
+
+});
+
+createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.rotateFromString = void 0;
+/**
+ * Get rotation value
+ */
+function rotateFromString(value) {
+    const units = value.replace(/^-?[0-9.]*/, '');
+    function cleanup(value) {
+        while (value < 0) {
+            value += 4;
+        }
+        return value % 4;
+    }
+    if (units === '') {
+        const num = parseInt(value);
+        return isNaN(num) ? 0 : cleanup(num);
+    }
+    else if (units !== value) {
+        let split = 0;
+        switch (units) {
+            case '%':
+                // 25% -> 1, 50% -> 2, ...
+                split = 25;
+                break;
+            case 'deg':
+                // 90deg -> 1, 180deg -> 2, ...
+                split = 90;
+        }
+        if (split) {
+            let num = parseFloat(value.slice(0, value.length - units.length));
+            if (isNaN(num)) {
+                return 0;
+            }
+            num = num / split;
+            return num % 1 === 0 ? cleanup(num) : 0;
+        }
+    }
+    return 0;
+}
+exports.rotateFromString = rotateFromString;
+
+});
+
+createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fullIcon = exports.iconDefaults = void 0;
+
+/**
+ * Default values for IconifyIcon properties
+ */
+exports.iconDefaults = Object.freeze({
+    body: '',
+    left: 0,
+    top: 0,
+    width: 16,
+    height: 16,
+    rotate: 0,
+    vFlip: false,
+    hFlip: false,
+});
+/**
+ * Create new icon with all properties
+ */
+function fullIcon(icon) {
+    return merge_1.merge(exports.iconDefaults, icon);
+}
+exports.fullIcon = fullIcon;
+
+});
+
+var calcSize = createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.calculateSize = void 0;
+/**
+ * Regular expressions for calculating dimensions
+ */
+const unitsSplit = /(-?[0-9.]*[0-9]+[0-9.]*)/g;
+const unitsTest = /^-?[0-9.]*[0-9]+[0-9.]*$/g;
+/**
+ * Calculate second dimension when only 1 dimension is set
+ *
+ * @param {string|number} size One dimension (such as width)
+ * @param {number} ratio Width/height ratio.
+ *      If size is width, ratio = height/width
+ *      If size is height, ratio = width/height
+ * @param {number} [precision] Floating number precision in result to minimize output. Default = 2
+ * @return {string|number} Another dimension
+ */
+function calculateSize(size, ratio, precision) {
+    if (ratio === 1) {
+        return size;
+    }
+    precision = precision === void 0 ? 100 : precision;
+    if (typeof size === 'number') {
+        return Math.ceil(size * ratio * precision) / precision;
+    }
+    if (typeof size !== 'string') {
+        return size;
+    }
+    // Split code into sets of strings and numbers
+    const oldParts = size.split(unitsSplit);
+    if (oldParts === null || !oldParts.length) {
+        return size;
+    }
+    const newParts = [];
+    let code = oldParts.shift();
+    let isNumber = unitsTest.test(code);
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+        if (isNumber) {
+            const num = parseFloat(code);
+            if (isNaN(num)) {
+                newParts.push(code);
+            }
+            else {
+                newParts.push(Math.ceil(num * ratio * precision) / precision);
+            }
+        }
+        else {
+            newParts.push(code);
+        }
+        // next
+        code = oldParts.shift();
+        if (code === void 0) {
+            return newParts.join('');
+        }
+        isNumber = !isNumber;
+    }
+}
+exports.calculateSize = calculateSize;
+
+});
+
+createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.iconToSVG = void 0;
+
+/**
+ * Get preserveAspectRatio value
+ */
+function preserveAspectRatio(props) {
+    let result = '';
+    switch (props.hAlign) {
+        case 'left':
+            result += 'xMin';
+            break;
+        case 'right':
+            result += 'xMax';
+            break;
+        default:
+            result += 'xMid';
+    }
+    switch (props.vAlign) {
+        case 'top':
+            result += 'YMin';
+            break;
+        case 'bottom':
+            result += 'YMax';
+            break;
+        default:
+            result += 'YMid';
+    }
+    result += props.slice ? ' slice' : ' meet';
+    return result;
+}
+/**
+ * Get SVG attributes and content from icon + customisations
+ *
+ * Does not generate style to make it compatible with frameworks that use objects for style, such as React.
+ * Instead, it generates verticalAlign value that should be added to style.
+ *
+ * Customisations should be normalised by platform specific parser.
+ * Result should be converted to <svg> by platform specific parser.
+ * Use replaceIDs to generate unique IDs for body.
+ */
+function iconToSVG(icon, customisations) {
+    // viewBox
+    const box = {
+        left: icon.left,
+        top: icon.top,
+        width: icon.width,
+        height: icon.height,
+    };
+    // Apply transformations
+    const transformations = [];
+    const hFlip = customisations.hFlip !== icon.hFlip;
+    const vFlip = customisations.vFlip !== icon.vFlip;
+    let rotation = customisations.rotate + icon.rotate;
+    if (hFlip) {
+        if (vFlip) {
+            rotation += 2;
+        }
+        else {
+            // Horizontal flip
+            transformations.push('translate(' +
+                (box.width + box.left) +
+                ' ' +
+                (0 - box.top) +
+                ')');
+            transformations.push('scale(-1 1)');
+            box.top = box.left = 0;
+        }
+    }
+    else if (vFlip) {
+        // Vertical flip
+        transformations.push('translate(' + (0 - box.left) + ' ' + (box.height + box.top) + ')');
+        transformations.push('scale(1 -1)');
+        box.top = box.left = 0;
+    }
+    let tempValue;
+    rotation = rotation % 4;
+    switch (rotation) {
+        case 1:
+            // 90deg
+            tempValue = box.height / 2 + box.top;
+            transformations.unshift('rotate(90 ' + tempValue + ' ' + tempValue + ')');
+            break;
+        case 2:
+            // 180deg
+            transformations.unshift('rotate(180 ' +
+                (box.width / 2 + box.left) +
+                ' ' +
+                (box.height / 2 + box.top) +
+                ')');
+            break;
+        case 3:
+            // 270deg
+            tempValue = box.width / 2 + box.left;
+            transformations.unshift('rotate(-90 ' + tempValue + ' ' + tempValue + ')');
+            break;
+    }
+    if (rotation % 2 === 1) {
+        // Swap width/height and x/y for 90deg or 270deg rotation
+        if (box.left !== 0 || box.top !== 0) {
+            tempValue = box.left;
+            box.left = box.top;
+            box.top = tempValue;
+        }
+        if (box.width !== box.height) {
+            tempValue = box.width;
+            box.width = box.height;
+            box.height = tempValue;
+        }
+    }
+    // Calculate dimensions
+    let width, height;
+    if (customisations.width === null && customisations.height === null) {
+        // Set height to '1em', calculate width
+        height = '1em';
+        width = calcSize.calculateSize(height, box.width / box.height);
+    }
+    else if (customisations.width !== null &&
+        customisations.height !== null) {
+        // Values are set
+        width = customisations.width;
+        height = customisations.height;
+    }
+    else if (customisations.height !== null) {
+        // Height is set
+        height = customisations.height;
+        width = calcSize.calculateSize(height, box.width / box.height);
+    }
+    else {
+        // Width is set
+        width = customisations.width;
+        height = calcSize.calculateSize(width, box.height / box.width);
+    }
+    // Check for 'auto'
+    if (width === 'auto') {
+        width = box.width;
+    }
+    if (height === 'auto') {
+        height = box.height;
+    }
+    // Convert to string
+    width = typeof width === 'string' ? width : width + '';
+    height = typeof height === 'string' ? height : height + '';
+    // Generate body
+    let body = icon.body;
+    if (transformations.length) {
+        body =
+            '<g transform="' + transformations.join(' ') + '">' + body + '</g>';
+    }
+    // Result
+    const result = {
+        attributes: {
+            width,
+            height,
+            preserveAspectRatio: preserveAspectRatio(customisations),
+            viewBox: box.left + ' ' + box.top + ' ' + box.width + ' ' + box.height,
+        },
+        body,
+    };
+    if (customisations.inline) {
+        result.inline = true;
+    }
+    return result;
+}
+exports.iconToSVG = iconToSVG;
+
+});
+
+createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.replaceIDs = void 0;
+/**
+ * Regular expression for finding ids
+ */
+const regex = /\sid="(\S+)"/g;
+/**
+ * New random-ish prefix for ids
+ */
+const randomPrefix = 'IconifyId-' +
+    Date.now().toString(16) +
+    '-' +
+    ((Math.random() * 0x1000000) | 0).toString(16) +
+    '-';
+/**
+ * Counter for ids, increasing with every replacement
+ */
+let counter = 0;
+/**
+ * Replace multiple occurance of same string
+ */
+function strReplace(search, replace, subject) {
+    let pos = 0;
+    while ((pos = subject.indexOf(search, pos)) !== -1) {
+        subject =
+            subject.slice(0, pos) +
+                replace +
+                subject.slice(pos + search.length);
+        pos += replace.length;
+    }
+    return subject;
+}
+/**
+ * Replace IDs in SVG output with unique IDs
+ * Fast replacement without parsing XML, assuming commonly used patterns and clean XML (icon should have been cleaned up with Iconify Tools or SVGO).
+ */
+function replaceIDs(body, prefix = randomPrefix) {
+    // Find all IDs
+    const ids = [];
+    let match;
+    while ((match = regex.exec(body))) {
+        ids.push(match[1]);
+    }
+    if (!ids.length) {
+        return body;
+    }
+    // Replace with unique ids
+    ids.forEach(id => {
+        const newID = typeof prefix === 'function' ? prefix() : prefix + counter++;
+        body = strReplace('="' + id + '"', '="' + newID + '"', body);
+        body = strReplace('="#' + id + '"', '="#' + newID + '"', body);
+        body = strReplace('(#' + id + ')', '(#' + newID + ')', body);
+    });
+    return body;
+}
+exports.replaceIDs = replaceIDs;
+
+});
 
 /* generated by Svelte v3.59.1 */
 
@@ -1156,7 +1032,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (89:6) {#each social as { label, link }}
+// (90:6) {#each social as { label, link }}
 function create_each_block_1(ctx) {
 	let div;
 	let span;
@@ -1225,7 +1101,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (106:6) {:else}
+// (107:6) {:else}
 function create_else_block(ctx) {
 	let label;
 	let span;
@@ -1294,7 +1170,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (101:6) {#if input.type === "textarea"}
+// (102:6) {#if input.type === "textarea"}
 function create_if_block(ctx) {
 	let label;
 	let span;
@@ -1352,7 +1228,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (100:4) {#each inputs as input, i}
+// (101:4) {#each inputs as input, i}
 function create_each_block(ctx) {
 	let if_block_anchor;
 

@@ -1,4 +1,4 @@
-// Email Form - Updated May 10, 2025
+// Email Form (copy) - Updated May 10, 2025
 function noop() { }
 const identity = x => x;
 function assign(tar, src) {
@@ -4566,7 +4566,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (338:5) {#each wards as [wardName, councillor, email]}
+// (349:5) {#each wards as [wardName, councillor, email]}
 function create_each_block(ctx) {
 	let option;
 	let t0_value = /*councillor*/ ctx[26] + "";
@@ -4613,7 +4613,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (374:2) {:else}
+// (385:2) {:else}
 function create_else_block(ctx) {
 	let div1;
 	let button;
@@ -4677,7 +4677,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (367:2) {#if !showTemplate}
+// (378:2) {#if !showTemplate}
 function create_if_block(ctx) {
 	let button;
 	let t;
@@ -6551,19 +6551,25 @@ function instance($$self, $$props, $$invalidate) {
 		}
 	];
 
+	/*
+const wards = [
+	['papastew', 'Michael Janz', 'michael.janz@edmonton.ca'],
+	['Nakota Isga', 'Andrew Knack', 'andrew.knack@edmonton.ca'],
+	['Anirniq', 'Erin Rutherford', 'erin.rutherford@edmonton.ca'],
+	['Dene', 'Aaron Paquette', 'aaron.paquette@edmonton.ca'],
+	['Ipiihkoohkanipiaohtsi', 'Jennifer Rice', 'jennifer.rice@edmonton.ca'],
+	['Karhiio', 'Keren Tang', 'keren.tang@edmonton.ca'],
+	['Métis', 'Ashley Salvador', 'ashley.salvador@edmonton.ca'],
+	["O-day'min", 'Anne Stevenson', 'anne.stevenson@edmonton.ca'],
+	['pihêsiwin', 'Tim Cartmell', 'tim.cartmell@edmonton.ca'],
+	['sipiwiyiniwak', 'Sarah Hamilton', 'sarah.hamilton@edmonton.ca'],
+	['Sspomitapi', 'Jo-Anne Wright', 'jo-anne.wright@edmonton.ca'],
+	['tastawiyiniwak', 'Karen Principe', 'karen.principe@edmonton.ca']
+];
+*/
 	const wards = [
-		['papastew', 'Michael Janz', 'michael.janz@edmonton.ca'],
-		['Nakota Isga', 'Andrew Knack', 'andrew.knack@edmonton.ca'],
-		['Anirniq', 'Erin Rutherford', 'erin.rutherford@edmonton.ca'],
-		['Dene', 'Aaron Paquette', 'aaron.paquette@edmonton.ca'],
-		['Ipiihkoohkanipiaohtsi', 'Jennifer Rice', 'jennifer.rice@edmonton.ca'],
-		['Karhiio', 'Keren Tang', 'keren.tang@edmonton.ca'],
-		['Métis', 'Ashley Salvador', 'ashley.salvador@edmonton.ca'],
-		["O-day'min", 'Anne Stevenson', 'anne.stevenson@edmonton.ca'],
-		['pihêsiwin', 'Tim Cartmell', 'tim.cartmell@edmonton.ca'],
-		['sipiwiyiniwak', 'Sarah Hamilton', 'sarah.hamilton@edmonton.ca'],
-		['Sspomitapi', 'Jo-Anne Wright', 'jo-anne.wright@edmonton.ca'],
-		['tastawiyiniwak', 'Karen Principe', 'karen.principe@edmonton.ca']
+		['papastew', 'Brad', 'brthiess@ualberta.ca'],
+		['Nakota Isga', 'Brad 2', 'bradthiessen90@gmail.com']
 	];
 
 	const hoods = neighbourhoods.map(hood => hood.neighbourhood).sort((a, b) => a.localeCompare(b));
@@ -6606,8 +6612,14 @@ ${name}
 		if (!ward) throw new Error(`Ward ${wardName} not found`);
 		const letter = writeLetter(wardName, name);
 		const subjectLine = getSubjectLine();
-		const mayorEmail = 'amarjeet.sohi@edmonton.ca';
-		const clerkEmail = 'city.clerk@edmonton.ca';
+
+		/*
+	const mayorEmail = 'amarjeet.sohi@edmonton.ca';
+  const clerkEmail = 'city.clerk@edmonton.ca'
+  */
+		const mayorEmail = 'example@example.com';
+
+		const clerkEmail = 'alisonthiessen92@gmail.com';
 
 		const params = {
 			subject: encodeURIComponent(subjectLine),
