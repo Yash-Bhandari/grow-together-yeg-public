@@ -6553,7 +6553,7 @@ function instance($$self, $$props, $$invalidate) {
 
 	const wards = [
 		['papastew', 'Michael Janz', 'michael.janz@edmonton.ca'],
-		['Nakota Isga', 'Andrew Knack', 'andrew.knack@edmonton.ca'],
+		['Nakota', 'Andrew Knack', 'andrew.knack@edmonton.ca'],
 		['Anirniq', 'Erin Rutherford', 'erin.rutherford@edmonton.ca'],
 		['Dene', 'Aaron Paquette', 'aaron.paquette@edmonton.ca'],
 		['Ipiihkoohkanipiaohtsi', 'Jennifer Rice', 'jennifer.rice@edmonton.ca'],
