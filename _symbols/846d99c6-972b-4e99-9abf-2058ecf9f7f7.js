@@ -4566,7 +4566,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (341:5) {#each wards as [wardName, councillor, email]}
+// (342:5) {#each wards as [wardName, councillor, email]}
 function create_each_block(ctx) {
 	let option;
 	let t0_value = /*councillor*/ ctx[26] + "";
@@ -4613,7 +4613,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (377:2) {:else}
+// (378:2) {:else}
 function create_else_block(ctx) {
 	let div1;
 	let button;
@@ -4677,7 +4677,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (370:2) {#if !showTemplate}
+// (371:2) {#if !showTemplate}
 function create_if_block(ctx) {
 	let button;
 	let t;
@@ -6608,11 +6608,12 @@ ${name}
 		const subjectLine = getSubjectLine();
 		const mayorEmail = 'amarjeet.sohi@edmonton.ca';
 		const clerkEmail = 'city.clerk@edmonton.ca';
+		const councilEmail = 'council@edmonton.ca';
 
 		const params = {
 			subject: encodeURIComponent(subjectLine),
 			body: encodeURIComponent(letter),
-			cc: encodeURIComponent(`${mayorEmail},${clerkEmail}`),
+			cc: encodeURIComponent(`${mayorEmail},${clerkEmail},${councilEmail}`),
 			bcc: encodeURIComponent('letters@growtogetheryeg.com')
 		};
 
