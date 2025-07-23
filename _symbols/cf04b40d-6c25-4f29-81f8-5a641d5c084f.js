@@ -1,12 +1,6 @@
-// Site Navigation - Updated July 6, 2025
+// Site Navigation - Updated July 23, 2025
 function noop() { }
 const identity = x => x;
-function assign(tar, src) {
-    // @ts-ignore
-    for (const k in src)
-        tar[k] = src[k];
-    return tar;
-}
 function run(fn) {
     return fn();
 }
@@ -32,13 +26,6 @@ function src_url_equal(element_src, url) {
 }
 function is_empty(obj) {
     return Object.keys(obj).length === 0;
-}
-function exclude_internal_props(props) {
-    const result = {};
-    for (const k in props)
-        if (k[0] !== '$')
-            result[k] = props[k];
-    return result;
 }
 
 const is_client = typeof window !== 'undefined';
@@ -262,11 +249,6 @@ function attr(node, attribute, value) {
         node.removeAttribute(attribute);
     else if (node.getAttribute(attribute) !== value)
         node.setAttribute(attribute, value);
-}
-function set_svg_attributes(node, attributes) {
-    for (const key in attributes) {
-        attr(node, key, attributes[key]);
-    }
 }
 function children(element) {
     return Array.from(element.childNodes);
@@ -718,46 +700,6 @@ function create_bidirectional_transition(node, fn, params, intro) {
         }
     };
 }
-
-function get_spread_update(levels, updates) {
-    const update = {};
-    const to_null_out = {};
-    const accounted_for = { $$scope: 1 };
-    let i = levels.length;
-    while (i--) {
-        const o = levels[i];
-        const n = updates[i];
-        if (n) {
-            for (const key in o) {
-                if (!(key in n))
-                    to_null_out[key] = 1;
-            }
-            for (const key in n) {
-                if (!accounted_for[key]) {
-                    update[key] = n[key];
-                    accounted_for[key] = 1;
-                }
-            }
-            levels[i] = n;
-        }
-        else {
-            for (const key in o) {
-                accounted_for[key] = 1;
-            }
-        }
-    }
-    for (const key in to_null_out) {
-        if (!(key in update))
-            update[key] = undefined;
-    }
-    return update;
-}
-function create_component(block) {
-    block && block.c();
-}
-function claim_component(block, parent_nodes) {
-    block && block.l(parent_nodes);
-}
 function mount_component(component, target, anchor, customElement) {
     const { fragment, after_update } = component.$$;
     fragment && fragment.m(target, anchor);
@@ -942,7 +884,7 @@ exports.merge = merge;
 
 });
 
-var customisations = createCommonjsModule(function (module, exports) {
+createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fullCustomisations = exports.defaults = void 0;
 
@@ -974,7 +916,7 @@ exports.fullCustomisations = fullCustomisations;
 
 });
 
-var shorthand = createCommonjsModule(function (module, exports) {
+createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.alignmentFromString = exports.flipFromString = void 0;
 const separator = /[\s,]+/;
@@ -1025,7 +967,7 @@ exports.alignmentFromString = alignmentFromString;
 
 });
 
-var rotate = createCommonjsModule(function (module, exports) {
+createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.rotateFromString = void 0;
 /**
@@ -1069,7 +1011,7 @@ exports.rotateFromString = rotateFromString;
 
 });
 
-var icon = createCommonjsModule(function (module, exports) {
+createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fullIcon = exports.iconDefaults = void 0;
 
@@ -1159,7 +1101,7 @@ exports.calculateSize = calculateSize;
 
 });
 
-var builder = createCommonjsModule(function (module, exports) {
+createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.iconToSVG = void 0;
 
@@ -1328,7 +1270,7 @@ exports.iconToSVG = iconToSVG;
 
 });
 
-var ids = createCommonjsModule(function (module, exports) {
+createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.replaceIDs = void 0;
 /**
@@ -1388,179 +1330,6 @@ exports.replaceIDs = replaceIDs;
 
 });
 
-/**
- * Default SVG attributes
- */
-const svgDefaults = {
-	'xmlns': 'http://www.w3.org/2000/svg',
-	'xmlns:xlink': 'http://www.w3.org/1999/xlink',
-	'aria-hidden': true,
-	'role': 'img',
-};
-
-/**
- * Generate icon from properties
- */
-function generateIcon(props) {
-	let iconData = icon.fullIcon(props.icon);
-	if (!iconData) {
-		return {
-			attributes: svgDefaults,
-			body: '',
-		};
-	}
-
-	const customisations$1 = merge_1.merge(customisations.defaults, props);
-	const componentProps = merge_1.merge(svgDefaults);
-
-	// Create style if missing
-	let style = typeof props.style === 'string' ? props.style : '';
-
-	// Get element properties
-	for (let key in props) {
-		const value = props[key];
-		switch (key) {
-			// Properties to ignore
-			case 'icon':
-			case 'style':
-				break;
-
-			// Flip as string: 'horizontal,vertical'
-			case 'flip':
-				shorthand.flipFromString(customisations$1, value);
-				break;
-
-			// Alignment as string
-			case 'align':
-				shorthand.alignmentFromString(customisations$1, value);
-				break;
-
-			// Color: copy to style
-			case 'color':
-				style = 'color: ' + value + '; ' + style;
-				break;
-
-			// Rotation as string
-			case 'rotate':
-				if (typeof value !== 'number') {
-					customisations$1[key] = rotate.rotateFromString(value);
-				} else {
-					componentProps[key] = value;
-				}
-				break;
-
-			// Remove aria-hidden
-			case 'ariaHidden':
-			case 'aria-hidden':
-				if (value !== true && value !== 'true') {
-					delete componentProps['aria-hidden'];
-				}
-				break;
-
-			// Copy missing property if it does not exist in customisations
-			default:
-				if (customisations.defaults[key] === void 0) {
-					componentProps[key] = value;
-				}
-		}
-	}
-
-	// Generate icon
-	const item = builder.iconToSVG(iconData, customisations$1);
-
-	// Add icon stuff
-	for (let key in item.attributes) {
-		componentProps[key] = item.attributes[key];
-	}
-
-	if (item.inline) {
-		style = 'vertical-align: -0.125em; ' + style;
-	}
-
-	// Style
-	if (style !== '') {
-		componentProps.style = style;
-	}
-
-	// Counter for ids based on "id" property to render icons consistently on server and client
-	let localCounter = 0;
-	const id = props.id;
-
-	// Generate HTML
-	return {
-		attributes: componentProps,
-		body: ids.replaceIDs(
-			item.body,
-			id ? () => id + '-' + localCounter++ : 'iconify-svelte-'
-		),
-	};
-}
-
-/* generated by Svelte v3.59.1 */
-
-function create_fragment$1(ctx) {
-	let svg;
-	let raw_value = /*data*/ ctx[0].body + "";
-	let svg_levels = [/*data*/ ctx[0].attributes];
-	let svg_data = {};
-
-	for (let i = 0; i < svg_levels.length; i += 1) {
-		svg_data = assign(svg_data, svg_levels[i]);
-	}
-
-	return {
-		c() {
-			svg = svg_element("svg");
-			this.h();
-		},
-		l(nodes) {
-			svg = claim_svg_element(nodes, "svg", {});
-			var svg_nodes = children(svg);
-			svg_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			set_svg_attributes(svg, svg_data);
-		},
-		m(target, anchor) {
-			insert_hydration(target, svg, anchor);
-			svg.innerHTML = raw_value;
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*data*/ 1 && raw_value !== (raw_value = /*data*/ ctx[0].body + "")) svg.innerHTML = raw_value;			set_svg_attributes(svg, svg_data = get_spread_update(svg_levels, [dirty & /*data*/ 1 && /*data*/ ctx[0].attributes]));
-		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(svg);
-		}
-	};
-}
-
-function instance$1($$self, $$props, $$invalidate) {
-	let data;
-
-	$$self.$$set = $$new_props => {
-		$$invalidate(1, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
-	};
-
-	$$self.$$.update = () => {
-		{
-			$$invalidate(0, data = generateIcon($$props));
-		}
-	};
-
-	$$props = exclude_internal_props($$props);
-	return [data];
-}
-
-let Component$1 = class Component extends SvelteComponent {
-	constructor(options) {
-		super();
-		init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
-	}
-};
-
 /* generated by Svelte v3.59.1 */
 
 function get_each_context(ctx, list, i) {
@@ -1575,7 +1344,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (108:6) {#if logo.image.url}
+// (111:6) {#if logo.image.url}
 function create_if_block_2(ctx) {
 	let img;
 	let img_src_value;
@@ -1600,7 +1369,7 @@ function create_if_block_2(ctx) {
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
 			set_style(img, "max-width", /*logo_width*/ ctx[2] + "px");
-			attr(img, "class", "svelte-nnp8i3");
+			attr(img, "class", "svelte-1j2bc50");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1624,7 +1393,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (114:6) {#each site_nav as { link }}
+// (117:6) {#each site_nav as { link }}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[8].label + "";
@@ -1645,7 +1414,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "link svelte-nnp8i3");
+			attr(a, "class", "link svelte-1j2bc50");
 			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
 		},
 		m(target, anchor) {
@@ -1665,7 +1434,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (121:6) {#if logo.image.url}
+// (124:6) {#if logo.image.url}
 function create_if_block_1(ctx) {
 	let img;
 	let img_src_value;
@@ -1687,7 +1456,7 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(img, "class", "logo svelte-nnp8i3");
+			attr(img, "class", "logo svelte-1j2bc50");
 			if (!src_url_equal(img.src, img_src_value = /*logo*/ ctx[0].image.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*logo*/ ctx[0].image.alt);
 			set_style(img, "max-width", /*logo_width*/ ctx[2] + "px");
@@ -1714,12 +1483,14 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (132:4) {#if mobileNavOpen}
+// (135:4) {#if mobileNavOpen}
 function create_if_block(ctx) {
 	let nav;
 	let t;
 	let button;
-	let icon;
+	let svg;
+	let path0;
+	let path1;
 	let nav_transition;
 	let current;
 	let mounted;
@@ -1731,8 +1502,6 @@ function create_if_block(ctx) {
 		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
 	}
 
-	icon = new Component$1({ props: { height: "25", icon: "bi:x-lg" } });
-
 	return {
 		c() {
 			nav = element("nav");
@@ -1743,7 +1512,9 @@ function create_if_block(ctx) {
 
 			t = space();
 			button = element("button");
-			create_component(icon.$$.fragment);
+			svg = svg_element("svg");
+			path0 = svg_element("path");
+			path1 = svg_element("path");
 			this.h();
 		},
 		l(nodes) {
@@ -1763,17 +1534,48 @@ function create_if_block(ctx) {
 			});
 
 			var button_nodes = children(button);
-			claim_component(icon.$$.fragment, button_nodes);
+
+			svg = claim_svg_element(button_nodes, "svg", {
+				xmlns: true,
+				width: true,
+				height: true,
+				viewBox: true,
+				fill: true,
+				stroke: true,
+				"stroke-width": true,
+				"stroke-linecap": true,
+				"stroke-linejoin": true,
+				class: true
+			});
+
+			var svg_nodes = children(svg);
+			path0 = claim_svg_element(svg_nodes, "path", { d: true });
+			children(path0).forEach(detach);
+			path1 = claim_svg_element(svg_nodes, "path", { d: true });
+			children(path1).forEach(detach);
+			svg_nodes.forEach(detach);
 			button_nodes.forEach(detach);
 			nav_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
+			attr(path0, "d", "M18 6 6 18");
+			attr(path1, "d", "m6 6 12 12");
+			attr(svg, "xmlns", "http://www.w3.org/2000/svg");
+			attr(svg, "width", "24");
+			attr(svg, "height", "24");
+			attr(svg, "viewBox", "0 0 24 24");
+			attr(svg, "fill", "none");
+			attr(svg, "stroke", "currentColor");
+			attr(svg, "stroke-width", "2");
+			attr(svg, "stroke-linecap", "round");
+			attr(svg, "stroke-linejoin", "round");
+			attr(svg, "class", "lucide lucide-x-icon lucide-x");
 			attr(button, "id", "close");
 			attr(button, "aria-label", "Close Navigation");
-			attr(button, "class", "svelte-nnp8i3");
+			attr(button, "class", "svelte-1j2bc50");
 			attr(nav, "id", "popup");
-			attr(nav, "class", "svelte-nnp8i3");
+			attr(nav, "class", "svelte-1j2bc50");
 		},
 		m(target, anchor) {
 			insert_hydration(target, nav, anchor);
@@ -1786,7 +1588,9 @@ function create_if_block(ctx) {
 
 			append_hydration(nav, t);
 			append_hydration(nav, button);
-			mount_component(icon, button, null);
+			append_hydration(button, svg);
+			append_hydration(svg, path0);
+			append_hydration(svg, path1);
 			current = true;
 
 			if (!mounted) {
@@ -1820,7 +1624,6 @@ function create_if_block(ctx) {
 		},
 		i(local) {
 			if (current) return;
-			transition_in(icon.$$.fragment, local);
 
 			add_render_callback(() => {
 				if (!current) return;
@@ -1831,7 +1634,6 @@ function create_if_block(ctx) {
 			current = true;
 		},
 		o(local) {
-			transition_out(icon.$$.fragment, local);
 			if (!nav_transition) nav_transition = create_bidirectional_transition(nav, fade, { duration: 200 }, false);
 			nav_transition.run(0);
 			current = false;
@@ -1839,7 +1641,6 @@ function create_if_block(ctx) {
 		d(detaching) {
 			if (detaching) detach(nav);
 			destroy_each(each_blocks, detaching);
-			destroy_component(icon);
 			if (detaching && nav_transition) nav_transition.end();
 			mounted = false;
 			dispose();
@@ -1847,7 +1648,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (134:8) {#each site_nav as { link }}
+// (137:8) {#each site_nav as { link }}
 function create_each_block(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[8].label + "";
@@ -1904,7 +1705,10 @@ function create_fragment(ctx) {
 	let t5;
 	let t6;
 	let button;
-	let icon;
+	let svg;
+	let path0;
+	let path1;
+	let path2;
 	let t7;
 	let current;
 	let mounted;
@@ -1918,11 +1722,6 @@ function create_fragment(ctx) {
 	}
 
 	let if_block1 = /*logo*/ ctx[0].image.url && create_if_block_1(ctx);
-
-	icon = new Component$1({
-			props: { height: "30", icon: "eva:menu-outline" }
-		});
-
 	let if_block2 = /*mobileNavOpen*/ ctx[3] && create_if_block(ctx);
 
 	return {
@@ -1948,7 +1747,10 @@ function create_fragment(ctx) {
 			t5 = text(t5_value);
 			t6 = space();
 			button = element("button");
-			create_component(icon.$$.fragment);
+			svg = svg_element("svg");
+			path0 = svg_element("path");
+			path1 = svg_element("path");
+			path2 = svg_element("path");
 			t7 = space();
 			if (if_block2) if_block2.c();
 			this.h();
@@ -1986,7 +1788,28 @@ function create_fragment(ctx) {
 			t6 = claim_space(div1_nodes);
 			button = claim_element(div1_nodes, "BUTTON", { id: true, "aria-label": true });
 			var button_nodes = children(button);
-			claim_component(icon.$$.fragment, button_nodes);
+
+			svg = claim_svg_element(button_nodes, "svg", {
+				xmlns: true,
+				width: true,
+				height: true,
+				viewBox: true,
+				fill: true,
+				stroke: true,
+				"stroke-width": true,
+				"stroke-linecap": true,
+				"stroke-linejoin": true,
+				class: true
+			});
+
+			var svg_nodes = children(svg);
+			path0 = claim_svg_element(svg_nodes, "path", { d: true });
+			children(path0).forEach(detach);
+			path1 = claim_svg_element(svg_nodes, "path", { d: true });
+			children(path1).forEach(detach);
+			path2 = claim_svg_element(svg_nodes, "path", { d: true });
+			children(path2).forEach(detach);
+			svg_nodes.forEach(detach);
 			button_nodes.forEach(detach);
 			t7 = claim_space(div1_nodes);
 			if (if_block2) if_block2.l(div1_nodes);
@@ -1996,15 +1819,28 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "logo svelte-nnp8i3");
-			attr(nav, "class", "svelte-nnp8i3");
-			attr(div0, "class", "desktop-nav svelte-nnp8i3");
+			attr(a0, "class", "logo svelte-1j2bc50");
+			attr(nav, "class", "svelte-1j2bc50");
+			attr(div0, "class", "desktop-nav svelte-1j2bc50");
 			attr(a1, "href", "/");
-			attr(a1, "class", "logo svelte-nnp8i3");
+			attr(a1, "class", "logo svelte-1j2bc50");
+			attr(path0, "d", "M4 12h16");
+			attr(path1, "d", "M4 18h16");
+			attr(path2, "d", "M4 6h16");
+			attr(svg, "xmlns", "http://www.w3.org/2000/svg");
+			attr(svg, "width", "24");
+			attr(svg, "height", "24");
+			attr(svg, "viewBox", "0 0 24 24");
+			attr(svg, "fill", "none");
+			attr(svg, "stroke", "currentColor");
+			attr(svg, "stroke-width", "2");
+			attr(svg, "stroke-linecap", "round");
+			attr(svg, "stroke-linejoin", "round");
+			attr(svg, "class", "lucide lucide-menu-icon lucide-menu hamburger-menu-icon svelte-1j2bc50");
 			attr(button, "id", "open");
 			attr(button, "aria-label", "Open mobile navigation");
-			attr(div1, "class", "mobile-nav svelte-nnp8i3");
-			attr(header, "class", "section-container svelte-nnp8i3");
+			attr(div1, "class", "mobile-nav svelte-1j2bc50");
+			attr(header, "class", "section-container svelte-1j2bc50");
 		},
 		m(target, anchor) {
 			insert_hydration(target, header, anchor);
@@ -2030,7 +1866,10 @@ function create_fragment(ctx) {
 			append_hydration(a1, t5);
 			append_hydration(div1, t6);
 			append_hydration(div1, button);
-			mount_component(icon, button, null);
+			append_hydration(button, svg);
+			append_hydration(svg, path0);
+			append_hydration(svg, path1);
+			append_hydration(svg, path2);
 			append_hydration(div1, t7);
 			if (if_block2) if_block2.m(div1, null);
 			current = true;
@@ -2119,12 +1958,10 @@ function create_fragment(ctx) {
 		},
 		i(local) {
 			if (current) return;
-			transition_in(icon.$$.fragment, local);
 			transition_in(if_block2);
 			current = true;
 		},
 		o(local) {
-			transition_out(icon.$$.fragment, local);
 			transition_out(if_block2);
 			current = false;
 		},
@@ -2133,7 +1970,6 @@ function create_fragment(ctx) {
 			if (if_block0) if_block0.d();
 			destroy_each(each_blocks, detaching);
 			if (if_block1) if_block1.d();
-			destroy_component(icon);
 			if (if_block2) if_block2.d();
 			mounted = false;
 			dispose();
