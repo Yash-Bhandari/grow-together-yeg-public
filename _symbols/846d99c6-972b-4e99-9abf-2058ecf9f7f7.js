@@ -1,4 +1,4 @@
-// Email Form (copy) - Updated October 6, 2025
+// Email Form (copy) - Updated January 19, 2026
 function noop() { }
 const identity = x => x;
 function assign(tar, src) {

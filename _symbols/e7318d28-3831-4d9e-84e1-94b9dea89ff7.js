@@ -1,4 +1,4 @@
-// Featured People - Updated October 6, 2025
+// Featured People - Updated January 19, 2026
 function noop() { }
 function run(fn) {
     return fn();

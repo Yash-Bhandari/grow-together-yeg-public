@@ -1,4 +1,4 @@
-// Call To Action - Updated October 6, 2025
+// Call To Action - Updated January 19, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
