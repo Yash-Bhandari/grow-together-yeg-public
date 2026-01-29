@@ -1,4 +1,4 @@
-// Featured Stats 2 - Updated January 20, 2026
+// Featured Stats 2 - Updated January 28, 2026
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
