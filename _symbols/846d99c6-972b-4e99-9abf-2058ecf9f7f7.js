@@ -1,4 +1,4 @@
-// Email Form (copy) - Updated January 28, 2026
+// Email Form (copy) - Updated January 31, 2026
 function noop() { }
 const identity = x => x;
 function assign(tar, src) {
@@ -4566,7 +4566,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (342:5) {#each wards as [wardName, councillor, email]}
+// (343:5) {#each wards as [wardName, councillor, email]}
 function create_each_block(ctx) {
 	let option;
 	let t0_value = /*councillor*/ ctx[26] + "";
@@ -4613,7 +4613,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (378:2) {:else}
+// (379:2) {:else}
 function create_else_block(ctx) {
 	let div1;
 	let button;
@@ -4677,7 +4677,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (371:2) {#if !showTemplate}
+// (372:2) {#if !showTemplate}
 function create_if_block(ctx) {
 	let button;
 	let t;
@@ -6553,15 +6553,15 @@ function instance($$self, $$props, $$invalidate) {
 
 	const wards = [
 		['papastew', 'Michael Janz', 'michael.janz@edmonton.ca'],
-		['Nakota', 'Andrew Knack', 'andrew.knack@edmonton.ca'],
+		['Nakota Isga', 'Reed Clarke', 'reed.clarke@edmonton.ca'],
 		['Anirniq', 'Erin Rutherford', 'erin.rutherford@edmonton.ca'],
 		['Dene', 'Aaron Paquette', 'aaron.paquette@edmonton.ca'],
-		['Ipiihkoohkanipiaohtsi', 'Jennifer Rice', 'jennifer.rice@edmonton.ca'],
+		['Ipiihkoohkanipiaohtsi', 'Jon Morgan', 'jon.morgan@edmonton.ca'],
 		['Karhiio', 'Keren Tang', 'keren.tang@edmonton.ca'],
 		['Métis', 'Ashley Salvador', 'ashley.salvador@edmonton.ca'],
 		["O-day'min", 'Anne Stevenson', 'anne.stevenson@edmonton.ca'],
 		['pihêsiwin', 'Tim Cartmell', 'tim.cartmell@edmonton.ca'],
-		['sipiwiyiniwak', 'Sarah Hamilton', 'sarah.hamilton@edmonton.ca'],
+		['sipiwiyiniwak', 'Thu Parmar', 'thu.parmar@edmonton.ca'],
 		['Sspomitapi', 'Jo-Anne Wright', 'jo-anne.wright@edmonton.ca'],
 		['tastawiyiniwak', 'Karen Principe', 'karen.principe@edmonton.ca']
 	];
@@ -6572,8 +6572,8 @@ function instance($$self, $$props, $$invalidate) {
 		wardName: ward[0],
 		councillor: ward[1],
 		email: ward[2],
-		hoods: neighbourhoods.// neighbourhoods in the form of { neighbourhood: 'Abbottsfield', ward: 'Ward Dene' }
-		filter(neighbourhood => neighbourhood.ward.split(' ')[0] === ward[0]).map(neighbourhood => neighbourhood.neighbourhood)
+		hoods: neighbourhoods.// Remove " Ward" from the end of the string to match the ward list exactly
+		filter(n => n.ward.replace(/\sWard$/, '') === ward[0]).map(n => n.neighbourhood)
 	}));
 
 	let { selectedHood } = $$props;
@@ -6588,7 +6588,7 @@ function instance($$self, $$props, $$invalidate) {
 		? `Resident of ${selectedHood} in Ward ${ward.wardName}`
 		: `Resident of Ward ${ward.wardName}`;
 
-		const letter = `Dear Councillor ${lastName},
+		const letter = `Dear members of the Urban Planning Committee and Councillor ${lastName},
 
 ${letterbody.markdown}
 
@@ -6606,19 +6606,19 @@ ${name}
 		if (!ward) throw new Error(`Ward ${wardName} not found`);
 		const letter = writeLetter(wardName, name);
 		const subjectLine = getSubjectLine();
-		const mayorEmail = 'amarjeet.sohi@edmonton.ca';
 		const clerkEmail = 'city.clerk@edmonton.ca';
 		const councilEmail = 'council@edmonton.ca';
 
 		const params = {
 			subject: encodeURIComponent(subjectLine),
 			body: encodeURIComponent(letter),
-			cc: encodeURIComponent(`${mayorEmail},${clerkEmail},${councilEmail}`),
-			bcc: encodeURIComponent('letters@growtogetheryeg.com')
+			to: encodeURIComponent('anne.stevenson@edmonton.ca,michael.janz@edmonton.ca,aaron.paquette@edmonton.ca,reed.clarke@edmonton.ca,andrew.knack@edmonton.ca'),
+			cc: encodeURIComponent(`${clerkEmail},${councilEmail},${ward.email}`),
+			bcc: encodeURIComponent('growtogetheryeg@gmail.com')
 		};
 
 		// manually constructing mailto link to avoid wonky encoding issues
-		let mailto = `mailto:${ward.email}?subject=${params.subject}&body=${params.body}&cc=${params.cc}`;
+		let mailto = `mailto:${params.to}?subject=${params.subject}&body=${params.body}&cc=${params.cc}&bcc=${params.bcc}`;
 
 		window.open(mailto);
 	};
