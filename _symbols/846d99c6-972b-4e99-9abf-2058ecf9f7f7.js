@@ -6560,7 +6560,7 @@ function instance($$self, $$props, $$invalidate) {
 		['Karhiio', 'Keren Tang', 'keren.tang@edmonton.ca'],
 		['Métis', 'Ashley Salvador', 'ashley.salvador@edmonton.ca'],
 		["O-day'min", 'Anne Stevenson', 'anne.stevenson@edmonton.ca'],
-		['pihêsiwin', 'Tim Cartmell', 'tim.cartmell@edmonton.ca'],
+		['pihêsiwin', 'Mike Elliott', 'mike.elliott@edmonton.ca'],
 		['sipiwiyiniwak', 'Thu Parmar', 'thu.parmar@edmonton.ca'],
 		['Sspomitapi', 'Jo-Anne Wright', 'jo-anne.wright@edmonton.ca'],
 		['tastawiyiniwak', 'Karen Principe', 'karen.principe@edmonton.ca']
