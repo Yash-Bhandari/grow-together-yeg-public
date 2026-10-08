@@ -5187,7 +5187,7 @@ function create_fragment(ctx) {
 	};
 }
 
-const buttonText = 'Email Your Councillor';
+const buttonText = 'Email the Premier and Your Councillor';
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
