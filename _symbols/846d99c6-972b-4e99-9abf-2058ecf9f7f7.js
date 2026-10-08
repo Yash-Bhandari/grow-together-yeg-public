@@ -1,4 +1,4 @@
-// Email Form (copy) - Updated February 3, 2026
+// Email Form (copy) - Updated October 8, 2026
 function noop() { }
 const identity = x => x;
 function assign(tar, src) {
@@ -4566,7 +4566,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (343:5) {#each wards as [wardName, councillor, email]}
+// (344:5) {#each wards as [wardName, councillor, email]}
 function create_each_block(ctx) {
 	let option;
 	let t0_value = /*councillor*/ ctx[26] + "";
@@ -4613,7 +4613,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (379:2) {:else}
+// (380:2) {:else}
 function create_else_block(ctx) {
 	let div1;
 	let button;
@@ -4677,7 +4677,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (372:2) {#if !showTemplate}
+// (373:2) {#if !showTemplate}
 function create_if_block(ctx) {
 	let button;
 	let t;
@@ -6582,13 +6582,12 @@ function instance($$self, $$props, $$invalidate) {
 	const writeLetter = (wardName, name) => {
 		const ward = wardData.find(ward => ward.wardName === wardName);
 		if (!ward) throw new Error(`Ward ${wardName} not found`);
-		const lastName = ward.councillor.split(' ')[1];
 
 		const valediction = selectedHood
 		? `Resident of ${selectedHood} in Ward ${ward.wardName}`
 		: `Resident of Ward ${ward.wardName}`;
 
-		const letter = `Dear members of the Urban Planning Committee and Councillor ${lastName},
+		const letter = `Dear Premier Smith, Minister Williams, Mayor Knack and members of Council,
 
 ${letterbody.markdown}
 
@@ -6606,19 +6605,24 @@ ${name}
 		if (!ward) throw new Error(`Ward ${wardName} not found`);
 		const letter = writeLetter(wardName, name);
 		const subjectLine = getSubjectLine();
-		const clerkEmail = 'city.clerk@edmonton.ca';
-		const councilEmail = 'council@edmonton.ca';
+		const mayorEmail = 'andrew.knack@edmonton.ca';
+		const premierEmail = 'premier@gov.ab.ca';
+		const municipalAffairsEmail = 'minister.municipalaffairs@gov.ab.ca';
+
+		// Every councillor, plus the mayor and the provincial recipients
+		const councillorEmails = wardData.map(w => w.email);
+
+		const recipients = [...councillorEmails, mayorEmail, premierEmail, municipalAffairsEmail];
 
 		const params = {
 			subject: encodeURIComponent(subjectLine),
 			body: encodeURIComponent(letter),
-			to: encodeURIComponent('anne.stevenson@edmonton.ca,michael.janz@edmonton.ca,aaron.paquette@edmonton.ca,reed.clarke@edmonton.ca,andrew.knack@edmonton.ca'),
-			cc: encodeURIComponent(`${clerkEmail},${councilEmail},${ward.email}`),
+			to: encodeURIComponent(recipients.join(',')),
 			bcc: encodeURIComponent('growtogetheryeg@gmail.com')
 		};
 
 		// manually constructing mailto link to avoid wonky encoding issues
-		let mailto = `mailto:${params.to}?subject=${params.subject}&body=${params.body}&cc=${params.cc}&bcc=${params.bcc}`;
+		let mailto = `mailto:${params.to}?subject=${params.subject}&body=${params.body}&bcc=${params.bcc}`;
 
 		window.open(mailto);
 	};
