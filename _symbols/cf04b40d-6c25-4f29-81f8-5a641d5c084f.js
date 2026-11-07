@@ -1,4 +1,4 @@
-// Site Navigation - Updated November 3, 2026
+// Site Navigation - Updated November 7, 2026
 function noop() { }
 const identity = x => x;
 function run(fn) {
